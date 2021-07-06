@@ -1,5 +1,5 @@
 # Sensei Recipes
-Main repository for Sensei Recipes
+Main repository for Sensei Recipes.
 
 ## Recipe Pool Structure
 The recipes pool is structured as follows:
