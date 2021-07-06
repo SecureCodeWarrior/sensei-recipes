@@ -1,0 +1,25 @@
+id: scw:aws:automatic-region
+version: 8
+metadata:
+  name: Automatic region detection by AWS
+  shortDescription: AWS can automatically detect the region from the environment
+  level: marked_information
+  language: java
+  scwCategory: ""
+  enabled: true
+  descriptionFile: AutomaticregiondetectionbyAWS.html
+search:
+  methodcall:
+    name: region
+    declaration:
+      type: software.amazon.awssdk.awscore.client.builder.AwsClientBuilder
+availableFixes:
+- name: Consult the AWS documentation page concerning region selection
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/region-selection.html
+- name: Allow AWS to detect the region automatically
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}'

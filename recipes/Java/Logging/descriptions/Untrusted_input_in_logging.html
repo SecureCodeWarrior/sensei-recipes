@@ -1,0 +1,26 @@
+<html>
+<body>
+<p id="abstract">Untrusted inputs in logging should be filtered to prevent log injection.</p>
+<br>
+<p id="impact_and_desired_state">When newline characters are allowed to be logged, this could lead to </p>
+<br>
+<b>Before</b>
+<pre>public class MyClass {
+  Logger logger = Logger.getLogger("Some logger");
+    ...
+}</pre>
+<br>
+<b>After</b>
+<pre>public class MyClass {
+    Logger logger = Logger.getLogger(MyClass.class.getName());
+    ...
+}</pre>
+<br>
+<b>References</b>
+<ul><li><a href="https://cwe.mitre.org/data/definitions/117.html">Mitre CWE-117: Improper Output Neutralization for Logs</a></li>
+  <li><a href=https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_in_Java_Cheat_Sheet.html#log-injection">OWASP - Injection Prevention Cheat Sheet - Log Injection</a></li>
+</ul>
+</body>
+</html>
+
+

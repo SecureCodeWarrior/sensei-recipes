@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <p id="abstract">Secure coding practices prescribe that state-changing methods should be annoted with narrowed mapping to the HTTP request methods POST, PUT, DELETE, or PATCH.</p>
+    <br>
+    <p id="impact_and_desired_state">Methods annotated with <code>RequestMapping</code> are by default mapped to all the HTTP request methods. However, Spring Security's CSRF protection is not enabled by default for the HTTP request methods GET, HEAD, TRACE, and OPTIONS, as this could cause the tokens to be leaked. Therefore, it is advised to annotate state-changing methods with more narrowing mappings to the HTTP methods POSt, PUT, DELETE, or PATCH.
+    <b>Class information:</b>
+<pre>package org.springframework.web.bind.annotation
+    <b>PostMapping</b>
+    <b>GetMapping</b>
+    <b>PutMapping</b>
+    <b>DeleteMapping</b>
+    <b>PatchMapping</b></pre>
+    <br>
+    <b>Correct code example:</b>
+<pre>@Controller
+public class SafeController {
+
+    /**
+     * For methods without side-effects use @GetMapping.
+     */
+    @GetMapping("/path")
+    public String readData() {
+        // No state-changing operations performed within this method.
+        return "";
+    }
+
+    /**
+     * For state-changing methods use either @PostMapping, @PutMapping, @DeleteMapping, or @PatchMapping.
+     */
+    @PostMapping("/path")
+    public void writeData() {
+        // State-changing operations performed within this method.
+    }
+}</pre>
+  </body>
+</html>

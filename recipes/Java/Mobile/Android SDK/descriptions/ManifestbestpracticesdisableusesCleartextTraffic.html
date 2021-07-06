@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <p>Out of best practices and Android coding guidelines, recommendations were abstracted which state that communication should be done over encrypted channels, such as HTTPS.</p>
+    <br>
+    <p>When <code>android:usesCleartextTraffic</code> is set to <code>true</code>, the application will allow outgoing requests over HTTP, resulting in a potential data leakage or a Man-In-The-Middle (MITM) attack. By setting the value to <code>false</code>, the application will refuse the app's requests to use cleartext traffic.</p>
+    <br>
+    <p>The default value for API level 27 or lower is <code>true</code> and API level 28 or higher is <code>false</code>.</p>
+    <br>
+    <b>Before</b>
+<pre>android:usesCleartextTraffic="<b>true</b>"</pre>
+    <br>
+    <b>After</b>
+<pre>android:usesCleartextTraffic="<b>false</b>"</pre>
+    <br>
+    <b>Resources</b>
+    <ul>
+      <li><a href="https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic">Android Documentation</a></li>
+    </ul>
+  </body>
+</html>

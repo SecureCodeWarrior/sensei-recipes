@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <p id="abstract">Throwable objects should be thrown at some point in the code. A common mistake is to create a throwable object without throwing it after creation. This would mean that the issue contained in the throwable is lost.</p>
+    <br>
+    <b>Before:</b>
+<pre>try {
+    String bob = null;
+    bob.trim();
+} catch (NullPointerException e) {
+    new RuntimeException("Found nullpointer", e);
+}</pre>
+    <br>
+    <b>After:</b>
+<pre>try {
+    String bob = null;
+    bob.trim();
+} catch (NullPointerException e) {
+    <b>throw</b> new RuntimeException("Found nullpointer", e);
+}</pre>
+    </body>
+</html>
+

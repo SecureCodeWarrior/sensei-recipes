@@ -1,0 +1,33 @@
+id: scw:xxe:documentbuilderfactory-missing-dissallow-doctype-decl
+version: 8
+metadata:
+  name: 'XXE: DocumentBuilderFactory: Add missing feature dissallow-doctype-decl'
+  shortDescription: Could lead to XXE
+  level: error
+  language: java
+  newCodeOnly: false
+  scwCategory: injection:xml
+  cweCategory: 611
+  enabled: true
+  descriptionFile: descriptions/XXE.html
+search:
+  methodcall:
+    not:
+      followedBy:
+        methodcall:
+          args:
+            1:
+              value: http://apache.org/xml/features/disallow-doctype-decl
+          name: setFeature
+    name: newInstance
+    declaration:
+      type: javax.xml.parsers.DocumentBuilderFactory
+availableFixes:
+- name: 'Set dissallow-doctype-decl feature to true '
+  actions:
+  - addMethodCall:
+      name: setFeature
+      arguments:
+      - '"http://apache.org/xml/features/disallow-doctype-decl"'
+      - "true"
+      position: first-available-spot

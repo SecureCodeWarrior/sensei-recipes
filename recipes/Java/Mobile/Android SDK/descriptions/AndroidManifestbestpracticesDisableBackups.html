@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <p>The Android best practices and coding guidelines, recommends that <code>android:allowBackup</code> should be set to <code>false</code> in the Android Manifest.</p>
+    <br>
+    <p>Disabling the <code>android:allowBackup</code> attribute will ensure that no backups are created. Since using this functionality is insecure.  when the Android system is allowed to create backups, copies are made of the application and its data. These backups can be studied by attackers or tampered with before using it to recover from the backup. The default value of <code>android:allowBackup</code> is <code>true</code>.</p>
+    <br>
+    <b>Before</b>
+<pre>&lt;application android:allowBackup="<b>true</b>" /&gt;</pre>
+    <br>
+    <b>After</b>
+<pre>&lt;application android:allowBackup="<b>false</b>" /&gt;</pre>
+
+    <b>Resources</b>
+    <ul>
+      <li><a href="https://developer.android.com/guide/topics/manifest/application-element#allowbackup">Android Documentation: allowBackup</a></li>
+    </ul>
+  </body>
+</html>

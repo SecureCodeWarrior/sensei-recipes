@@ -1,0 +1,24 @@
+id: scw:logging:printstacktrace
+version: 8
+metadata:
+  name: 'Info Leakage: Throwable.printStacktrace leaks valuable program structure
+    information'
+  shortDescription: Printing a stack trace gives valuable information about software
+    internals, including library/framework names and versions, to an attacker
+  level: warning
+  language: java
+  scwCategory: infoexposure:debuginfo
+  cweCategory: 200
+  enabled: true
+  comment: 'Tags: opinionated, logging'
+  descriptionFile: Logging/descriptions/ThrowablePrintStacktraceLeaksInfo.html
+search:
+  methodcall:
+    name: printStackTrace
+    declaration:
+      type: java.lang.Throwable
+availableFixes:
+- name: Print the message of the exception instead
+  actions:
+  - rewrite:
+      to: System.err.println({{{ qualifier }}}.getMessage())

@@ -1,0 +1,30 @@
+<html>
+<body>
+<p>Concatenation of untrusted input directly into SQL queries can lead to injection attacks.</p>
+<br>
+<p>Untrusted data needs to be handled with caution. In the case of SQL queries, this can be done by using prepared statements. Instead of concatenating the parameters into the query itself, a prepared statement puts placeholders (often '?' is used as placeholder) in the query where the parameters need to go. After defining the structure of the query in this way, we then tell the statement exactly what the type of the parameters is, using e.g. <code>setString</code>. This prevents attacks in multiple ways. Firstly, as the prepared statement knows what part of the query is meant to be a parameter, it will not attempt to interpret the parameter values as part of the SQL query. It will only consider them to be values. Secondly, by providing the type of the parameter we ensure it can also be checked before using the value in the SQL query.</p>
+<br>
+<b>Before</b>
+<pre>String sqlString = "SELECT * FROM db_user WHERE username = '"
+        + username + "' AND password = '" + pwd + "'";
+Statement stmt = connection.createStatement();
+ResultSet rs = stmt.executeQuery(sqlString);
+</pre>
+<br>
+<b>After</b>
+<pre>String sqlString = "SELECT * FROM db_user WHERE username = <b>?</b> AND password = <b>?</b>";
+<b>PreparedStatement stmt = connection.prepareStatement(sqlString);
+stmt.setString(1, username);
+stmt.setString(2, hashPassword(password));</b>
+ResultSet rs = stmt.executeQuery();
+</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://cwe.mitre.org/data/definitions/89.html">Mitre CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')</a></li>
+  <li><a href="https://wiki.sei.cmu.edu/confluence/display/java/IDS00-J.+Prevent+SQL+injection">SEI CERT IDS00-J Prevent SQL Injection</a></li>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/index.html?java/sql/PreparedStatement.html">Oracle Java Platform Documentation: PreparedStatement</a></li>
+  <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">OWASP Cheat Sheet Series: SQL Injection Prevention Cheat Sheet</a></li>
+</ul>
+</body>
+</html>

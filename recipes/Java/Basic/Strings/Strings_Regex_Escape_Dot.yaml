@@ -1,0 +1,26 @@
+id: scw:java:string-split-dot-regex
+version: 8
+metadata:
+  name: 'Strings: Regex Use: Escape Regex Special Character for Any Char Matching'
+  shortDescription: First argument is a regular expression, matching with dot might
+    have unintended behaviour.
+  level: error
+  language: java
+  scwCategory: ""
+  enabled: true
+  descriptionFile: descriptions/StringsRegexUseEscapeRegexSpecialCharacterforAnyCharMatching.html
+search:
+  methodcall:
+    args:
+      1:
+        value: .
+    name:
+      matches: (split|replaceAll|replaceFirst)
+    declaration:
+      type: java.lang.String
+availableFixes:
+- name: Escape the regex special character for any char
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: '"\\."'

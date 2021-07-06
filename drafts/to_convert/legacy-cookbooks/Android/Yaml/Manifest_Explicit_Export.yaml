@@ -1,0 +1,18 @@
+id: scw:xml:explicit-export
+version: 8
+metadata:
+  name: "Manifest best practices: explicit exported components"
+  shortDescription: "When android:exported is set to true any application will be able to call this component."
+  level: error
+  scwCategory: improper_platform_usage:incorrect_activity_configuration
+  cweCategory: 926
+  ruleDescriptionFile: "descriptions/Manifestbestpracticesdisableexportofandroidcomponents.html"
+  enabled: true
+search:
+  attribute:
+    name: android:exported
+    value: "true"
+availableFixes:
+  - name: Change android:exported to false
+    actions:
+      - set: "false"

@@ -1,0 +1,21 @@
+id: scw:immutable:void-methods
+version: 8
+metadata:
+  name: 'Immutable: avoid void methods'
+  shortDescription: void methods have side-effects, return a new oject or primitve
+    instead
+  level: warning
+  language: xml; java; js; php; py; swift; jsp; kotlin
+  scwCategory: ""
+  enabled: false
+  excludeTestDirs: true
+search:
+  method:
+    not:
+      modifier: private
+    returnType: void
+availableFixes:
+- name: Make this return an Object
+  actions:
+  - changeType:
+      type: Object

@@ -1,0 +1,31 @@
+id: scw:xxe:xmlinputfactory-false
+version: 8
+metadata:
+  name: 'XXE: XMLInputFactory: Set features to false'
+  shortDescription: Could lead to XXE
+  level: error
+  language: java
+  newCodeOnly: false
+  scwCategory: injection:xml
+  cweCategory: 611
+  enabled: true
+  descriptionFile: descriptions/XXE.html
+search:
+  methodcall:
+    args:
+      1:
+        referenceTo:
+          anyOf:
+          - name: javax.xml.stream.XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES
+          - name: javax.xml.stream.XMLInputFactory.SUPPORT_DTD
+      2:
+        type: boolean
+        value: "true"
+    name: setProperty
+    declaration:
+      type: javax.xml.stream.XMLInputFactory
+availableFixes:
+- name: Set property to false
+  actions:
+  - rewrite:
+      to: '{{{ expressionElement }}}({{{ arguments.0 }}}, false)'

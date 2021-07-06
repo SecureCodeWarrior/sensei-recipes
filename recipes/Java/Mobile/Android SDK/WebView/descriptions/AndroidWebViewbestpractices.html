@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <p>The Android best practices and secure coding guidelines make recommendations for <code>WebView</code> and its configuration.</p>
+    <br>
+    <p>Regardless where the URL originates from, it is best practice to double check that the URL does not target local resources. This can easily be achieved by checking the start of the string for <code>file:</code>. It is considered best practice to also check the URL to be loaded against a white list. The settings below should also be considered to improve the overall security of the application:</p>
+    <br>
+    <b>Before</b>
+<pre>WebView wv = new WebView(context);
+wv.loadUrl(url);</pre>
+    <br>
+    <b>After</b>
+<pre>WebView wv = new WebView(context);
+WebSettings = ws = wv.getSettings();
+ws.<b>setJavaScriptEnabled(false)</b>;
+ws.<b>setAllowFileAccess(false)</b>;
+ws.<b>setGeolocationEnabled(false)</b>;
+ws.<b>setAllowContentAccess(false)</b>;
+int never = <b>WebSettings.MIXED_CONTENT_NEVER_ALLOW</b>
+ws.<b>setMixedContentMode(never)</b>;
+
+if( !url.startsWith("file:"))
+    wv.loadUrl(url);</pre>
+    <br>
+    <p>Additionally avoid using the following settings (Deprecated since API level 30) to prevent malicious scripts from accessing arbitrary local files or launching XSS attacks.</p>
+    <br>
+<pre>ws.setAllowFileAccessFromFileURLs(true);
+ws.setAllowUniversalAccessFromFileURLs(true);</pre>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+id: scw:web:tls-outdated
+version: 8
+metadata:
+  name: 'TLS: Weak Encryption: Outdated Version'
+  shortDescription: Could lead to Data Exposure
+  level: warning
+  language: java
+  newCodeOnly: false
+  scwCategory: itlp
+  enabled: true
+  descriptionFile: descriptions/TLS_version.html
+search:
+  methodcall:
+    args:
+      1:
+        type: java.lang.String
+        value:
+          matches: TLSv1.1
+    name: getInstance
+    declaration:
+      type: javax.net.ssl.SSLContext
+availableFixes:
+- name: 'Set protocol version to TLSv1.2 '
+  actions:
+  - rewrite:
+      to: '{{{ expressionElement }}}("TLSv1.2")'

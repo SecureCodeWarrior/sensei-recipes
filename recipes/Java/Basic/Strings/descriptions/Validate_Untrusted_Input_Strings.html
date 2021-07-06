@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Validate untrusted data before use.</p>
+<br>
+<p>Strings inputs can contain unexpected values. If unchecked, this could lead to unexpected flows through the application, yielding unexpected results. By applying the validation methods, we ensure that inputs are the correct type and within the expected ranges.</p>
+<br>
+<b>Before</b>
+<pre>Matcher matcher = pattern.matcher(str);</pre>
+<br>
+<b>After</b>
+<pre>Matcher matcher = pattern.matcher(<b>MyValidator.validate(</b>str);</pre>
+<br>
+<b>References</b>
+<ul>
+<li><a href=" https://cwe.mitre.org/data/definitions/20.html">CWE-20: Improper Input Validation</a></li>
+<li><a href="https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88487865">SEI CERT Rule 00 Input Validation and Data Sanitization (IDS)</a></li>
+</ul>
+</body>
+</html>

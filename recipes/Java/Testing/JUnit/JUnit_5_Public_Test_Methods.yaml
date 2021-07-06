@@ -1,0 +1,19 @@
+id: scw:junit:public-methods
+version: 8
+metadata:
+  name: 'JUnit: JUnit 5 test methods do not need to be public'
+  shortDescription: JUnit 5 test methods do not need public visibility
+  level: warning
+  language: java; kotlin
+  scwCategory: ""
+  enabled: true
+search:
+  method:
+    annotation:
+      type: org.junit.jupiter.api.Test
+    modifier: public
+availableFixes:
+- name: Remove @Test method public visibility
+  actions:
+  - changeModifiers:
+      visibility: ""

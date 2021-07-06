@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <p id="abstract">The name for the logger should reflect the class name.</p>
+    <br>
+    <p id="impact_and_desired_state">According to the Oracle documentation, the logger name should be a dot-separated name and should normally be based on the package name or class name of the subsystem.</p>
+    <br>
+    <b>Before</b>
+<pre>public class MyClass {
+  Logger logger = Logger.getLogger("Some logger");
+    ...
+}</pre>
+    <br>
+    <b>After</b>
+<pre>public class MyClass {
+    Logger logger = Logger.getLogger(MyClass.class.getName());
+    ...
+}</pre>
+    <br>
+    <b>References</b>
+    <ul><li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html#getLogger-java.lang.String-java.lang.String-">Oracle Java 8 SE Documentation: Logger.getLogger</a></li></ul>
+  </body>
+</html>

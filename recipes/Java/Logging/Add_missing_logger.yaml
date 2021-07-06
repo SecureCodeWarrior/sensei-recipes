@@ -1,0 +1,23 @@
+id: scw:addmissinglogger
+version: 8
+metadata:
+  name: 'Logger: add missing logger'
+  shortDescription: Add logger to class
+  level: info
+  language: java
+  scwCategory: insufficient_logging:generic
+  enabled: true
+  descriptionFile: Logging/descriptions/AddLogger.html
+search:
+  typeDeclaration:
+    without:
+      child:
+        field:
+          name: logger
+availableFixes:
+- name: Add Logger class referrerence
+  actions:
+  - addField:
+      field: private static final java.util.logging.Logger logger = Logger.getLogger({{{ containingClass.name
+        }}}.class.getName())
+      target: self

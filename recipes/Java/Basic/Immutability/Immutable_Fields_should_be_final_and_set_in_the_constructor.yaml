@@ -1,0 +1,19 @@
+id: scw:immutable:final-fields
+version: 8
+metadata:
+  name: 'Immutable: Fields should be final and set in the constructor'
+  shortDescription: Making fields final can highlight mutability issues
+  level: warning
+  language: java; kotlin
+  scwCategory: ""
+  enabled: true
+search:
+  field:
+    without:
+      modifier: final
+availableFixes:
+- name: make fields `final`
+  actions:
+  - rewrite:
+      to: '{{{ modifierList }}} final {{{ typeElement }}} {{{ name }}};'
+      target: self

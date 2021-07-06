@@ -1,0 +1,29 @@
+id: scw:xxe:documentbuilderfactory-features-true
+version: 8
+metadata:
+  name: 'XXE: DocumentBuilderFactory: Set features to true'
+  shortDescription: Could lead to XXE
+  level: error
+  language: java
+  newCodeOnly: false
+  scwCategory: injection:xml
+  cweCategory: 611
+  enabled: true
+  descriptionFile: descriptions/XXE.html
+search:
+  methodcall:
+    args:
+      1:
+        type: java.lang.String
+        value: http://apache.org/xml/features/disallow-doctype-decl
+      2:
+        type: boolean
+        value: "false"
+    name: setFeature
+    declaration:
+      type: javax.xml.parsers.DocumentBuilderFactory
+availableFixes:
+- name: Set features to true
+  actions:
+  - rewrite:
+      to: '{{{ expressionElement }}}({{{ arguments.0 }}}, true)'

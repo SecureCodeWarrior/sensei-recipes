@@ -1,0 +1,436 @@
+{
+  "header": {
+    "name": "Secure Code Warrior Java rules",
+    "description": "Secure Code Warrior default Java rules",
+    "company": "Secure Code Warrior",
+    "appsecmail": "info@securecodewarrior.com",
+    "copyright": "Copyright 2016 Sensei Security CVBA. All rights reserved.",
+    "rulepack_id": "123456789-557654321",
+    "enabled": true,
+    "language": "Java/XML",
+    "notes": "Rules are for demo purposes only. The rules need to be customized towards your technology."
+  },
+  "rules": [
+    {
+      "type": "f214a892aacb9e2093cee9cbe8148b79813af690",
+      "model": {
+        "appendedMethods": [
+          "java.lang.StringBuffer#append",
+          "java.lang.StringBuilder#append",
+          "java.io.Writer#append"
+        ],
+        "wrapperPackage": "org.owasp.esapi",
+        "wrapperClass": "ESAPI|Encoder",
+        "wrapperMethod": "encoder|encodeForHTML|encodeForHTMLAttribute|encodeForCSS|encodeForJavaScript",
+        "xssCheckerModels": [
+          {
+            "wrapperDescription": "Basic HTML Context wrapper",
+            "wrapperFix": "ESAPI.encoder().encodeForHTML({{{ . }}})"
+          },
+          {
+            "wrapperDescription": "HTML Attribute Context wrapper",
+            "wrapperFix": "ESAPI.encoder().encodeForHTMLAttribute({{{ . }}})"
+          },
+          {
+            "wrapperDescription": "CSS Context wrapper",
+            "wrapperFix": "ESAPI.encoder().encodeForCSS({{{ . }}})"
+          },
+          {
+            "wrapperDescription": "Javascript Context wrapper",
+            "wrapperFix": "ESAPI.encoder().encodeForJavaScript({{{ . }}})"
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Output Encoding: ESAPI: ESAPI Encoder",
+        "ruleID": "9974c811-2089-473d-b6c2-c4f7998bfe29",
+        "codingPolicy": "java_esapi_output_encoding",
+        "ruleShortDescription": "Insufficient Output Encoding",
+        "ruleErrorLevel": 2,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "3b5f1f28919178938d8b5e4eeab30615b438ae56",
+      "model": {
+        "packageName": "org.apache.log4j",
+        "className": "Category",
+        "methodName": "log",
+        "checkArguments": true,
+        "arguments": [
+          {
+            "type": ".*",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": ".*"
+          },
+          {
+            "type": ".*",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": "trace"
+          }
+        ],
+        "quickfixes": [],
+        "commonFixes": [],
+        "ruleName": "Sensitive Information: ESAPI: BAN002: Throwable.printStacktraceCompliant",
+        "ruleID": "bb621257-e2ca-4756-97c5-9585ecc1a8f9",
+        "codingPolicy": "java_esapi_ban001ban002_use_an_secure_logger",
+        "ruleShortDescription": "Compliant",
+        "ruleErrorLevel": 4,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "947034909c9b08d0b583170e594b0eb327933231",
+      "model": {
+        "yamlCode": "search:\n  methodcall:\n    name: setContentType\n    declaration:\n      type: javax.servlet.ServletResponse\n",
+        "mver": 8,
+        "yamlQuickFixCode": "availableFixes: []\n",
+        "ruleName": "Transport Layer Security: ESAPI: BAN010: ServletResponse.setContentType",
+        "ruleID": "a6a3085d-de94-4c10-ab1c-72a87ae8fb93",
+        "codingPolicy": "java_esapi_ban010ban015ban021ban022_configuring_httpservletresponses",
+        "ruleShortDescription": "This is an OWASP ESAPI Banned method.",
+        "ruleErrorLevel": 2,
+        "ruleScope": [
+          {
+            "type": "d8c8a244f4ff000c8b9326e848bf62056393b4fb",
+            "object": {
+              "ruleEnabledJARName": "[eE][sS][aA][pP][iI].*",
+              "negate": false
+            }
+          }
+        ],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "947034909c9b08d0b583170e594b0eb327933231",
+      "model": {
+        "yamlCode": "search:\n  methodcall:\n    name: setContentType\n    declaration:\n      type:\n        reference:\n          matches: (org.owasp.esapi)\\.(HTTPUtilities)\n        checkInheritance: false\n",
+        "mver": 8,
+        "yamlQuickFixCode": "availableFixes: []\n",
+        "ruleName": "Transport Layer Security: ESAPI: BAN010: ServletResponse.setContentTypeCompliant",
+        "ruleID": "8bac4d0c-ad5d-4fbc-a8c4-ce833a9ef859",
+        "codingPolicy": "java_esapi_ban010ban015ban021ban022_configuring_httpservletresponses",
+        "ruleShortDescription": "Compliant",
+        "ruleErrorLevel": 4,
+        "ruleScope": [
+          {
+            "type": "d8c8a244f4ff000c8b9326e848bf62056393b4fb",
+            "object": {
+              "ruleEnabledJARName": "[eE][sS][aA][pP][iI].*",
+              "negate": false
+            }
+          }
+        ],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "3b5f1f28919178938d8b5e4eeab30615b438ae56",
+      "model": {
+        "packageName": "javax\\.servlet",
+        "className": "RequestDispatcher",
+        "methodName": "forward",
+        "checkArguments": true,
+        "arguments": [
+          {
+            "type": "javax.servlet.http.HttpServletRequest",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": ".*"
+          },
+          {
+            "type": "javax.servlet.http.HttpServletResponse",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": ".*"
+          }
+        ],
+        "quickfixes": [
+          {
+            "returnType": "_parent",
+            "quickfixDescription": "Replace with safe alternative",
+            "quickfixCode": "org.owasp.esapi.reference.DefaultHTTPUtilities.getInstance().sendForward({{{ children.0.arguments.0}}}, {{{ children.0.arguments.1}}}, \"location\");"
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Injection: ESAPI: BAN012a: RequestDispatcher.forward with Http version of arguments",
+        "ruleID": "71de9ec6-524a-43c6-9449-151a8f7c97cc",
+        "codingPolicy": "java_esapi_ban010ban015ban021ban022_configuring_httpservletresponses",
+        "ruleShortDescription": "This is an OWASP ESAPI Banned method.",
+        "ruleErrorLevel": 2,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "3b5f1f28919178938d8b5e4eeab30615b438ae56",
+      "model": {
+        "packageName": "javax\\.servlet",
+        "className": "RequestDispatcher",
+        "methodName": "forward",
+        "checkArguments": true,
+        "arguments": [
+          {
+            "type": "^((?!javax.servlet.http.HttpServletRequest).)*$",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": ".*"
+          },
+          {
+            "type": "^((?!javax.servlet.http.HttpServletResponse).)*$",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": ".*"
+          }
+        ],
+        "quickfixes": [
+          {
+            "returnType": "_parent",
+            "quickfixDescription": "Comment out",
+            "quickfixCode": "/* {{{ . }}} */"
+          },
+          {
+            "returnType": "_parent",
+            "quickfixDescription": "Remove",
+            "quickfixCode": ""
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Injection: ESAPI: BAN012b: RequestDispatcher.forward with non Http arguments",
+        "ruleID": "b8af5691-430b-4778-9d1c-1095775ae8f4",
+        "codingPolicy": "java_esapi_ban010ban015ban021ban022_configuring_httpservletresponses",
+        "ruleShortDescription": "This is an OWASP ESAPI Banned method.",
+        "ruleErrorLevel": 2,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "77b9995164777a0a9f4a032b764a2fb1d0aab845",
+      "model": {
+        "packageName": "java\\.util",
+        "className": "Properties",
+        "quickfixes": [
+          {
+            "returnType": "org.owasp.esapi.EncryptedProperties",
+            "quickfixDescription": "Replace with safe alternative",
+            "quickfixCode": "new org.owasp.esapi.reference.crypto.DefaultEncryptedProperties()"
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Security Misconfiguration: ESAPI: BAN016: Properties",
+        "ruleID": "3b9fee71-e7a3-4e4e-86c4-8afd50beff77",
+        "codingPolicy": "java_esapi_ban016_encrypt_saved_properties",
+        "ruleShortDescription": "This is an OWASP ESAPI Banned method.",
+        "ruleErrorLevel": 2,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "77b9995164777a0a9f4a032b764a2fb1d0aab845",
+      "model": {
+        "packageName": "org.owasp.esapi.reference.crypto",
+        "className": "DefaultEncryptedProperties",
+        "quickfixes": [],
+        "commonFixes": [],
+        "ruleName": "Security Misconfiguration: ESAPI: BAN016: PropertiesCompliant",
+        "ruleID": "8375a14a-913b-4bd4-9e5e-dbc2b9a69e8f",
+        "codingPolicy": "java_esapi_ban016_encrypt_saved_properties",
+        "ruleShortDescription": "This is an OWASP ESAPI Banned method.",
+        "ruleErrorLevel": 4,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "3b5f1f28919178938d8b5e4eeab30615b438ae56",
+      "model": {
+        "packageName": "javax\\.servlet",
+        "className": "ServletContext",
+        "methodName": "log",
+        "checkArguments": true,
+        "arguments": [
+          {
+            "type": "java.lang.String",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": ".*"
+          }
+        ],
+        "quickfixes": [
+          {
+            "returnType": "_parent",
+            "quickfixDescription": "Replace with safe alternative",
+            "quickfixCode": "org.apache.log4j.Logger logger \u003d org.apache.log4j.Logger.getLogger(getClass());\nlogger.log(org.apache.log4j.Level.ALL,{{{children.0.arguments.0}}});"
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Sensitive Information: ESAPI: BAN017a: ServletContext.log(String)",
+        "ruleID": "2ff72093-b049-4b58-a517-057d9b71df26",
+        "codingPolicy": "java_esapi_ban001ban002_use_an_secure_logger",
+        "ruleShortDescription": "This is an OWASP ESAPI Banned method.",
+        "ruleErrorLevel": 2,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "3b5f1f28919178938d8b5e4eeab30615b438ae56",
+      "model": {
+        "packageName": "javax\\.servlet",
+        "className": "ServletContext",
+        "methodName": "log",
+        "checkArguments": true,
+        "arguments": [
+          {
+            "type": "java.lang.String",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": ".*"
+          },
+          {
+            "type": "java.lang.Throwable",
+            "content": ".*",
+            "deepReplacement": false,
+            "variableName": ".*"
+          }
+        ],
+        "quickfixes": [
+          {
+            "returnType": "_parent",
+            "quickfixDescription": "Replace with safe alternative",
+            "quickfixCode": "org.apache.log4j.Logger logger \u003d org.apache.log4j.Logger.getLogger(getClass());\nlogger.log(org.apache.log4j.Level.ALL,{{{children.0.arguments.0}}},{{{children.0.arguments.1}}});"
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Sensitive Information: ESAPI: BAN017b: ServletContext.log(String,Throwable)",
+        "ruleID": "c923607f-d85e-4577-86e7-8a4cb21f77b5",
+        "codingPolicy": "java_esapi_ban001ban002_use_an_secure_logger",
+        "ruleShortDescription": "This is an OWASP ESAPI Banned method.",
+        "ruleErrorLevel": 2,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "77b9995164777a0a9f4a032b764a2fb1d0aab845",
+      "model": {
+        "packageName": "java\\.security",
+        "className": "Timestamp",
+        "quickfixes": [
+          {
+            "returnType": "_parent",
+            "quickfixDescription": "\u003chtml\u003eUse Encryptor.\u003cb\u003egetTimeStamp(offset)\u003c/b\u003e\u003c/html\u003e",
+            "quickfixCode": "long timestamp \u003d org.owasp.esapi.reference.crypto.JavaEncryptor.getInstance().getTimeStamp();"
+          },
+          {
+            "returnType": "_parent",
+            "quickfixDescription": "\u003chtml\u003eUse Encryptor.\u003cb\u003egetRelativeTimeStamp(offset)\u003c/b\u003e\u003c/html\u003e",
+            "quickfixCode": "long timestamp \u003d org.owasp.esapi.reference.crypto.JavaEncryptor.getInstance().getRelativeTimeStamp(offset);"
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Secure Random: ESAPI: BAN018e: Timestamp",
+        "ruleID": "8fb6d1fb-39c9-49dc-8944-754af6bb2d14",
+        "codingPolicy": "java_esapi_ban018_cryptography",
+        "ruleShortDescription": "This is an OWASP ESAPI Banned method.",
+        "ruleErrorLevel": 2,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "8196deac04fb5532109b31ad54451c1e25e01cd6",
+      "model": {
+        "mver": 2,
+        "packageName": "javax\\.servlet\\.http",
+        "className": "Cookie",
+        "securemethodName": "setHttpOnly",
+        "checkArguments": true,
+        "newArguments": [
+          {
+            "checkType": 0,
+            "check": "true"
+          }
+        ],
+        "replaceArgumentsIfMethodMatches": true,
+        "replaceArgsQuickfixDescription": "Enable http only cookie",
+        "replacementArguments": "true",
+        "inIfStatement": false,
+        "negateIf": false,
+        "ignoreIfCodeFlow": false,
+        "asArgumentType": "org\\.owasp\\.esapi\\.HTTPUtilities",
+        "asArgumentMethodCall": "addCookie",
+        "asArgumentPosition": 0,
+        "doNotCheckReturnStatements": false,
+        "quickFixDescription": "Enable http only cookie",
+        "quickfixes": [
+          {
+            "splitVarDeclaration": true,
+            "negateGeneratedIfCondition": false,
+            "quickfixDescription": "Enable http only cookie",
+            "quickfixCode": "{{{ iftext }}} {\n\t{{{ statement }}}\n}"
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Session Management: setHttpOnly before end of life: ESAPI adapted",
+        "ruleID": "ff231413-da3c-45e7-bc3f-d8d6cb3daa2b",
+        "codingPolicy": "java_esapi_cookies_configuration",
+        "ruleShortDescription": "The HttpOnly flag should be set for cookies",
+        "ruleErrorLevel": 2,
+        "comment": "adatped: 66581bbf-0555-4a7c-a6cf-f5254b0ebd49",
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    },
+    {
+      "type": "8196deac04fb5532109b31ad54451c1e25e01cd6",
+      "model": {
+        "mver": 2,
+        "packageName": "javax\\.servlet\\.http",
+        "className": "Cookie",
+        "securemethodName": "setSecure",
+        "checkArguments": false,
+        "newArguments": [
+          {
+            "checkType": 0,
+            "check": "true"
+          }
+        ],
+        "replaceArgumentsIfMethodMatches": true,
+        "replaceArgsQuickfixDescription": "Enable encrypted cookie over transport layer security",
+        "replacementArguments": "true",
+        "inIfStatement": false,
+        "negateIf": false,
+        "ignoreIfCodeFlow": false,
+        "asArgumentType": "org\\.owasp\\.esapi\\.HTTPUtilities",
+        "asArgumentMethodCall": "addCookie",
+        "asArgumentPosition": 0,
+        "doNotCheckReturnStatements": false,
+        "quickFixDescription": "Enable encrypted cookie over transport_layer_security/SSL",
+        "quickfixes": [
+          {
+            "splitVarDeclaration": true,
+            "negateGeneratedIfCondition": false,
+            "quickfixDescription": "Enable encrypted cookie over transport layer security",
+            "quickfixCode": "{{{ iftext }}} {\n\t{{{ statement }}}\n}"
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "Session Management: setSecure before end of life: ESAPI adapted",
+        "ruleID": "a94cd509-e549-4914-9bd3-555dbacd03e5",
+        "codingPolicy": "java_esapi_cookies_configuration",
+        "ruleShortDescription": "Cookies should be sent over an encrypted connection",
+        "ruleErrorLevel": 2,
+        "comment": "adapted from: 42fa75ee-705e-4c0b-a684-bd8b0bed0055",
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+id: scw:xml:disabled-cleartext
+version: 8
+metadata:
+  name: "Manifest best practices: disable cleartext traffic"
+  shortDescription: "When android:usesCleartextTraffic=\"true\" is set the application will allow clear text traffic which could lead to data leakage"
+  level: error
+  scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
+  cweCategory: 319
+  ruleDescriptionFile: "descriptions/ManifestbestpracticesdisableusesCleartextTraffic.html"
+  enabled: true
+search:
+  attribute:
+    name: android:usesCleartextTraffic
+    value:
+      matches: "true|^$"
+    in:
+      element:
+        tagName: application
+availableFixes:
+  - name: Change android:usesCleartextTraffic to false
+    actions:
+      - set: "false"

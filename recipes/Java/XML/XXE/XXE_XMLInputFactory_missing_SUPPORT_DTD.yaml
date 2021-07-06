@@ -1,0 +1,34 @@
+id: scw:xxe:xmlinputfactory-missing-dtd
+version: 8
+metadata:
+  name: 'XXE: XMLInputFactory: Add SUPPORT_DTD feature'
+  shortDescription: Could lead to XXE
+  level: error
+  language: java
+  newCodeOnly: false
+  scwCategory: injection:xml
+  cweCategory: 611
+  enabled: true
+  descriptionFile: descriptions/XXE.html
+search:
+  methodcall:
+    not:
+      followedBy:
+        methodcall:
+          args:
+            1:
+              referenceTo:
+                name: javax.xml.stream.XMLInputFactory.SUPPORT_DTD
+          name: setProperty
+    name: newFactory
+    declaration:
+      type: javax.xml.stream.XMLInputFactory
+availableFixes:
+- name: Set Support for DTD to false
+  actions:
+  - addMethodCall:
+      name: setProperty
+      arguments:
+      - javax.xml.stream.XMLInputFactory.SUPPORT_DTD
+      - "false"
+      position: first-available-spot

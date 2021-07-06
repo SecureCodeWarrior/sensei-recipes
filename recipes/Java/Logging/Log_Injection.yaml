@@ -1,0 +1,28 @@
+id: New_Recipe
+version: 8
+metadata:
+  name: Untrusted input in logging
+  shortDescription: Prevent log injection by filtering untrusted input
+  level: error
+  language: java
+  scwCategory: injection:generic
+  cweCategory: 117
+  enabled: true
+  comment: ""
+  tags: noisy
+  descriptionFile: descriptions/Untrusted_input_in_logging.html
+search:
+  argument:
+    containsUntrustedInput: true
+    in:
+      methodcall:
+        name: log
+        type: java.util.logging.Logger
+    type: java.lang.String
+availableFixes:
+- name: Filter newline characters
+  actions:
+  - rewrite:
+      to: ({{{ markedElement }}}).replaceAll("(\\r|\\n)","")
+- name: Mark source as trusted for this recipe
+  actions: []
