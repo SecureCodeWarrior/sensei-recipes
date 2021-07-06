@@ -1,4 +1,4 @@
-# sensei-recipes
+# Sensei Recipes
 Main repository for Sensei Recipes
 
 ## Recipe Pool Structure
@@ -7,6 +7,5 @@ The recipes pool is structured as follows:
 - Level 2: Category or framework (for multipurpose frameworks)
 - Deeper levels per topic or framework
 
-## Drafts
+## Drafts
 Recipe research and drafts are grouped into the "drafts" folder.
-
