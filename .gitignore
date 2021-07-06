@@ -1,11 +1,12 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
+# Common non project artifacts
+*.zip
+*.jar
+.DS_Store
+
+# Common IDEs files
+.idea
+*.iml
+.classpath
+.project
+
+/Temp/
