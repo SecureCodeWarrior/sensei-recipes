@@ -1,0 +1,17 @@
+<html>
+<body>
+<p id="abstract">Untrusted inputs in format strings should be filtered to prevent injection attacks.</p>
+<br>
+<p id="impact_and_desired_state">Instead of concatenating untrusted inputs, these should be provided as additional parameters to the format method. This way, they are considered to be inputs instead of parts of the format string.</p>
+<br>
+<b>Before</b>
+<pre>System.out.format(untrustedStr + " did not match!");</pre>
+<br>
+<b>After</b>
+<pre>System.out.format("<b>%s</b> did not match!"<b>, untrustedStr</b>);</pre>
+<br>
+<b>References</b>
+<ul><li><a href="https://cwe.mitre.org/data/definitions/134.html">Mitre CWE-134: Use of Externally-Controlled Format String</a></li>
+</ul>
+</body>
+</html>

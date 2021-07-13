@@ -3,13 +3,11 @@ import java.util.GregorianCalendar;
 
 public class IDS06J_UnsanitizedFormatStrings
 {
-    static Calendar c = new GregorianCalendar(1995, GregorianCalendar.MAY, 23);
+    final static Calendar c = new GregorianCalendar(1995, GregorianCalendar.MAY, 23);
     public static void bad(String[] args) {
         // args[0] should contain the credit card expiration date
         // but might contain %1$tm, %1$te or %1$tY format specifiers
-        System.out.format(
-                args[0] + " did not match! HINT: It was issued on %1$terd of some month", c
-        );
+        System.out.format(args[0] + " did not match!");
     }
 
     public static void good(String[] args) {

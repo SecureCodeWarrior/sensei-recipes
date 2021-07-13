@@ -61,7 +61,7 @@ public class IDS08J_RegexInjection {
         search = Pattern.quote(search);
         // Construct regex dynamically from user string
         String regex = "(.*? +public\\[\\d+\\] +.*" + search + ".*)";
-        // ...
+        Pattern searchPattern = Pattern.compile(regex);
     }
 
 }

@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   cweCategory: 20
-  enabled: true
+  enabled: false
   comment: In case of custom normalization, add your normalization method to the trustedSources
     section of the recipe.
   descriptionFile: Strings/descriptions/Normalize_Untrusted_Input_Strings.html

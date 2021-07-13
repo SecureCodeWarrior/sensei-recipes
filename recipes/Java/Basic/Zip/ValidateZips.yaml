@@ -1,0 +1,15 @@
+id: scw:java:zip-validation
+version: 8
+metadata:
+  name: Validate Zip Entries
+  shortDescription: Ensure the zip entry is validated for nesting depth and size
+  level: warning
+  language: java
+  cweCategory: 409
+  enabled: true
+  descriptionFile: Zip/descriptions/Validate_Zip_Entries.html
+search:
+  methodcall:
+    name: getNextEntry
+    type: java.util.zip.ZipInputStream
+availableFixes: []
