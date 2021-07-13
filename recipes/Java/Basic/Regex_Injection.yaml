@@ -1,0 +1,28 @@
+id: scw:java:regex-injection
+version: 8
+metadata:
+  name: Regex Injection
+  shortDescription: Use Pattern#quote to include untrusted input in regexes.
+  level: error
+  language: java
+  cweCategory: 625
+  enabled: true
+  tags: SEI-CERT-IDS08J
+search:
+  methodcall:
+    args:
+      1:
+        containsUntrustedInput: true
+        trustedSources:
+        - methodcall:
+            name: quote
+            type: java.util.regex.Pattern
+        type: java.lang.String
+    name: compile
+    type: java.util.regex.Pattern
+availableFixes:
+- name: Wrap the untrusted input in Pattern#quote
+  actions:
+  - rewrite:
+      to: java.util.regex.Pattern.quote({{{.}}})
+      target: self

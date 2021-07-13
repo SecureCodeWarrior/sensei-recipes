@@ -1,0 +1,21 @@
+id: scw:java:runtime-exec-untrusted
+version: 8
+metadata:
+  name: Use of untrusted input in Runtime Exec
+  shortDescription: Avoid the use of Runtime.exec
+  level: error
+  language: java
+  cweCategory: 78
+  enabled: true
+  comment: ""
+  tags: template
+search:
+  methodcall:
+    args:
+      1:
+        containsUntrustedInput: true
+    name: exec
+    type: java.lang.Runtime
+availableFixes:
+- name: Prevent using exec and validate input if exec can't be avoided
+  actions: []

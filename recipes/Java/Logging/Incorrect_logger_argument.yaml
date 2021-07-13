@@ -5,9 +5,9 @@ metadata:
   shortDescription: The logger should use the class name
   level: error
   language: java
-  enabled: true
+  enabled: false
   descriptionFile: descriptions/LoggerName.html
-  tags: opionionated
+  tags: opionionated;broken
 search:
   methodcall:
     args:

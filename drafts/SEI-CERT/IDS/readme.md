@@ -20,9 +20,10 @@
   => Which frameworks are secure?
   => Selection of framework is opinionated? 
 
-# IDS04-J
+# IDS04-J (java.util.zip.ZipInputStream)
 - Limit size, limit number of files, validate location for unzip
   => Specific API calls that can be replaced/forced to take a validated path? File object?
+  => Recipes to warn user? e.g. "Make sure to validate the size, depth, filepath and content of zip files"
 - Use secure zip extraction libraries
 
 # IDS05-J [Deprecated]
@@ -32,13 +33,13 @@
 - mark untrusted input in format strings
 
 # IDS07-J
-- untrusted data as argument for runtime.exec
++ untrusted data as argument for runtime.exec
 - any other eval/exec with untrusted data as input
 - Mark any use of eval/exec
 - Mark missing validation for arguments to eval/exec
 
 # IDS08-J
-- Mark untrusted data inserted into string that is used as regex, use Pattern.quote instead
++ Mark untrusted data inserted into string that is used as regex, use Pattern.quote instead
 
 # IDS09-J [Deprecated]
 # IDS10-J [Deprecated]

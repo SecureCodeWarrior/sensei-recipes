@@ -9,6 +9,7 @@ metadata:
   scwCategory: ""
   enabled: false
   excludeTestDirs: true
+  tags: noisy
 search:
   method:
     not:

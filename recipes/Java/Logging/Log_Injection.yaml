@@ -9,8 +9,8 @@ metadata:
   cweCategory: 117
   enabled: true
   comment: ""
-  tags: noisy
   descriptionFile: descriptions/Untrusted_input_in_logging.html
+  tags: noisy
 search:
   argument:
     containsUntrustedInput: true

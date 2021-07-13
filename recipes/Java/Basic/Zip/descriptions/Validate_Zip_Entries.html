@@ -1,0 +1,14 @@
+<html>
+<body>
+<p id="abstract">Zip entries should be validated to prevent unexpected processing issues.</p>
+<br>
+<p id="impact_and_desired_state">When processing zip files supplied by an untrusted source, there are a number of potential issues. The size of individual entries after decompression can prove to be multiple times larger than their compressed counterparts. This could lead to issues with memory or other limited system resources. Next to the size, the depth to which zip files can be nested or the depth of the folder structures they contain, can lead to memory or performance issues as well, potentially taking the system down. An example of such an attack is a so-called "decompression bomb" in which a zip of 42 kilobytes is decompressed to 4.5 petabytes.</p>
+<br>
+<ul><li><a href="https://cwe.mitre.org/data/definitions/409.html">Mitre CWE-409: Improper Handling of Highly Compressed Data (Data Amplification)</a></li>
+  <li><a href="https://wiki.sei.cmu.edu/confluence/display/java/IDS04-J.+Safely+extract+files+from+ZipInputStream">SEI-CERT - IDS04-J. Safely extract files from ZipInputStream</a></li>
+</ul>
+</body>
+</html>
+
+
+
