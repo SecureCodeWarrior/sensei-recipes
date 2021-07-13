@@ -7,7 +7,7 @@ metadata:
   language: java
   scwCategory: blog:generic
   cweCategory: 480
-  enabled: true
+  enabled: false
   comment: |-
     This recipe looks for bitwise operators used in conditionals, however Sensei is currently not capable of following indirections in the conditional.
     Bitwise operators located inside of methods cannot be found using this recipe.
