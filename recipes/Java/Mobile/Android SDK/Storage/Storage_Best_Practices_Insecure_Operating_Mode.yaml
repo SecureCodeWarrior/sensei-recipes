@@ -6,8 +6,8 @@ metadata:
     application's data
   level: error
   language: java
-  scwCategory: ""
   enabled: true
+  comment: https://stuff.mit.edu/afs/sipb/project/android/docs/reference/android/content/Context.html#MODE_PRIVATE
   descriptionFile: descriptions/Androidstoragebestpracticesinsecureoperatingmode.html
   tags: security;framework-specific;mobile;Android
 search:

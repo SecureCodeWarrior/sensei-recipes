@@ -6,7 +6,6 @@ metadata:
   shortDescription: Using DefaultHttpFirewall may lead to security flaws
   level: warning
   language: java; kotlin
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/AvoidDefaultHttpFirewallReturnType.html
   tags: security;framework-specific;web;spring-security

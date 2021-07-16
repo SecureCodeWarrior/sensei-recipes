@@ -7,7 +7,6 @@ metadata:
     more secure
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/RejectURLEncodedDoubleSlash.html
   tags: security;framework-specific;web;spring-security

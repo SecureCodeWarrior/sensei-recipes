@@ -5,10 +5,9 @@ metadata:
   shortDescription: Insecure content may be allowed to be loaded by a secure origin
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/AndroidWebViewbestpractices.html
-  tags: android-security-set
+  tags: security;framework-specific;mobile;Android
 search:
   methodcall:
     args:

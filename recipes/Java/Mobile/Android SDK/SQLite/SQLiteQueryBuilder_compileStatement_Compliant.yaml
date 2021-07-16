@@ -17,8 +17,5 @@ search:
     name:
       matches: compileStatement
     declaration:
-      type:
-        reference:
-          matches: (android.database.sqlite)\.(SQLiteDatabase)
-        checkInheritance: false
+      type: android.database.sqlite.SQLiteDatabase
 availableFixes: []

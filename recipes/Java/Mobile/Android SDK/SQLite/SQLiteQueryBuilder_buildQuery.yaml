@@ -1,0 +1,33 @@
+id: scw:android:sqlite-buildQuery-SQLi
+version: 8
+metadata:
+  name: 'SQL Injection: SQLiteQueryBuilder#buildQuery'
+  shortDescription: This method is vulnerable to SQL injection. Consider writing the
+    query instead of relying on builders.
+  level: error
+  language: java
+  scwCategory: injection:sql
+  cweCategory: 89
+  enabled: true
+  comment: |-
+    Quickfix to be tested
+    https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder
+    java_android_secure_database_queries.html
+  tags: security;framework-specific;mobile;injection;SQL;Android
+search:
+  methodcall:
+    name:
+      anyOf:
+      - is: buildQuery
+      - is: buildQueryString
+      - is: buildUnionQuery
+      - is: buildUnionSubQuery
+    type: android.database.sqlite.SQLiteQueryBuilder
+availableFixes:
+- name: Enable strict mode on the builder to validate input
+  actions:
+  - rewrite:
+      to: |-
+        {{{qualifier}}}.setStrict(true);
+        {{{.}}}
+      target: self

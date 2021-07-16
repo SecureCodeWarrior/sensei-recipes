@@ -1,0 +1,28 @@
+id: scw:android:secure-storage-FileOutputStream-Fragment
+version: 8
+metadata:
+  name: 'Insecure Data Storage: Store Sensitive Data in a Private Location (FileOutputStream
+    constructor) in Fragment'
+  shortDescription: Do not store sensitive data in a public location
+  level: warning
+  language: java
+  enabled: true
+  comment: ""
+  tags: security;framework-specific;mobile;Android
+search:
+  instanceCreation:
+    in:
+      class:
+        super:
+          name:
+            anyOf:
+            - is: android.app.Fragment
+            - is: androidx.fragment.app.Fragment
+    type: java.io.FileOutputStream
+availableFixes:
+- name: Store data in a private location
+  actions:
+  - rewrite:
+      to: this.getActivity().getApplicationContext().openFileOutput({{{ arguments.0
+        }}}.getPath(), android.content.Context.MODE_PRIVATE)
+      target: self

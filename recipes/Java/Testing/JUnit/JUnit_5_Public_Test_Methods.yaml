@@ -5,7 +5,6 @@ metadata:
   shortDescription: JUnit 5 test methods do not need public visibility
   level: warning
   language: java; kotlin
-  scwCategory: ""
   enabled: true
   tags: framework-specific;JUnit;quality
 search:

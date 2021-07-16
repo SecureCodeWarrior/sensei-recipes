@@ -1,0 +1,26 @@
+id: scw:android:manifest-allow-backup
+version: 8
+metadata:
+  name: 'Operations - Binary Protections: Prevent malicious injections: Disable backups'
+  shortDescription: Could lead to code injections
+  level: error
+  language: xml
+  enabled: true
+  tags: security;framework-specific;mobile;Android
+search:
+  element:
+    tagName:
+      caseSensitive: true
+      is: application
+    without:
+      attribute:
+        name:
+          caseSensitive: true
+          is: android:allowBackup
+        label: filter
+        value: "false"
+availableFixes:
+- name: Set allowBackup to false
+  actions:
+  - remove:
+      target: label:filter

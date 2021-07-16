@@ -1,0 +1,34 @@
+id: scw:android:disable-cleartext-explicitly
+version: 8
+metadata:
+  name: 'Manifest best practices: explicitly disable cleartext traffic'
+  shortDescription: 'API level 27 or lower: When android:usesCleartextTraffic is not
+    set, Android will default to allowing cleartext traffic.'
+  level: error
+  language: xml
+  scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
+  cweCategory: 319
+  enabled: true
+  comment: |-
+    scopes:
+      androidBuild:
+        minVersion: # IntegerModel
+          lessThanOrEquals: 27
+  descriptionFile: descriptions/ManifestbestpracticesdisableusesCleartextTraffic.html
+  tags: security;framework-specific;mobile;Android
+search:
+  element:
+    tagName:
+      caseSensitive: true
+      is: application
+    without:
+      attribute:
+        name: android:usesCleartextTraffic
+availableFixes:
+- name: Insert attribute android:usesCleartextTraffic
+  actions:
+  - null
+  - add:
+      attribute:
+        name: android:usesCleartextTraffic
+        value: "false"

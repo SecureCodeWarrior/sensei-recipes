@@ -1,0 +1,18 @@
+id: scw:android:hardware-identifiers-compliant
+version: 8
+metadata:
+  name: 'Information Exposure: Avoid using hardware identifiers - Compliant'
+  shortDescription: Using hardware identifiers is not recommended - compliant
+  level: error
+  language: java
+  enabled: true
+  comment: |-
+    java_android_best_practices_on_unique_identifiers
+    https://developer.android.com/reference/android/net/wifi/WifiInfo
+    https://developer.android.com/reference/android/bluetooth/BluetoothAdapter
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    name: getId
+    type: com.google.firebase.iid.FirebaseInstanceId
+availableFixes: []

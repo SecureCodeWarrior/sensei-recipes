@@ -1,0 +1,23 @@
+id: scw:crypto:secure-random-seed-constructor
+version: 8
+metadata:
+  name: 'Secure Random: Do not use initializer with custom seed'
+  shortDescription: Do not use your own defined seeds
+  level: error
+  language: java
+  enabled: true
+  comment: java_android_random_number_generation_do_not_manually_define_seeds_for_securerandom_class.html
+  tags: security
+search:
+  instanceCreation:
+    args:
+      1:
+        type: byte[]
+    argCount: 1
+    type: java.security.SecureRandom
+availableFixes:
+- name: Use the empty constructor
+  actions:
+  - modifyArguments:
+      remove:
+      - 1

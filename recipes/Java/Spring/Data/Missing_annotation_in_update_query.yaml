@@ -6,7 +6,6 @@ metadata:
     you should annotate it with @Modifying annation.
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   tags: framework-specific;spring-data;quality
 search:

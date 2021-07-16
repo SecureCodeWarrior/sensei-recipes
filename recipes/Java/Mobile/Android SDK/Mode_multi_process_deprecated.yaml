@@ -1,0 +1,29 @@
+id: scw:android:deprecated-storage-operating-mode
+version: 8
+metadata:
+  name: 'Storage best practices: deprecated operating mode'
+  shortDescription: This operating mode has been deprecated
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    https://developer.android.com/training/data-storage/shared-preferences
+    https://developer.android.com/reference/android/content/SharedPreferences
+    https://developer.android.com/reference/android/content/Context#MODE_MULTI_PROCESS
+    Deprecated since API level 23
+  tags: security;framework-specific;mobile;Android
+search:
+  argument:
+    referenceTo:
+      name: android.content.Context.MODE_MULTI_PROCESS
+availableFixes:
+- name: Change to MODE_PRIVATE
+  actions:
+  - rewrite:
+      to: android.content.Context.MODE_PRIVATE
+      target: self
+- name: Open data and file storage Android documentation
+  actions:
+  - goto:
+      type: URL
+      value: https://developer.android.com/training/data-storage/shared-preferences

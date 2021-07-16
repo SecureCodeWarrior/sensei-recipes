@@ -6,7 +6,6 @@ metadata:
     with untrusted input
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   comment: |
     JdbcOperations.queryForObject(String, ...)

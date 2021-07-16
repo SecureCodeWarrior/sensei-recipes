@@ -6,7 +6,6 @@ metadata:
   shortDescription: Rejecting semicolons is more secure
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/RejectSemicolons.html
   tags: security;framework-specific;web;spring-security

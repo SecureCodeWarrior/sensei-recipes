@@ -6,8 +6,7 @@ metadata:
     dependencies are unclear during instance creation. This makes testing more difficult
     and could lead to runtime exceptions when the bean is instantiated without spring.
   level: info
-  language: xml; java; js; php; py; swift; jsp; kotlin
-  scwCategory: ""
+  language: java; kotlin
   enabled: true
   comment: ""
   excludeTestDirs: true

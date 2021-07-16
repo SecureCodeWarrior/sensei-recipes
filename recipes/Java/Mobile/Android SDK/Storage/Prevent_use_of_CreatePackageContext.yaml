@@ -1,0 +1,19 @@
+id: scw:android:createPackageContext
+version: 8
+metadata:
+  name: 'Code Injection: Prevent use of CreatePackageContext'
+  shortDescription: Do not use the createPackageContext to dynamically load code
+  level: warning
+  language: java
+  enabled: true
+  comment: java_android_avoid_dynamically_loading_code.html
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    name: createPackageContext
+    type: android.content.Context
+availableFixes:
+- name: Remove this methodcall
+  actions:
+  - remove:
+      target: self

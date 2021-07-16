@@ -1,0 +1,23 @@
+id: scw:android:intent-putextra-sms
+version: 8
+metadata:
+  name: 'Sensitive Information: SMS: intent.putExtra'
+  shortDescription: Usage of SMS discouraged
+  level: error
+  language: java
+  enabled: true
+  comment: java_android_do_not_send_sensitive_information_over_sms.html
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          contains: sms_body
+    name: putExtra
+    type: android.content.Intent
+availableFixes:
+- name: Remove SMS usage
+  actions:
+  - remove:
+      target: self

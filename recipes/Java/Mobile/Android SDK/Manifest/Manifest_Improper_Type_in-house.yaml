@@ -1,0 +1,49 @@
+id: scw:android:manifest:type-in-house
+version: 8
+metadata:
+  name: 'Configuration - Application: Avoid improper platform usage: In-House'
+  shortDescription: This activity/receiver/provider/service is In-House
+  level: marked_information
+  language: xml
+  enabled: true
+  tags: developer-experience;framework-specific;mobile;Android
+search:
+  element:
+    allOf:
+    - attribute:
+        name:
+          caseSensitive: true
+          is: android:export
+        label: export
+        value: "true"
+    - attribute:
+        name:
+          caseSensitive: true
+          is: android:permission
+        label: permission
+    tagName:
+      caseSensitive: true
+      anyOf:
+      - caseSensitive: true
+        is: activity
+      - caseSensitive: true
+        is: receiver
+      - caseSensitive: true
+        is: provider
+      - caseSensitive: true
+        is: service
+availableFixes:
+- name: Change In-House Activity to Private Activity
+  actions:
+  - remove:
+      target: self
+  - remove:
+      target: self
+- name: Change In-House Activity to Public Activity
+  actions:
+  - remove:
+      target: self
+- name: Change In-House Activity to Partner Activity
+  actions:
+  - remove:
+      target: self

@@ -6,7 +6,6 @@ metadata:
     wired up.
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   comment: Do we need to look back at the typeDeclaration itself to check the modifier?
   tags: Guice;dependency-injection;framework-specific;quality

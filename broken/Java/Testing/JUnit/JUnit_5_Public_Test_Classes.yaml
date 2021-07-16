@@ -5,7 +5,6 @@ metadata:
   shortDescription: Test Classes in JUnit 5 do not need to be public
   level: warning
   language: java
-  scwCategory: ""
   enabled: false
   tags: framework-specific;JUnit;quality
 search:

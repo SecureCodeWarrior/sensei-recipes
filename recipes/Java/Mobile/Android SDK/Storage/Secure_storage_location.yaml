@@ -1,0 +1,35 @@
+id: scw:android:secure-storage-context
+version: 8
+metadata:
+  name: 'Information Exposure: Avoid DeviceEncryptedStorage for Sensitive Information'
+  shortDescription: Using DeviceEncryptedStorage for Sensitive information is insecure
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    https://developer.android.com/reference/androidx/core/content/ContextCompat#public-methods
+    java_android_sensitive_information_avoid_storing_sensitive_information_in_device_encrypted_storage.html
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    name: createDeviceProtectedStorageContext
+    anyOf:
+    - type: android.content.Context
+    - type: android.support.v4.content.ContextCompat
+    - type: android.core.content.ContextCompat
+availableFixes:
+- name: Use the default secure storage location in the current context (try-with-resources)
+  actions:
+  - rewrite:
+      to: "String filename = \"myfile\";\nString string = \"output\";\n\ntry (java.io.FileOutputStream\
+        \ outputStream = {{{ children.0.children.0.children.0 }}}.openFileOutput(filename,\
+        \ android.content.Context.MODE_PRIVATE)) {\n\toutputStream.write(string.getBytes());\n\
+        } catch (Exception e) {\n\t// TODO: handle exception\n}"
+- name: Use the default secure storage location in the current context
+  actions:
+  - rewrite:
+      to: "String filename = \"myfile\";\nString string = \"output\";\njava.io.FileOutputStream\
+        \ outputStream;\n\ntry {\n\toutputStream = {{{ children.0.children.0.children.0\
+        \ }}}.openFileOutput(filename, android.content.Context.MODE_PRIVATE);\n\t\
+        outputStream.write(string.getBytes());\n} catch (Exception e) {\n\t// TODO:\
+        \ handle exception\n} finally {\n\toutputStream.close();\n}"

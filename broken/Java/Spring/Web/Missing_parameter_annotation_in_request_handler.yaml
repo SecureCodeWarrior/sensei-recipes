@@ -6,7 +6,6 @@ metadata:
     indicating how this argument should be treated
   level: error
   language: java
-  scwCategory: ""
   enabled: false
   comment: |-
     Recipe is incorrect:

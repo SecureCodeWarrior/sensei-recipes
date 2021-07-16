@@ -6,7 +6,6 @@ metadata:
     sets the field values
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   tags: java-basic;quality
 search:

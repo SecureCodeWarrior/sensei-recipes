@@ -1,14 +1,13 @@
-id: scw:android:disable-file-access
+id: scw:android:webview-disable-file-access-constructor
 version: 8
 metadata:
-  name: 'Android WebView best practices: Disable File Access'
-  shortDescription: WebView setting with security implications
+  name: 'WebView Best Practices: Disable File Access (constructor)'
+  shortDescription: Enabling file access in the webview could lead to misuse
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/AndroidWebViewbestpractices.html
-  tags: android-security-set
+  tags: Android;framework-specific;security;mobile
 search:
   instanceCreation:
     not:

@@ -7,7 +7,6 @@ metadata:
     secure
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/RejectURLEncodedPercent.html
   tags: security;framework-specific;web;spring-security

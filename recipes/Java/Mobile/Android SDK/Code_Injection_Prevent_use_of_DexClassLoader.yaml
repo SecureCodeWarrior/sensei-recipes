@@ -1,0 +1,30 @@
+id: scw:android:DexClassLoader
+version: 8
+metadata:
+  name: 'Code Injection: Prevent use of DexClassLoader'
+  shortDescription: Do not use the DexClassLoader to dynamically load code
+  level: error
+  language: java
+  enabled: true
+  tags: security;framework-specific;mobile;Android
+search:
+  instanceCreation:
+    type: dalvik.system.DexClassLoader
+availableFixes:
+- name: Use Grab'n Run's Secure Loader
+  actions:
+  - rewrite:
+      to: "java.lang.String jarContainerPath = \"PATH_TO_JAR\";\njava.util.Map<java.lang.String,\
+        \ java.net.URL> packageNamesToCertMap = new java.util.HashMap<java.lang.String,\
+        \ java.net.URL>();\ntry {\n\tpackageNamesToCertMap.put(\"PACKAGE_NAME\", new\
+        \ java.net.URL(\"CERTIFICATE_OF_PKG.pem\"));\n} catch (java.net.MalformedURLException\
+        \ e) {\n\te.printStackTrace();\n}\nit.necst.grabnrun.SecureLoaderFactory mSecureLoaderFactory\
+        \ = new it.necst.grabnrun.SecureLoaderFactory(this);\nit.necst.grabnrun.SecureDexClassLoader\
+        \ mSecureDexClassLoader = mSecureLoaderFactory.createDexClassLoader(\n\tjarContainerPath,\n\
+        \tnull,\n\tgetClass().getClassLoader(),\n\tpackageNamesToCertMap);\ntry {\n\
+        \tjava.lang.Class<?> loadedClass = mSecureDexClassLoader.loadClass(\"PKG_NAME.CLASSNAME\"\
+        );\n} catch (ClassNotFoundException e) {\n\t//handle exception\n}"
+- name: Remove DexClassLoader object
+  actions:
+  - rewrite:
+      to: ""

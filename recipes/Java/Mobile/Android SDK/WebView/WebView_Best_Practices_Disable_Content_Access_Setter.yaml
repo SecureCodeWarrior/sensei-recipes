@@ -1,0 +1,25 @@
+id: scw:android:disable-content-access-setter
+version: 8
+metadata:
+  name: 'Android WebView best practices: Disable Content Access (setter)'
+  shortDescription: Enabling content access in the webview could lead to misuse
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: descriptions/AndroidWebViewbestpractices.html
+  tags: security;framework-specific;Android;mobile
+search:
+  methodcall:
+    args:
+      1:
+        value: "true"
+    anyOf:
+    - name: setAllowFileAccessFromFileURLs
+    - name: setAllowContentAccess
+    type: android.webkit.WebSettings
+availableFixes:
+- name: Disable content access
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: "false"

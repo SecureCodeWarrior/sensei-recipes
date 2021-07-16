@@ -1,0 +1,18 @@
+id: scw:android:sensitive-data-clipboard
+version: 8
+metadata:
+  name: 'Information Exposure: Do not place sensitive information on ClipBoard'
+  shortDescription: Never copy sensitive information to the ClipBoard
+  level: info
+  language: java
+  enabled: true
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    args:
+      any:
+        type: java.lang.String
+        value: clipboard
+    name: getSystemService
+    type: android.content.Context
+availableFixes: []

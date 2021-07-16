@@ -1,0 +1,25 @@
+id: scw:android:enable-filterTouchesWhenObscured
+version: 8
+metadata:
+  name: 'Layout best practices: enable filterTouchesWhenObscured'
+  shortDescription: When setting filterTouchesWhenObscured to false allows adversaries
+    to hijack users' taps.
+  level: warning
+  language: xml
+  cweCategory: 1021
+  enabled: true
+  descriptionFile: descriptions/LayoutbestpracticesenablefilterTouchesWhenObscured.html
+  tags: security;mobile;framework-specific;Android
+search:
+  attribute:
+    in:
+      element:
+        tagName:
+          caseSensitive: true
+          matches: '"Button|ImageButton"'
+    name: android:filterTouchesWhenObscured
+    value: "false"
+availableFixes:
+- name: Set android:filterTouchesWhenObscured='true'
+  actions:
+  - null
