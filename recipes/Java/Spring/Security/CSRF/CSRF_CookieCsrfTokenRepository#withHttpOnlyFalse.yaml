@@ -6,7 +6,8 @@ metadata:
     it
   level: error
   language: java
-  scwCategory: csrf
+  scwCategory: csrf:csrf
+  cweCategory: 352
   enabled: true
   descriptionFile: descriptions/CookieCsrfTokenRepositorywithHttpOnlyFalse.html
   tags: security;framework-specific;web;spring-security;CSRF
