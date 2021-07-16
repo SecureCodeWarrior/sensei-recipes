@@ -13,6 +13,7 @@ metadata:
     JdbcOperations.query(String, ...)
     JdbcOperations.queryForStream(String, ...)
   descriptionFile: Injection-SQLInjectioninJdbcOperationsqueryqueryForStreamqueryForObject.html
+  tags: security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

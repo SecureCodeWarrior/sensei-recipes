@@ -8,6 +8,7 @@ metadata:
   cweCategory: 409
   enabled: true
   descriptionFile: Zip/descriptions/Validate_Zip_Entries.html
+  tags: security;java-basic
 search:
   methodcall:
     name: getNextEntry

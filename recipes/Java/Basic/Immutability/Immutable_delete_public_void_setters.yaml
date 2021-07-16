@@ -8,6 +8,7 @@ metadata:
   language: java; kotlin
   scwCategory: ""
   enabled: true
+  tags: java-basic;quality
 search:
   method:
     with:

@@ -9,6 +9,7 @@ metadata:
   scwCategory: csrf
   enabled: true
   descriptionFile: descriptions/CookieCsrfTokenRepositorywithHttpOnlyFalse.html
+  tags: security;framework-specific;web;spring-security;CSRF
 search:
   methodcall:
     args:

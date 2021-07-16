@@ -10,6 +10,7 @@ metadata:
   scwCategory: infoexposure
   enabled: true
   descriptionFile: descriptions/Use_injection_for_non-static_members_in_singletons.html
+  tags: spring;security;dependency-injection;framework-specific
 search:
   field:
     in:

@@ -1,0 +1,39 @@
+id: scw:java:equality-string-number-wrapper
+version: 8
+metadata:
+  name: Invalid comparison of String to number wrapper
+  shortDescription: This comparison of a String to a number will always return false
+  level: error
+  language: java
+  scwCategory: blog:generic
+  cweCategory: 480
+  enabled: true
+  comment: ""
+  tags: default;java-basic;quality
+search:
+  methodcall:
+    args:
+      1:
+        type:
+          reference:
+            anyOf:
+            - matches: java.lang.Short
+            - matches: java.lang.Integer
+            - matches: java.lang.Long
+          checkInheritance: true
+    name: equals
+    type: java.lang.String
+availableFixes:
+- name: Compare number as string
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: String.valueOf({{{.}}})
+- name: Parse string to number
+  actions:
+  - rewrite:
+      to: '{{{arguments.0.qualifier}}}.valueOf({{{qualifier}}}).equals({{{arguments.0}}})'
+- name: Replace comparison with false
+  actions:
+  - rewrite:
+      to: "false"

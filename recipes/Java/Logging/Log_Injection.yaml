@@ -3,14 +3,14 @@ version: 8
 metadata:
   name: Untrusted input in logging
   shortDescription: Prevent log injection by filtering untrusted input
-  level: error
+  level: info
   language: java
   scwCategory: injection:generic
   cweCategory: 117
   enabled: true
   comment: ""
   descriptionFile: descriptions/Untrusted_input_in_logging.html
-  tags: noisy
+  tags: security;logging;injection
 search:
   argument:
     containsUntrustedInput: true

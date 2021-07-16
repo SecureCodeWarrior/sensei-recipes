@@ -9,6 +9,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: Injection-SQLInjectioninJPAEntityManagercreateNativeQuery.html
+  tags: security;JPA;injection;SQL
 search:
   methodcall:
     args:

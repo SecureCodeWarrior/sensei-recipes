@@ -4,12 +4,12 @@ metadata:
   name: 'Immutable: avoid void methods'
   shortDescription: void methods have side-effects, return a new oject or primitve
     instead
-  level: warning
+  level: info
   language: xml; java; js; php; py; swift; jsp; kotlin
   scwCategory: ""
   enabled: false
   excludeTestDirs: true
-  tags: noisy
+  tags: java-basic;quality
 search:
   method:
     not:

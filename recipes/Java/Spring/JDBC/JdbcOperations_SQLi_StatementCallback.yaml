@@ -11,6 +11,7 @@ metadata:
   comment: Any method in JdbcOperations starting with a string is vulnerable to SQLi.
     The are prepared statements, but should still not contain any untrusted input.
   descriptionFile: ""
+  tags: security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

@@ -9,6 +9,7 @@ metadata:
   scwCategory: insufficient_logging:generic
   enabled: true
   descriptionFile: Logging/descriptions/ReplacePrintWithLogger.html
+  tags: logging;quality
 search:
   methodcall:
     name: println

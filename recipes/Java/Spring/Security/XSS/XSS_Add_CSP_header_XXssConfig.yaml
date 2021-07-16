@@ -9,6 +9,7 @@ metadata:
   scwCategory: xss
   enabled: true
   descriptionFile: descriptions/SpringSecurityHeadersaddCSPheader.html
+  tags: security;framework-specific;web;spring-security;XSS
 search:
   methodcall:
     args:

@@ -9,6 +9,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: Injection-SQLInjectioninJdbcOperationsqueryForListqueryForRowSetqueryForMapqueryForLongqueryForIntupdate.html
+  tags: security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

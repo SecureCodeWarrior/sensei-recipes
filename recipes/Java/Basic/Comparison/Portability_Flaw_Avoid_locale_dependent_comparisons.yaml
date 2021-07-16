@@ -1,15 +1,16 @@
-id: scw:java:equalsignorecase
+id: scw:java:equals-after-case-conversion
 version: 8
 metadata:
   name: 'Portability Flaw: Avoid locale dependent comparisons: equals after case conversion'
   shortDescription: This comparison is sensitive to the system's locale. Ignore the
     case or add a locale.
-  level: error
+  level: warning
   language: java
   newCodeOnly: false
-  scwCategory: ""
+  cweCategory: 474
   enabled: true
   comment: ""
+  tags: security;java-basic;quality
 search:
   methodcall:
     name: equals

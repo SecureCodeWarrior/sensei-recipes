@@ -2,10 +2,13 @@ id: scw:java:equality-wrappers
 version: 8
 metadata:
   name: Incorrect equality check of wrapper values
-  shortDescription: Avoid using quality operators when comparing wrapper values.
+  shortDescription: Use equals method to compare wrapped values
   level: error
   language: java
+  scwCategory: blog:generic
+  cweCategory: 480
   enabled: true
+  tags: default;java-basic;quality
 search:
   comparison:
     anyOf:
@@ -30,7 +33,7 @@ search:
             - is: java.lang.Long
           checkInheritance: true
 availableFixes:
-- name: Replace with equals call
+- name: Check equality using equals
   actions:
   - rewrite:
-      to: '{{#sed}} s/\=+//, {{{ operator }}}{{/sed}}{{{ leftOperand }}}.equals({{{rightOperand}}})'
+      to: '{{{leftOperand}}}.equals({{{rightOperand}}})'

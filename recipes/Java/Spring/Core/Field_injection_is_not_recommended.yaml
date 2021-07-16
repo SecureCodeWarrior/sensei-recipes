@@ -12,6 +12,7 @@ metadata:
   scwCategory: ""
   enabled: true
   comment: ""
+  tags: spring;dependency-injection;framework-specific;quality
 search:
   field:
     anyOf:

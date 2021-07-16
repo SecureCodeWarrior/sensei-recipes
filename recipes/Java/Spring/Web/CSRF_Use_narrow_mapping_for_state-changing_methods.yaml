@@ -9,6 +9,7 @@ metadata:
   scwCategory: session
   enabled: true
   descriptionFile: descriptions/SessionmanagementAvoidCSRFUsenarrowmappingforstate-changingmethods.html
+  tags: security;framework-specific;web;CSRF;spring-web
 search:
   annotation:
     in:

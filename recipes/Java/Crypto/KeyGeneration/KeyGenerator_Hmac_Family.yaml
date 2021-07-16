@@ -10,6 +10,7 @@ metadata:
   scwCategory: broken_cryptography
   enabled: true
   descriptionFile: descriptions/Insecure_key_generation_algorithm.html
+  tags: security;basic-protection-set
 search:
   methodcall:
     args:

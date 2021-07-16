@@ -3,11 +3,11 @@ version: 8
 metadata:
   name: 'Immutable: use final classes to prevent extension'
   shortDescription: Make the classes final to prevent people extending as mutable
-  level: warning
+  level: info
   language: java
   scwCategory: ""
   enabled: true
-  tags: noisy
+  tags: java-basic;quality
 search:
   typeDeclaration:
     allOf:

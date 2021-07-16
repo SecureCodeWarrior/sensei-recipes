@@ -9,6 +9,7 @@ metadata:
   scwCategory: insecure_data_storage
   enabled: false
   comment: 'More formats possible: https://awsteele.com/blog/2020/09/26/aws-access-key-format.html'
+  tags: security;framework-specific;AWS
 search:
   literal:
     value:

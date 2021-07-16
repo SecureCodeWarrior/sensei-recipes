@@ -10,6 +10,7 @@ metadata:
   cweCategory: 326
   enabled: true
   descriptionFile: descriptions/Insecure_asymmetric_cryptographic_algorithm.html
+  tags: security;basic-protection-set
 search:
   methodcall:
     args:

@@ -8,6 +8,7 @@ metadata:
   language: java
   enabled: true
   comment: Is this already highlighted by the IDE?
+  tags: java-basic;quality
 search:
   methodcall:
     not:

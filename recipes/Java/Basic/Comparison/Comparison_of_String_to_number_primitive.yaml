@@ -1,0 +1,35 @@
+id: scw:java:equality-string-number-primitive
+version: 8
+metadata:
+  name: Invalid comparison of String to number primitive
+  shortDescription: This comparison of a String to a number will always return false
+  level: error
+  language: java
+  scwCategory: blog:generic
+  cweCategory: 480
+  enabled: true
+  comment: ""
+  tags: default;java-basic;quality
+search:
+  methodcall:
+    args:
+      1:
+        type:
+          reference:
+            anyOf:
+            - is: short
+            - is: int
+            - is: long
+          checkInheritance: true
+    name: equals
+    type: java.lang.String
+availableFixes:
+- name: Compare number as string
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: String.valueOf({{{.}}})
+- name: Replace comparison with false
+  actions:
+  - rewrite:
+      to: "false"

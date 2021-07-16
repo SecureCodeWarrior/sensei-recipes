@@ -10,6 +10,7 @@ metadata:
   scwCategory: injection
   enabled: true
   descriptionFile: InputValidationAvoidJDBCInjectionBindvariablesinpreparedstatements.html
+  tags: security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

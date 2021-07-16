@@ -8,6 +8,7 @@ metadata:
   scwCategory: crypto
   enabled: true
   descriptionFile: descriptions/UseSecureRandominsteadofRandom.html
+  tags: security
 search:
   instanceCreation:
     type:

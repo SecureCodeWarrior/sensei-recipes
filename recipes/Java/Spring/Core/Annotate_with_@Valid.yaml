@@ -8,6 +8,7 @@ metadata:
   language: java
   scwCategory: ""
   enabled: true
+  tags: spring;framework-specific;quality
 search:
   parameter:
     not:

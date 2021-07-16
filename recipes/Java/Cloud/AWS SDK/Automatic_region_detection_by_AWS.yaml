@@ -8,6 +8,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: AutomaticregiondetectionbyAWS.html
+  tags: framework-specific;AWS;quality
 search:
   methodcall:
     name: region

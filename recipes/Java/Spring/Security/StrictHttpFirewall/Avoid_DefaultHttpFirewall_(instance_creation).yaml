@@ -9,6 +9,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: descriptions/AvoidDefaultHttpFirewallInstanceCreation.html
+  tags: security;framework-specific;web;spring-security
 search:
   instanceCreation:
     type: org.springframework.security.web.firewall.DefaultHttpFirewall

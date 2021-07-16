@@ -10,6 +10,7 @@ metadata:
   scwCategory: broken_cryptography
   enabled: true
   descriptionFile: descriptions/Use_Cipher_over_NullCipher.html
+  tags: security;basic-protection-set
 search:
   instanceCreation:
     type: javax.crypto.NullCipher

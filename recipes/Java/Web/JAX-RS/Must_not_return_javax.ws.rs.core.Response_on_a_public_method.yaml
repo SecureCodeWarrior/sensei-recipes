@@ -7,6 +7,7 @@ metadata:
   language: java; kotlin
   enabled: true
   comment: Why is this a bad practice?
+  tags: web;quality
 search:
   method:
     modifier: public

@@ -8,6 +8,7 @@ metadata:
   scwCategory: crypto
   enabled: true
   descriptionFile: Usearandom8bytesalt.html
+  tags: security;framework-specific;spring-security
 search:
   methodcall:
     args:

@@ -9,6 +9,7 @@ metadata:
   scwCategory: injection
   enabled: true
   comment: ""
+  tags: security;LDAP;injection
 search:
   methodcall:
     args:

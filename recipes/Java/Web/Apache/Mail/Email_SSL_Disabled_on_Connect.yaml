@@ -7,6 +7,7 @@ metadata:
   language: java
   scwCategory: misconfig
   enabled: true
+  tags: security;apache-commons;web;email
 search:
   methodcall:
     args:

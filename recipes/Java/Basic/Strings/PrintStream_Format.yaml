@@ -8,7 +8,7 @@ metadata:
   cweCategory: 134
   enabled: false
   comment: Not working yet due to untrusted input not being detected correctly
-  tags: broken;SEI-CERT-IDS06-J
+  tags: security;SEI-CERT-IDS06-J;java-basic
 search:
   methodcall:
     args:

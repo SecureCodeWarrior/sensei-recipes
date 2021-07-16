@@ -9,6 +9,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: descriptions/ProtectagainstSessionFixationattacks.html
+  tags: security;framework-specific;web;spring-security
 search:
   methodcall:
     name: none

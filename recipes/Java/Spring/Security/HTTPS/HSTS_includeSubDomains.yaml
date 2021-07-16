@@ -8,6 +8,7 @@ metadata:
   scwCategory: misconfig
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationHSTS-includeSubDomains.html
+  tags: security;framework-specific;web;spring-security
 search:
   methodcall:
     args:

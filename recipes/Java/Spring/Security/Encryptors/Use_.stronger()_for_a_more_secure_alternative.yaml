@@ -8,6 +8,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: Usestrongerforamoresecurealternative.html
+  tags: security;framework-specific;spring-security
 search:
   methodcall:
     name: standard

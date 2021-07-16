@@ -11,6 +11,7 @@ metadata:
   enabled: true
   comment: JdbcOperations.queryForObject(String, !String[], ...)
   descriptionFile: InputValidationAvoidJDBCInjectionBindvariablesinpreparedstatements.html
+  tags: security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

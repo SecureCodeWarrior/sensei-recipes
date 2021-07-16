@@ -8,6 +8,7 @@ metadata:
   scwCategory: insufficient_transport_layer_protection
   enabled: true
   descriptionFile: descriptions/SecureTransportuseRequiresSecuretoenforceHTTPS.html
+  tags: security;framework-specific;web;spring-security
 search:
   methodcall:
     name: requiresInsecure

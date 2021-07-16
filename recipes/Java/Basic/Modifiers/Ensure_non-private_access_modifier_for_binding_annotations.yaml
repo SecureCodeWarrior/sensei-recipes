@@ -6,6 +6,7 @@ metadata:
   level: warning
   language: java; kotlin
   enabled: true
+  tags: security;java-basic;quality
 search:
   method:
     annotation:

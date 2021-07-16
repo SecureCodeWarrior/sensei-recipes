@@ -10,6 +10,7 @@ metadata:
   scwCategory: injection
   enabled: true
   descriptionFile: descriptions/EL_Injection_User_controlled_input_evaluation.html
+  tags: expression-language;security;injection
 search:
   methodcall:
     args:

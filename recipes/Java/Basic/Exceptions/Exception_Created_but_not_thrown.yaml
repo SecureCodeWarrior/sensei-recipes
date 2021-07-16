@@ -11,6 +11,7 @@ metadata:
     thrown, assigned or used in any other way. The other ways are detected and marked
     by IntelliJ itself? Also, do we need target self in the QF?
   descriptionFile: descriptions/ExceptionCreatedbutnotthrown.html
+  tags: java-basic;quality
 search:
   instanceCreation:
     not:

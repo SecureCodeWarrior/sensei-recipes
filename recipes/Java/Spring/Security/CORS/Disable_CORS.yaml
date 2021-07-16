@@ -8,6 +8,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: descriptions/DisableCORS.html
+  tags: security;framework-specific;web;spring-security
 search:
   methodcall:
     not:

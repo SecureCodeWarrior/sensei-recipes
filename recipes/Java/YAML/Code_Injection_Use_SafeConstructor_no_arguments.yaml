@@ -9,6 +9,7 @@ metadata:
   scwCategory: injection
   enabled: false
   comment: Default is subclass of safeConstructor. Recipe invalid since 1.28.
+  tags: security;basic-protection-set;injection;YAML
 search:
   instanceCreation:
     argCount: 0

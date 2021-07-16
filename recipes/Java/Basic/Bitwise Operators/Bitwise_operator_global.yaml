@@ -3,13 +3,14 @@ version: 8
 metadata:
   name: 'Operators: Bitwise: Use logical operator (Global)'
   shortDescription: Use logical operator instead of bitwise operator
-  level: warning
+  level: info
   language: java
   scwCategory: blog:generic
   cweCategory: 480
   enabled: true
-  comment: This recipe highlights any use of the bitwise operator.
+  comment: ""
   descriptionFile: Operators/descriptions/BitwiseOperatorInConditional.html
+  tags: security;java-basic
 search:
   binaryExpression:
     anyOf:

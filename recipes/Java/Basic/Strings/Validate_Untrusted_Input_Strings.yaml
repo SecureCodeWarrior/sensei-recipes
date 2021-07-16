@@ -3,14 +3,14 @@ version: 8
 metadata:
   name: Validate Untrusted Input Strings
   shortDescription: Validate untrusted inputs before using them
-  level: error
+  level: info
   language: java
   cweCategory: 20
   enabled: false
   comment: To use this template, add your validation method to the "not in" and "trustedSources"
     section of the recipe. You can also provide custom quickfixes.
   descriptionFile: Strings/descriptions/Validate_Untrusted_Input_Strings.html
-  tags: SEI-CERT-IDS;noisy;template
+  tags: template;SEI-CERT-IDS;security;java-basic
 search:
   argument:
     containsUntrustedInput: true

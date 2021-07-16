@@ -7,6 +7,7 @@ metadata:
   language: java; kotlin
   enabled: true
   comment: Does the IDE suggest this?
+  tags: security;java-basic;quality
 search:
   field:
     allOf:

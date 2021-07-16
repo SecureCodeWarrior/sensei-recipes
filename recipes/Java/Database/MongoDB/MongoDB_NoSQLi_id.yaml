@@ -8,6 +8,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: MongoDB_idNoSQLInjection.html
+  tags: security;NoSQL;framework-specific;MongoDB;injection
 search:
   methodcall:
     args:

@@ -9,6 +9,7 @@ metadata:
   scwCategory: broken_cryptography
   enabled: true
   descriptionFile: descriptions/Insecure_key_agreement_algorithm.html
+  tags: security;basic-protection-set
 search:
   methodcall:
     args:

@@ -10,8 +10,9 @@ metadata:
   scwCategory: infoexposure:debuginfo
   cweCategory: 200
   enabled: true
-  comment: 'Tags: opinionated, logging'
+  comment: ""
   descriptionFile: Logging/descriptions/ThrowablePrintStacktraceLeaksInfo.html
+  tags: security;opinionated;logging
 search:
   methodcall:
     name: printStackTrace

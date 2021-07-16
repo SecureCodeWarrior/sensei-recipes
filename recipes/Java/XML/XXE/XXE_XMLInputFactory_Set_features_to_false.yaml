@@ -10,6 +10,7 @@ metadata:
   cweCategory: 611
   enabled: true
   descriptionFile: descriptions/XXE.html
+  tags: security;XXE;basic-protection-set
 search:
   methodcall:
     args:

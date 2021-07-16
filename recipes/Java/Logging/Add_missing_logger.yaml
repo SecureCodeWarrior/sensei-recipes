@@ -8,6 +8,7 @@ metadata:
   scwCategory: insufficient_logging:generic
   enabled: true
   descriptionFile: Logging/descriptions/AddLogger.html
+  tags: logging;quality
 search:
   typeDeclaration:
     without:

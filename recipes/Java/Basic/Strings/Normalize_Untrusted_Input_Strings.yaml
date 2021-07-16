@@ -3,14 +3,14 @@ version: 8
 metadata:
   name: Normalize Untrusted Input Strings
   shortDescription: Normalize untrusted inputs before using them
-  level: error
+  level: info
   language: java
   cweCategory: 20
   enabled: false
   comment: In case of custom normalization, add your normalization method to the trustedSources
     section of the recipe.
   descriptionFile: Strings/descriptions/Normalize_Untrusted_Input_Strings.html
-  tags: SEI-CERT-IDS01-J;noisy
+  tags: security;java-basic;SEI-CERT-IDS01-J
 search:
   argument:
     containsUntrustedInput: true

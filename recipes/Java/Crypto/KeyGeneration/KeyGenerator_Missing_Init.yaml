@@ -10,6 +10,7 @@ metadata:
   scwCategory: broken_cryptography
   enabled: true
   descriptionFile: descriptions/Key_sizes.html
+  tags: security;basic-protection-set
 search:
   methodcall:
     args:

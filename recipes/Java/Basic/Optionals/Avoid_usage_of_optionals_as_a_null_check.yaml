@@ -6,7 +6,8 @@ metadata:
   level: warning
   language: java
   enabled: true
-  comment: Opinionated
+  comment: ""
+  tags: opinionated;java-basic;quality
 search:
   methodcall:
     followedBy:

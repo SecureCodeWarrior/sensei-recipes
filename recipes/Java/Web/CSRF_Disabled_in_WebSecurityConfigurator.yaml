@@ -7,6 +7,7 @@ metadata:
   language: java
   scwCategory: csrf
   enabled: true
+  tags: security;web;CSRF
 search:
   methodcall:
     name: disable

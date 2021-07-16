@@ -9,7 +9,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: descriptions/Androidstoragebestpracticesinsecureoperatingmode.html
-  tags: android-security-set
+  tags: security;framework-specific;mobile;Android
 search:
   argument:
     referenceTo:

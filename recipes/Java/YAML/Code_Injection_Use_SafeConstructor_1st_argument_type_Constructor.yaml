@@ -10,6 +10,7 @@ metadata:
   scwCategory: injection
   enabled: false
   comment: Constructor is subtype of SafeConstructor. Recipe invalid since 1.28.
+  tags: security;basic-protection-set;injection;YAML
 search:
   instanceCreation:
     args:

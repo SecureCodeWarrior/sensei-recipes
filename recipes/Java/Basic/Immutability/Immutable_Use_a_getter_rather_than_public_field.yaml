@@ -8,6 +8,7 @@ metadata:
   language: java
   scwCategory: ""
   enabled: true
+  tags: java-basic;quality
 search:
   field:
     not:

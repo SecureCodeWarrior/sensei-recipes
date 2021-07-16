@@ -8,6 +8,7 @@ metadata:
   scwCategory: ""
   enabled: true
   descriptionFile: AvoidmappingtomultipleHTTPrequestmethods.html
+  tags: framework-specific;web;spring-web;quality
 search:
   annotation:
     type: RequestMapping

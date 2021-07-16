@@ -10,6 +10,7 @@ metadata:
   cweCategory: 200
   enabled: true
   descriptionFile: descriptions/DonotexposeinternalCollection-set.html
+  tags: security;java-basic;quality
 search:
   return:
     in:

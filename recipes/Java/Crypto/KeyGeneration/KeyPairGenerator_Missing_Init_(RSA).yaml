@@ -9,6 +9,7 @@ metadata:
   newCodeOnly: false
   enabled: true
   descriptionFile: descriptions/Key_sizes.html
+  tags: security;basic-protection-set
 search:
   methodcall:
     args:

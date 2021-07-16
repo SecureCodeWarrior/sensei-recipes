@@ -9,6 +9,7 @@ metadata:
   newCodeOnly: false
   scwCategory: broken_cryptography
   enabled: true
+  tags: security;basic-protection-set
 search:
   methodcall:
     args:

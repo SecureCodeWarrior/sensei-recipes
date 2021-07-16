@@ -9,6 +9,7 @@ metadata:
   scwCategory: improper_session_handling
   enabled: true
   descriptionFile: descriptions/SessionconfigurationCookiesConfigureSecureflag.html
+  tags: security;framework-specific;web;spring-web
 search:
   instanceCreation:
     not:

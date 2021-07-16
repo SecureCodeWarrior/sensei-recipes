@@ -10,6 +10,7 @@ metadata:
   scwCategory: injection
   enabled: true
   comment: The only way to initialize Yaml insecurely is to provide an unsafe constructor.
+  tags: security;basic-protection-set;injection;YAML
 search:
   instanceCreation:
     with:
