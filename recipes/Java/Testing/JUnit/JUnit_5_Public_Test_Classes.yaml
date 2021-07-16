@@ -7,7 +7,7 @@ metadata:
   language: java
   scwCategory: ""
   enabled: false
-  tags: JUnit;quality
+  tags: framework-specific;JUnit;quality
 search:
   typeDeclaration:
     with:
