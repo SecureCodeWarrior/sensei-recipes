@@ -5,7 +5,6 @@ metadata:
   shortDescription: Add a description to indicate why the test has been disabled
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   tags: framework-specific;JUnit;quality
 search:

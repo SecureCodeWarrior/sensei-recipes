@@ -6,7 +6,6 @@ metadata:
     factory methods
   level: warning
   language: java; kotlin
-  scwCategory: ""
   enabled: true
   tags: java-basic;quality
 search:

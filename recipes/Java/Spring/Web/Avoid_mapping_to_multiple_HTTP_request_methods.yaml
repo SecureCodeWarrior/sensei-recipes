@@ -5,7 +5,6 @@ metadata:
   shortDescription: Map to one HTTP request method for best practices
   level: info
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: AvoidmappingtomultipleHTTPrequestmethods.html
   tags: framework-specific;web;spring-web;quality

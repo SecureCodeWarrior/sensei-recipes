@@ -8,7 +8,6 @@ metadata:
     it into an external Component class and call it from inside this controller.
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   tags: framework-specific;web;spring-web;quality
 search:

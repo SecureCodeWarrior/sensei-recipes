@@ -5,7 +5,6 @@ metadata:
   shortDescription: AWS can automatically detect the region from the environment
   level: marked_information
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: AutomaticregiondetectionbyAWS.html
   tags: framework-specific;AWS;quality

@@ -1,0 +1,30 @@
+id: scw:android:manifest:launchMode
+version: 8
+metadata:
+  name: 'Manifest Best Practices: Activity: launch mode should not be set'
+  shortDescription: Launch mode should not be set for private activities
+  level: warning
+  language: xml
+  enabled: true
+  tags: security;framework-specific;mobile;Android
+search:
+  attribute:
+    in:
+      element:
+        tagName:
+          caseSensitive: true
+          is: activity
+        without:
+          attribute:
+            name:
+              caseSensitive: true
+              is: android:export
+            value: "true"
+    name:
+      caseSensitive: true
+      is: android:launchMode
+availableFixes:
+- name: Remove the launchMode attribute
+  actions:
+  - remove:
+      target: self

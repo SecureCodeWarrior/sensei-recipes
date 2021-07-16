@@ -5,7 +5,6 @@ metadata:
   shortDescription: Enabling CORS makes the application much more vulnerable
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/DisableCORS.html
   tags: security;framework-specific;web;spring-security

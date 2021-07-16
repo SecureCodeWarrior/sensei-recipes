@@ -6,7 +6,6 @@ metadata:
     instead
   level: info
   language: xml; java; js; php; py; swift; jsp; kotlin
-  scwCategory: ""
   enabled: false
   excludeTestDirs: true
   tags: java-basic;quality

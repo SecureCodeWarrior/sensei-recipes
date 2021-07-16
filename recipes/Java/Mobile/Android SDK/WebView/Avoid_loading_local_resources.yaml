@@ -1,0 +1,23 @@
+id: scw:android:restrict-access-local-resources
+version: 8
+metadata:
+  name: 'WebView Best Practices: Do not allow access to local resources'
+  shortDescription: Avoid targeting local resources
+  level: warning
+  language: java
+  cweCategory: 20
+  enabled: true
+  comment: java_android_webview_best_practices.html
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    args:
+      1:
+        containsUntrustedInput: true
+    name: loadUrl
+    type: android.webkit.WebView
+availableFixes:
+- name: Add a security check to avoid loading local resources
+  actions:
+  - rewrite:
+      to: "if(!{{{arguments.0}}}.startsWith(\"file:\")) {\n\t{{{.}}}\n}"

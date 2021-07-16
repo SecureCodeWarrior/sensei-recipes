@@ -5,7 +5,6 @@ metadata:
   shortDescription: RequestMapping should not be used on non-public methods
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/UserequestMappingonpublicmethods.html
   tags: framework-specific;web;spring-web;quality

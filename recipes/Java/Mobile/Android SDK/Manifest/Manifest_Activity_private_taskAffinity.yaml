@@ -1,0 +1,30 @@
+id: scw:android:manifest:taskAffinity
+version: 8
+metadata:
+  name: 'Manifest Best Practices: Activity: task affinity should not be set'
+  shortDescription: Task affinity should not be set for private activities
+  level: warning
+  language: xml
+  enabled: true
+  tags: security;framework-specific;mobile;Android
+search:
+  attribute:
+    in:
+      element:
+        tagName:
+          caseSensitive: true
+          is: activity
+        without:
+          attribute:
+            name:
+              caseSensitive: true
+              is: android:export
+            value: "true"
+    name:
+      caseSensitive: true
+      is: android:taskAffinity
+availableFixes:
+- name: Remove the taskAffinity attribute
+  actions:
+  - remove:
+      target: self

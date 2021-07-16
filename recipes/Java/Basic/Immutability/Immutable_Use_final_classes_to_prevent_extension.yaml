@@ -5,7 +5,6 @@ metadata:
   shortDescription: Make the classes final to prevent people extending as mutable
   level: info
   language: java
-  scwCategory: ""
   enabled: true
   tags: java-basic;quality
 search:

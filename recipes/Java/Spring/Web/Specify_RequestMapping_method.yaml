@@ -5,7 +5,6 @@ metadata:
   shortDescription: Non-specified RequestMapping method will map to any HTTP request
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: descriptions/SpecifyRequestMappingmethod.html
   tags: framework-specific;web;spring-web;quality

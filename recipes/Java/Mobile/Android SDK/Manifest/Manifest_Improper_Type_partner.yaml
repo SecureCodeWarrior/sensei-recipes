@@ -1,0 +1,58 @@
+id: scw:android:manifest:type-partner
+version: 8
+metadata:
+  name: 'Configuration - Application: Avoid improper platform usage: Partner'
+  shortDescription: This activity/receiver/provider/service is a parter activity/receiver/provider/service
+  level: marked_information
+  language: xml
+  enabled: true
+  tags: developer-experience;framework-specific;mobile;Android
+search:
+  element:
+    allOf:
+    - attribute:
+        name:
+          caseSensitive: true
+          is: android:export
+        label: export
+        value: "true"
+    tagName:
+      caseSensitive: true
+      anyOf:
+      - caseSensitive: true
+        is: activity
+      - caseSensitive: true
+        is: receiver
+      - caseSensitive: true
+        is: provider
+      - caseSensitive: true
+        is: service
+    without:
+      anyOf:
+      - attribute:
+          name:
+            caseSensitive: true
+            is: android:permission
+          label: permission
+      - child:
+          label: filter
+          tagName:
+            caseSensitive: true
+            is: intent-filter
+availableFixes:
+- name: Change Partner Activity to In-House Activity
+  actions:
+  - add:
+      attribute:
+        name: android:permission
+        value: 'TODO: set required permissions'
+- name: Change Partner Activity to Public Activity
+  actions:
+  - add:
+      childElement:
+        code: "<intent-filter>\n\t<action android:name=\"com.examples.ACTION\" />\n\
+          \t<category android:name=\"android.intent.category.XXX\"/>\n</intent-filter>"
+- name: Change Partner Activity to Private Activity
+  actions:
+  - remove:
+      target: self

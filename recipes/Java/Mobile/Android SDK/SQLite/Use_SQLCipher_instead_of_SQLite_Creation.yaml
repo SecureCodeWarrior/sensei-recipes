@@ -1,0 +1,28 @@
+id: scw:android:SQLCipher-creation
+version: 8
+metadata:
+  name: 'Insecure Data Storage: Use SQLCipher Database (creation)'
+  shortDescription: SQLite Databases are an insecure means of storage
+  level: warning
+  language: java; kotlin
+  enabled: true
+  comment: descriptions/java_android_storage_encrypt_local_database_files_use_sqlcipher.html
+  tags: security;framework-specific;mobile;Android;SQL
+search:
+  methodcall:
+    name: openOrCreateDatabase
+    anyOf:
+    - type: android.database.sqlite.SQLiteDatabase
+    - type: android.app.Activity
+    - type: android.content.ContextWrapper
+    - type: android.content.Context
+scopes:
+  library:
+    name:
+      contains: sqlcipher
+availableFixes:
+- name: Use a SQLCipher database
+  actions:
+  - rewrite:
+      to: net.sqlcipher.database.SQLiteDatabase.openOrCreateDatabase(databaseFile,
+        "secretKey", null)

@@ -1,0 +1,58 @@
+id: scw:android:manifest:type-public
+version: 8
+metadata:
+  name: 'Configuration - Application: Avoid improper platform usage: Public'
+  shortDescription: This activity/receiver/provider/service is public
+  level: marked_information
+  language: xml
+  enabled: true
+  tags: developer-experience;framework-specific;mobile;Android
+search:
+  element:
+    allOf:
+    - child:
+        label: filter
+        tagName:
+          caseSensitive: true
+          is: intent-filter
+    - attribute:
+        name:
+          caseSensitive: true
+          is: android:export
+        label: export
+        value: "true"
+    tagName:
+      caseSensitive: true
+      anyOf:
+      - caseSensitive: true
+        is: activity
+      - caseSensitive: true
+        is: receiver
+      - caseSensitive: true
+        is: provider
+      - caseSensitive: true
+        is: service
+    without:
+      attribute:
+        name:
+          caseSensitive: true
+          is: android:permission
+availableFixes:
+- name: Change Public Activity to In-House Activity
+  actions:
+  - remove:
+      target: self
+- name: Change Public Activity to Partner Activity
+  actions:
+  - remove:
+      target: self
+  - add:
+      childElement:
+        code: "<intent-filter>\n\t<action android:name=\"com.examples.ACTION\" />\n\
+          \t<category android:name=\"android.intent.category.XXX\"/>\n</intent-filter>"
+- name: Change Public Activity to Private Activity
+  actions:
+  - remove:
+      target: self
+  - remove:
+      target: self

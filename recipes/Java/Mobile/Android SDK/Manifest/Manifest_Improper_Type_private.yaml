@@ -1,0 +1,62 @@
+id: scw:android:manifest:type-private
+version: 8
+metadata:
+  name: 'Configuration - Application: Avoid improper platform usage: Private'
+  shortDescription: This activity/receiver/provider/service is private
+  level: marked_information
+  language: xml
+  enabled: true
+  tags: developer-experience;framework-specific;mobile;Android
+search:
+  element:
+    tagName:
+      caseSensitive: true
+      anyOf:
+      - caseSensitive: true
+        is: activity
+      - caseSensitive: true
+        is: receiver
+      - caseSensitive: true
+        is: provider
+      - caseSensitive: true
+        is: service
+    without:
+      attribute:
+        name:
+          caseSensitive: true
+          is: android:export
+        label: export
+        value: "true"
+availableFixes:
+- name: Change Private Activity to Public Activity
+  actions:
+  - add:
+      childElement:
+        code: "<intent-filter>\n\t<action android:name=\"com.examples.ACTION\" />\n\
+          \t<category android:name=\"android.intent.category.XXX\"/>\n</intent-filter>"
+  - remove:
+      target: label:export
+  - add:
+      attribute:
+        name: android:export
+        value: "true"
+- name: Change Private Activity to In-House Activity
+  actions:
+  - remove:
+      target: label:export
+  - add:
+      attribute:
+        name: android:export
+        value: "true"
+  - add:
+      attribute:
+        name: android:permission
+        value: 'TODO: set required permissions'
+- name: Change Private Activity to Partner Activity
+  actions:
+  - remove:
+      target: label:export
+  - add:
+      attribute:
+        name: android:export
+        value: "true"

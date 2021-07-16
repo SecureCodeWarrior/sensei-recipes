@@ -1,0 +1,26 @@
+id: scw:android:sensitive-data
+version: 8
+metadata:
+  name: 'Information Exposure: Sensitive information'
+  shortDescription: Do not send sensitive information or put it on the clipboard
+  level: warning
+  language: java
+  enabled: true
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    args:
+      any:
+        value:
+          matches: (?i).*([Cc]redit( )?[cC]ard|password|pass|pwd|passwd|[sS][sS][nN]|[cC][cC][nN]|[sS]ocial(
+            )?[sS]ecurity( )?[nN]umber).*
+    anyOf:
+    - name: putExtra
+      type: android.content.Intent
+    - name: newPlainText
+      type: android.content.ClipData
+availableFixes:
+- name: Remove the sensitive data
+  actions:
+  - remove:
+      target: self

@@ -1,0 +1,19 @@
+id: scw:crypto:secure-random-seed-setter
+version: 8
+metadata:
+  name: 'Random Number Generation: Do not manually define seeds for SecureRandom class'
+  shortDescription: Do not use your own defined seeds
+  level: error
+  language: java
+  enabled: true
+  comment: java_android_random_number_generation_do_not_manually_define_seeds_for_securerandom_class.html
+  tags: security
+search:
+  methodcall:
+    name: setSeed
+    type: java.security.SecureRandom
+availableFixes:
+- name: Remove setSeed call
+  actions:
+  - remove:
+      target: self

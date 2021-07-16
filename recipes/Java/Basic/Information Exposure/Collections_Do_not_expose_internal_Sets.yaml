@@ -6,7 +6,6 @@ metadata:
     or immutable view.
   level: marked_information
   language: java
-  scwCategory: ""
   cweCategory: 200
   enabled: true
   descriptionFile: descriptions/DonotexposeinternalCollection-set.html

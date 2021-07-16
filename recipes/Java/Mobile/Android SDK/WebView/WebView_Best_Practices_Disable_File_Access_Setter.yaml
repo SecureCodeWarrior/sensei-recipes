@@ -1,0 +1,26 @@
+id: scw:android:webview-disable-file-access-setter
+version: 8
+metadata:
+  name: 'WebView Best Practices: Disable File Access (setter)'
+  shortDescription: Enabling file access in the webview could lead to misuse
+  level: error
+  language: java
+  enabled: true
+  comment: java_android_webview_best_practices.html
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    args:
+      1:
+        value: "true"
+    anyOf:
+    - name: setAllowFileAccess
+    - name: setAllowFileAccessFromFileURLs
+    - name: setAllowUniversalAccessFromFileURLs
+    type: android.webkit.WebSettings
+availableFixes:
+- name: Disable file access
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: "false"

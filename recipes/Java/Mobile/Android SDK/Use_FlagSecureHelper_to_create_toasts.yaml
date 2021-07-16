@@ -1,0 +1,22 @@
+id: scw:android:secure-toast
+version: 8
+metadata:
+  name: 'Data Protection - Secure Data Display: Avoid Data Exposure: Use FlagSecureHelper
+    to create toasts'
+  shortDescription: Could lead to Data Exposure
+  level: error
+  language: java
+  enabled: true
+  comment: java_android_handle_sensitive_information_in_ui_elements_with_care_use_flag_secure.html
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    name: makeText
+    type: android.widget.Toast
+availableFixes:
+- name: Use the FlagSecureHelper library to create a secure toast
+  actions:
+  - rewrite:
+      to: com.commonsware.cwac.security.flagsecure.FlagSecureHelper.makeSecureToast({{{arguments.0}}},
+        {{{arguments.1}}}, {{{arguments.2}}})
+      target: self

@@ -1,18 +1,16 @@
-id: scw:android:layoutparams-flag-secure
+id: scw:android:secure-toast-compliant
 version: 8
 metadata:
   name: 'Data Protection - Secure Data Display: Avoid Data Exposure: Use FlagSecureHelper
     to create toasts Compliant'
-  shortDescription: Compliant
+  shortDescription: Could lead to Data Exposure - Compliant
   level: compliant
   language: java
   enabled: true
   descriptionFile: descriptions/java_android_handle_sensitive_information_in_ui_elements_with_care_use_flag_secure.html
-  tags: security;mobile;Android
+  tags: security;framework-specific;mobile;Android
 search:
   methodcall:
-    args:
-      1:
-        value: WindowManager.LayoutParams.FLAG_SECURE
-    name: addFlags
+    name: makeSecureToast
+    type: com.commonsware.cwac.security.flagsecure.FlagSecureHelper
 availableFixes: []

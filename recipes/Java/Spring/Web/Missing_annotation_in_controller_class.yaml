@@ -5,7 +5,6 @@ metadata:
   shortDescription: Missing @RestController annotation.
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   tags: framework-specific;web;spring-web;quality
 search:

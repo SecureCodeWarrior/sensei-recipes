@@ -1,0 +1,50 @@
+id: scw:android:hardware-identifiers
+version: 8
+metadata:
+  name: 'Information Exposure: Avoid using hardware identifiers'
+  shortDescription: Using hardware identifiers is not recommended
+  level: error
+  language: java
+  enabled: true
+  comment: |-
+    There are multiple steps involved in fixing this issue
+
+    Step 1:
+    buildscript {
+      repositories {
+        google()
+      }
+      dependencies {
+        classpath 'com.google.gms:google-services:4.0.1'
+      }
+    }
+
+    Step 2:
+    dependencies {
+      implementation 'com.google.firebase:firebase-core:16.0.1'
+    }
+
+    Step 3: Create google-services.json from the firebase console and add it to the project as mentioned in https://firebase.google.com/docs/android/setup
+
+    Step 4: Add the below entry in app gradle file
+    apply plugin: 'com.google.gms.google-services'
+
+    java_android_best_practices_on_unique_identifiers
+    https://developer.android.com/reference/android/net/wifi/WifiInfo
+    https://developer.android.com/reference/android/bluetooth/BluetoothAdapter
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    anyOf:
+    - name: getAddress
+      type: android.bluetooth.BluetoothAdapter
+    - name: getMacAddress
+      type: android.net.wifi.WifiInfo
+    - name: getHardwareAddress
+      type: java.net.NetworkInterface
+availableFixes:
+- name: Add field to uniquely identify a specific app instance
+  actions:
+  - addField:
+      field: String iid = com.google.android.gms.iid.InstanceID.getInstance(context).getId();
+      target: parentClass

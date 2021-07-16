@@ -1,0 +1,29 @@
+id: scw:android:sqli-appendWhere
+version: 8
+metadata:
+  name: 'SQL Injection: SQLiteQueryBuilder appendWhere'
+  shortDescription: This query could lead to SQL injection
+  level: error
+  language: java
+  scwCategory: injection:sql
+  cweCategory: 89
+  enabled: true
+  comment: |-
+    Binding of parameters through bindString, bindDouble, bindFloat, bindLong
+    https://developer.android.com/reference/android/database/sqlite/SQLiteStatement
+    java_android_secure_database_queries.html
+  tags: security;framework-specific;mobile;injection;Android;SQL
+search:
+  methodcall:
+    args:
+      1:
+        containsUntrustedInput: true
+    name:
+      matches: appendWhere
+    declaration:
+      type: android.database.sqlite.SQLiteQueryBuilder
+availableFixes:
+- name: Replace with escaped version
+  actions:
+  - rewrite:
+      to: appendWhereEscapeString({{{arguments}}})

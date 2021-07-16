@@ -1,0 +1,20 @@
+id: scw:xml:weak-schema-unbounded-maxoccurs
+version: 8
+metadata:
+  name: 'Weak XML Schema: Unbounded Occurrences: limit maxOccurs'
+  shortDescription: Parsing without a limit is dangerous
+  level: warning
+  language: xml
+  enabled: true
+  tags: security;XML
+search:
+  attribute:
+    name:
+      caseSensitive: true
+      is: maxOccurs
+    value: unbounded
+availableFixes:
+- name: Limit max occurrences
+  actions:
+  - set:
+      to: 100

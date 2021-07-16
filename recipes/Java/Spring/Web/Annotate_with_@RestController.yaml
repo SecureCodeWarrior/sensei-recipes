@@ -5,7 +5,6 @@ metadata:
   shortDescription: This class looks like a Spring MVC Rest Controller
   level: info
   language: java
-  scwCategory: ""
   enabled: true
   tags: framework-specific;web;spring-web;quality
 search:

@@ -5,7 +5,6 @@ metadata:
   shortDescription: Create a private constructor for static classes
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   tags: security;java-basic;quality
 search:

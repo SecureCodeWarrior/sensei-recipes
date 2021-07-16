@@ -1,0 +1,33 @@
+id: scw:android:SQLite-sqli-3rd-parameter
+version: 8
+metadata:
+  name: 'SQL Injection: SQLiteDatabase#query - 3rd parameter'
+  shortDescription: This query could lead to SQL injection
+  level: error
+  language: java
+  scwCategory: injection:sql
+  cweCategory: 89
+  enabled: true
+  comment: |-
+    java_android_secure_database_queries.html
+    https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#public-methods
+  tags: security;framework-specific;mobile;injection;Android;SQL
+search:
+  methodcall:
+    args:
+      3:
+        containsUntrustedInput: true
+        type: java.lang.String
+      4:
+        type: java.lang.String[]
+    name:
+      anyOf:
+      - is: query
+      - is: update
+      - is: updateWithOnConflict
+    type: android.database.sqlite.SQLiteDatabase
+availableFixes:
+- name: Parameterize the query
+  actions:
+  - parameterize:
+      placeholderFormat: '?'

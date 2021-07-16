@@ -1,0 +1,34 @@
+id: scw:android:sqli-compileStatement
+version: 8
+metadata:
+  name: 'SQL Injection: SQLiteQueryBuilder compileStatement'
+  shortDescription: This query could lead to SQL injection
+  level: error
+  language: java
+  scwCategory: injection:sql
+  cweCategory: 89
+  enabled: true
+  comment: |-
+    Binding of parameters through bindString, bindDouble, bindFloat, bindLong
+    https://developer.android.com/reference/android/database/sqlite/SQLiteStatement
+    java_android_secure_database_queries.html
+  tags: security;framework-specific;mobile;injection;Android;SQL
+search:
+  methodcall:
+    args:
+      1:
+        containsUntrustedInput: true
+    name:
+      matches: compileStatement
+    declaration:
+      type: android.database.sqlite.SQLiteDatabase
+availableFixes:
+- name: Parameterize the query
+  actions:
+  - parameterize:
+      placeholderFormat: '?'
+      extractUntrustedInput:
+        methodsOnObject:
+          target:
+            argument:
+              atArgumentPosition: 1

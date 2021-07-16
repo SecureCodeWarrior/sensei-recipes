@@ -1,0 +1,13 @@
+id: scw:web:Error-500-missing
+version: 8
+metadata:
+  name: 'Information Leakage: Improper Error Handling: Set error-page 500'
+  shortDescription: Missing required error page for error-code 500
+  level: error
+  language: ""
+  scwCategory: infoexposure:errordetails
+  enabled: true
+  comment: |
+    Issue: cannot match XML element content
+  tags: security;web
+availableFixes: []

@@ -9,7 +9,6 @@ metadata:
     using Spring, making it container-agnostic.
   level: error
   language: java; kotlin
-  scwCategory: ""
   enabled: true
   comment: ""
   tags: spring;dependency-injection;framework-specific;quality

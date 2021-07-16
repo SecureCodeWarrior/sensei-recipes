@@ -1,0 +1,30 @@
+id: scw:android:secure-delete
+version: 8
+metadata:
+  name: 'Insecure Data Storage: Securely delete files'
+  shortDescription: This method only removes metadata, sensitive data can still be
+    recovered
+  level: error
+  language: java
+  enabled: true
+  comment: To be scoped to Android
+  tags: security;framework-specific;mobile;Android
+search:
+  methodcall:
+    name: delete
+    type: java.io.File
+availableFixes:
+- name: Overwrite with random data first
+  actions:
+  - rewrite:
+      to: "java.io.FileOutputStream out = null;\ntry {\n\tout = this.getApplicationContext().openFileOutput({{{children.0.children.0.children.0}}}.getPath(),\
+        \ android.content.Context.MODE_PRIVATE);\n\tjava.security.SecureRandom random\
+        \ = new java.security.SecureRandom();\n\tlong size = {{{children.0.children.0.children.0}}}.getTotalSpace();\n\
+        \twhile (size > 0) {\n\t\tint numberOfBytes = 0;\n\t\t//check size left to\
+        \ overwrite\n\t\tif (size <= Integer.MAX_VALUE) {\n\t\t\tnumberOfBytes = (int)\
+        \ size;\n\t\t} else {\n\t\t\tnumberOfBytes = Integer.MAX_VALUE\n\t\t}\n\t\t\
+        byte randomBytes[] = new byte[numberOfBytes];\n\t\trandom.nextBytes(randomBytes);\n\
+        \t\tout.write(randomBytes);\n\t\tsize -= numberOfBytes;\n\t}\n} catch (java.io.IOException\
+        \ e) {\n\t// TODO: Handle exception here\n} finally {\n\ttry {\n\t\tout.flush();\n\
+        \t\tout.close();\n\t} catch(Exception e) {\n\t\t// TODO: Handle exception\
+        \ here\n\t}\n}\n// The data to be deleted is overwritten\n{{{ . }}}"

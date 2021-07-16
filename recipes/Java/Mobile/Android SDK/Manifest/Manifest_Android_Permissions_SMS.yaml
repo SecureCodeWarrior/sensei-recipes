@@ -1,0 +1,28 @@
+id: scw:android:permission-sms
+version: 8
+metadata:
+  name: 'Manifest Best Practices: Permissions: SMS'
+  shortDescription: Usage of SMS discouraged
+  level: error
+  language: xml
+  enabled: true
+  comment: java_android_do_not_send_sensitive_information_over_sms.html
+  tags: security;framework-specific;mobile;Android
+search:
+  element:
+    attribute:
+      name:
+        caseSensitive: true
+        is: android:name
+      value:
+        anyOf:
+        - is: android.permission.SEND_SMS
+        - is: android.permission.RECEIVE_SMS
+    tagName:
+      caseSensitive: true
+      is: uses-permission
+availableFixes:
+- name: Delete this permission
+  actions:
+  - remove:
+      target: self

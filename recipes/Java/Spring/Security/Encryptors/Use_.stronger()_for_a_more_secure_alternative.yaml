@@ -5,7 +5,6 @@ metadata:
   shortDescription: Encryptors.stronger() is more secure than Encryptors.standard()
   level: warning
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: Usestrongerforamoresecurealternative.html
   tags: security;framework-specific;spring-security

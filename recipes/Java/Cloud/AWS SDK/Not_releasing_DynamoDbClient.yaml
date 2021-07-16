@@ -5,7 +5,6 @@ metadata:
   shortDescription: Call the close() method to release the DynamoDbClient
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   descriptionFile: ReleaseDynamoDbClientClose.html
   tags: framework-specific;AWS;quality

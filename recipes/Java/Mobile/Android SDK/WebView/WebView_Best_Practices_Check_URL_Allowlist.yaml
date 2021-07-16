@@ -1,0 +1,15 @@
+id: scw:android:webview-url-allowlist
+version: 8
+metadata:
+  name: 'WebView Best Practices: Check URL to White List'
+  shortDescription: Consider allowlist validation for URLs passed to this method
+  level: error
+  language: java
+  cweCategory: 20
+  enabled: true
+  tags: security;mobile;framework-specific;Android
+search:
+  methodcall:
+    name: loadUrl
+    type: android.webkit.WebView
+availableFixes: []

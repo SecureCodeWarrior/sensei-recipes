@@ -2,12 +2,12 @@ id: scw:android:disable-content-access
 version: 8
 metadata:
   name: 'Android WebView best practices: Disable Content Access'
-  shortDescription: WebView setting with security implications
+  shortDescription: Enabling content access in the webview could lead to misuse
   level: error
   language: java
   enabled: true
   descriptionFile: descriptions/AndroidWebViewbestpractices.html
-  tags: android-security-set
+  tags: security;framework-specific;Android;mobile
 search:
   instanceCreation:
     not:

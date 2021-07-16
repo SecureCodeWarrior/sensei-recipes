@@ -6,7 +6,6 @@ metadata:
     race conditions across multiple threads.
   level: error
   language: java
-  scwCategory: ""
   enabled: true
   comment: https://docs.spring.io/spring-security/site/docs/5.4.2/reference/html5/#servlet-authentication-securitycontextholder
   tags: security;framework-specific;web;spring-security

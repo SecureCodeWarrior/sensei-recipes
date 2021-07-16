@@ -1,0 +1,32 @@
+id: scw:xml:missing_SSL
+version: 8
+metadata:
+  name: 'Missing transport-level security: No SSL for database connection'
+  shortDescription: ""
+  level: error
+  language: xml
+  scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
+  enabled: true
+search:
+  element:
+    attribute:
+      anyOf:
+      - name:
+          caseSensitive: true
+          is: name
+        value: hibernate.connection.url
+      - name:
+          caseSensitive: true
+          is: value
+        value:
+          matches: .*useSSL=false.*?
+      label: urlnode
+    tagName:
+      caseSensitive: true
+      is: property
+availableFixes:
+- name: Enable SSL in the connection string
+  actions:
+  - rewrite:
+      to: '{{#sed}}s/false/true/,{{/sed}}'
+      target: label:urlnode
