@@ -1,0 +1,29 @@
+id: scw:spring:authentication-user-enum-UserNotFoundException
+version: 8
+metadata:
+  name: 'Authentication: Username Enumeration: setHideUserNotFoundExceptions should
+    be set to true'
+  shortDescription: Prevent enumeration by not throwing an exception that reveals
+    the existence of the username
+  level: warning
+  language: java
+  scwCategory: auth:userenum
+  cweCategory: 200
+  enabled: true
+  comment: ""
+  descriptionFile: descriptions/Authentication_Username_Enumeration_setHideUserNotFoundExceptions_should_be_set_to_true.html
+  tags: security;framework-specific;web;spring-security
+search:
+  methodcall:
+    args:
+      1:
+        type: boolean
+        value: "false"
+    name: setHideUserNotFoundExceptions
+    type: org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider
+availableFixes:
+- name: Set setHideUserNotFoundException to true
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: "true"
