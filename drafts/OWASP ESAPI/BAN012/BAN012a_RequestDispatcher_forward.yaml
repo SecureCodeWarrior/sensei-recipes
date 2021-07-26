@@ -1,0 +1,25 @@
+id: scw:esapi:ban012-RequestDispatcher.forward
+version: 8
+metadata:
+  name: 'Injection: ESAPI: BAN012a: RequestDispatcher.forward with Http version of
+    arguments'
+  shortDescription: This is an OWASP ESAPI Banned method.
+  level: error
+  language: java
+  enabled: true
+  comment: java_esapi_ban010ban015ban021ban022_configuring_httpservletresponses
+search:
+  methodcall:
+    args:
+      1:
+        type: javax.servlet.http.HttpServletRequest
+      2:
+        type: javax.servlet.http.HttpServletResponse
+    name: forward
+    type: javax.servlet.RequestDispatcher
+availableFixes:
+- name: Replace with safe alternative
+  actions:
+  - rewrite:
+      to: org.owasp.esapi.reference.DefaultHTTPUtilities.getInstance().sendForward({{{
+        children.0.arguments.0}}}, {{{ children.0.arguments.1}}}, "location");

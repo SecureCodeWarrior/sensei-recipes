@@ -1,0 +1,12 @@
+id: Copy_of_Security_Misconfiguration__ESAPI__BAN016__Properties
+version: 8
+metadata:
+  name: 'Security Misconfiguration: ESAPI: BAN016: Properties - Compliance'
+  shortDescription: Compliant
+  level: error
+  language: java
+  enabled: true
+search:
+  instanceCreation:
+    type: org.owasp.esapi.reference.crypto.DefaultEncryptedProperties
+availableFixes: []
