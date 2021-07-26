@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <p id="abstract">Set <code>setHideUserNotFoundExceptions()</code> to true in order to throw a <code>BadCredentialsException</code> instead of a <code>UsernameNotFoundException</code>. The former gives a more general exception message, while the latter divulges the (non-)existence of a username in the application.</p>
+    <br>
+    <b>Before</b>
+<pre>daoAuthenticationProvider.setHideUserNotFoundExceptions(<b>false</b>);</pre>
+    <b>After</b>
+<pre>daoAuthenticationProvider.setHideUserNotFoundExceptions(<b>true</b>);</pre>
+    <br>
+    <b>References</b>
+    <ul>
+      <li><a href="https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication.html">OWASP Top 10 2017: A2 Broken Authentication</a></li>
+      <li><a href="https://cwe.mitre.org/data/definitions/200.html">Mitre CWE 200: Exposure of Sensitive Information to an Unauthorized Actor</a></li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+id: scw:spring:authentication-user-enum-UsernameNotFoundException
+version: 8
+metadata:
+  name: 'Authentication: Username Enumeration: avoid UsernameNotFoundException'
+  shortDescription: Avoid throwing a UsernameNotFoundException as it could lead to
+    username enumeration
+  level: warning
+  language: java
+  scwCategory: auth:userenum
+  cweCategory: 200
+  enabled: true
+  comment: ""
+  descriptionFile: descriptions/Authentication_Username_Enumeration_avoid_UsernameNotFoundException.html
+  tags: security;framework-specific;web;spring-security
+search:
+  instanceCreation:
+    in:
+      throw: {}
+    type: org.springframework.security.core.userdetails.UsernameNotFoundException
+availableFixes:
+- name: Throw a more general BadCredentialsException
+  actions:
+  - rewrite:
+      to: new org.springframework.security.authentication.BadCredentialsException({{{arguments}}})

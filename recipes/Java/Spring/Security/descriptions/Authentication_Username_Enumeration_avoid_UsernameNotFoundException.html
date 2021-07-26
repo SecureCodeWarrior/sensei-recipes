@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <p id="abstract">Avoid attackers from guessing usernames by throwing a <code>BadCredentialsException()</code> which returns a more general error message, instead of a <code>UsernameNotFoundException()</code>, which divulges the (non-)existence of a username.</p>
+    <br>
+    <b>Before</b>
+<pre>throw new <b>UsernameNotFoundException</b>(e.Message());</pre>
+    <b>After</b>
+<pre>throw new <b>BadCredentialsException</b>(e.Message());</pre>
+    <br>
+    <b>References</b>
+    <ul>
+      <li><a href="https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication.html">OWASP Top 10 2017: A2 Broken Authentication</a></li>
+      <li><a href="https://cwe.mitre.org/data/definitions/200.html">Mitre CWE 200: Exposure of Sensitive Information to an Unauthorized Actor</a></li>
+    </ul>
+  </body>
+</html>
