@@ -1,0 +1,17 @@
+id: scw:esapi:ban016-properties
+version: 8
+metadata:
+  name: 'Security Misconfiguration: ESAPI: BAN016: Properties'
+  shortDescription: This is an OWASP ESAPI Banned method.
+  level: error
+  language: java
+  enabled: true
+search:
+  instanceCreation:
+    type: java.util.Properties
+availableFixes:
+- name: Replace with safe alternative
+  actions:
+  - rewrite:
+      to: new org.owasp.esapi.reference.crypto.DefaultEncryptedProperties()
+      target: self

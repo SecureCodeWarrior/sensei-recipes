@@ -1,0 +1,20 @@
+id: scw:esapi:ban018-timestamp
+version: 8
+metadata:
+  name: 'Secure Random: ESAPI: BAN018e: Timestamp'
+  shortDescription: This is an OWASP ESAPI Banned method.
+  level: error
+  language: java
+  enabled: true
+search:
+  methodcall:
+    type: java.security.Timestamp
+availableFixes:
+- name: Use Encryptor.getTimeStamp(offset)
+  actions:
+  - rewrite:
+      to: long timestamp = org.owasp.esapi.reference.crypto.JavaEncryptor.getInstance().getTimeStamp();
+- name: Use Encryptor.getRelativeTimeStamp(offset)
+  actions:
+  - rewrite:
+      to: long timestamp = org.owasp.esapi.reference.crypto.JavaEncryptor.getInstance().getRelativeTimeStamp(offset);

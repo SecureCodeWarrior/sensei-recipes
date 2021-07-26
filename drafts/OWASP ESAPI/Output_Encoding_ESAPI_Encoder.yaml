@@ -1,0 +1,47 @@
+id: scw:esapi:output-encoding
+version: 8
+metadata:
+  name: 'Output Encoding: ESAPI: ESAPI Encoder'
+  shortDescription: Insufficient Output Encoding
+  level: error
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        containsUntrustedInput: true
+    not:
+      in:
+        methodcall:
+          name:
+            anyOf:
+            - is: encodeForHTML
+            - is: encodeForHTMLAttribute
+            - is: encodeForJavaScript
+            - is: encodeForCSS
+          type: org.owasp.esapi.Encoder
+    anyOf:
+    - name: append
+      type: java.lang.StringBuffer
+    - name: append
+      type: java.lang.StringBuilder
+    - name: append
+      type: java.io.Writer
+availableFixes:
+- name: Wrap with HTML encoding
+  actions:
+  - rewrite:
+      to: ESAPI.encoder().encodeForHTML({{{ . }}})
+- name: Wrap with HTML attribute encoding
+  actions:
+  - rewrite:
+      to: ESAPI.encoder().encodeForHTMLAttribute({{{ . }}})
+- name: Wrap with CSS encoding
+  actions:
+  - rewrite:
+      to: ESAPI.encoder().encodeForCSS({{{ . }}})
+- name: Wrap with JavaScript encoding
+  actions:
+  - rewrite:
+      to: ESAPI.encoder().encodeForJavaScript({{{ . }}})

@@ -1,0 +1,14 @@
+id: scw:esapi:ban002-printStacktrace-compliant
+version: 8
+metadata:
+  name: 'Sensitive Information: ESAPI: BAN002: Throwable.printStacktrace'
+  shortDescription: Compliant
+  level: compliant
+  language: java
+  enabled: true
+  comment: ""
+search:
+  methodcall:
+    name: log
+    type: org.owasp.esapi.reference.Log4JLogger
+availableFixes: []

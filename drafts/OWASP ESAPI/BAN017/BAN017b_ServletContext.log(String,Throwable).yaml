@@ -1,0 +1,24 @@
+id: scw:esapi:ban017-ServletContext.log-string-throwable
+version: 8
+metadata:
+  name: 'Sensitive Information: ESAPI: BAN017b: ServletContext.log(String,Throwable)'
+  shortDescription: This is an OWASP ESAPI Banned method.
+  level: error
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        type: java.lang.String
+      2:
+        type: java.lang.Throwable
+    name: log
+    type: javax.servlet.ServletContext
+availableFixes:
+- name: Replace with safe alternative
+  actions:
+  - rewrite:
+      to: org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(getClass());
+        logger.log(org.apache.log4j.Level.ALL,{{{children.0.arguments.0}}},{{{children.0.arguments.1}}});
+      target: self
