@@ -9,7 +9,7 @@ metadata:
   enabled: true
   tags: framework-specific;web;spring-web;quality
 search:
-  typeDeclaration:
+  class:
     not:
       annotation:
         anyOf:
@@ -26,6 +26,8 @@ search:
             type: org.springframework.web.bind.annotation.PutMapping
         - annotation:
             type: org.springframework.web.bind.annotation.DeleteMapping
+    without:
+      modifier: abstract
 availableFixes:
 - name: Add @RestController annotation
   actions:

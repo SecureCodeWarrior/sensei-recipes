@@ -12,11 +12,11 @@ metadata:
   tags: security;framework-specific;web;CSRF;spring-web
 search:
   annotation:
+    owner:
+      method: {}
     not:
       parameters:
       - name: method
-    owner:
-      method: {}
     in:
       typeDeclaration:
         with:
@@ -61,4 +61,3 @@ availableFixes:
   actions:
   - rewrite:
       to: '@RequestMapping(method = org.springframework.web.bind.annotation.RequestMethod.TRACE)'
-
