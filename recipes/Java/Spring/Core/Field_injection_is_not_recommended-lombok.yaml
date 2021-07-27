@@ -1,7 +1,7 @@
-id: scw:spring:field-injection
+id: Field_injection_is_not_recommended_lombok
 version: 8
 metadata:
-  name: Field injection is not recommended
+  name: Field injection is not recommended (lombok)
   shortDescription: Field injection is not recommended, because the list of required
     dependencies are unclear during instance creation. This makes testing more difficult
     and could lead to runtime exceptions when the bean is instantiated without spring.
@@ -11,15 +11,21 @@ metadata:
   enabled: true
   comment: ""
   excludeTestDirs: true
-  tags: spring;dependency-injection;framework-specific;quality
+  tags: spring;dependency-injection;framework-specific;lombok;quality
 search:
   field:
     annotation:
       type: org.springframework.beans.factory.annotation.Autowired
 scopes:
-  not:
-    library:
-      name:
-        contains: org.projectlombok:lombok
-        caseSensitive: false
-availableFixes: []
+  library:
+    name:
+      contains: org.projectlombok:lombok
+      caseSensitive: false
+availableFixes:
+- name: use lombok to inject dependencies
+  actions:
+  - addAnnotation:
+      annotation: '@lombok.RequiredArgsConstructor'
+      target: parentClass
+  - rewrite:
+      to: private final {{{ typeElement }}} {{{ qualifier }}};
