@@ -6,10 +6,10 @@ metadata:
   level: info
   language: java
   scwCategory: ""
-  enabled: true
+  enabled: false
   tags: spring;framework-specific;quality
 search:
-  typeDeclaration:
+  class:
     not:
       annotation:
         type: org.springframework.stereotype.Repository
@@ -20,3 +20,4 @@ availableFixes:
   actions:
   - addAnnotation:
       annotation: '@org.springframework.stereotype.Repository'
+      target: self

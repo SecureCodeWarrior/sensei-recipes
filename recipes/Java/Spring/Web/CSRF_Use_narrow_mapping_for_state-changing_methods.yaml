@@ -2,7 +2,7 @@ id: scw:spring:web:csrf:state-changing-methods-mapping
 version: 8
 metadata:
   name: 'Session management: Avoid CSRF: Use narrow mapping for state-changing methods'
-  shortDescription: Could lead to CSRF
+  shortDescription: Non-specified RequestMapping method will map to any HTTP request
   level: error
   language: java
   newCodeOnly: false
@@ -12,6 +12,11 @@ metadata:
   tags: security;framework-specific;web;CSRF;spring-web
 search:
   annotation:
+    not:
+      parameters:
+      - name: method
+    owner:
+      method: {}
     in:
       typeDeclaration:
         with:
@@ -19,33 +24,41 @@ search:
             type: org.springframework.stereotype.Controller
     type: org.springframework.web.bind.annotation.RequestMapping
 availableFixes:
-- name: Use @GetMapping
+- name: Set to @GetMapping
   actions:
   - rewrite:
       to: '@org.springframework.web.bind.annotation.GetMapping({{{ elementValuePairs
         }}})'
-- name: Use @PostMapping
+- name: Set to @PostMapping
   actions:
   - rewrite:
       to: '@org.springframework.web.bind.annotation.PostMapping({{{ elementValuePairs
         }}})'
-- name: Use @PutMapping
+- name: Set to @PutMapping
   actions:
   - rewrite:
       to: '@org.springframework.web.bind.annotation.PutMapping({{{ elementValuePairs
         }}})'
-- name: Use @DeleteMapping
+- name: Set to @DeleteMapping
   actions:
   - rewrite:
       to: '@org.springframework.web.bind.annotation.DeleteMapping({{{ elementValuePairs
         }}})'
-- name: Use @PatchMapping
+- name: Set to @PatchMapping
   actions:
   - rewrite:
       to: '@org.springframework.web.bind.annotation.PatchMapping({{{ elementValuePairs
         }}})'
-- name: Use @GetMapping
+- name: Set to HEAD by adding method parameter
   actions:
   - rewrite:
-      to: '@org.springframework.web.bind.annotation.GetMapping({{{ elementValuePairs
-        }}})'
+      to: '@RequestMapping(method = org.springframework.web.bind.annotation.RequestMethod.HEAD)'
+- name: Set to OPTIONS by adding method parameter
+  actions:
+  - rewrite:
+      to: '@RequestMapping(method = org.springframework.web.bind.annotation.RequestMethod.OPTIONS)'
+- name: Set to TRACE by adding method parameter
+  actions:
+  - rewrite:
+      to: '@RequestMapping(method = org.springframework.web.bind.annotation.RequestMethod.TRACE)'
+

@@ -6,7 +6,7 @@ metadata:
     request handlers, therefore should be annotated as such. If you really believe
     this method should not be exposed as a Rest endpoint, please consider extracting
     it into an external Component class and call it from inside this controller.
-  level: error
+  level: warning
   language: java
   scwCategory: ""
   enabled: true
@@ -24,6 +24,7 @@ search:
         annotation:
           type: org.springframework.web.bind.annotation.RestController
     modifier: public
+    constructor: false
 availableFixes:
 - name: Add @GetMapping annotation
   actions:

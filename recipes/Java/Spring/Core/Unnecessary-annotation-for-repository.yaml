@@ -1,0 +1,20 @@
+id: Unnecessary_annotation_for_repository
+version: 8
+metadata:
+  name: Unnecessary annotation for repository
+  shortDescription: The annotation @Repository is not required for interfaces that
+    extend a Spring repository
+  level: warning
+  language: java
+  enabled: true
+search:
+  annotation:
+    owner:
+      interface:
+        super:
+          name: org.springframework.data.repository.Repository
+    type: org.springframework.stereotype.Repository
+availableFixes:
+- name: Remove unnecessary annotation
+  actions:
+  - remove: {}

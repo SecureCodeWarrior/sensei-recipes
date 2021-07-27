@@ -6,7 +6,10 @@ metadata:
   level: info
   language: java
   scwCategory: insufficient_logging:generic
-  enabled: true
+  enabled: false
+  comment: |-
+    TODO: mark on the println / e.printStackTrace()
+    -> also add @Slf4j, @Log4j, @Logback annotations etc
   descriptionFile: Logging/descriptions/AddLogger.html
   tags: logging;quality
 search:

@@ -2,7 +2,7 @@ id: scw:spring:web:restcontroller-annotated
 version: 8
 metadata:
   name: Missing annotation in controller class
-  shortDescription: Missing @RestController annotation.
+  shortDescription: This class is missing a @Controller or @RestController annotation
   level: error
   language: java
   scwCategory: ""
@@ -12,7 +12,9 @@ search:
   typeDeclaration:
     not:
       annotation:
-        type: org.springframework.web.bind.annotation.RestController
+        anyOf:
+        - type: org.springframework.stereotype.Controller
+        - type: org.springframework.web.bind.annotation.RestController
     member:
       method:
         anyOf:
@@ -25,14 +27,13 @@ search:
         - annotation:
             type: org.springframework.web.bind.annotation.DeleteMapping
 availableFixes:
-- name: Understand why use @RestController
-  actions:
-  - goto:
-      type: URL
-      value: https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html
-      target: self
 - name: Add @RestController annotation
   actions:
   - addAnnotation:
       annotation: '@org.springframework.web.bind.annotation.RestController'
+      target: parentClass
+- name: Add @Controller annotation
+  actions:
+  - addAnnotation:
+      annotation: '@org.springframework.stereotype.Controller'
       target: parentClass

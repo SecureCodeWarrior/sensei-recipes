@@ -1,0 +1,47 @@
+id: scw:spring:valid-args
+version: 8
+metadata:
+  name: Annotate with @Valid
+  shortDescription: You can enforce validation against the arguments passed to this
+    function
+  level: info
+  language: java
+  scwCategory: ""
+  enabled: false
+  comment: 'TODO: enable this recipe when we can validate that the "@Valid" type contains
+    at least 1 field with a javax.validation annotation'
+  tags: spring;framework-specific;quality
+search:
+  parameter:
+    not:
+      allOf:
+      - type: java.lang.Throwable
+      in:
+        expression: {}
+        '@interface': {}
+    in:
+      method:
+        in:
+          typeDeclaration:
+            with:
+              allOf:
+              - allOf:
+                - annotation:
+                    type:
+                      reference:
+                        matches: org\.springframework\.stereotype\..*
+                      checkInheritance: true
+                - annotation:
+                    type: org.springframework.validation.annotation.Validated
+        modifier: public
+        constructor: false
+    type: java.lang.Object
+    without:
+      annotation:
+        type: javax.validation.Valid
+availableFixes:
+- name: Add @Valid annotation
+  actions:
+  - rewrite:
+      to: '@javax.validation.Valid {{{annotations}}} {{{type}}} {{name}}'
+      target: self

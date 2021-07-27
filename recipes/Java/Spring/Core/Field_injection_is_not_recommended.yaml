@@ -7,11 +7,12 @@ metadata:
     is provided (you should have a guard clause to make sure the argument is not null.)
     A constructor therefore enforces the dependency requirement whether or not you're
     using Spring, making it container-agnostic.
-  level: error
-  language: java; kotlin
+  level: warning
+  language: xml; java; js; php; py; swift; jsp; kotlin
   scwCategory: ""
   enabled: true
   comment: ""
+  excludeTestDirs: true
   tags: spring;dependency-injection;framework-specific;quality
 search:
   field:
