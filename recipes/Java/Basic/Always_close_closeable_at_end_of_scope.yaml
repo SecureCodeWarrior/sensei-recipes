@@ -15,7 +15,7 @@ search:
           name: close
     type: java.io.Closeable
 availableFixes:
-- name: empty fix
+- name: Close the resource after its last use
   actions:
   - addMethodCall:
       name: close
