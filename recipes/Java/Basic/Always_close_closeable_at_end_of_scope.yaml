@@ -1,7 +1,7 @@
 id: scw:java:unreleased-streams
 version: 8
 metadata:
-  name: 'Unreleased Resource: Streams: Always close stream at end of scope'
+  name: 'Unreleased Resource: Always close stream at end of scope'
   shortDescription: Resource has not been closed
   level: error
   language: java
@@ -13,9 +13,9 @@ search:
       followedBy:
         methodcall:
           name: close
-    type: java.io.BufferedReader
+    type: java.io.Closeable
 availableFixes:
-- name: empty fix
+- name: Close the resource after its last use
   actions:
   - addMethodCall:
       name: close
