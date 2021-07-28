@@ -16,7 +16,9 @@ search:
         type: boolean
         value: "true"
     name: setUseRegisteredSuffixPatternMatch
-    type: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+    anyOf:
+    - type: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+    - type: org.springframework.web.servlet.config.annotation.PathMatchConfigurer
 scopes:
   library:
     name:
