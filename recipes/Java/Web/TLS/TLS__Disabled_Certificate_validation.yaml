@@ -10,7 +10,7 @@ metadata:
 search:
   method:
     annotation:
-      type: Override
+      type: java.lang.Override
     name: verify
     returnType: boolean
     child:

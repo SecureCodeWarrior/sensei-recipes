@@ -22,8 +22,6 @@ search:
 availableFixes:
 - name: Call the close method
   actions:
-  - rewrite:
-      to: '{{{ . }}}'
   - addMethodCall:
       name: close
       position: end-of-life

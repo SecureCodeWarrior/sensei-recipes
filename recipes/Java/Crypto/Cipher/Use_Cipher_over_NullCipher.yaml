@@ -18,6 +18,6 @@ availableFixes:
 - name: Use Cipher with the recommended parameters
   actions:
   - rewrite:
-      to: Cipher.getInstance("AES/GCM/NoPadding")
+      to: javax.crypto.Cipher.getInstance("AES/GCM/NoPadding")
   - modifyAssignedVariable:
       type: javax.crypto.Cipher

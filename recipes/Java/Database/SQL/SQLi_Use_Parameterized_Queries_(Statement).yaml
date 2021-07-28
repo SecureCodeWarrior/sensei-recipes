@@ -106,7 +106,7 @@ availableFixes:
   - changeTypeOfCallObject:
       rewriteLastAssignment: '{{{ qualifier }}}.prepareStatement({{{ markedElement.arguments.0}}}{{#arguments}},
         {{{.}}}{{/arguments}})'
-      type: PreparedStatement
+      type: java.sql.PreparedStatement
   - modifyArguments:
       remove:
       - 1

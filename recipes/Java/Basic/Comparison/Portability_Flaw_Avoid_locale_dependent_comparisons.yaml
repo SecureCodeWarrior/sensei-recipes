@@ -32,5 +32,5 @@ availableFixes:
 - name: Add ROOT locale
   actions:
   - rewrite:
-      to: '{{{ qualifier.qualifier }}}.{{{ qualifier.methodName }}}(Locale.ROOT).{{{
+      to: '{{{ qualifier.qualifier }}}.{{{ qualifier.methodName }}}(java.util.Locale.ROOT).{{{
         methodName }}}({{{ arguments.0 }}})'

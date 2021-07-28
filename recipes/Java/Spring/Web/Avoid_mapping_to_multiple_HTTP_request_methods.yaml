@@ -10,7 +10,7 @@ metadata:
   tags: framework-specific;web;spring-web;quality
 search:
   annotation:
-    type: RequestMapping
+    type: org.springframework.web.bind.annotation.RequestMapping
     parameters:
     - name: method
       value:

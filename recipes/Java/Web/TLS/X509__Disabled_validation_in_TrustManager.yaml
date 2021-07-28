@@ -13,7 +13,7 @@ search:
     annotation:
       type: Override
     name: getAcceptedIssuers
-    returnType: X509Certificate[]
+    returnType: javax.security.cert.X509Certificate[]
     child:
       return:
         value:

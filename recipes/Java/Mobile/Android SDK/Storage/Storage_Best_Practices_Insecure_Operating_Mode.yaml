@@ -19,5 +19,5 @@ availableFixes:
 - name: Change mode to Context.MODE_PRIVATE
   actions:
   - rewrite:
-      to: Context.MODE_PRIVATE
+      to: android.content.Context.MODE_PRIVATE
       target: self

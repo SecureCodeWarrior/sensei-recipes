@@ -46,5 +46,5 @@ availableFixes:
 - name: Add field to uniquely identify a specific app instance
   actions:
   - addField:
-      field: String iid = com.google.android.gms.iid.InstanceID.getInstance(context).getId();
+      field: java.lang.String iid = com.google.android.gms.iid.InstanceID.getInstance(context).getId();
       target: parentClass

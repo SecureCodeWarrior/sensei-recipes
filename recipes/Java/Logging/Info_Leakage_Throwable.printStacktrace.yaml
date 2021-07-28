@@ -22,4 +22,4 @@ availableFixes:
 - name: Print the message of the exception instead
   actions:
   - rewrite:
-      to: System.err.println({{{ qualifier }}}.getMessage())
+      to: java.lang.System.err.println({{{ qualifier }}}.getMessage())

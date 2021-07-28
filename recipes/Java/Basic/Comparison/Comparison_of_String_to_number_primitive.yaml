@@ -28,7 +28,7 @@ availableFixes:
   actions:
   - modifyArguments:
       rewrite:
-        1: String.valueOf({{{.}}})
+        1: java.lang.String.valueOf({{{.}}})
 - name: Replace comparison with false
   actions:
   - rewrite:

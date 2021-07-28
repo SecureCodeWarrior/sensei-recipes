@@ -22,8 +22,6 @@ search:
 availableFixes:
 - name: Call the shutdown method
   actions:
-  - rewrite:
-      to: '{{{ . }}}'
   - addMethodCall:
       name: shutdown
       position: end-of-life
