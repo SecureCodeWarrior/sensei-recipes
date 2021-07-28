@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../../drafts/SEI-CERT/Examples/DCL/DCL.iml" filepath="$PROJECT_DIR$/../../../../drafts/SEI-CERT/Examples/DCL/DCL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../drafts/SEI-CERT/Examples/EXP/EXP.iml" filepath="$PROJECT_DIR$/../../../../drafts/SEI-CERT/Examples/EXP/EXP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../drafts/SEI-CERT/Examples/Examples.iml" filepath="$PROJECT_DIR$/../../../../drafts/SEI-CERT/Examples/Examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IDS/IDS.iml" filepath="$PROJECT_DIR$/IDS/IDS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NUM/NUM.iml" filepath="$PROJECT_DIR$/NUM/NUM.iml" />
+    </modules>
+  </component>
+</project>

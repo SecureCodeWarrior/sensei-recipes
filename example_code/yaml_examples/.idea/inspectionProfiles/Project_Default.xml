@@ -1,0 +1,25 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="45d88881-b007-4de0-8810-9671942a96ad_EnforceuseofJPAModelGengeneratedmodels" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="af9ccd15-0920-4b80-a670-d10c7607d4c3_InfoLeakageThrowable.printStacktraceleaksvaluableprogramstructureinformation-1" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="af9ccd15-0920-4b80-a670-d10c7hjhgfjh_Immutableavoidsettersthatreturnvalues" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XMLInjectionSetmissingsecureprocessingfeature" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XMLInjectionSetsecureprocessingfeaturetotrue" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XMLInjectionUsexmlschema" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEDocumentBuilderFactoryAddmissingfeaturedissallow-doctype-decl" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEDocumentBuilderFactoryAddmissingfeatureexternal-parameter-entities" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEDocumentBuilderFactoryAddmissingfeatureload-external-dtd" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEDocumentBuilderFactoryAddmissingfeaturesetExpandEntityReferences" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEDocumentBuilderFactoryAddmissingfeaturesetXIncludeAware" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEDocumentBuilderFactorySetfeaturestofalse" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEDocumentBuilderFactorySetfeaturestotrue" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEDocumentBuilderFactorySetterstofalse" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEXMLInputFactoryAddIS_SUPPORTING_EXTERNAL_ENTITIESfeature" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEXMLInputFactoryAddSUPPORT_DTDfeature" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwxmlcookbook_XXEXMLInputFactorySetfeaturestofalse" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwyamlcookbook_InjectionAvoidCodeInjectionUseSafeConstructor1stargumentoftypeConstructor" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwyamlcookbook_InjectionAvoidCodeInjectionUseSafeConstructorargumentsbutnoConstructorargument" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwyamlcookbook_InjectionAvoidCodeInjectionUseSafeConstructornoarguments" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+  </profile>
+</component>

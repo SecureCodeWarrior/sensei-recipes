@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/example_code/guice-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/example_code/junit-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/example_code/pojoexamples/pom.xml" />
+        <option value="$PROJECT_DIR$/example_code/SpringExamples/pom.xml" />
+        <option value="$PROJECT_DIR$/example_code/SQL-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/example_code/yaml_examples/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
