@@ -1,0 +1,31 @@
+id: New_Recipe1
+version: 8
+metadata:
+  name: 'Suffix Matching: UseRegisteredSuffixPatternMatch set to false to prevent
+    suffix pattern matching '
+  shortDescription: 'Prevent suffix pattern matching by setting UseRegisteredSuffixPatternMatch
+    to false '
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: Java/Spring/Web/descriptions/Suffix_Matching__UseRegisteredSuffixPatternMatch_set_to_false_to_prevent_suffix_pattern_matching_.html
+search:
+  methodcall:
+    args:
+      1:
+        type: boolean
+        value: "true"
+    name: setUseRegisteredSuffixPatternMatch
+    type: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+scopes:
+  library:
+    name:
+      contains: org.springframework:spring-webmvc
+      caseSensitive: false
+    maxVersion: 5.2.3.RELEASE
+availableFixes:
+- name: Set UseRegisteredSuffixPatternMatch to false
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: "false"
