@@ -1,0 +1,35 @@
+id: scw:android:tapjacking-add-filterTouchesWhenObscured
+version: 8
+metadata:
+  name: 'Configuration - User Interface: Avoid Tapjacking: Add filterTouchesWhenObscured'
+  shortDescription: Not setting filterTouchesWhenObscured to true allows adversaries
+    to hijack users' taps.
+  level: warning
+  language: xml
+  cweCategory: 1021
+  enabled: true
+  descriptionFile: descriptions/LayoutbestpracticesenablefilterTouchesWhenObscured.html
+  tags: security;framework-specific;mobile;Android
+search:
+  element:
+    tagName:
+      caseSensitive: true
+      anyOf:
+      - caseSensitive: true
+        is: Button
+      - caseSensitive: true
+        is: WebView
+      - caseSensitive: true
+        is: ImageButton
+      - caseSensitive: true
+        is: ToggleButton
+    without:
+      attribute:
+        name: android:filterTouchesWhenObscured
+availableFixes:
+- name: Set filterTouchesWhenObscured to "true"
+  actions:
+  - add:
+      attribute:
+        name: android:filterTouchesWhenObscured
+        value: '"true"'

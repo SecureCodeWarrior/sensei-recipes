@@ -14,13 +14,12 @@ search:
       is: application
     without:
       attribute:
-        name:
-          caseSensitive: true
-          is: android:allowBackup
-        label: filter
+        name: android:allowBackup
         value: "false"
 availableFixes:
 - name: Set allowBackup to false
   actions:
-  - remove:
-      target: label:filter
+  - add:
+      attribute:
+        name: android:allowBackup
+        value: '"false"'
