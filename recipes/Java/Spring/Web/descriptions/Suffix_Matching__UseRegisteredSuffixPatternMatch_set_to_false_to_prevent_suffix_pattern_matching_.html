@@ -1,6 +1,6 @@
 
 
-<code>setUseRegisteredSuffixPatternMatch(true)</code>allows suffix pattern matching. In other words, a controller mapping to <code>/users</code>, also maps to <code>/users.*</code> (where the wildcard equates to a pattern registered in the <code>contentNegotiationManager</code>). Best practices for content negotation recommend the use of the Accept header over file extensions.
+<code>setUseRegisteredSuffixPatternMatch(true)</code>allows suffix pattern matching. In other words, a controller mapping to <code>/users</code>, also maps to <code>/users.*</code> (where the wildcard equates to a pattern registered in the <code>contentNegotiationManager</code>). Best practices for content negotiation recommend the use of the Accept header over file extensions.
 
 <table><tr><td><font color="gray">Before:</font></td><td><font color="#AA0000">mapping.setUseRegisteredSuffixPatternMatch(true);</font></td></tr><tr><td><font color="gray">After:</font></td><td>mapping.setUseRegisteredSuffixPatternMatch(false);</td></tr></table>
 <h3>Resources</h3><ul><li><a href="https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-ann-requestmapping-suffix-pattern-match">Spring docs: Spring WebMVC - Suffix Match</a></li></ul>
