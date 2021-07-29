@@ -7,7 +7,7 @@ metadata:
   language: java
   cweCategory: 625
   enabled: true
-  tags: security;SEI-CERT-IDS08J;java-basic
+  tags: security;SEI-CERT-IDS08-J;java-basic
 search:
   methodcall:
     args:
