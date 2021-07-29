@@ -6,7 +6,7 @@ metadata:
   level: info
   language: java
   enabled: true
-  tags: java-basic;quality
+  tags: opinionated;java-basic;quality
 search:
   typeDeclaration:
     allOf:

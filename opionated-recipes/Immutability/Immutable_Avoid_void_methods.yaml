@@ -8,7 +8,7 @@ metadata:
   language: xml; java; js; php; py; swift; jsp; kotlin
   enabled: false
   excludeTestDirs: true
-  tags: java-basic;quality
+  tags: opinionated;java-basic;quality
 search:
   method:
     not:

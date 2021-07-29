@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: false
   descriptionFile: descriptions/LoggerName.html
-  tags: opionionated;logging;quality
+  tags: opinionated;logging;quality
 search:
   methodcall:
     args:
