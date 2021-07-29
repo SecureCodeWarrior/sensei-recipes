@@ -1,0 +1,24 @@
+<html>
+<body>
+<p id="abstract">The range of allowed XML documents and features should be limited to prevent injection attacks and other logic issues.</p>
+<br>
+<p id="impact_and_desired_state">Using a strict XML Schema enables developers to describe and enforce which elements are allowed in the XML documents processed by the application. The schema can limit the number of occurrences of elements to prevent overflows or can explicitly indicate the structure of the document to prevent type mismatches.</p>
+<br>
+<pre>factory.setSchema(Schema);</pre>
+<p>Where <b>factory</b> is an instance of:</p>
+<ul>
+    <li>DocumentBuilderFactory</li>
+    <li>TransformerFactory</li>
+    <li>SAXParserFactory</li>
+    <li>SchemaFactory</li>
+    <li>XPathFactory</li>
+</ul>
+<b>Resources</b>
+<ul>
+  <li><a href="https://www.baeldung.com/java-xml">Baeldung on XML in Java</a></li>
+  <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html">OWASP XXE Prevention Cheat Sheet</a></li>
+  <li><a href="https://cwe.mitre.org/data/definitions/611.html">CWE 611: Improper Restriction of XML External Entity Reference</a></li>
+  <li><a href="https://portswigger.net/web-security/xxe">PortSwigger Web Security Academy: XXE injection</a></li>
+</ul>
+</body>
+</html>

@@ -2,12 +2,12 @@ id: scw:java:public-static-final
 version: 8
 metadata:
   name: 'Code quality: public static fields should be final'
-  shortDescription: public static fields should be final
+  shortDescription: Making this field final prevents accidentally overwriting it at
+    runtime
   level: warning
   language: java; kotlin
   enabled: true
-  comment: Does the IDE suggest this?
-  tags: security;java-basic;quality
+  tags: java-basic;quality
 search:
   field:
     allOf:
@@ -16,7 +16,7 @@ search:
     without:
       modifier: final
 availableFixes:
-- name: Make final
+- name: Make this field final
   actions:
   - rewrite:
       to: public static final {{{ type }}} {{{ name }}} = {{{ assignedExpression }}};

@@ -1,0 +1,37 @@
+<html>
+  <body>
+    <p>Field injection is not recommended, because the list of required dependencies are unclear during instance creation. This makes testing more difficult and could lead to runtime exceptions when the bean is instantiated without spring.</p>
+    <br>
+    <p>To clearly state the required dependencies of the class, they should be added to the constructor that has the <code>@Autowired</code> annotation. This way, these dependencies can be provided more easily through Spring's dependency injection mechanism.</p>
+    <br>
+    <b>Correct code example</b>
+<pre>
+@Configuration
+public class Config {
+
+    @Bean
+    public Engine engine() {
+        return new Engine("v8");
+    }
+
+    @Bean
+    public Transmission transmission() {
+        return new Transmission("sliding");
+    }
+}
+
+@Component
+public class Car {
+
+    @Autowired
+    public Car(Engine engine, Transmission transmission) {
+        this.engine = engine;
+        this.transmission = transmission;
+    }
+}</pre>
+<b>References</b>
+<ul>
+<li><a href="https://www.baeldung.com/spring-dependency-injection">Baeldung on Spring dependency injection</a></li>
+</ul>
+  </body>
+</html>

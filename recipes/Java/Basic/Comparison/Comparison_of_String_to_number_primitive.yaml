@@ -8,6 +8,7 @@ metadata:
   scwCategory: blog:generic
   cweCategory: 480
   enabled: true
+  descriptionFile: descriptions/Comparison_of_String_to_number_primitive.html
   tags: java-basic;quality
 search:
   methodcall:

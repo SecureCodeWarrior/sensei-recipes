@@ -2,10 +2,13 @@ id: scw:xml:weak-schema-unbounded-maxoccurs
 version: 8
 metadata:
   name: 'Weak XML Schema: Unbounded Occurrences: limit maxOccurs'
-  shortDescription: Parsing without a limit is dangerous
+  shortDescription: Unbounded sequences may lead to overflow or excessive resource
+    consumption
   level: warning
   language: xml
+  cweCategory: 770
   enabled: true
+  descriptionFile: descriptions/Weak_XML_Schema__Unbounded_Occurrences__limit_maxOccurs.html
   tags: security;XML
 search:
   attribute:

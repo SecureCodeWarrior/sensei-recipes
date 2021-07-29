@@ -9,7 +9,8 @@ metadata:
   newCodeOnly: false
   scwCategory: injection:code
   enabled: true
-  comment: The only way to initialize Yaml insecurely is to provide an unsafe constructor.
+  comment: ""
+  descriptionFile: descriptions/java_snakeyaml.html
   tags: security;basic-protection-set;injection;YAML
 search:
   instanceCreation:

@@ -20,7 +20,7 @@ search:
     declaration:
       type: javax.net.ssl.SSLContext
 availableFixes:
-- name: 'Set protocol version to TLSv1.2 '
+- name: Set protocol version to TLSv1.2
   actions:
   - rewrite:
       to: '{{{ expressionElement }}}("TLSv1.2")'

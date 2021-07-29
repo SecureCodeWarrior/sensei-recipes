@@ -8,7 +8,7 @@ metadata:
   newCodeOnly: false
   scwCategory: injection:ldap
   enabled: true
-  comment: ""
+  descriptionFile: descriptions/Data_Injection_Parameterize_LDAP_Filter.html
   tags: security;LDAP;injection
 search:
   methodcall:

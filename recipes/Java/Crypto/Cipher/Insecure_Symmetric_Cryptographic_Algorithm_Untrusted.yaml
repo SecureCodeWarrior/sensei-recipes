@@ -1,10 +1,11 @@
-id: scw:crypto:cipher:symmetric
+id: scw:crypto:cipher:symmetric-untrusted
 version: 8
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use strong
-    symmetric cryptographic algorithm'
-  shortDescription: Could lead to cryptographic weakness
-  level: error
+    symmetric cryptographic algorithm (Untrusted)'
+  shortDescription: Alowing untrusted input to determine the encryption algorithm
+    could lead to cryptographic weakness.
+  level: warning
   language: java
   newCodeOnly: false
   scwCategory: broken_cryptography:use_of_insecuredeprecated_alogirthms
@@ -15,11 +16,8 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: false
+        containsUntrustedInput: true
         type: java.lang.String
-        value:
-          not:
-            matches: AES/GCM/NoPadding|.*RSA.*|.*ECIES.*
     name: getInstance
     declaration:
       type: javax.crypto.Cipher

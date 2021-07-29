@@ -2,7 +2,7 @@ id: scw:android:disable-backups
 version: 8
 metadata:
   name: 'Manifest best practices: Disable Backups'
-  shortDescription: Enabling backups could lead to undesired manipulation.
+  shortDescription: Enabling backups could lead to undesired manipulation
   level: error
   language: xml
   scwCategory: code_tampering:backups_enabled
@@ -20,6 +20,7 @@ search:
     value:
       matches: true|^$
 availableFixes:
-- name: Change android:allowBackup to false
+- name: Set allowBackup to false
   actions:
-  - null
+  - set:
+      to: '"false"'

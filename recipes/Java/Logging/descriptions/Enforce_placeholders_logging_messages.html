@@ -1,8 +1,8 @@
 <html>
 <body>
-<p id="abstract">Untrusted inputs in logging should be filtered to prevent log injection.</p>
+<p id="abstract">Untrusted inputs in logging should not be concatenated directly into log messages.</p>
 <br>
-<p id="impact_and_desired_state">When newline characters are allowed to be logged, this could lead to fake messages being inserted into the logs by an attacker.</p>
+<p id="impact_and_desired_state">Placeholders should be used to include untrusted data into log messaged in order to prevent altering the structure of the log messages, similar to parameterized queries for SQL.</p>
 <br>
 <b>References</b>
 <ul><li><a href="https://cwe.mitre.org/data/definitions/117.html">Mitre CWE-117: Improper Output Neutralization for Logs</a></li>

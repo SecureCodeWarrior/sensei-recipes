@@ -8,6 +8,7 @@ metadata:
   language: java
   enabled: true
   tags: security;logging;injection
+  descriptionFile: descriptions/Enforce_placeholders_logging_messages.html
 search:
   methodcall:
     args:
@@ -23,7 +24,7 @@ search:
     declaration:
       type: org.slf4j.Logger
 availableFixes:
-- name: use placeholders
+- name: Use placeholder to insert untrusted data
   actions:
   - parameterize:
       placeholderFormat: '{}'

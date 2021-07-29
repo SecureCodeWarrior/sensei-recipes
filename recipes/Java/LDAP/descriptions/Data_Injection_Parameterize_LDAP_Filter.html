@@ -1,0 +1,20 @@
+<html>
+<body>
+<p id="abstract">Untrusted input should be sanitized before it is used in an LDAP query.</p>
+<br>
+<p id="impact_and_desired_state">Failing to sanitize untrusted input may result in the execution of prohibited LDAP queries or modification of the LDAP tree. To sanitize the untrusted input, use parameterized queries, similar to the case for SQL queries. Java's <code>javax.naming.directory.DirContext</code> supports this using an overload of its <code>search</code> method.</p>
+<br>
+<b>Before</b>
+<pre>NamingEnumeration&lt;SearchResult&gt; result = context.search(userdn,
+    "(objectClass=" + untrusted + ")", controls);</pre>
+<br>
+<b>After</b>
+<pre>NamingEnumeration&lt;SearchResult&gt; result = context.search(userdn,
+    "(objectClass=<b>{0})", new Object[]{untrusted}</b>, controls);</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html">OWASP Cheat Sheet Series: LDAP Injection Prevention Cheat Sheet</a></li>
+</ul>
+</body>
+</html>

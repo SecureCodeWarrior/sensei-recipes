@@ -1,0 +1,13 @@
+<html>
+<body>
+<p id="abstract">Comparing a String to a primitive using <code>equals</code> will always return false.</p>
+<br>
+<p id="impact_and_desired_state">The first check performed by the <code>equals</code> method is a checking whether the String and object it is compared to are of the same type. This check will always fail as primitives and Strings have different types. Therefore, the comparison can be replaced with <code>false</code>.</p>
+<br>
+<b>Before</b>
+<pre>boolean areEqual = <b>"123".equals(123)</b>;</pre>
+<br>
+<b>After</b>
+<pre>boolean areEqual = <b>false</b>;</pre>
+</body>
+</html>

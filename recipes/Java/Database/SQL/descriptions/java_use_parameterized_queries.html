@@ -6,13 +6,14 @@
 <br>
 <b>Before</b>
 <pre>String sqlString = "SELECT * FROM db_user WHERE username = '"
-        + username + "' AND password = '" + pwd + "'";
+    + username + "' AND password = '" + pwd + "'";
 Statement stmt = connection.createStatement();
 ResultSet rs = stmt.executeQuery(sqlString);
 </pre>
 <br>
 <b>After</b>
-<pre>String sqlString = "SELECT * FROM db_user WHERE username = <b>?</b> AND password = <b>?</b>";
+<pre>String sqlString = "SELECT * FROM db_user WHERE username = <b>?</b>"
+    + AND password = <b>?</b>";
 <b>PreparedStatement stmt = connection.prepareStatement(sqlString);
 stmt.setString(1, username);
 stmt.setString(2, hashPassword(password));</b>

@@ -1,0 +1,26 @@
+<html>
+<body>
+<p id="abstract">Allowing untrusted input in regular expressions can lead to the unintentional inclusion of sensitive data or denial-of-service vulnerabilities.</p>
+<br>
+<p id="impact_and_desired_state">Untrusted input should be sanitized before it is used as part of regular expressions. To do so, the <code>Pattern</code> class provides the <code>Quote</code> method.</p>
+<br>
+<b>Before</b>
+<pre>public static void FindLogEntry(String search) {
+    // Construct regex dynamically from user string
+    String regex = "(.*? +public\\[\\d+\\] +.*" + search + ".*)";
+}</pre>
+<br>
+<b>After</b>
+<pre>public static void FindLogEntry(String search) {
+    <b>// Sanitize search string
+    search = Pattern.quote(search);</b>
+    // Construct regex dynamically from user string
+    String regex = "(.*? +public\\[\\d+\\] +.*" + search + ".*)";
+}</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://wiki.sei.cmu.edu/confluence/display/java/IDS08-J.+Sanitize+untrusted+data+included+in+a+regular+expression">SEI CERT - IDS08-J. Sanitize untrusted data included in a regular expression</a></li>
+</ul>
+</body>
+</html>

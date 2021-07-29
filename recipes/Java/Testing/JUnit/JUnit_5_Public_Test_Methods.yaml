@@ -1,19 +1,20 @@
 id: scw:junit:public-methods
 version: 8
 metadata:
-  name: 'JUnit: JUnit 5 test methods do not need to be public'
+  name: 'JUnit: JUnit 5 public test methods'
   shortDescription: JUnit 5 test methods do not need public visibility
   level: warning
   language: java; kotlin
   enabled: true
   tags: framework-specific;JUnit;quality
+  descriptionFile: descriptions/JUnit_5_Public_Test_Methods.html
 search:
   method:
     annotation:
       type: org.junit.jupiter.api.Test
     modifier: public
 availableFixes:
-- name: Remove @Test method public visibility
+- name: Make the test package-private by omitting the public modifier
   actions:
   - changeModifiers:
       visibility: ""

@@ -7,11 +7,13 @@ metadata:
   language: java
   scwCategory: insufficient_transport_layer_protection:weak_certificate_validation
   enabled: true
+  descriptionFile: descriptions/TLS__Disabled_Certificate_validation.html
 search:
   method:
     annotation:
       type: java.lang.Override
     name: verify
+    type: javax.net.ssl.HostnameVerifier
     returnType: boolean
     child:
       return:

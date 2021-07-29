@@ -1,0 +1,24 @@
+<html>
+<body>
+<p id="abstract">JUnit 5 tests do not need public visibility.</p>
+<br>
+<p id="impact_and_desired_state">The public and protected modifiers can be useful when tests need to be overrideable, however this is the exception. In general, tests should be package-private to prevent any interference like naming collisions or accidental overrides.</p>
+<br>
+<b>Before</b>
+<pre>@Test
+<b>public</b> void shouldReturn200OkForValidPath() throws Exception {
+    // Perform the test
+}</pre>
+<br>
+<b>After</b>
+<pre>@Test
+void shouldReturn200OkForValidPath() throws Exception {
+    // Perform the test
+}</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://stackoverflow.com/a/55230350">Sam Brannen's (JUnit 5 team member) reply to StackOverflow question on test visibility.</a></li>
+</ul>
+</body>
+</html>

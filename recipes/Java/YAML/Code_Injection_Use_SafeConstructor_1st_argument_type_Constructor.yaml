@@ -5,11 +5,12 @@ metadata:
     Constructor'
   shortDescription: Could lead to Remote Code Execution
   level: error
-  language: java
+  language: java; kotlin
   newCodeOnly: false
   scwCategory: injection:code
   enabled: false
-  comment: Constructor is subtype of SafeConstructor. Recipe invalid since 1.28.
+  comment: ""
+  descriptionFile: descriptions/java_snakeyaml.html
   tags: security;basic-protection-set;injection;YAML
 search:
   instanceCreation:
@@ -17,6 +18,11 @@ search:
       1:
         type: org.yaml.snakeyaml.constructor.Constructor
     type: org.yaml.snakeyaml.Yaml
+scopes:
+  library:
+    name:
+      contains: org.yaml:snakeyaml
+    maxVersion: 1.27
 availableFixes:
 - name: Change Constructor to SafeConstructor
   actions:

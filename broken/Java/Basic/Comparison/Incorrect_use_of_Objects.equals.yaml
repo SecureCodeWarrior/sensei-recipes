@@ -10,6 +10,7 @@ metadata:
     Object equals can be true when a primitive and object are compared. Example: Objects.equals(Integer.valueOf(2),2);
     Even the method deepEquals would return true for the above example.
     Dead giveaways for inequality are potential recipes.
+    IntelliJ detects this with the default inspections.
   tags: java-basic;quality
 search:
   methodcall:

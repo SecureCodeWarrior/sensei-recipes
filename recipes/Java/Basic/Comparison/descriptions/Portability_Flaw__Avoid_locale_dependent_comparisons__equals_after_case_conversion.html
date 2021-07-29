@@ -1,0 +1,38 @@
+<html>
+<body>
+<p id="abstract">Performing a comparison using equals after changing the casing of strings is locale dependent. This comparison may lead to unexpected results.</p>
+<br>
+<p id="impact_and_desired_state">When performing changes to the casing of a string, a locale needs to be provided to map lowercase and uppercase characters. If no locale is provided, the JVM will use its default locale. In practice this means that characters may change in an unexpected way when changing their case, depending on the locale used to create the string. When comparing the resulting strings for equality, they might not be considered equal even though they would be expected to be equal.</p>
+<p>For example, in the Turkish locale the character "\u0130" indicates the "latin capital letter i with dot above". When comparing using the default locale, it will not be considered equal to the character 'i', however, it can be interpreted by code as such. This can lead to validation routine bypassing, enabling other types of attacks.</p>
+<p>To resolve the issue, either provide a locale to the case changing operation or remove the case changing operation and use <code>equalsIgnoreCase</code> instead.</p>
+<br>
+<b>Before</b>
+<pre>public static void processTag(String tag) {
+  if (tag.toUpperCase().equals("SCRIPT")) {
+    return;
+  }
+  // Process tag
+}</pre>
+<br>
+<b>After (Using explicit locale)</b>
+<pre>public static void processTag(String tag) {
+  if (tag.toUpperCase(<b>Locale.ROOT</b>).equals("SCRIPT")) {
+    return;
+  }
+  // Process tag
+}</pre>
+<br>
+<b>After (Using <code>equalsIgnoreCase</code>)</b>
+<pre>public static void processTag(String tag) {
+  if (tag.equalsIgnoreCase("SCRIPT")) {
+    return;
+  }
+  // Process tag
+}</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://wiki.sei.cmu.edu/confluence/display/java/STR02-J.+Specify+an+appropriate+locale+when+comparing+locale-dependent+data">SEI CERT - STR02-J. Specify an appropriate locale when comparing locale-dependent data</a></li>
+</ul>
+</body>
+</html>

@@ -10,7 +10,8 @@ metadata:
   cweCategory: 474
   enabled: true
   comment: ""
-  tags: security;java-basic;quality
+  descriptionFile: descriptions/Portability_Flaw__Avoid_locale_dependent_comparisons__equals_after_case_conversion.html
+  tags: security;java-basic;quality;SEI-CERT-STR02-J
 search:
   methodcall:
     name: equals

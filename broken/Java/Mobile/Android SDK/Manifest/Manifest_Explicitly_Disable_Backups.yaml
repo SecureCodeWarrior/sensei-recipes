@@ -1,9 +1,8 @@
 id: scw:android:disable-backups-explicitly
 version: 8
 metadata:
-  name: 'Manifest best practices: explicitly Disable Backups'
-  shortDescription: The default value of allowBackup is true, this could lead to undesired
-    manipulation.
+  name: 'Manifest best practices: Explicitly disable backups'
+  shortDescription: Enabling backups could lead to undesired manipulation
   level: error
   language: xml
   scwCategory: code_tampering:backups_enabled
@@ -19,6 +18,9 @@ search:
       attribute:
         name: android:allowBackup
 availableFixes:
-- name: Insert attribute android:allowBackup
+- name: Set allowBackup to false
   actions:
-  - null
+  - add:
+      attribute:
+        name: android:allowBackup
+        value: '"false"'

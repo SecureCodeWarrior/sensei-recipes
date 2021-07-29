@@ -1,0 +1,24 @@
+<html>
+<body>
+<p id="abstract">Sequences in XML documents should be limited to prevent logic issues such as overflows.</p>
+<br>
+<p id="impact_and_desired_state">Using a strict XML Schema enables developers to describe and enforce which elements are allowed in the XML documents processed by the application. The schema should limit the number of occurrences of elements to prevent overflows.</p>
+<br>
+<b>Example code:</b>
+<br>
+<pre>&lt;element&gt;
+  &lt;complexType&gt;
+    &lt;sequence minOccurs="1" maxOccurs="unbounded"&gt;
+      &lt;element type="string"&gt;&lt;/element&gt;
+    &lt;/sequence&gt;
+  &lt;/complexType&gt;
+&lt;/element&gt;</pre>
+<br>
+<b>Resources</b>
+<ul>
+  <li><a href="https://www.baeldung.com/java-xml">Baeldung on XML in Java</a></li>
+  <li><a href="https://cwe.mitre.org/data/definitions/770.html">CWE 770: Allocation of Resources Without Limits or Throttling</a></li>
+<li><a href="https://cwe.mitre.org/data/definitions/400.html">CWE-400: Uncontrolled Resource Consumption</a></li>
+</ul>
+</body>
+</html>

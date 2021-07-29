@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <p id="abstract">Values contained in a wrapper class should be compared using the <code>equals</code> method of the wrapper instead of the reference comparison operator (==) to prevent unexpected results.</p>
+    <br>
+    <p id="impact_and_desired_state">As an example, using the reference comparison operator for Long values in the range -128 to 127 will behave the same as the <code>equals</code> method. However, if we perform the same comparison with values outside of this range, the results will differ. This is due to Java maintaining a constant pool for the mentioned range of Long values. Using the <code>equals</code> method will always yield the expected results and should be preferred.</p>
+    <br>
+    <b>Before</b>
+<pre>
+long a = 1024L;
+long b = 1024L;
+boolean areEqual = a == b;</pre>
+    <br>
+    <b>After</b>
+<pre>
+long a = 1024L;
+long b = 1024L;
+boolean isMatch = a<b>.equals(</b>b<b>)</b>;</pre>
+<br>
+<b>References</b>
+<ul>
+<li><a href="https://www.baeldung.com/java-compare-long-values">Baeldung on comparing Long values</a></li>
+</ul>
+  </body>
+</html>

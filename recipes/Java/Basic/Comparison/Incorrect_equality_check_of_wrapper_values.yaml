@@ -8,6 +8,7 @@ metadata:
   scwCategory: blog:generic
   cweCategory: 480
   enabled: true
+  descriptionFile: descriptions/Incorrect_equality_check_of_wrapper_values.html
   tags: java-basic;quality
 search:
   comparison:

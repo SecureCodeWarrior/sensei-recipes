@@ -8,6 +8,8 @@ metadata:
   language: java
   enabled: true
   tags: spring;spring-core;framework-specific;quality
+  descriptionFile: descriptions/Unnecessary-annotation-for-repository.html
+  comment: Exception translation support is added by the @Repository annotation
 search:
   annotation:
     owner:
