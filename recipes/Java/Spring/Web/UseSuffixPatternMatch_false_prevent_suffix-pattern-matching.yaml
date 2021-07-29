@@ -3,8 +3,8 @@ version: 8
 metadata:
   name: 'Suffix Matching: UseSuffixPatternMatch set to false to prevent suffix pattern
     matching'
-  shortDescription: 'Prevent suffix pattern matching by setting UseSuffixPatternMatching
-    to false'
+  shortDescription: Prevent suffix pattern matching by setting UseSuffixPatternMatching
+    to false
   level: warning
   language: java; kotlin
   enabled: true
