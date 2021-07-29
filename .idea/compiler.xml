@@ -18,9 +18,14 @@
       <module name="guiceexamples" target="1.8" />
       <module name="junitexamples" target="1.8" />
       <module name="pojoexamples" target="1.8" />
-      <module name="SpringExamples" target="1.5" />
+      <module name="SpringExamples" target="11" />
       <module name="sqlexamples" target="1.8" />
       <module name="yaml_examples" target="11" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringExamples" options="-parameters" />
+    </option>
   </component>
 </project>
