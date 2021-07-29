@@ -1,6 +1,0 @@
-
-
-Prior to 5.3, Spring MVC by default allowed suffix pattern matching. In other words, a controller mapping to <code>/users</code>, also maps to <code>/users.*</code> (where the wildcard could be a path extension, such as .json or .xml). Best practices for content negotiation recommend the use of the Accept header over file extensions. 
-
-<table><tr><td><font color="gray">Before:</font></td><td><font color="#AA0000">configureMapping.setUseSuffixPatternMatch(true);</font></td></tr><tr><td><font color="gray">After:</font></td><td>configureMapping.setUseSuffixPatternMatch(false);</td></tr></table>
-<h3>Resources</h3><ul><li><a href="https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-ann-requestmapping-suffix-pattern-match">Spring docs: Spring WebMVC - Suffix Match</a></li></ul>
