@@ -1,4 +1,4 @@
-id: New_Recipe
+id: scw:logging:log-untrusted-input
 version: 8
 metadata:
   name: Untrusted input in logging

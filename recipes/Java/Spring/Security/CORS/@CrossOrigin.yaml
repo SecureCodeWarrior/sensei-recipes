@@ -1,4 +1,4 @@
-id: aee0bb21-bb6f-47c3-8c52-87fcc21085d8
+id: scw:spring:security:cors:CrossOrigin-broad
 version: 8
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin'

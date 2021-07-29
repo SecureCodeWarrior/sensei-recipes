@@ -1,4 +1,4 @@
-id: 3scw:spring:jdbc:queryForList
+id: scw:spring:jdbc:queryForList
 version: 8
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements:

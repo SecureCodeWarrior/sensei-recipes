@@ -1,4 +1,4 @@
-id: 0036434e-8e1e-4947-9cdc-e875917f1aba
+id: scw:spring:security:cors:CrossOrigin-exposedHeaders
 version: 8
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin - exposedHeaders'

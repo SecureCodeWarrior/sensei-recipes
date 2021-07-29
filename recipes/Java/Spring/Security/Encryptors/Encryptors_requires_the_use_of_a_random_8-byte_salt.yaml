@@ -1,4 +1,4 @@
-id: 0a47a3c8-9d00-4c36-b304-006ab2b826dd
+id: scw:spring:encryptors:salt
 version: 8
 metadata:
   name: Encryptors requires the use of a random 8-byte salt
