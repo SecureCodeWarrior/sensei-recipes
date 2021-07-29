@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/AndroidWebViewbestpractices.html
-  tags: Android;framework-specific;security;mobile
+  tags: Android;framework-specific;security;mobile;android-security-set
 search:
   instanceCreation:
     not:

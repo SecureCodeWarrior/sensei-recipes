@@ -1,12 +1,12 @@
 id: scw:android:createDeviceProtectedStorageContext
 version: 8
 metadata:
-  name: 'Data Protection: Avoid Data Exposure - Avoid Device Protected StorageCompliant'
+  name: 'Data Protection: Avoid Data Exposure - Avoid Device Protected Storage - Compliant'
   shortDescription: Compliant
   level: compliant
   language: java
   enabled: true
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework-specific;mobile;Android;android-security-set
 search:
   methodcall:
     args:

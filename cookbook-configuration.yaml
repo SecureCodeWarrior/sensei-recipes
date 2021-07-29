@@ -15,11 +15,11 @@ cookbooks: # List of cookbooks
     description: Examples of simple Java mistakes that can be easily detected and fixed with Sensei
     includedTags: [java-basic]
     excludedTags: []
-  - id: scw:recipes
-    name: All SCW Recipes
-    description: Collection of all recipes available
-    includedTags: [] # Should be interpreted as wildcard to retrieve all cookbooks
-    excludedTags: []
+#  - id: scw:recipes
+#    name: All SCW Recipes
+#    description: Collection of all recipes available
+#    includedTags: [] # Should be interpreted as wildcard to retrieve all cookbooks
+#    excludedTags: []
   - id: scw:aws
     name: AWS SDK
     description: Examples of best practices that can be easily detected and fixed with Sensei
@@ -30,33 +30,28 @@ cookbooks: # List of cookbooks
     description: Collection of recipes related to Java Spring
     includedTags: [spring]
     excludedTags: []
-  - id: scw:crypto
-    name: Crypto
-    description: Collection of recipes related to Cryptography
-    includedTags: [crypto]
-    excludedTags: []
-  - id: scw:web
-    name: Web
-    description: Collection of recipes related to web applications
-    includedTags: [web]
-    excludedTags: []
-  - id: scw:xml
-    name: XML
-    description: Collection of recipes related to XML
-    includedTags: [XML,XXE]
-    excludedTags: [] # Should Spring recipes or other framework specific recipes be filtered?
-  - id: scw:snakeyaml
-    name: SnakeYAML
-    description: Collection of recipes related to YAML parsing using SnakeYAML
-    includedTags: [snakeyaml]
-    excludedTags: []
-  - id: scw:bps-without-xxe
-    name: bps without XXE
-    description: poc collection of bps without xxe
-    includedTags: [basic-protection-set]
-    excludedTags: [XXE]
+#  - id: scw:crypto
+#    name: Crypto
+#    description: Collection of recipes related to Cryptography
+#    includedTags: [crypto]
+#    excludedTags: []
+#  - id: scw:web
+#    name: Web
+#    description: Collection of recipes related to web applications
+#    includedTags: [web]
+#    excludedTags: []
+#  - id: scw:xml
+#    name: XML
+#    description: Collection of recipes related to XML
+#    includedTags: [XML,XXE]
+#    excludedTags: [] # Should Spring recipes or other framework specific recipes be filtered?
+#  - id: scw:snakeyaml
+#    name: SnakeYAML
+#    description: Collection of recipes related to YAML parsing using SnakeYAML
+#    includedTags: [snakeyaml]
+#    excludedTags: []
   - id: scw:android
     name: Android Security Set
     description: Recipes created from security recommendations in the official Android documentation (https://developer.android.com/)
-    includedTags: [Android]
+    includedTags: [android-security-set]
     excludedTags: []
