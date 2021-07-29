@@ -7,8 +7,9 @@ metadata:
   level: error
   language: java
   enabled: true
+  scwCategory: injection:sql
   descriptionFile: Injection-SQLInjectioninJdbcOperationsqueryForListqueryForRowSetqueryForMapqueryForLongqueryForIntupdate.html
-  tags: security;spring-jdbc;framework-specific;injection;SQL
+  tags: spring;security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

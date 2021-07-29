@@ -7,10 +7,10 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: injection
+  scwCategory: injection:sql
   enabled: true
   descriptionFile: InputValidationAvoidJDBCInjectionBindvariablesinpreparedstatements.html
-  tags: security;spring-jdbc;framework-specific;injection;SQL
+  tags: spring;security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

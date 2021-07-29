@@ -11,7 +11,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/Authentication_Username_Enumeration_avoid_UsernameNotFoundException.html
-  tags: security;framework-specific;web;spring-security
+  tags: spring;security;framework-specific;web;spring-security
 search:
   instanceCreation:
     in:

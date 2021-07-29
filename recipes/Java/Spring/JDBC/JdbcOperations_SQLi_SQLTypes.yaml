@@ -6,12 +6,12 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: injection
+  scwCategory: injection:sql
   enabled: true
   comment: Any method in JdbcOperations starting with a string is vulnerable to SQLi.
-    The are prepared statements, but should still not contain any untrusted input.
+    They are prepared statements, but should still not contain any untrusted input.
   descriptionFile: ""
-  tags: security;spring-jdbc;framework-specific;injection;SQL
+  tags: spring;security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

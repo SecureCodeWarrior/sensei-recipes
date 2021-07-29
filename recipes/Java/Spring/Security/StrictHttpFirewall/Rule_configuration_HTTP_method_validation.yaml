@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/HTTPmethodvalidation.html
-  tags: security;framework-specific;web;spring-security
+  tags: spring;security;framework-specific;web;spring-security
 search:
   methodcall:
     args:

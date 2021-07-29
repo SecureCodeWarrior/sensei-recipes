@@ -7,12 +7,13 @@ metadata:
   level: error
   language: java
   enabled: true
+  scwCategory: injection:sql
   comment: |
     JdbcOperations.queryForObject(String, ...)
     JdbcOperations.query(String, ...)
     JdbcOperations.queryForStream(String, ...)
   descriptionFile: Injection-SQLInjectioninJdbcOperationsqueryqueryForStreamqueryForObject.html
-  tags: security;spring-jdbc;framework-specific;injection;SQL
+  tags: spring;security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

@@ -9,7 +9,7 @@ metadata:
   scwCategory: misconfig
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationDisabledHeaders.html
-  tags: security;framework-specific;web;spring-security
+  tags: spring;security;framework-specific;web;spring-security
 search:
   methodcall:
     in:

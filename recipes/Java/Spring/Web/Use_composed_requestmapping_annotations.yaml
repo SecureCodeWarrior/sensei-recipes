@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/Usecomposedrequestmappingannotations.html
-  tags: framework-specific;web;spring-web;quality
+  tags: spring;framework-specific;web;spring-web;quality
 search:
   annotation:
     owner:

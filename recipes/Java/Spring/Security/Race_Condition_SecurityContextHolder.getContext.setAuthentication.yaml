@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   comment: https://docs.spring.io/spring-security/site/docs/5.4.2/reference/html5/#servlet-authentication-securitycontextholder
-  tags: security;framework-specific;web;spring-security
+  tags: spring;security;framework-specific;web;spring-security
 search:
   methodcall:
     name: setAuthentication

@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/DisableCORS.html
-  tags: security;framework-specific;web;spring-security
+  tags: spring;security;framework-specific;web;spring-security
 search:
   methodcall:
     not:

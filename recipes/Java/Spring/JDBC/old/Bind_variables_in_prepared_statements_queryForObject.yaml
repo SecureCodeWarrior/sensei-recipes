@@ -7,11 +7,11 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: injection
+  scwCategory: injection:sql
   enabled: true
   comment: JdbcOperations.queryForObject(String, !String[], ...)
   descriptionFile: InputValidationAvoidJDBCInjectionBindvariablesinpreparedstatements.html
-  tags: security;spring-jdbc;framework-specific;injection;SQL
+  tags: spring;security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
     args:

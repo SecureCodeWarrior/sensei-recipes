@@ -10,7 +10,7 @@ metadata:
   cweCategory: 611
   enabled: true
   descriptionFile: descriptions/InjectionXXESourceHttpMessageConvertersetProcessExternalEntitiessettotrue.html
-  tags: security;XXE;framework-specific;web;spring-xml
+  tags: spring;security;XXE;framework-specific;web;spring-xml
 search:
   methodcall:
     args:

@@ -8,7 +8,7 @@ metadata:
   scwCategory: misconfig
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationDisableSecurityFeatures-HSTS.html
-  tags: security;framework-specific;web;spring-security
+  tags: spring;security;framework-specific;web;spring-security
 search:
   methodcall:
     name: disable

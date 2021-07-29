@@ -10,7 +10,7 @@ metadata:
   enabled: true
   comment: ""
   excludeTestDirs: true
-  tags: spring;dependency-injection;framework-specific;lombok;quality
+  tags: spring;spring-core;dependency-injection;framework-specific;lombok;quality
 search:
   field:
     annotation:

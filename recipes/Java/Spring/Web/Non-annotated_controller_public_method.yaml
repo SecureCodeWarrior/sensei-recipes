@@ -9,7 +9,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  tags: framework-specific;web;spring-web;quality
+  tags: spring;framework-specific;web;spring-web;quality
 search:
   method:
     not:

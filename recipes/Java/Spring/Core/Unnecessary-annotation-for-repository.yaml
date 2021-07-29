@@ -7,13 +7,13 @@ metadata:
   level: warning
   language: java
   enabled: true
+  tags: spring;spring-core;framework-specific;quality
 search:
   annotation:
     owner:
       interface:
         super:
           name: org.springframework.data.repository.Repository
-      class: {}
     type: org.springframework.stereotype.Repository
 availableFixes:
 - name: Remove unnecessary annotation

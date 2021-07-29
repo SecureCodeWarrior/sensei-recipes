@@ -7,7 +7,7 @@ metadata:
   level: error
   language: java
   enabled: true
-  tags: framework-specific;spring-data;quality
+  tags: spring;framework-specific;spring-data;quality
 search:
   method:
     annotation:
