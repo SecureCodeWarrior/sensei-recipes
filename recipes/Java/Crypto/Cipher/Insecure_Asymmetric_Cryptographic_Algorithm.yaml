@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: broken_cryptography
+  scwCategory: broken_cryptography:use_of_insecuredeprecated_alogirthms
   cweCategory: 326
   enabled: true
   descriptionFile: descriptions/Insecure_asymmetric_cryptographic_algorithm.html

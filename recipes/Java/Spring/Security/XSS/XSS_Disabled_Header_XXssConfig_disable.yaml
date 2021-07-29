@@ -5,7 +5,7 @@ metadata:
   shortDescription: Do not disable Spring Security's built-in XSS protection
   level: warning
   language: java
-  scwCategory: xss
+  scwCategory: xss:generic
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationDisabledXSSprotectioninSpringSecurity.html
   tags: spring;security;framework-specific;web;spring-security;XSS

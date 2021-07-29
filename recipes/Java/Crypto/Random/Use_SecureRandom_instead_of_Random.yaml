@@ -5,7 +5,6 @@ metadata:
   shortDescription: Using Random can lead to predictable randomness
   level: error
   language: java
-  scwCategory: crypto
   enabled: true
   descriptionFile: descriptions/UseSecureRandominsteadofRandom.html
   tags: security

@@ -6,7 +6,7 @@ metadata:
     credentials should not be hardcoded. '
   level: warning
   language: java
-  scwCategory: insecure_data_storage
+  scwCategory: insecure_data_storage:plaintext_storage_of_credentials
   enabled: false
   comment: 'More formats possible: https://awsteele.com/blog/2020/09/26/aws-access-key-format.html'
   tags: security;framework-specific;AWS

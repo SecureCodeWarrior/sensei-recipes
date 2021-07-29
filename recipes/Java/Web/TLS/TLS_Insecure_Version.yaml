@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: itlp
+  scwCategory: itlp:weakalgorithm
   enabled: true
   descriptionFile: descriptions/TLS_version.html
 search:

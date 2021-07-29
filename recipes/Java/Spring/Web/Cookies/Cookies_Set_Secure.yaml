@@ -6,7 +6,7 @@ metadata:
     Secure flag to true
   level: error
   language: java
-  scwCategory: improper_session_handling
+  scwCategory: improper_session_handling:improper_flags_in_cookie_headers
   enabled: true
   descriptionFile: descriptions/SessionconfigurationCookiesSetSecureflagtotrue.html
   tags: spring;security;framework-specific;web;spring-web

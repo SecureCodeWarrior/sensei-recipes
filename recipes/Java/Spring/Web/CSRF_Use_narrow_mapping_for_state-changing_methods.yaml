@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: session
+  scwCategory: session:csrf
   enabled: true
   descriptionFile: descriptions/SessionmanagementAvoidCSRFUsenarrowmappingforstate-changingmethods.html
   tags: spring;security;framework-specific;web;CSRF;spring-web

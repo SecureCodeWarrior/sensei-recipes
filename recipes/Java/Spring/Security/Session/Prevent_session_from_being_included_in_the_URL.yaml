@@ -5,7 +5,7 @@ metadata:
   shortDescription: Do not use URL Parameters for session tracking
   level: warning
   language: java
-  scwCategory: misconfig
+  scwCategory: misconfig:infoexp
   enabled: true
   comment: ""
   descriptionFile: descriptions/SecurityMisconfigurationPreventHTTPsessionfrombeingincludedintheURL.html

@@ -5,7 +5,7 @@ metadata:
   shortDescription: Use of HTTP instead of HTTPS is insecure
   level: error
   language: java
-  scwCategory: insufficient_transport_layer_protection
+  scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
   enabled: true
   descriptionFile: descriptions/DonotacceptanythingovernonHTTPSconnections.html
   tags: spring;security;framework-specific;web;spring-security

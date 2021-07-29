@@ -6,7 +6,7 @@ metadata:
     only returns null.
   level: warning
   language: java
-  scwCategory: insufficient_transport_layer_protection
+  scwCategory: insufficient_transport_layer_protection:weak_certificate_validation
   enabled: true
 search:
   method:

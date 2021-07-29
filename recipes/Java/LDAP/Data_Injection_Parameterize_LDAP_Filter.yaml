@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: injection
+  scwCategory: injection:ldap
   enabled: true
   comment: ""
   tags: security;LDAP;injection

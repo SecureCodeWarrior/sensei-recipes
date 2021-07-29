@@ -5,7 +5,7 @@ metadata:
   shortDescription: Enforce HSTS protection against vulnerabilities over HTTP
   level: error
   language: java
-  scwCategory: misconfig
+  scwCategory: misconfig:securityfeatures
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationDisableSecurityFeatures-HSTS.html
   tags: spring;security;framework-specific;web;spring-security

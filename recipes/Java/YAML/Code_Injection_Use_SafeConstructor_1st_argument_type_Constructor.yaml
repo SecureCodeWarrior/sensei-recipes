@@ -7,7 +7,7 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: injection
+  scwCategory: injection:code
   enabled: false
   comment: Constructor is subtype of SafeConstructor. Recipe invalid since 1.28.
   tags: security;basic-protection-set;injection;YAML

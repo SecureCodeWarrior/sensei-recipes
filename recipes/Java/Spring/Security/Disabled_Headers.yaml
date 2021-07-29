@@ -6,7 +6,7 @@ metadata:
     vulnerable
   level: warning
   language: java
-  scwCategory: misconfig
+  scwCategory: misconfig:securityfeatures
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationDisabledHeaders.html
   tags: spring;security;framework-specific;web;spring-security

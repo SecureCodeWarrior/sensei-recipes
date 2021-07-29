@@ -5,7 +5,7 @@ metadata:
   shortDescription: Enforce HTTPS on all requests, not just on a selected number
   level: warning
   language: java
-  scwCategory: insufficient_transport_layer_protection
+  scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
   enabled: true
   descriptionFile: descriptions/SecureTransportuseRequiresSecureonallpaths.html
   tags: spring;security;framework-specific;web;spring-security

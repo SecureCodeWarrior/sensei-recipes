@@ -5,7 +5,7 @@ metadata:
   shortDescription: The salt should be random, 8-bytes and in hex-encoded String
   level: error
   language: java
-  scwCategory: crypto
+  scwCategory: broken_cryptography:improper_use_of_cryptography_algorithm
   enabled: true
   descriptionFile: Usearandom8bytesalt.html
   tags: spring;security;framework-specific;spring-security

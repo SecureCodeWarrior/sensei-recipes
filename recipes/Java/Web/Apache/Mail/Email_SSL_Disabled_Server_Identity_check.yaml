@@ -6,7 +6,7 @@ metadata:
     set to false
   level: error
   language: java
-  scwCategory: misconfig
+  scwCategory: misconfig:securityfeatures
   enabled: true
   tags: security;apache-commons;web;email
 search:

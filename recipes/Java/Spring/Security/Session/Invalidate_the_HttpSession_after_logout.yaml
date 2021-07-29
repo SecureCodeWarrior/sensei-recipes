@@ -5,7 +5,7 @@ metadata:
   shortDescription: Delete all sessions after logout
   level: warning
   language: java
-  scwCategory: session
+  scwCategory: session:generic
   enabled: true
   comment: ""
   descriptionFile: descriptions/SessionConfigurationInvalidatetheHttpSessionafterlogout.html

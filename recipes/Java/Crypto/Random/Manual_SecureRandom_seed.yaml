@@ -5,6 +5,7 @@ metadata:
   shortDescription: Do not use your own defined seeds
   level: error
   language: java
+  scwCategory: broken_cryptography:improper_use_of_cryptography_algorithm
   enabled: true
   comment: java_android_random_number_generation_do_not_manually_define_seeds_for_securerandom_class.html
   tags: security

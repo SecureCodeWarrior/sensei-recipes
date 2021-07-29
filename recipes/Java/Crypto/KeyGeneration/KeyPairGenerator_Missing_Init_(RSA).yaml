@@ -7,6 +7,7 @@ metadata:
   level: error
   language: java
   newCodeOnly: false
+  scwCategory: broken_cryptography:improper_use_of_cryptography_algorithm
   enabled: true
   descriptionFile: descriptions/Key_sizes.html
   tags: security;basic-protection-set

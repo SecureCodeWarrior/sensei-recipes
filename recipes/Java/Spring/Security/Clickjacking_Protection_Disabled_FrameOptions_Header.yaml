@@ -6,7 +6,7 @@ metadata:
     vulnerable to clickjackin
   level: warning
   language: java
-  scwCategory: misconfig
+  scwCategory: misconfig:clickjack
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationDisabledclickjackingprotectioninSpringSecurity-frameOptions.html
   tags: spring;security;framework-specific;web;Clickjacking;spring-security
