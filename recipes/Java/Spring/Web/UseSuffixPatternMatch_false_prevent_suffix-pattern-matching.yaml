@@ -1,0 +1,34 @@
+id: scw:spring:web:UseSuffixPatternMatch
+version: 8
+metadata:
+  name: 'Suffix Matching: UseSuffixPatternMatch set to false to prevent suffix pattern
+    matching'
+  shortDescription: 'Prevent suffix pattern matching by setting UseSuffixPatternMatching
+    to false'
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: Java/Spring/Web/descriptions/Suffix_Matching_UseSuffixPatternMatch_set_to_false_to_prevent_suffix_pattern_matching.html
+  tags: security;framework-specific;web;spring-web
+search:
+  methodcall:
+    args:
+      1:
+        type: boolean
+        value: "true"
+    name: setUseSuffixPatternMatch
+    anyOf:
+    - type: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+    - type: org.springframework.web.servlet.config.annotation.PathMatchConfigurer
+scopes:
+  library:
+    name:
+      contains: org.springframework:spring-webmvc
+      caseSensitive: false
+    maxVersion: 5.2.3.RELEASE
+availableFixes:
+- name: Set UseSuffixPatternMatch to false
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: "false"
