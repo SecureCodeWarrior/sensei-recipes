@@ -4,6 +4,7 @@ excludedPaths: # Directories to be neglected by the Hub's crawler
   - /broken
   - /example_code
   - /opinionated-recipes
+  - /group_review
 cookbooks: # List of cookbooks
   - id: scw:basic-protection-set
     name: Basic Protection Set
