@@ -1,4 +1,4 @@
-id: scw:spring:jdbc:jdbcoperations-other
+id: scw:spring:jdbc:jdbcoperations-statementcallback
 version: 8
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements'
@@ -18,25 +18,19 @@ search:
       1:
         containsUntrustedInput: true
         type: java.lang.String
+      2:
+        type:
+          reference:
+            contains: StatementCallback
+          checkInheritance: true
     declaration:
       type: org.springframework.jdbc.core.JdbcOperations
-    without:
-      anyOf:
-      - args:
-          any:
-            type:
-              reference:
-                matches: ^.*StatementSetter$
-              checkInheritance: true
-      - args:
-          2:
-            type:
-              reference:
-                contains: StatementCallback
-              checkInheritance: true
-      - args:
-          3:
-            type: int[]
 availableFixes:
 - name: Use parameterized queries
-  actions: []
+  actions:
+  - parameterize:
+      placeholderFormat: '?'
+  - rewrite:
+      to: |-
+        // TODO: Add the untrusted input to the PreparedStatementCallback
+        {{{.}}}

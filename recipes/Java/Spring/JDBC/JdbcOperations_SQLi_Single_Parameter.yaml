@@ -1,16 +1,15 @@
-id: scw:spring:jdbc:jdbcoperations-sqltypes
+id: scw:spring:jdbc:JdbcOperations-single-parameter
 version: 8
 metadata:
-  name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements'
-  shortDescription: Could lead to SQL Injection
+  name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements:
+    single parameter'
+  shortDescription: Could lead to JDBC Injection
   level: error
   language: java
   newCodeOnly: false
   scwCategory: injection:sql
   enabled: true
-  comment: Any method in JdbcOperations starting with a string is vulnerable to SQLi.
-    They are prepared statements, but should still not contain any untrusted input.
-  descriptionFile: ""
+  descriptionFile: InputValidationAvoidJDBCInjectionBindvariablesinpreparedstatements.html
   tags: spring;security;spring-jdbc;framework-specific;injection;SQL
 search:
   methodcall:
@@ -18,8 +17,9 @@ search:
       1:
         containsUntrustedInput: true
         type: java.lang.String
-      3:
-        type: int[]
+    argCount: 1
+    name:
+      matches: queryForList|queryForMap|queryForRowSet|update|batchUpdate
     declaration:
       type: org.springframework.jdbc.core.JdbcOperations
 availableFixes:
@@ -30,4 +30,4 @@ availableFixes:
       extractUntrustedInput:
         array:
           type: java.lang.String[]
-          atArgumentPosition: 3
+          atArgumentPosition: 2

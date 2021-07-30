@@ -1,15 +1,14 @@
-id: scw:spring:jdbc:queryForList
+id: scw:spring:jdbc:JdbcOperations-two-parameters
 version: 8
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements:
-    queryForList with elementtype'
+    Two parameters'
   shortDescription: Could lead to JDBC Injection
   level: error
   language: java
   newCodeOnly: false
   scwCategory: injection:sql
   enabled: true
-  comment: JdbcOperations.queryForList(String, Class, ...)
   descriptionFile: InputValidationAvoidJDBCInjectionBindvariablesinpreparedstatements.html
   tags: spring;security;spring-jdbc;framework-specific;injection;SQL
 search:
@@ -19,8 +18,11 @@ search:
         containsUntrustedInput: true
         type: java.lang.String
       2:
-        type: java.lang.Class
-    name: queryForList
+        parameterDeclaration:
+          name:
+            matches: elementType|requiredType|rowMapper|rch|rse
+    name:
+      matches: query|queryForList|queryForObject|queryForStream
     declaration:
       type: org.springframework.jdbc.core.JdbcOperations
 availableFixes:

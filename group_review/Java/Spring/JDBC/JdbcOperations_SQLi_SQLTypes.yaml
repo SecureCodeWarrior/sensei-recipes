@@ -1,4 +1,4 @@
-id: scw:spring:jdbc:jdbcoperations-statementsetter
+id: scw:spring:jdbc:jdbcoperations-sqltypes
 version: 8
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements'
@@ -9,7 +9,7 @@ metadata:
   scwCategory: injection:sql
   enabled: true
   comment: Any method in JdbcOperations starting with a string is vulnerable to SQLi.
-    The are prepared statements, but should still not contain any untrusted input.
+    They are prepared statements, but should still not contain any untrusted input.
   descriptionFile: ""
   tags: spring;security;spring-jdbc;framework-specific;injection;SQL
 search:
@@ -18,11 +18,10 @@ search:
       1:
         containsUntrustedInput: true
         type: java.lang.String
-      any:
-        type:
-          reference:
-            matches: ^.*StatementSetter$
-          checkInheritance: true
+      3:
+        parameterDeclaration:
+          name: argTypes
+        type: int[]
     declaration:
       type: org.springframework.jdbc.core.JdbcOperations
 availableFixes:
@@ -32,5 +31,10 @@ availableFixes:
       placeholderFormat: '?'
       extractUntrustedInput:
         array:
-          type: java.lang.String[]
-          atArgumentPosition: 3
+          type: java.lang.Object[]
+          atArgumentPosition: 2
+  - rewrite:
+      to: |-
+        // TODO: Append type of extracted untrusted input to the third argument
+        {{{.}}}
+      target: self

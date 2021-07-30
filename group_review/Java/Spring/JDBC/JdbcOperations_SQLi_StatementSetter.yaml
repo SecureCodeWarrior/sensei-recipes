@@ -1,4 +1,4 @@
-id: scw:spring:jdbc:JdbcOperations-untrusted
+id: scw:spring:jdbc:jdbcoperations-statementsetter
 version: 8
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements'
@@ -18,6 +18,11 @@ search:
       1:
         containsUntrustedInput: true
         type: java.lang.String
+      any:
+        type:
+          reference:
+            contains: PreparedStatementSetter
+          checkInheritance: true
     declaration:
       type: org.springframework.jdbc.core.JdbcOperations
 availableFixes:
@@ -25,7 +30,7 @@ availableFixes:
   actions:
   - parameterize:
       placeholderFormat: '?'
-      extractUntrustedInput:
-        array:
-          type: java.lang.String[]
-          atArgumentPosition: 3
+  - rewrite:
+      to: |-
+        // TODO: Add the untrusted input to the PreparedStatementSetter
+        {{{.}}}
