@@ -1,6 +1,6 @@
 <html>
 <body>
-<p id="abstract">For endpoint authorization, it is recommended to use <code>mvcMatchers</code> instead of <code>antMatchers</code>, as it will provide authorization for all paths that the <code>@RequestMapping</code> annotation understands. In other words, <code>antMatchers</code> will only authorise <code>/admin</code>, and leave <code>/admin/</code>, which leads to the same endpoint, accessible for unauthorised users. <code>mvcMatchers</code> will protect both paths.</p>
+<p id="abstract">For endpoint authorisation, it is recommended to use <code>mvcMatchers</code> instead of <code>antMatchers</code>, as it will provide authorisation for all paths that the <code>@RequestMapping</code> annotation understands. In other words, <code>antMatchers</code> will only authorise <code>/admin</code>, and leave <code>/admin/</code>, which leads to the same endpoint, accessible for unauthorised users. <code>mvcMatchers</code> will protect both paths.</p>
 <br>
 <b>Before</b>
 <pre>http.authorizeRequests().antMatchers(“/admin”).hasRole("ADMIN");</pre>

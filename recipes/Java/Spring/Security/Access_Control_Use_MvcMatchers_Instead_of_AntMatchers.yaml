@@ -1,4 +1,4 @@
-id: New_Recipe
+id: scw:spring:access-control-use-mvcMatchers-over-antMatchers
 version: 8
 metadata:
   name: 'Access Control: MvcRequestMatcher is more secure than AntPathRequestMatcher
@@ -11,6 +11,7 @@ metadata:
   scwCategory: access:functionlevel
   enabled: true
   descriptionFile: Java/Spring/Security/descriptions/Access_Control__MvcRequestMatcher_is_more_secure_than_AntPathRequestMatcher_for_Spring_MVC_patterns.html
+  tags: spring;security;spring-mvc;spring-security;access-control
 search:
   methodcall:
     name: antMatchers
