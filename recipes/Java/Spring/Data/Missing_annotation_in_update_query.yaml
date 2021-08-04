@@ -2,8 +2,8 @@ id: scw:spring:data:query-modifying
 version: 8
 metadata:
   name: Missing annotation in update query
-  shortDescription: This query is performing a write operation in the database, therefore
-    you should annotate it with @Modifying annation.
+  shortDescription: Queries performing write operations should have the @Modifying
+    annotation.
   level: error
   language: java
   enabled: true
@@ -15,7 +15,13 @@ search:
       parameters:
       - value:
           value:
-            matches: (UPDATE|DELETE|INSERT).*
+            anyOf:
+            - contains: INSERT
+              caseSensitive: false
+            - contains: DELETE
+              caseSensitive: false
+            - contains: UPDATE
+              caseSensitive: false
     without:
       annotation:
         type: org.springframework.data.jpa.repository.Modifying
