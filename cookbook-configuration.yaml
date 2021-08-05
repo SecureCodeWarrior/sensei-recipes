@@ -5,6 +5,11 @@ excludedPaths: # Directories to be neglected by the Hub's crawler
   - /example_code
   - /opinionated-recipes
   - /group_review
+# rootPaths specify which folders to scan for recipes.
+# Recipes may specify 'descriptionFile' paths either relative to
+# the recipe's location or relative to the rootPath.
+rootPaths:
+  - recipes
 cookbooks: # List of cookbooks
   - id: scw:basic-protection-set
     name: Basic Protection Set
