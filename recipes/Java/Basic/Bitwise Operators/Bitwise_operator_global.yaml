@@ -9,7 +9,7 @@ metadata:
   cweCategory: 480
   enabled: true
   comment: ""
-  descriptionFile: Operators/descriptions/BitwiseOperatorInConditional.html
+  descriptionFile: descriptions/BitwiseOperatorInConditional.html
   tags: security;java-basic
 search:
   binaryExpression:

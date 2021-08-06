@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  descriptionFile: descriptions/AvoidbroadsettingsCORSCrossOrigin-allowedHeaders.html
+  descriptionFile: descriptions/AvoidbroadsettingsCrossOrigin-allowedHeaders.html
   tags: spring;security;framework-specific;web;spring-security
 search:
   annotationParameter:

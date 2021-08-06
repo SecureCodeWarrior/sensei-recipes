@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   enabled: true
-  descriptionFile: descriptions/UseSecureRandominsteadofRandom.html
+  descriptionFile: Java/Crypto/descriptions/Use_SecureRandom_instead_of_Random.html
   tags: security
 search:
   instanceCreation:

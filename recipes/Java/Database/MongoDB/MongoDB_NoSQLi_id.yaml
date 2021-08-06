@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   enabled: true
-  descriptionFile: MongoDB_idNoSQLInjection.html
+  descriptionFile: descriptions/MongoDB_idNoSQLInjection.html
   tags: security;NoSQL;framework-specific;MongoDB;injection
 search:
   methodcall:

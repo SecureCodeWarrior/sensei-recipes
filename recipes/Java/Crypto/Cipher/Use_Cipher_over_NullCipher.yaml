@@ -9,7 +9,7 @@ metadata:
   newCodeOnly: false
   scwCategory: broken_cryptography:use_of_insecuredeprecated_alogirthms
   enabled: true
-  descriptionFile: descriptions/Use_Cipher_over_NullCipher.html
+  descriptionFile: Java/Crypto/descriptions/Use_cipher_over_nullcipher.html
   tags: security;basic-protection-set
 search:
   instanceCreation:

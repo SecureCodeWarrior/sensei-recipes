@@ -11,7 +11,7 @@ metadata:
   comment: |-
     This recipe looks for bitwise operators used in conditionals, however Sensei is currently not capable of following indirections in the conditional.
     Bitwise operators located inside of methods cannot be found using this recipe.
-  descriptionFile: Java/descriptions/BitwiseOperatorInConditional.html
+  descriptionFile: descriptions/BitwiseOperatorInConditional.html
   tags: security;java-basic
 search:
   binaryExpression:

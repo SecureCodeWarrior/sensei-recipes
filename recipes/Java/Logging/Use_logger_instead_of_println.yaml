@@ -8,7 +8,7 @@ metadata:
   language: java
   scwCategory: insufficient_logging:generic
   enabled: true
-  descriptionFile: Logging/descriptions/ReplacePrintWithLogger.html
+  descriptionFile: descriptions/ReplacePrintWithLogger.html
   tags: logging;quality
 search:
   methodcall:

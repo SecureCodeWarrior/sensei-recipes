@@ -6,7 +6,7 @@ metadata:
   level: marked_information
   language: java
   enabled: true
-  descriptionFile: AutomaticregiondetectionbyAWS.html
+  descriptionFile: descriptions/AutomaticregiondetectionbyAWS.html
   tags: framework-specific;AWS;quality
 search:
   methodcall:

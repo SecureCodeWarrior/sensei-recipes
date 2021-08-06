@@ -11,7 +11,7 @@ metadata:
   cweCategory: 200
   enabled: true
   comment: ""
-  descriptionFile: Logging/descriptions/ThrowablePrintStacktraceLeaksInfo.html
+  descriptionFile: descriptions/ThrowablePrintStacktraceLeaksInfo.html
   tags: security;opinionated;logging
 search:
   methodcall:

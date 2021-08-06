@@ -6,7 +6,7 @@ metadata:
   level: info
   language: java
   enabled: true
-  descriptionFile: AvoidmappingtomultipleHTTPrequestmethods.html
+  descriptionFile: descriptions/AvoidmappingtomultipleHTTPrequestmethods.html
   tags: spring;framework-specific;web;spring-web;quality
 search:
   annotation:

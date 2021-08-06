@@ -9,7 +9,7 @@ metadata:
   newCodeOnly: false
   scwCategory: broken_cryptography:use_of_short_encryption_keys
   enabled: true
-  descriptionFile: descriptions/Key_sizes.html
+  descriptionFile: Java/Crypto/descriptions/Key_sizes.html
   tags: security;basic-protection-set
 search:
   methodcall:

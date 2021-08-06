@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   enabled: true
-  descriptionFile: ReleaseDynamoDbClientClose.html
+  descriptionFile: descriptions/ReleaseDynamoDbClientClose.html
   tags: framework-specific;AWS;quality
 search:
   methodcall:
