@@ -12,14 +12,12 @@ search:
   element:
     attribute:
       name:
-        caseSensitive: true
         is: android:name
       value:
         anyOf:
         - is: android.permission.SEND_SMS
         - is: android.permission.RECEIVE_SMS
     tagName:
-      caseSensitive: true
       is: uses-permission
 availableFixes:
 - name: Delete this permission

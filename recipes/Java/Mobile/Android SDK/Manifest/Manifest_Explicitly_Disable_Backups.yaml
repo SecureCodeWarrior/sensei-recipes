@@ -14,7 +14,6 @@ metadata:
 search:
   element:
     tagName:
-      caseSensitive: true
       is: application
     without:
       attribute:

@@ -12,11 +12,9 @@ search:
   element:
     attribute:
       name:
-        caseSensitive: true
         is: android:name
       value:
         matches: android.permission.(SYSTEM_ALERT_WINDOW|WRITE_SETTINGS)
     tagName:
-      caseSensitive: true
       is: uses-permission
 availableFixes: []

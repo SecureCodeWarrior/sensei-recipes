@@ -10,7 +10,6 @@ metadata:
 search:
   attribute:
     name:
-      caseSensitive: true
       is: maxOccurs
     value: unbounded
 availableFixes:

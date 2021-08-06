@@ -15,7 +15,6 @@ search:
     in:
       element:
         tagName:
-          caseSensitive: true
           is: application
     name: android:allowBackup
     value:

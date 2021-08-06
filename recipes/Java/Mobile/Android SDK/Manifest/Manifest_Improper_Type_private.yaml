@@ -10,20 +10,14 @@ metadata:
 search:
   element:
     tagName:
-      caseSensitive: true
       anyOf:
-      - caseSensitive: true
-        is: activity
-      - caseSensitive: true
-        is: receiver
-      - caseSensitive: true
-        is: provider
-      - caseSensitive: true
-        is: service
+      - is: activity
+      - is: receiver
+      - is: provider
+      - is: service
     without:
       attribute:
         name:
-          caseSensitive: true
           is: android:export
         label: export
         value: "true"

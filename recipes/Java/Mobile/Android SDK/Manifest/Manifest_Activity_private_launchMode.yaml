@@ -12,16 +12,13 @@ search:
     in:
       element:
         tagName:
-          caseSensitive: true
           is: activity
         without:
           attribute:
             name:
-              caseSensitive: true
               is: android:export
             value: "true"
     name:
-      caseSensitive: true
       is: android:launchMode
 availableFixes:
 - name: Remove the launchMode attribute

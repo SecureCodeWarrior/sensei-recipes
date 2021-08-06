@@ -13,16 +13,11 @@ metadata:
 search:
   element:
     tagName:
-      caseSensitive: true
       anyOf:
-      - caseSensitive: true
-        is: Button
-      - caseSensitive: true
-        is: WebView
-      - caseSensitive: true
-        is: ImageButton
-      - caseSensitive: true
-        is: ToggleButton
+      - is: Button
+      - is: WebView
+      - is: ImageButton
+      - is: ToggleButton
     without:
       attribute:
         name: android:filterTouchesWhenObscured

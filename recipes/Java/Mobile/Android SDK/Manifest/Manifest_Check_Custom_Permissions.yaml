@@ -11,7 +11,6 @@ metadata:
 search:
   element:
     tagName:
-      caseSensitive: true
       is: permission
 scopes:
   library:
