@@ -10,7 +10,7 @@ metadata:
   language: java
   scwCategory: access:functionlevel
   enabled: true
-  descriptionFile: Java/Spring/Security/descriptions/Access_Control__MvcRequestMatcher_is_more_secure_than_AntPathRequestMatcher_for_Spring_MVC_patterns.html
+  descriptionFile: descriptions/Access_Control__MvcRequestMatcher_is_more_secure_than_AntPathRequestMatcher_for_Spring_MVC_patterns.html
   tags: spring;security;spring-mvc;spring-security;access-control
 search:
   methodcall:
