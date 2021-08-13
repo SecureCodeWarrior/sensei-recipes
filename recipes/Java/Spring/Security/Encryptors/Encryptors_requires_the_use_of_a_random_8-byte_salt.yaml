@@ -8,7 +8,7 @@ metadata:
   scwCategory: broken_cryptography:improper_use_of_cryptography_algorithm
   enabled: true
   descriptionFile: descriptions/Usearandom8bytesalt.html
-  tags: spring;security;framework-specific;spring-security
+  tags: Spring;security;framework specific;Spring Security
 search:
   methodcall:
     args:

@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java; kotlin
   enabled: true
-  tags: framework-specific;JUnit;quality
+  tags: framework specific;JUnit;quality
   descriptionFile: descriptions/JUnit_5_Public_Test_Methods.html
 search:
   method:

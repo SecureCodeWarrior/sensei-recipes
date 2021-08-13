@@ -10,7 +10,7 @@ metadata:
   scwCategory: broken_cryptography:improper_use_of_cryptography_algorithm
   enabled: true
   descriptionFile: Java/Crypto/descriptions/Key_sizes.html
-  tags: security;basic-protection-set
+  tags: security;basic protection set
 search:
   methodcall:
     args:

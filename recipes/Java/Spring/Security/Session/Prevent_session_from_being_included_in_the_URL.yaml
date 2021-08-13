@@ -9,7 +9,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/SecurityMisconfigurationPreventHTTPsessionfrombeingincludedintheURL.html
-  tags: spring;security;framework-specific;web;spring-security
+  tags: Spring;security;framework specific;Spring Security;web
 search:
   methodcall:
     args:

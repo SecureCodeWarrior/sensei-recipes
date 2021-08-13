@@ -8,7 +8,7 @@ metadata:
   language: java; kotlin
   enabled: true
   descriptionFile: descriptions/AvoidDefaultHttpFirewallReturnType.html
-  tags: spring;security;framework-specific;web;spring-security
+  tags: Spring;security;framework specific;Spring Security;web
 search:
   method:
     returnType: org.springframework.security.web.firewall.DefaultHttpFirewall

@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/AvoidmappingtomultipleHTTPrequestmethods.html
-  tags: spring;framework-specific;web;spring-web;quality
+  tags: Spring;framework specific;web;Spring Web;quality
 search:
   annotation:
     type: org.springframework.web.bind.annotation.RequestMapping

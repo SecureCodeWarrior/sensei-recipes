@@ -9,7 +9,7 @@ metadata:
   scwCategory: injection:xml
   enabled: true
   descriptionFile: descriptions/XML_Injection__Use_XML_schema.html
-  tags: security;XML;basic-protection-set;injection
+  tags: security;XML;basic protection set;injection
 search:
   methodcall:
     not:

@@ -9,7 +9,7 @@ metadata:
   comment: |-
     https://developer.android.com/reference/androidx/core/content/ContextCompat#public-methods
     java_android_sensitive_information_avoid_storing_sensitive_information_in_device_encrypted_storage.html
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   methodcall:
     name: createDeviceProtectedStorageContext

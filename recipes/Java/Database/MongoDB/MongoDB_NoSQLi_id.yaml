@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/MongoDB_idNoSQLInjection.html
-  tags: security;NoSQL;framework-specific;MongoDB;injection
+  tags: security;NoSQL;framework specific;MongoDB;injection
 search:
   methodcall:
     args:

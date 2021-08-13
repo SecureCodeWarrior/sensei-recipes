@@ -11,7 +11,7 @@ metadata:
   comment: ""
   descriptionFile: descriptions/Field_injection_is_not_recommended.html
   excludeTestDirs: true
-  tags: spring;spring-core;dependency-injection;framework-specific;lombok;quality
+  tags: Spring;Spring Core;dependency injection;framework specific;Lombok;quality
 search:
   field:
     annotation:

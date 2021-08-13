@@ -8,7 +8,7 @@ metadata:
   scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
   enabled: true
   descriptionFile: descriptions/SecureTransportuseRequiresSecuretoenforceHTTPS.html
-  tags: spring;security;framework-specific;web;spring-security
+  tags: Spring;security;framework specific;web;Spring Security
 search:
   methodcall:
     name: requiresInsecure

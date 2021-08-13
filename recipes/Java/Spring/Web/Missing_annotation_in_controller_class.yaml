@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   enabled: true
-  tags: spring;framework-specific;web;spring-web;quality
+  tags: Spring;framework specific;web;Spring Web;quality
 search:
   class:
     not:

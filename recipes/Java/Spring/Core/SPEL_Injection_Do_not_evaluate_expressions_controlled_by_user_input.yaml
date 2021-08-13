@@ -10,7 +10,7 @@ metadata:
   scwCategory: injection:generic
   enabled: true
   descriptionFile: descriptions/SPEL_Injection_User_controlled_input_evaluation.html
-  tags: expression-language;spring;spring-core;security;framework-specific;injection
+  tags: expression language;Spring;Spring Core;security;framework specific;injection
 search:
   methodcall:
     args:

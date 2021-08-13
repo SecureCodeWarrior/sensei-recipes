@@ -6,7 +6,7 @@ metadata:
   level: compliant
   language: java
   enabled: true
-  tags: security;framework-specific;mobile;Android;android-security-set
+  tags: security;framework specific;mobile;Android;Android security set
 search:
   methodcall:
     args:

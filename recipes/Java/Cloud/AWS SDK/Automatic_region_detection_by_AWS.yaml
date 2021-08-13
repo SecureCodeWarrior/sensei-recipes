@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/AutomaticregiondetectionbyAWS.html
-  tags: framework-specific;AWS;quality
+  tags: framework specific;AWS;quality
 search:
   methodcall:
     name: region

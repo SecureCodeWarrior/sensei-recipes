@@ -12,7 +12,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/ThrowablePrintStacktraceLeaksInfo.html
-  tags: security;opinionated;logging
+  tags: security;logging
 search:
   methodcall:
     name: printStackTrace

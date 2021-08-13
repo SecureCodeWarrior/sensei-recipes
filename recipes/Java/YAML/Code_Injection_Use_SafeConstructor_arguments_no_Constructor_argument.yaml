@@ -11,7 +11,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/java_snakeyaml.html
-  tags: security;basic-protection-set;injection;YAML
+  tags: security;basic protection set;injection;YAML
 search:
   instanceCreation:
     with:

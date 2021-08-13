@@ -8,7 +8,7 @@ metadata:
   scwCategory: blog:generic
   cweCategory: 480
   enabled: true
-  tags: java-basic;quality
+  tags: Java basic;quality
 search:
   methodcall:
     args:

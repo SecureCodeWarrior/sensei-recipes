@@ -7,12 +7,12 @@ cookbooks: # List of cookbooks
   - id: scw:basic-protection-set
     name: Basic Protection Set
     description: Cookbook which can be used as a starting point for security
-    includedTags: [basic-protection-set] # In the future this would be replaced with specific vulnerability tags
+    includedTags: ["basic protection set"] # In the future this would be replaced with specific vulnerability tags
     excludedTags: [] # In the future this would be replaced by 'framework-specific' to exclude those recipes
   - id: scw:java
     name: "Java Gotcha's"
     description: Examples of simple Java mistakes that can be easily detected and fixed with Sensei
-    includedTags: [java-basic]
+    includedTags: ["Java basic"]
     excludedTags: []
 #  - id: scw:recipes
 #    name: All SCW Recipes
@@ -27,7 +27,7 @@ cookbooks: # List of cookbooks
   - id: scw:spring
     name: Spring
     description: Collection of recipes related to Java Spring
-    includedTags: [spring]
+    includedTags: [Spring]
     excludedTags: []
 #  - id: scw:crypto
 #    name: Crypto
@@ -47,10 +47,10 @@ cookbooks: # List of cookbooks
 #  - id: scw:snakeyaml
 #    name: SnakeYAML
 #    description: Collection of recipes related to YAML parsing using SnakeYAML
-#    includedTags: [snakeyaml]
+#    includedTags: [SnakeYAML]
 #    excludedTags: []
   - id: scw:android
     name: Android Security Set
     description: Recipes created from security recommendations in the official Android documentation (https://developer.android.com/)
-    includedTags: [android-security-set]
+    includedTags: [Android security set]
     excludedTags: []

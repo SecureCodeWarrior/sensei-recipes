@@ -10,7 +10,7 @@ metadata:
   cweCategory: 319
   enabled: true
   descriptionFile: descriptions/ManifestbestpracticesdisableusesCleartextTraffic.html
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   attribute:
     in:

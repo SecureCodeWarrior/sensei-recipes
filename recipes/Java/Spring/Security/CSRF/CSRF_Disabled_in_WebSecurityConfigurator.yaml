@@ -9,7 +9,7 @@ metadata:
   scwCategory: csrf:csrf
   cweCategory: 352
   enabled: true
-  tags: spring;security;framework-specific;web;spring-security;CSRF
+  tags: Spring;security;framework specific;web;Spring Security;CSRF
 search:
   methodcall:
     name: disable

@@ -13,7 +13,7 @@ metadata:
     Quickfix to be tested
     https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder
     java_android_secure_database_queries.html
-  tags: security;framework-specific;mobile;injection;SQL;Android
+  tags: security;framework specific;mobile;injection;SQL;Android
 search:
   methodcall:
     name:

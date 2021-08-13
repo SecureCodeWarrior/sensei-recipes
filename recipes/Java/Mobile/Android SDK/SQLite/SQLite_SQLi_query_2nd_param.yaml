@@ -11,7 +11,7 @@ metadata:
   comment: |-
     java_android_secure_database_queries.html
     https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#public-methods
-  tags: security;framework-specific;mobile;injection;Android;SQL
+  tags: security;framework specific;mobile;injection;Android;SQL
 search:
   methodcall:
     args:

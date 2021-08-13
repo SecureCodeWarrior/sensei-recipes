@@ -8,7 +8,7 @@ metadata:
   scwCategory: injection:code
   enabled: true
   comment: java_android_avoid_androidmediaexifinterface.html
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   import:
     path: android.media.ExifInterface

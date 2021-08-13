@@ -9,7 +9,7 @@ metadata:
   enabled: true
   comment: https://stuff.mit.edu/afs/sipb/project/android/docs/reference/android/content/Context.html#MODE_PRIVATE
   descriptionFile: descriptions/Androidstoragebestpracticesinsecureoperatingmode.html
-  tags: security;framework-specific;mobile;Android;android-security-set
+  tags: security;framework specific;mobile;Android;Android security set
 search:
   argument:
     referenceTo:

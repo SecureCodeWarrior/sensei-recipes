@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/RejectSemicolons.html
-  tags: spring;security;framework-specific;web;spring-security
+  tags: Spring;security;framework specific;Spring Security;web
 search:
   methodcall:
     args:

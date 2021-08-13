@@ -11,7 +11,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/Portability_Flaw__Avoid_locale_dependent_comparisons__equals_after_case_conversion.html
-  tags: security;java-basic;quality;SEI-CERT-STR02-J
+  tags: security;Java basic;quality;SEI CERT
 search:
   methodcall:
     name: equals

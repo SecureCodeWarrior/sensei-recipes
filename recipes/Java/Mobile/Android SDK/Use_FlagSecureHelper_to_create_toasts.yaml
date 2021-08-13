@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   comment: java_android_handle_sensitive_information_in_ui_elements_with_care_use_flag_secure.html
-  tags: security;framework-specific;mobile;Android;android-security-set
+  tags: security;framework specific;mobile;Android;Android security set
 search:
   methodcall:
     name: makeText

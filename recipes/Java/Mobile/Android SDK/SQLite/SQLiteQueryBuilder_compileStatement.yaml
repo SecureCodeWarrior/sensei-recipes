@@ -12,7 +12,7 @@ metadata:
     Binding of parameters through bindString, bindDouble, bindFloat, bindLong
     https://developer.android.com/reference/android/database/sqlite/SQLiteStatement
     java_android_secure_database_queries.html
-  tags: security;framework-specific;mobile;injection;Android;SQL
+  tags: security;framework specific;mobile;injection;Android;SQL
 search:
   methodcall:
     args:

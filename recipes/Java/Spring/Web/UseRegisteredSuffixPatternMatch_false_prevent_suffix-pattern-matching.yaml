@@ -9,7 +9,7 @@ metadata:
   language: java; kotlin
   enabled: true
   descriptionFile: descriptions/Suffix_Matching_UseRegisteredSuffixPatternMatch_set_to_false_to_prevent_suffix_pattern_matching.html
-  tags: spring;security;framework-specific;web;spring-web
+  tags: Spring;security;framework specific;web;Spring Web
 search:
   methodcall:
     args:

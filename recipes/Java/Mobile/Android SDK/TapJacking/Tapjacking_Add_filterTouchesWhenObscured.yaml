@@ -9,7 +9,7 @@ metadata:
   cweCategory: 1021
   enabled: true
   descriptionFile: Java/Mobile/Android SDK/Manifest/descriptions/LayoutbestpracticesenablefilterTouchesWhenObscured.html
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   element:
     tagName:

@@ -9,7 +9,7 @@ metadata:
   newCodeOnly: false
   scwCategory: broken_cryptography:use_of_insecuredeprecated_alogirthms
   enabled: true
-  tags: security;basic-protection-set
+  tags: security;basic protection set
 search:
   methodcall:
     args:

@@ -10,7 +10,7 @@ metadata:
   cweCategory: 926
   enabled: true
   descriptionFile: descriptions/Manifestbestpracticesdisableexportofandroidcomponents.html
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   attribute:
     name: android:exported

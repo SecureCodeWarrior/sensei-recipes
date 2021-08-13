@@ -11,7 +11,7 @@ metadata:
   scwCategory: access:functionlevel
   enabled: true
   descriptionFile: descriptions/Access_Control__MvcRequestMatcher_is_more_secure_than_AntPathRequestMatcher_for_Spring_MVC_patterns.html
-  tags: spring;security;spring-mvc;spring-security;access-control
+  tags: Spring;security;Spring MVC;Spring Security;access control
 search:
   methodcall:
     name: antMatchers

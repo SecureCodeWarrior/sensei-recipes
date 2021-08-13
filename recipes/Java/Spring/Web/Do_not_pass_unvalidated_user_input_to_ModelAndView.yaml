@@ -9,7 +9,7 @@ metadata:
   newCodeOnly: false
   scwCategory: infoexposure:sensitiveinfo
   enabled: true
-  tags: spring;security;framework-specific;web;spring-web
+  tags: Spring;security;framework specific;web;Spring Web
 search:
   instanceCreation:
     args:

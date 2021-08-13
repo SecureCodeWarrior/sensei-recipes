@@ -9,7 +9,7 @@ metadata:
   scwCategory: broken_cryptography:use_of_insecuredeprecated_alogirthms
   enabled: true
   descriptionFile: Java/Crypto/descriptions/Insecure_key_agreement_algorithm.html
-  tags: security;basic-protection-set
+  tags: security;basic protection set
 search:
   methodcall:
     args:

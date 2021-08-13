@@ -8,6 +8,7 @@ metadata:
   language: java
   scwCategory: insufficient_transport_layer_protection:weak_certificate_validation
   enabled: true
+  tags: security;web;TLS
 search:
   method:
     annotation:

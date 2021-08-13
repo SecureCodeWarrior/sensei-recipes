@@ -10,7 +10,7 @@ metadata:
   cweCategory: 352
   enabled: true
   descriptionFile: descriptions/CookieCsrfTokenRepositorywithHttpOnlyFalse.html
-  tags: spring;security;framework-specific;web;spring-security;CSRF
+  tags: Spring;security;framework specific;web;Spring Security;CSRF
 search:
   methodcall:
     args:

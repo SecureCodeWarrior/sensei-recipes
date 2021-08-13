@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   comment: java_android_avoid_dynamically_loading_code.html
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   methodcall:
     name: createPackageContext

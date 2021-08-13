@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/AvoidbroadsettingsCrossOrigin.html
-  tags: spring;security;framework-specific;web;spring-security
+  tags: Spring;security;framework specific;web;Spring Security
 search:
   annotation:
     type: org.springframework.web.bind.annotation.CrossOrigin
