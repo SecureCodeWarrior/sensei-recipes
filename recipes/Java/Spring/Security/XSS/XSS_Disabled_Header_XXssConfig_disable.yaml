@@ -8,7 +8,7 @@ metadata:
   scwCategory: xss:generic
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationDisabledXSSprotectioninSpringSecurity.html
-  tags: Spring;security;framework specific;Spring Security;web;XSS
+  tags: Spring;security;framework specific;Spring Security;web;XSS;OWASP Top 10
 search:
   methodcall:
     name: disable

@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/Enforce_placeholders_logging_messages.html
-  tags: security;logging;injection
+  tags: security;logging;injection;OWASP Top 10
 search:
   methodcall:
     args:

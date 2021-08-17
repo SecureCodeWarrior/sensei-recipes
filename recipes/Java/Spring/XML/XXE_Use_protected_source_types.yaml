@@ -9,7 +9,7 @@ metadata:
   scwCategory: injection:xml
   cweCategory: 611
   enabled: true
-  tags: Spring;security;XXE;framework specific;Spring XML
+  tags: Spring;security;XXE;framework specific;Spring XML;OWASP Top 10
 search:
   methodcall:
     args:

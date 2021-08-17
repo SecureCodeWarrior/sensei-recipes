@@ -10,7 +10,7 @@ metadata:
   scwCategory: injection:generic
   enabled: true
   descriptionFile: descriptions/EL_Injection_User_controlled_input_evaluation.html
-  tags: expression language;security;injection
+  tags: expression language;security;injection;OWASP Top 10
 search:
   methodcall:
     args:

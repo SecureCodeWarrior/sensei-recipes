@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/Injection-SQLInjectioninJPAEntityManagercreateQuery.html
-  tags: security;JPA;injection;SQL
+  tags: security;JPA;injection;SQL;OWASP Top 10
 search:
   methodcall:
     args:

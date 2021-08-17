@@ -9,7 +9,7 @@ metadata:
   scwCategory: improper_session_handling:improper_flags_in_cookie_headers
   enabled: true
   descriptionFile: descriptions/CookieFlags_SimpleCookie.html
-  tags: security;web;Apache Shiro
+  tags: security;web;Apache Shiro;OWASP Top 10
 search:
   instanceCreation:
     not:

@@ -8,7 +8,7 @@ metadata:
   language: java
   scwCategory: insufficient_transport_layer_protection:weak_certificate_validation
   enabled: true
-  tags: security;web;TLS
+  tags: security;web;TLS;OWASP Top 10
 search:
   method:
     annotation:

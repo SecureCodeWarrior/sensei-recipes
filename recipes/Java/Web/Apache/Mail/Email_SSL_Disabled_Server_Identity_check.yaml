@@ -8,7 +8,7 @@ metadata:
   language: java
   scwCategory: misconfig:securityfeatures
   enabled: true
-  tags: security;Apache Commons;web;email
+  tags: security;Apache Commons;web;email;OWASP Top 10
 search:
   methodcall:
     args:

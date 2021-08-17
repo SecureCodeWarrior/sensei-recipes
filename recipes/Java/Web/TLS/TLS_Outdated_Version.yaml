@@ -9,7 +9,7 @@ metadata:
   scwCategory: itlp:weakalgorithm
   enabled: true
   descriptionFile: descriptions/TLS_version.html
-  tags: security;web;TLS
+  tags: security;web;TLS;OWASP Top 10
 search:
   methodcall:
     args:

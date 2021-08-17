@@ -10,7 +10,7 @@ metadata:
   cweCategory: 611
   enabled: true
   descriptionFile: Java/XML/descriptions/XXE.html
-  tags: security;XXE;basic protection set
+  tags: security;XXE;basic protection set;OWASP Top 10
 search:
   methodcall:
     args:

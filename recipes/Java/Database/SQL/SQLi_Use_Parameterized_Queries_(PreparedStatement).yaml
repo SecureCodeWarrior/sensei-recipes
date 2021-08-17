@@ -11,7 +11,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/java_use_parameterized_queries.html
-  tags: security;OWASP Top 10;SEI CERT;basic protection set;injection;SQL
+  tags: security;SEI CERT;basic protection set;injection;SQL;OWASP Top 10
 search:
   methodcall:
     args:

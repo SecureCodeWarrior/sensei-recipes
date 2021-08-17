@@ -10,7 +10,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/Untrusted_input_in_logging.html
-  tags: security;logging;injection
+  tags: security;logging;injection;OWASP Top 10
 search:
   argument:
     in:

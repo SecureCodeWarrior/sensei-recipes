@@ -9,7 +9,7 @@ metadata:
   scwCategory: improper_session_handling:improper_flags_in_cookie_headers
   enabled: true
   descriptionFile: descriptions/CookieFlags.html
-  tags: Spring;security;framework specific;web;Spring Boot
+  tags: Spring;security;framework specific;web;Spring Boot;OWASP Top 10
 search:
   methodcall:
     args:

@@ -9,7 +9,7 @@ metadata:
   scwCategory: injection:ldap
   enabled: true
   descriptionFile: descriptions/Data_Injection_Parameterize_LDAP_Filter.html
-  tags: security;LDAP;injection
+  tags: security;LDAP;injection;OWASP Top 10
 search:
   methodcall:
     args:

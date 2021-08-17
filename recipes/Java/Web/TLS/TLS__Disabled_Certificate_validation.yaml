@@ -8,7 +8,7 @@ metadata:
   scwCategory: insufficient_transport_layer_protection:weak_certificate_validation
   enabled: true
   descriptionFile: descriptions/TLS__Disabled_Certificate_validation.html
-  tags: security;web;TLS
+  tags: security;web;TLS;OWASP Top 10
 search:
   method:
     annotation:
