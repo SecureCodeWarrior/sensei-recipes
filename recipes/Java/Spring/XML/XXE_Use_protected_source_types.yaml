@@ -1,5 +1,5 @@
 id: scw:spring:xml:xxe-protected-sources
-version: 8
+version: 9
 metadata:
   name: 'Input Validation: Avoid XXE: Use automatically protected source types'
   shortDescription: Could lead to XXE

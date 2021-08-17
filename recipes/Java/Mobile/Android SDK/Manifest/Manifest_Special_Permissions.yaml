@@ -1,5 +1,5 @@
 id: scw:android:special-permissions
-version: 8
+version: 9
 metadata:
   name: 'Manifest Best Practices: Permissions: Highly discourage to use these special
     permissions'

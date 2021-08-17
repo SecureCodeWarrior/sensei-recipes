@@ -1,5 +1,5 @@
 id: scw:android:createPackageContext
-version: 8
+version: 9
 metadata:
   name: 'Code Injection: Prevent use of CreatePackageContext'
   shortDescription: Do not use the createPackageContext to dynamically load code

@@ -1,5 +1,5 @@
 id: scw:android:sensitive-data
-version: 8
+version: 9
 metadata:
   name: 'Information Exposure: Sensitive information'
   shortDescription: Do not send sensitive information or put it on the clipboard
@@ -12,8 +12,9 @@ search:
     args:
       any:
         value:
-          matches: (?i).*([Cc]redit( )?[cC]ard|password|pass|pwd|passwd|[sS][sS][nN]|[cC][cC][nN]|[sS]ocial(
-            )?[sS]ecurity( )?[nN]umber).*
+          stringified:
+            matches: (?i).*([Cc]redit( )?[cC]ard|password|pass|pwd|passwd|[sS][sS][nN]|[cC][cC][nN]|[sS]ocial(
+              )?[sS]ecurity( )?[nN]umber).*
     anyOf:
     - name: putExtra
       type: android.content.Intent

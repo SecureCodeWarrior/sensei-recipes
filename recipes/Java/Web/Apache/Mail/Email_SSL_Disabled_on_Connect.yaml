@@ -1,5 +1,5 @@
 id: scw:apache:email:ssl-on-connect-disabled
-version: 8
+version: 9
 metadata:
   name: 'Email: Disabled SSL on Connect'
   shortDescription: When sending an email, SSL has been disabled on connection
@@ -13,7 +13,8 @@ search:
     args:
       1:
         type: boolean
-        value: "false"
+        value:
+          stringified: "false"
     name: setSSLOnConnect
     type: org.apache.commons.mail.Email
 availableFixes:

@@ -1,5 +1,5 @@
 id: scw:crypto:keyagreement-not-recommended
-version: 8
+version: 9
 metadata:
   name: 'Crypto: KeyAgreement: Guide on Approved Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is not recommended
@@ -16,7 +16,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: ^((?!(DiffieHellman|EC$|RSA|ECMQV|ECDH$)).)*
+          stringified:
+            matches: ^((?!(DiffieHellman|EC$|RSA|ECMQV|ECDH$)).)*
     name: getInstance
     declaration:
       type: javax.crypto.KeyAgreement

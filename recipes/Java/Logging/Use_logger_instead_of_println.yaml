@@ -1,5 +1,5 @@
 id: scw:logging:replaceprintln
-version: 8
+version: 9
 metadata:
   name: Use a logger
   shortDescription: Printing messages directly to the standard output is considered

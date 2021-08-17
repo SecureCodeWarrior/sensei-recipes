@@ -1,5 +1,5 @@
 id: scw:crypto:signature-non-standard-algos
-version: 8
+version: 9
 metadata:
   name: 'Crypto: Signature: Non Standard Hashing Algorithm'
   shortDescription: This hashing algorithm is not recommended for cryptographic use
@@ -16,7 +16,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: SHA512withDSA|SHA512withDES|SHA512withECDSA
+          stringified:
+            matches: SHA512withDSA|SHA512withDES|SHA512withECDSA
     name: getInstance
     declaration:
       type: java.security.Signature

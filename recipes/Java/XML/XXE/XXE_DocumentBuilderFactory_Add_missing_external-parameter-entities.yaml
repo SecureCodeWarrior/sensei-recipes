@@ -1,5 +1,5 @@
 id: scw:xxe:documentbuilderfactory-missing-external-parameter-entities
-version: 8
+version: 9
 metadata:
   name: 'XXE: DocumentBuilderFactory: Add missing feature external-parameter-entities'
   shortDescription: Could lead to XXE
@@ -18,7 +18,8 @@ search:
         methodcall:
           args:
             1:
-              value: http://xml.org/sax/features/external-parameter-entities
+              value:
+                stringified: http://xml.org/sax/features/external-parameter-entities
           name: setFeature
     name: newInstance
     declaration:

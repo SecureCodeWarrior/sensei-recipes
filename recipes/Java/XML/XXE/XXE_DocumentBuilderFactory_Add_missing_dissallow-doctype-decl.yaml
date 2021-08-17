@@ -1,5 +1,5 @@
 id: scw:xxe:documentbuilderfactory-missing-dissallow-doctype-decl
-version: 8
+version: 9
 metadata:
   name: 'XXE: DocumentBuilderFactory: Add missing feature dissallow-doctype-decl'
   shortDescription: Could lead to XXE
@@ -18,7 +18,8 @@ search:
         methodcall:
           args:
             1:
-              value: http://apache.org/xml/features/disallow-doctype-decl
+              value:
+                stringified: http://apache.org/xml/features/disallow-doctype-decl
           name: setFeature
     name: newInstance
     declaration:

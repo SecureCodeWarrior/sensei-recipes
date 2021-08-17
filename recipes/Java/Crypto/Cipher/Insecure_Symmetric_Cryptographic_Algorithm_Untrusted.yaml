@@ -1,5 +1,5 @@
 id: scw:crypto:cipher:symmetric-untrusted
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use strong
     symmetric cryptographic algorithm (Untrusted)'
@@ -16,8 +16,9 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
     name: getInstance
     declaration:
       type: javax.crypto.Cipher

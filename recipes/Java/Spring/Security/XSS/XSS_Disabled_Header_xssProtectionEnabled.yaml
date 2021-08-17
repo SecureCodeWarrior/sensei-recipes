@@ -1,5 +1,5 @@
 id: scw:spring:xss:xssProtectionEnabled
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: XSS protection: Disabled Header - xssProtectionEnabled()'
   shortDescription: Do not disable Spring Security's built-in XSS protection
@@ -14,7 +14,8 @@ search:
     args:
       1:
         type: boolean
-        value: "false"
+        value:
+          stringified: "false"
     in:
       typeDeclaration:
         super:

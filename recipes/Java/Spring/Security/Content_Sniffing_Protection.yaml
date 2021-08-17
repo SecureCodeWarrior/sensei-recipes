@@ -1,5 +1,5 @@
 id: scw:spring:content-sniffing
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: Content sniffing protection'
   shortDescription: Prevent MIME sniffing by disabling contentTypeOptions

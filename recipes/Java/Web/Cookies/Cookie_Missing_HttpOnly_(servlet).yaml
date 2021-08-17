@@ -1,11 +1,11 @@
 id: scw:web:servlet:cookie-missing-http-only
-version: 8
+version: 9
 metadata:
   name: 'Session configuration: Cookie: Configure HttpOnly flag'
   shortDescription: Prevent client-side scripts from accessing the cookie by setting
     the HttpOnly flag to true
   level: error
-  language: java; kotlin
+  language: xml; java; kotlin
   scwCategory: improper_session_handling:improper_flags_in_cookie_headers
   enabled: true
   descriptionFile: descriptions/CookieFlags.html
@@ -20,7 +20,7 @@ search:
     type: javax.servlet.http.Cookie
 scopes:
   library:
-    minVersion: 3.0
+    minVersion: "3.0"
     name:
       contains: javax.servlet-api
 availableFixes:

@@ -1,5 +1,5 @@
 id: scw:exceptions:not-thrown
-version: 8
+version: 9
 metadata:
   name: 'Exception: Created but not thrown'
   shortDescription: Exceptions should be thrown, not just created

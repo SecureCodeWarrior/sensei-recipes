@@ -1,5 +1,5 @@
 id: scw:spring:xml:xxe-Jaxb2RootElementHttpMessageConverter-setProcessExternalEntities
-version: 8
+version: 9
 metadata:
   name: 'Injection: XXE: Jaxb2RootElementHttpMessageConverter#setProcessExternalEntities
     set to true'
@@ -16,7 +16,8 @@ search:
     args:
       1:
         type: boolean
-        value: "true"
+        value:
+          stringified: "true"
     name: setProcessExternalEntities
     type: org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter
 availableFixes:

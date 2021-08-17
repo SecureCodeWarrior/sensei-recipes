@@ -1,5 +1,5 @@
 id: scw:android:sqli-compliant
-version: 8
+version: 9
 metadata:
   name: 'SQL Injection: SQLiteQueryBuilder compileStatement Compliant'
   shortDescription: 'SQL Injection: SQLiteQueryBuilder compileStatement - Compliant'
@@ -8,12 +8,14 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/java_android_secure_database_queries.html
-  tags: security;framework specific;mobile;injection;Android;SQL;Android security set
+  tags: security;framework specific;mobile;injection;Android;SQL;Android security
+    set
 search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: false
+        value:
+          containsUntrustedInput: false
     name:
       matches: compileStatement
     declaration:

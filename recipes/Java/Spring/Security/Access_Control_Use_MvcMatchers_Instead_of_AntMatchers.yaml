@@ -1,5 +1,5 @@
 id: scw:spring:access-control-use-mvcMatchers-over-antMatchers
-version: 8
+version: 9
 metadata:
   name: 'Access Control: MvcRequestMatcher is more secure than AntPathRequestMatcher
     for Spring MVC patterns'

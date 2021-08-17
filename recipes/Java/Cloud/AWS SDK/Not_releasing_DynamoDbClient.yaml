@@ -1,5 +1,5 @@
 id: scw:aws:dynamodbclient-close
-version: 8
+version: 9
 metadata:
   name: Not releasing DynamoDbClient
   shortDescription: Call the close() method to release the DynamoDbClient

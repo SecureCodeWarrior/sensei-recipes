@@ -1,5 +1,5 @@
 id: scw:spring:field-injection
-version: 8
+version: 9
 metadata:
   name: Field injection is not recommended
   shortDescription: Field injection is not recommended, because the list of required

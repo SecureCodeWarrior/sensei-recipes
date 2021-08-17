@@ -1,5 +1,5 @@
 id: scw:spring:security:cors:CrossOrigin-exposedHeaders
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin - exposedHeaders'
   shortDescription: Exposing all headers makes the application vulnerable
@@ -15,8 +15,10 @@ search:
     name: exposedHeaders
     value:
       anyOf:
-      - value: '*'
-      - value: '{"*"}'
+      - value:
+          stringified: '*'
+      - value:
+          stringified: '{"*"}'
 availableFixes:
 - name: Specify the exposedHeaders
   actions: []

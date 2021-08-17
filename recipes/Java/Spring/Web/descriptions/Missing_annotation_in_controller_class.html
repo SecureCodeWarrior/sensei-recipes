@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <p id="abstract">Controllers and RestControllers should be marked using the respective Spring stereotypes annotations.</p>
+    <br>
+    <b>Before</b>
+<pre>public class MyController {
+
+  @GetMapping("/hello/{name}")
+  public String getHello(@PathVariable String name) {
+    ...
+  }
+}</pre>
+    <b>After</b>
+    <pre><b>@RestController</b>
+public class MyController {
+
+  @GetMapping("/hello/{name}")
+  public String getHello(@PathVariable String name) {
+    ...
+  }
+}</pre>
+  </body>
+</html>

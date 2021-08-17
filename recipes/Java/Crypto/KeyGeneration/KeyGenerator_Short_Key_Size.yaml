@@ -1,5 +1,5 @@
 id: scw:crypto:keygen-short-key
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use sufficiently
     long key sizes: keyGenerator bad value'
@@ -15,8 +15,9 @@ search:
   methodcall:
     args:
       1:
-        integerValue:
-          lessThan: 128
+        value:
+          integer:
+            lessThan: 128
     name: init
     declaration:
       type: javax.crypto.KeyGenerator

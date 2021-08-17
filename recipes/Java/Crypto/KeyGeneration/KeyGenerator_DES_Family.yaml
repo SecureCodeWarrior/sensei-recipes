@@ -1,5 +1,5 @@
 id: scw:crypto:keygen-des
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate
     secret key generation algorithm: DES family'
@@ -17,7 +17,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: DES|DESede|RC2|Blowfish
+          stringified:
+            matches: DES|DESede|RC2|Blowfish
     name: getInstance
     declaration:
       type: javax.crypto.KeyGenerator

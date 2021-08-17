@@ -1,5 +1,5 @@
 id: scw:android:missing-mixed-content-mode
-version: 8
+version: 9
 metadata:
   name: 'Android WebView best practices: Set mixed content mode'
   shortDescription: WebView setting with security implications

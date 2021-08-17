@@ -1,5 +1,5 @@
 id: scw:xml:weak-schema-unbounded-maxoccurs
-version: 8
+version: 9
 metadata:
   name: 'Weak XML Schema: Unbounded Occurrences: limit maxOccurs'
   shortDescription: Unbounded sequences may lead to overflow or excessive resource
@@ -19,4 +19,4 @@ availableFixes:
 - name: Limit max occurrences
   actions:
   - set:
-      to: 100
+      to: "100"

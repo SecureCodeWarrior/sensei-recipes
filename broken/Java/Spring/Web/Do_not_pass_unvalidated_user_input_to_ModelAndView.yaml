@@ -1,5 +1,5 @@
 id: scw:spring:web:modelandview-untrusted-input
-version: 8
+version: 9
 metadata:
   name: 'Input Validation: Avoid File Disclosure: Do not pass unvalidated user input
     to ModelAndView'
@@ -14,7 +14,8 @@ search:
   instanceCreation:
     args:
       1:
-        containsUntrustedInput: true
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
     type: org.springframework.web.servlet.ModelAndView
 availableFixes: []

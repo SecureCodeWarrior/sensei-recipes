@@ -1,5 +1,5 @@
 id: scw:crypto:secure-random-seed-setter
-version: 8
+version: 9
 metadata:
   name: 'Random Number Generation: Do not manually define seeds for SecureRandom class'
   shortDescription: Do not use your own defined seeds

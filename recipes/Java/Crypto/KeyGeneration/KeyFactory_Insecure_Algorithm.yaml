@@ -1,5 +1,5 @@
 id: scw:crypto:keyfactory-insecure-algos
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate
     key pair generation algorithm: insecure'
@@ -16,7 +16,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: DiffieHellman|DSA
+          stringified:
+            matches: DiffieHellman|DSA
     name: getInstance
     declaration:
       type: java.security.KeyFactory

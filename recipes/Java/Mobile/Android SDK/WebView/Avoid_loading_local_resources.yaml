@@ -1,5 +1,5 @@
 id: scw:android:restrict-access-local-resources
-version: 8
+version: 9
 metadata:
   name: 'WebView Best Practices: Do not allow access to local resources'
   shortDescription: Avoid targeting local resources
@@ -13,7 +13,8 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
+        value:
+          containsUntrustedInput: true
     name: loadUrl
     type: android.webkit.WebView
 availableFixes:

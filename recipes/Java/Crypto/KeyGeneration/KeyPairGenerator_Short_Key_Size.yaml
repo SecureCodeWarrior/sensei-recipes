@@ -1,5 +1,5 @@
 id: scw:crypto:keypairgen-short-key
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use sufficiently
     long key sizes: keyPairGenerator bad value'
@@ -15,8 +15,9 @@ search:
   methodcall:
     args:
       1:
-        integerValue:
-          lessThan: 2048
+        value:
+          integer:
+            lessThan: 2048
     name: initialize
     declaration:
       type: java.security.KeyPairGenerator

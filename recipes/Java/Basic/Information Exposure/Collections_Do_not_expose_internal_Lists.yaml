@@ -1,5 +1,5 @@
 id: scw:java:internal-list
-version: 8
+version: 9
 metadata:
   name: 'Collections: Do not expose internal Lists'
   shortDescription: Do not expose an internal List as it is mutable. Return a copy

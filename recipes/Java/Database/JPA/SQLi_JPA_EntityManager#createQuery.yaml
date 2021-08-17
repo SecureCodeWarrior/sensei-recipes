@@ -1,5 +1,5 @@
 id: scw:db:jpa:createquery
-version: 8
+version: 9
 metadata:
   name: 'Injection - SQL Injection in JPA: EntityManager#createQuery'
   shortDescription: Avoid SQLi by using parameterized queries, instead of string concatenation
@@ -13,13 +13,14 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
-        trustedSources:
-        - methodcall:
-            name: format
-            declaration:
-              type: java.lang.String
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
+          trustedSources:
+          - methodcall:
+              name: format
+              declaration:
+                type: java.lang.String
     name:
       matches: createQuery
     declaration:

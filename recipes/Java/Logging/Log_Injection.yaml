@@ -1,5 +1,5 @@
 id: scw:logging:log-untrusted-input
-version: 8
+version: 9
 metadata:
   name: Untrusted input in logging
   shortDescription: Prevent log injection by filtering untrusted input
@@ -13,12 +13,13 @@ metadata:
   tags: security;logging;injection
 search:
   argument:
-    containsUntrustedInput: true
     in:
       methodcall:
         name: log
         type: java.util.logging.Logger
     type: java.lang.String
+    value:
+      containsUntrustedInput: true
 availableFixes:
 - name: Filter newline characters
   actions:

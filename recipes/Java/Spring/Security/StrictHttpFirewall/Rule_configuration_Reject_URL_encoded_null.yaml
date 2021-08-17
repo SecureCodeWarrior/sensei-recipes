@@ -1,5 +1,5 @@
 id: scw:spring:security:stricthttpfirewall-null
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject
     (URL encoded) null'
@@ -14,7 +14,8 @@ search:
     args:
       1:
         type: boolean
-        value: "true"
+        value:
+          stringified: "true"
     name: setAllowNull
     type: org.springframework.security.web.firewall.StrictHttpFirewall
 availableFixes:

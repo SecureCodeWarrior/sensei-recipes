@@ -1,5 +1,5 @@
 id: scw:apache:email:ssl-check-disabled
-version: 8
+version: 9
 metadata:
   name: 'Email: Disabled SSL Server Identity check'
   shortDescription: When sending an email, the setSSLCheckServerIdentity has been
@@ -14,7 +14,8 @@ search:
     args:
       1:
         type: boolean
-        value: "false"
+        value:
+          stringified: "false"
     name: setSSLCheckServerIdentity
     type: org.apache.commons.mail.Email
 availableFixes:

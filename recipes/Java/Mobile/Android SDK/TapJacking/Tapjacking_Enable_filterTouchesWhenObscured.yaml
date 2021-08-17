@@ -1,5 +1,5 @@
 id: scw:android:tapjacking-enable-filterTouchesWhenObscured
-version: 8
+version: 9
 metadata:
   name: 'Configuration - User Interface: Avoid Tapjacking: Enable filterTouchesWhenObscured'
   shortDescription: Setting filterTouchesWhenObscured to false allows adversaries

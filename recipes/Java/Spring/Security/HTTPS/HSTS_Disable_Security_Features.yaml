@@ -1,5 +1,5 @@
 id: scw:spring:security:hsts-disabled
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: Disable Security Features - HSTS'
   shortDescription: Enforce HSTS protection against vulnerabilities over HTTP

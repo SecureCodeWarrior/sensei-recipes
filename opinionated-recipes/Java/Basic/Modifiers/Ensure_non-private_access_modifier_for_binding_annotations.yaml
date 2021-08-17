@@ -1,5 +1,5 @@
 id: scw:java:inject-public
-version: 8
+version: 9
 metadata:
   name: Ensure non-private access modifier for binding annotations
   shortDescription: Ensure non-private access modifier for binding annotations

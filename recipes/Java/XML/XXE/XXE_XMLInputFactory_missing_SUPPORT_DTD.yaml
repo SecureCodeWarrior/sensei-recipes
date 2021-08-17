@@ -1,5 +1,5 @@
 id: scw:xxe:xmlinputfactory-missing-dtd
-version: 8
+version: 9
 metadata:
   name: 'XXE: XMLInputFactory: Add SUPPORT_DTD feature'
   shortDescription: Could lead to XXE

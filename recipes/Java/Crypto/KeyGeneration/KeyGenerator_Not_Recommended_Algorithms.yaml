@@ -1,5 +1,5 @@
 id: scw:crypto:keygen-other-algos
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate
     secret key generation algorithm: Other algorithms'
@@ -17,7 +17,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: ^((?!(AES$|DES|DESede|RC2|Blowfish|HmacMD5|HmacSHA1|HmacSHA1|HmacSHA256|HmacSHA384|HmacSHA512)).)*
+          stringified:
+            matches: ^((?!(AES$|DES|DESede|RC2|Blowfish|HmacMD5|HmacSHA1|HmacSHA1|HmacSHA256|HmacSHA384|HmacSHA512)).)*
     name: getInstance
     declaration:
       type: javax.crypto.KeyGenerator

@@ -1,5 +1,5 @@
 id: scw:spring:web:multiple-http-mappings
-version: 8
+version: 9
 metadata:
   name: Avoid mapping to multiple HTTP request methods
   shortDescription: Map to one HTTP request method for best practices
@@ -15,7 +15,8 @@ search:
     - name: method
       value:
         value:
-          contains: '{'
+          stringified:
+            contains: '{'
 availableFixes:
 - name: Set annotation to DeleteMapping
   actions:

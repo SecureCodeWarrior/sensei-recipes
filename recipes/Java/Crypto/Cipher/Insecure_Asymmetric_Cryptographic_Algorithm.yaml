@@ -1,5 +1,5 @@
 id: scw:crypto:cipher:asymmetric
-version: 8
+version: 9
 metadata:
   name: 'Crypto: Cipher: Insecure Asymmetric Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is not recommended
@@ -17,7 +17,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: RSA|.*ECIES.*|RSA/ECB/PKCS1Padding|RSA/ECB/OAEPWithSHA-1AndMGF1Padding
+          stringified:
+            matches: RSA|.*ECIES.*|RSA/ECB/PKCS1Padding|RSA/ECB/OAEPWithSHA-1AndMGF1Padding
     name: getInstance
     type: javax.crypto.Cipher
 availableFixes:

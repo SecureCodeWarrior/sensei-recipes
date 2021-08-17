@@ -1,5 +1,5 @@
 id: scw:java:string-split-dot-regex
-version: 8
+version: 9
 metadata:
   name: 'Strings: Regex Use: Escape Regex Special Character for Any Char Matching'
   shortDescription: First argument is a regular expression, matching with dot might
@@ -13,7 +13,8 @@ search:
   methodcall:
     args:
       1:
-        value: .
+        value:
+          stringified: "."
     name:
       matches: (split|replaceAll|replaceFirst)
     declaration:

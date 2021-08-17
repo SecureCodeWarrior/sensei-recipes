@@ -1,5 +1,5 @@
 id: scw:aws:automatic-region
-version: 8
+version: 9
 metadata:
   name: Automatic region detection by AWS
   shortDescription: AWS can automatically detect the region from the environment

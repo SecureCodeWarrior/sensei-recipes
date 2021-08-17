@@ -1,5 +1,5 @@
 id: scw:spring:websecurity-debug-enabled
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: EnableWebSecurity with Debug enabled'
   shortDescription: The debug parameter on EnableWebSecurity should not be hardcoded
@@ -14,7 +14,8 @@ search:
   annotationParameter:
     name: debug
     value:
-      value: "true"
+      value:
+        stringified: "true"
 availableFixes:
 - name: Fix the code by setting debug to false
   actions:

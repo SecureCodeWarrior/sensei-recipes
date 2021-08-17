@@ -1,5 +1,5 @@
 id: scw:aws:region-enum
-version: 8
+version: 9
 metadata:
   name: Use the Region enum
   shortDescription: 'AWS recommends to use one of the constants in the Regions enum '
@@ -12,8 +12,9 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: false
         type: java.lang.String
+        value:
+          containsUntrustedInput: false
     name: of
     declaration:
       type: software.amazon.awssdk.regions.Region

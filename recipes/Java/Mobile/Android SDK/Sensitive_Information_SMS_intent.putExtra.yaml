@@ -1,5 +1,5 @@
 id: scw:android:intent-putextra-sms
-version: 8
+version: 9
 metadata:
   name: 'Sensitive Information: SMS: intent.putExtra'
   shortDescription: Usage of SMS discouraged
@@ -13,7 +13,8 @@ search:
     args:
       1:
         value:
-          contains: sms_body
+          stringified:
+            contains: sms_body
     name: putExtra
     type: android.content.Intent
 availableFixes:

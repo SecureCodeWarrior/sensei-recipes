@@ -1,5 +1,5 @@
 id: scw:java:web:return-response-public
-version: 8
+version: 9
 metadata:
   name: Must not return javax.ws.rs.core.Response on a public method
   shortDescription: Must not return javax.ws.rs.core.Response on a public method

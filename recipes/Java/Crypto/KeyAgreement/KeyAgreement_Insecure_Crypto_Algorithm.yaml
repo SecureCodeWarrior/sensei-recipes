@@ -1,5 +1,5 @@
 id: scw:crypto:keyagreement-insecure
-version: 8
+version: 9
 metadata:
   name: 'Crypto: KeyAgreement: Insecure Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is insecure
@@ -16,7 +16,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: DiffieHellman|ECMQV
+          stringified:
+            matches: DiffieHellman|ECMQV
     name: getInstance
     declaration:
       type: javax.crypto.KeyAgreement

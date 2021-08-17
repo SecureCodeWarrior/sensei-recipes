@@ -1,5 +1,5 @@
 id: scw:spring:encryptors:salt
-version: 8
+version: 9
 metadata:
   name: Encryptors requires the use of a random 8-byte salt
   shortDescription: The salt should be random, 8-bytes and in hex-encoded String
@@ -13,8 +13,9 @@ search:
   methodcall:
     args:
       2:
-        containsUntrustedInput: false
         type: java.lang.String
+        value:
+          containsUntrustedInput: false
     name: stronger
     type: org.springframework.security.crypto.encrypt.Encryptors
 availableFixes:

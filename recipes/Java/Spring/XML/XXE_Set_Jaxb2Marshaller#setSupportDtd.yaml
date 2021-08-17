@@ -1,5 +1,5 @@
 id: scw:spring:xml:xxe-Jaxb2Marshaller-setSupportDtd
-version: 8
+version: 9
 metadata:
   name: 'Injection: XXE: Jaxb2Marshaller#setSupportDtd set to true'
   shortDescription: Prevent XXE by disabling DTDs
@@ -15,7 +15,8 @@ search:
     args:
       1:
         type: boolean
-        value: "true"
+        value:
+          stringified: "true"
     name: setSupportDtd
     type: org.springframework.oxm.jaxb.Jaxb2Marshaller
 availableFixes:

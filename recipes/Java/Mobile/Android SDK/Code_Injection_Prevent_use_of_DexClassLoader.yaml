@@ -1,5 +1,5 @@
 id: scw:android:DexClassLoader
-version: 8
+version: 9
 metadata:
   name: 'Code Injection: Prevent use of DexClassLoader'
   shortDescription: Do not use the DexClassLoader to dynamically load code

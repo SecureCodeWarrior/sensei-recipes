@@ -1,5 +1,5 @@
 id: scw:spring:security:RequiresSecure-allpaths
-version: 8
+version: 9
 metadata:
   name: 'Secure Transport: use RequiresSecure to enforce HTTPS on all paths'
   shortDescription: Enforce HTTPS on all requests, not just on a selected number

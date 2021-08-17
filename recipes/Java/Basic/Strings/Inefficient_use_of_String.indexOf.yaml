@@ -1,5 +1,5 @@
 id: scw:java:string-indexof
-version: 8
+version: 9
 metadata:
   name: Inefficient use of String.indexOf
   shortDescription: Inefficient use of String.indexOf
@@ -14,7 +14,9 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: .
+          containsUntrustedInput: false
+          stringified:
+            matches: ^.$
     name:
       matches: indexOf|lastIndexOf
     declaration:

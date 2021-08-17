@@ -1,11 +1,12 @@
 id: scw:spring:web:restcontroller-annotated
-version: 8
+version: 9
 metadata:
   name: Missing annotation in controller class
   shortDescription: This class is missing a @Controller or @RestController annotation
   level: error
   language: java
   enabled: true
+  descriptionFile: descriptions/Missing_annotation_in_controller_class.html
   tags: Spring;framework specific;web;Spring Web;quality
 search:
   class:

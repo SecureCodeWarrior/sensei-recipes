@@ -1,5 +1,5 @@
 id: scw:spring:web:controller-public-method
-version: 8
+version: 9
 metadata:
   name: Non-annotated controller public method
   shortDescription: Public methods within a controller class should be treated as

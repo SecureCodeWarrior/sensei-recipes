@@ -1,5 +1,5 @@
 id: scw:web:apache:simplecookie-missing-http-only
-version: 8
+version: 9
 metadata:
   name: 'Session configuration: Cookies: Configure HttpOnly flag'
   shortDescription: Prevent client-side scripts from accessing the cookie by setting

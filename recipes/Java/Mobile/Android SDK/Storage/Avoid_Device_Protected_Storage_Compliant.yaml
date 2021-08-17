@@ -1,5 +1,5 @@
 id: scw:android:createDeviceProtectedStorageContext
-version: 8
+version: 9
 metadata:
   name: 'Data Protection: Avoid Data Exposure - Avoid Device Protected Storage - Compliant'
   shortDescription: Compliant
@@ -11,8 +11,9 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
       2:
         type: int
     in:

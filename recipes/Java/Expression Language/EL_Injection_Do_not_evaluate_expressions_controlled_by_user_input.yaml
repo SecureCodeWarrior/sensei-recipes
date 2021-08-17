@@ -1,5 +1,5 @@
 id: scw:spring:el-javax
-version: 8
+version: 9
 metadata:
   name: 'Input Validation: Avoid Expression Language Injection: Do not evaluate expressions
     controlled by user input (javax)'
@@ -15,8 +15,9 @@ search:
   methodcall:
     args:
       2:
-        containsUntrustedInput: true
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
     name: createValueExpression
     declaration:
       type: javax.el.ExpressionFactory

@@ -1,5 +1,5 @@
 id: scw:spring:security:stricthttpfirewall-double-slash
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject
     URL encoded double slash'
@@ -15,7 +15,8 @@ search:
     args:
       1:
         type: boolean
-        value: "true"
+        value:
+          stringified: "true"
     name: setAllowUrlEncodedDoubleSlash
     type: org.springframework.security.web.firewall.StrictHttpFirewall
 availableFixes:

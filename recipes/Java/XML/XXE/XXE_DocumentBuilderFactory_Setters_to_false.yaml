@@ -1,5 +1,5 @@
 id: scw:xxe:documentbuilderfactory-setters-false
-version: 8
+version: 9
 metadata:
   name: 'XXE: DocumentBuilderFactory: Setters to false'
   shortDescription: Could lead to XXE
@@ -16,7 +16,8 @@ search:
     args:
       1:
         type: boolean
-        value: "true"
+        value:
+          stringified: "true"
     name:
       anyOf:
       - is: setXIncludeAware

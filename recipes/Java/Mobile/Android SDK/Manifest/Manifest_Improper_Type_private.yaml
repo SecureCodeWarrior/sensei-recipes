@@ -1,5 +1,5 @@
 id: scw:android:manifest:type-private
-version: 8
+version: 9
 metadata:
   name: 'Configuration - Application: Avoid improper platform usage: Private'
   shortDescription: This activity/receiver/provider/service is private

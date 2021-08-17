@@ -1,5 +1,5 @@
 id: scw:android:deprecated-storage-operating-mode
-version: 8
+version: 9
 metadata:
   name: 'Storage best practices: deprecated operating mode'
   shortDescription: This operating mode has been deprecated

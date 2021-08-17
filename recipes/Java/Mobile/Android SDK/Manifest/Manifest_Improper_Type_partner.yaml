@@ -1,5 +1,5 @@
 id: scw:android:manifest:type-partner
-version: 8
+version: 9
 metadata:
   name: 'Configuration - Application: Avoid improper platform usage: Partner'
   shortDescription: This activity/receiver/provider/service is a parter activity/receiver/provider/service

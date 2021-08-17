@@ -1,5 +1,5 @@
 id: scw:spring:cookie:set-httponly
-version: 8
+version: 9
 metadata:
   name: 'Session configuration: Cookies: Set HttpOnly flag to true'
   shortDescription: Prevent client-side scripts from accessing the cookie by setting
@@ -15,7 +15,8 @@ search:
     args:
       1:
         type: boolean
-        value: "false"
+        value:
+          stringified: "false"
     name:
       matches: setHttpOnly
     declaration:

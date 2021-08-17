@@ -1,5 +1,5 @@
 id: scw:spring:security:cors:CrossOrigin-methods
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin - methods'
   shortDescription: Allowing unsafe methods puts the application at risk
@@ -16,11 +16,14 @@ search:
     value:
       anyOf:
       - value:
-          contains: RequestMethod.DELETE
-          caseSensitive: false
+          stringified:
+            contains: RequestMethod.DELETE
+            caseSensitive: false
       - value:
-          contains: RequestMethod.PUT
-      - value: '*'
+          stringified:
+            contains: RequestMethod.PUT
+      - value:
+          stringified: '*'
 availableFixes:
 - name: Configure the annotation to allow safe methods
   actions: []

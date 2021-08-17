@@ -1,5 +1,5 @@
 id: scw:spring:security:session:fixation
-version: 8
+version: 9
 metadata:
   name: Protect against Session Fixation attacks
   shortDescription: Spring Security's default protection against Session Fixation

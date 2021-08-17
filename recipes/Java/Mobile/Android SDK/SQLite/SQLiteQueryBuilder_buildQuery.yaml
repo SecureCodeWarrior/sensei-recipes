@@ -1,5 +1,5 @@
 id: scw:android:sqlite-buildQuery-SQLi
-version: 8
+version: 9
 metadata:
   name: 'SQL Injection: SQLiteQueryBuilder#buildQuery'
   shortDescription: This method is vulnerable to SQL injection. Consider writing the

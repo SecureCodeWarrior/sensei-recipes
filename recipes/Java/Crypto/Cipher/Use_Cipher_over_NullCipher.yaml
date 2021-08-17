@@ -1,5 +1,5 @@
 id: scw:crypto:nullcipher
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Secure Data Storage: Avoid data exposure: Use Cipher instead
     of NullCipher'

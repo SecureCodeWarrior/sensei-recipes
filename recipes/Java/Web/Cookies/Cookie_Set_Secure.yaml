@@ -1,5 +1,5 @@
 id: scw:web:cookie-set-secure
-version: 8
+version: 9
 metadata:
   name: 'Session configuration: Cookies: Set Secure flag to true'
   shortDescription: Prevent a cookie being sent over unencrypted HTTP by setting the
@@ -15,7 +15,8 @@ search:
     args:
       1:
         type: boolean
-        value: "false"
+        value:
+          stringified: "false"
     name: setSecure
     anyOf:
     - type: javax.servlet.http.Cookie

@@ -1,5 +1,5 @@
 id: scw:android:hardware-identifiers-compliant
-version: 8
+version: 9
 metadata:
   name: 'Information Exposure: Avoid using hardware identifiers - Compliant'
   shortDescription: Using hardware identifiers is not recommended - compliant

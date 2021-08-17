@@ -1,5 +1,5 @@
 id: scw:spring:authentication-user-enum-UserNotFoundException
-version: 8
+version: 9
 metadata:
   name: 'Authentication: Username Enumeration: setHideUserNotFoundExceptions should
     be set to true'
@@ -18,7 +18,8 @@ search:
     args:
       1:
         type: boolean
-        value: "false"
+        value:
+          stringified: "false"
     name: setHideUserNotFoundExceptions
     type: org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider
 availableFixes:

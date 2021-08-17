@@ -1,5 +1,5 @@
 id: scw:spring:cookie:missing-httponly
-version: 8
+version: 9
 metadata:
   name: 'Session configuration: Cookies: Configure HttpOnly flag'
   shortDescription: Prevent client-side scripts from accessing the cookie by setting

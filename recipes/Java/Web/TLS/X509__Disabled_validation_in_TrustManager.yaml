@@ -1,5 +1,5 @@
 id: scw:web:x509-validation-disabled
-version: 8
+version: 9
 metadata:
   name: 'X509: Disabled validation in TrustManager'
   shortDescription: A TrustManager has overridden the getAcceptedIssuers method, and

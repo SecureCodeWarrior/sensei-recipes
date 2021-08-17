@@ -1,5 +1,5 @@
 id: scw:aws:amazondynamodbclient-shutdown
-version: 8
+version: 9
 metadata:
   name: Not releasing AmazonDynamoDbClient
   shortDescription: Call the shutdown() method to release the AmazonDynamoDbClient

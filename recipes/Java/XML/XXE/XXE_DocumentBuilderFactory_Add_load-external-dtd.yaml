@@ -1,5 +1,5 @@
 id: scw:xxe:documentbuilderfactory-missing-dtd
-version: 8
+version: 9
 metadata:
   name: 'XXE: DocumentBuilderFactory: Add missing feature load-external-dtd'
   shortDescription: Could lead to XXE
@@ -18,7 +18,8 @@ search:
         methodcall:
           args:
             1:
-              value: http://apache.org/xml/features/nonvalidating/load-external-dtd
+              value:
+                stringified: http://apache.org/xml/features/nonvalidating/load-external-dtd
           name: setFeature
     name: newInstance
     declaration:

@@ -1,5 +1,5 @@
 id: scw:db:mongo:id-injection
-version: 8
+version: 9
 metadata:
   name: 'MongoDB: _id NoSQL Injection'
   shortDescription: Do not use string concatenation in where filters
@@ -12,10 +12,11 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
         type: java.lang.String
         value:
-          matches: this._id.==.*
+          containsUntrustedInput: true
+          stringified:
+            matches: this._id.==.*
     name: where
     declaration:
       type: com.mongodb.client.model.Filters

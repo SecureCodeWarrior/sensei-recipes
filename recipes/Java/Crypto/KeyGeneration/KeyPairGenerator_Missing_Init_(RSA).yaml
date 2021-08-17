@@ -1,5 +1,5 @@
 id: scw:crypto:keypairgen-missing-init
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use sufficiently
     long key sizes: keyPairGenerator'
@@ -16,7 +16,8 @@ search:
     args:
       1:
         type: java.lang.String
-        value: RSA
+        value:
+          stringified: RSA
     not:
       followedBy:
         methodcall:
@@ -30,5 +31,5 @@ availableFixes:
   - addMethodCall:
       name: initialize
       arguments:
-      - 2048
+      - "2048"
       position: first-available-spot

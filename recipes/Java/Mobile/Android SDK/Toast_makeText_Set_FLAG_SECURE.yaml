@@ -1,5 +1,5 @@
 id: scw:android:toast-maketext-flag-secure
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Secure Data Display: Avoid Data Exposure: set FLAG_SECURE'
   shortDescription: Could leak sensitive information

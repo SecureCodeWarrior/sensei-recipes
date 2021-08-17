@@ -1,5 +1,5 @@
 id: scw:java:logging:slf4j-log-injection
-version: 8
+version: 9
 metadata:
   name: 'Logging: enforce usage of placeholders in the messages'
   shortDescription: Do not concatinate untrusted data in the message string, instead
@@ -7,14 +7,15 @@ metadata:
   level: error
   language: java
   enabled: true
-  tags: security;logging;injection
   descriptionFile: descriptions/Enforce_placeholders_logging_messages.html
+  tags: security;logging;injection
 search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
     anyOf:
     - name: trace
     - name: debug

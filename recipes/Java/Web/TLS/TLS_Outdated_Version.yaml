@@ -1,5 +1,5 @@
 id: scw:web:tls-outdated
-version: 8
+version: 9
 metadata:
   name: 'TLS: Weak Encryption: Outdated Version'
   shortDescription: Could lead to Data Exposure
@@ -16,7 +16,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: TLSv1.1
+          stringified:
+            matches: TLSv1.1
     name: getInstance
     declaration:
       type: javax.net.ssl.SSLContext

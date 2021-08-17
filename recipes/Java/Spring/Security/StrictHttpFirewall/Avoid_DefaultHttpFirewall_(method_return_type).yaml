@@ -1,5 +1,5 @@
 id: scw:spring:security:stricthttpfirewall-returntype
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: StrictHttpFirewall: Avoid DefaultHttpFirewall
     (method return type)'

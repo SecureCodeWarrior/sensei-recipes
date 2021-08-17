@@ -1,5 +1,5 @@
 id: scw:crypto:keypairgen-not-recommended-algos
-version: 8
+version: 9
 metadata:
   name: 'Crypto: KeyPair Generation: Approved Standard Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is not recommended
@@ -15,7 +15,8 @@ search:
     args:
       1:
         type: java.lang.String
-        value: ^((?!(DiffieHellman|EC|RSA$|DSA)).)*
+        value:
+          stringified: ^((?!(DiffieHellman|EC|RSA$|DSA)).)*
     name: getInstance
     declaration:
       type: java.security.KeyPairGenerator

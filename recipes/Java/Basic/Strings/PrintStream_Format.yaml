@@ -1,5 +1,5 @@
 id: scw:java:printstream-format-untrusted
-version: 8
+version: 9
 metadata:
   name: PrintStream Format contains untrusted input
   shortDescription: This text will be shown as a tooltip when code violates this recipe
@@ -13,7 +13,8 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
+        value:
+          containsUntrustedInput: true
     name: format
     type: java.io.PrintStream
 availableFixes:

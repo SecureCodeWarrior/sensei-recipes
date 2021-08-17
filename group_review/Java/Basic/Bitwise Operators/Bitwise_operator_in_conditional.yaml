@@ -1,5 +1,5 @@
 id: scw:java:use_logical_operator_conditional
-version: 8
+version: 9
 metadata:
   name: 'Operators: Bitwise: Use logical operator (Conditional)'
   shortDescription: Use logical operator instead of bitwise operator

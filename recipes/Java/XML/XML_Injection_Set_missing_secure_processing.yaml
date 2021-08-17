@@ -1,5 +1,5 @@
 id: scw:xml:missing-secure-processing
-version: 8
+version: 9
 metadata:
   name: 'XML Injection: Set missing secure processing feature'
   shortDescription: Could lead to XML Injection

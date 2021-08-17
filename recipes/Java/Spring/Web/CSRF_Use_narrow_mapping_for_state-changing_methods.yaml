@@ -1,5 +1,5 @@
 id: scw:spring:web:csrf:state-changing-methods-mapping
-version: 8
+version: 9
 metadata:
   name: 'Session management: Avoid CSRF: Use narrow mapping for state-changing methods'
   shortDescription: Non-specified RequestMapping method will map to any HTTP request

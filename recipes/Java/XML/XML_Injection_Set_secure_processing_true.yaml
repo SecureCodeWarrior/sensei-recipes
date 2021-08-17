@@ -1,5 +1,5 @@
 id: scw:xml:secure-processing-true
-version: 8
+version: 9
 metadata:
   name: 'XML Injection: Set secure processing feature to true'
   shortDescription: Could lead to XML Injection
@@ -18,7 +18,8 @@ search:
           name: javax.xml.XMLConstants.FEATURE_SECURE_PROCESSING
       2:
         type: boolean
-        value: "false"
+        value:
+          stringified: "false"
     name: setFeature
 availableFixes:
 - name: Set Secure Processing to true

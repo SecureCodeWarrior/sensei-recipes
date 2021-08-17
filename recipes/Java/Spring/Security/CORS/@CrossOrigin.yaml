@@ -1,5 +1,5 @@
 id: scw:spring:security:cors:CrossOrigin-broad
-version: 8
+version: 9
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin'
   shortDescription: Avoid enabling CORS, or configure it as strictly as possible

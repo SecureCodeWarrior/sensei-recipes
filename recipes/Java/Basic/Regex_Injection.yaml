@@ -1,5 +1,5 @@
 id: scw:java:regex-injection
-version: 8
+version: 9
 metadata:
   name: Regex Injection
   shortDescription: Use Pattern#quote to include untrusted input in regexes.
@@ -13,12 +13,13 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
-        trustedSources:
-        - methodcall:
-            name: quote
-            type: java.util.regex.Pattern
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
+          trustedSources:
+          - methodcall:
+              name: quote
+              type: java.util.regex.Pattern
     name: compile
     type: java.util.regex.Pattern
 availableFixes:

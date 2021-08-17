@@ -1,5 +1,5 @@
 id: scw:spring:jdbc:JdbcOperations-single-parameter
-version: 8
+version: 9
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements:
     single parameter'
@@ -15,8 +15,9 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
     argCount: 1
     name:
       matches: queryForList|queryForMap|queryForRowSet|update|batchUpdate

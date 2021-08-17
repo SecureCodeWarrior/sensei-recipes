@@ -1,5 +1,5 @@
 id: scw:guice:public-injected-fields
-version: 8
+version: 9
 metadata:
   name: Guice Injected Field Not Public
   shortDescription: If the Injected field is not public then the code might not be

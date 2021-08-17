@@ -1,5 +1,5 @@
 id: scw:crypto:signature-not-recommended
-version: 8
+version: 9
 metadata:
   name: 'Crypto: Signature: Approved Hashing Algorithm'
   shortDescription: This hashing algorithm is not recommended for cryptographic use
@@ -16,7 +16,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: ^((?!((MD.*)|(NONE.*)|(SHA[^5][^1][^2].*)|SHA512withDSA|SHA512withDES|SHA512withECDSA|SHA512withRSA$)).)*
+          stringified:
+            matches: ^((?!((MD.*)|(NONE.*)|(SHA[^5][^1][^2].*)|SHA512withDSA|SHA512withDES|SHA512withECDSA|SHA512withRSA$)).)*
     name: getInstance
     declaration:
       type: java.security.Signature

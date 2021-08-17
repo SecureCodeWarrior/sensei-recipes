@@ -1,5 +1,5 @@
 id: scw:crypto:cipher:symmetric
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use strong
     symmetric cryptographic algorithm'
@@ -15,11 +15,12 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: false
         type: java.lang.String
         value:
-          not:
-            matches: AES/GCM/NoPadding|.*RSA.*|.*ECIES.*
+          containsUntrustedInput: false
+          stringified:
+            not:
+              matches: AES/GCM/NoPadding|.*RSA.*|.*ECIES.*
     name: getInstance
     declaration:
       type: javax.crypto.Cipher

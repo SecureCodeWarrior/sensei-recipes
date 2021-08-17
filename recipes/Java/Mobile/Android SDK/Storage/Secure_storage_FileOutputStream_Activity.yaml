@@ -1,5 +1,5 @@
 id: scw:android:secure-storage-FileOutputStream-Activity
-version: 8
+version: 9
 metadata:
   name: 'Insecure Data Storage: Store Sensitive Data in a Private Location (FileOutputStream
     constructor) in Activity'

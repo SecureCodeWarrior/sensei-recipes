@@ -1,5 +1,5 @@
 id: scw:android:webview-disable-javascript-setter
-version: 8
+version: 9
 metadata:
   name: 'WebView best practices: Disable JavaScript (setter)'
   shortDescription: Enabling JavaScript in the webview could lead to XSS
@@ -12,7 +12,8 @@ search:
   methodcall:
     args:
       1:
-        value: "true"
+        value:
+          stringified: "true"
     name: setJavaScriptEnabled
     type: android.webkit.WebSettings
 availableFixes:

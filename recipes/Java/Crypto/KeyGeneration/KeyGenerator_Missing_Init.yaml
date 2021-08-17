@@ -1,5 +1,5 @@
 id: scw:crypto:keygen-missing-init
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Cryptography: Avoid brute forcing: Use sufficiently long
     key sizes: keyGenerator'
@@ -16,7 +16,8 @@ search:
     args:
       1:
         type: java.lang.String
-        value: AES
+        value:
+          stringified: AES
     not:
       followedBy:
         methodcall:
@@ -30,5 +31,5 @@ availableFixes:
   - addMethodCall:
       name: init
       arguments:
-      - 128
+      - "128"
       position: first-available-spot

@@ -1,5 +1,5 @@
 id: scw:android:layoutparams-flag-secure
-version: 8
+version: 9
 metadata:
   name: 'Data Protection - Secure Data Display: Avoid Data Exposure: Use LayoutParams.FLAG_SECURE
     Compliant'
@@ -14,12 +14,15 @@ search:
     anyOf:
     - args:
         1:
-          value: WindowManager.LayoutParams.FLAG_SECURE
+          value:
+            stringified: WindowManager.LayoutParams.FLAG_SECURE
       name: addFlags
     - args:
         1:
-          value: WindowManager.LayoutParams.FLAG_SECURE
+          value:
+            stringified: WindowManager.LayoutParams.FLAG_SECURE
         2:
-          value: WindowManager.LayoutParams.FLAG_SECURE
+          value:
+            stringified: WindowManager.LayoutParams.FLAG_SECURE
       name: setFlags
 availableFixes: []

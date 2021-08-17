@@ -1,9 +1,9 @@
 id: scw:aws:credentials-akia
-version: 8
+version: 9
 metadata:
   name: 'Hardcoded Credentials: AWS Key'
-  shortDescription: This string literal appears to contain AWS credentials. Such
-    credentials should not be hardcoded.
+  shortDescription: This string literal appears to contain AWS credentials. Such credentials
+    should not be hardcoded.
   level: warning
   language: java
   scwCategory: insecure_data_storage:plaintext_storage_of_credentials

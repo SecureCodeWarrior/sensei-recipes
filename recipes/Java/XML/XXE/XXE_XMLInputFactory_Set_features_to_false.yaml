@@ -1,5 +1,5 @@
 id: scw:xxe:xmlinputfactory-false
-version: 8
+version: 9
 metadata:
   name: 'XXE: XMLInputFactory: Set features to false'
   shortDescription: Could lead to XXE
@@ -21,7 +21,8 @@ search:
           - name: javax.xml.stream.XMLInputFactory.SUPPORT_DTD
       2:
         type: boolean
-        value: "true"
+        value:
+          stringified: "true"
     name: setProperty
     declaration:
       type: javax.xml.stream.XMLInputFactory

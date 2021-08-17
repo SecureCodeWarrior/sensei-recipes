@@ -1,5 +1,5 @@
 id: scw:spring:web:requestmapping-public-methods
-version: 8
+version: 9
 metadata:
   name: Use requestMapping on public methods
   shortDescription: RequestMapping should not be used on non-public methods
@@ -9,23 +9,24 @@ metadata:
   descriptionFile: descriptions/UserequestMappingonpublicmethods.html
   tags: Spring;framework specific;web;Spring Web;quality
 search:
-  annotation:
-    owner:
-      method:
-        not:
-          modifier: public
-        in:
-          typeDeclaration:
-            anyOf:
-            - annotation:
-                type: Controller
-            - annotation:
-                type: RestController
-    type:
-      reference:
-        matches: org.springframework.web.bind.annotation.*
-      checkInheritance: true
+  method:
+    not:
+      modifier: public
+    in:
+      typeDeclaration:
+        anyOf:
+        - annotation:
+            type: Controller
+        - annotation:
+            type: RestController
+    child:
+      annotation:
+        type:
+          reference:
+            matches: org.springframework.web.bind.annotation.*
+          checkInheritance: true
 availableFixes:
-- name: Remove the annotation
+- name: Make the method public
   actions:
-  - remove: {}
+  - changeModifiers:
+      visibility: public

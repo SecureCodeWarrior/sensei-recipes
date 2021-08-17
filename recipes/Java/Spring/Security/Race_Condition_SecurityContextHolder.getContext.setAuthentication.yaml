@@ -1,5 +1,5 @@
 id: scw:spring:race-condition-SecurityContext
-version: 8
+version: 9
 metadata:
   name: 'Spring Security: race condition: SecurityContextHolder.getContext.setAuthentication'
   shortDescription: It is important to create a new SecurityContext instance to avoid

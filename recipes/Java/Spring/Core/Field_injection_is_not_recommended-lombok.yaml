@@ -1,5 +1,5 @@
 id: Field_injection_is_not_recommended_lombok
-version: 8
+version: 9
 metadata:
   name: Field injection is not recommended (lombok)
   shortDescription: Field injection is not recommended, because the list of required

@@ -1,5 +1,5 @@
 id: scw:xxe:documentbuilderfactory-features-true
-version: 8
+version: 9
 metadata:
   name: 'XXE: DocumentBuilderFactory: Set features to true'
   shortDescription: Could lead to XXE
@@ -16,10 +16,12 @@ search:
     args:
       1:
         type: java.lang.String
-        value: http://apache.org/xml/features/disallow-doctype-decl
+        value:
+          stringified: http://apache.org/xml/features/disallow-doctype-decl
       2:
         type: boolean
-        value: "false"
+        value:
+          stringified: "false"
     name: setFeature
     declaration:
       type: javax.xml.parsers.DocumentBuilderFactory

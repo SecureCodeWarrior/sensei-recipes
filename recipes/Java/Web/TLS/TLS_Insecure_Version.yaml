@@ -1,5 +1,5 @@
 id: scw:web:tls-insecure
-version: 8
+version: 9
 metadata:
   name: 'TLS: Weak Encryption: Insecure Version'
   shortDescription: Could lead to Data Exposure
@@ -16,7 +16,8 @@ search:
       1:
         type: java.lang.String
         value:
-          matches: (SSL.*|TLSv1)
+          stringified:
+            matches: (SSL.*|TLSv1)
     name: getInstance
     declaration:
       type: javax.net.ssl.SSLContext

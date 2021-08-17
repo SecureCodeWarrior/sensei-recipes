@@ -1,5 +1,5 @@
 id: scw:crypto:keypairgen-insecure-algos
-version: 8
+version: 9
 metadata:
   name: 'Crypto: KeyPair Generation: Insecure Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is insecure
@@ -15,7 +15,8 @@ search:
     args:
       1:
         type: java.lang.String
-        value: DiffieHellman
+        value:
+          stringified: DiffieHellman
     name: getInstance
     declaration:
       type: java.security.KeyPairGenerator

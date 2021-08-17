@@ -1,5 +1,5 @@
 id: scw:android:storage-operating-mode
-version: 8
+version: 9
 metadata:
   name: 'Storage best practices: insecure operating mode'
   shortDescription: When using this value other applications will have access to your

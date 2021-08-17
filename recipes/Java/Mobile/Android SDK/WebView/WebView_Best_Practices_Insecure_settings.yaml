@@ -1,5 +1,5 @@
 id: scw:android:insecure-settings
-version: 8
+version: 9
 metadata:
   name: 'Android WebView best practices: Insecure settings'
   shortDescription: Enabling this WebView setting has security implications
@@ -12,7 +12,8 @@ search:
   methodcall:
     args:
       1:
-        value: "true"
+        value:
+          stringified: "true"
     name:
       matches: setJavaScriptEnabled|setAllowFileAccess|setGeolocationEnabled|setAllowContentAccess
     declaration:

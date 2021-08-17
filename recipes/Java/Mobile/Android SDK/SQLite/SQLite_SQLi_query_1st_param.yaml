@@ -1,5 +1,5 @@
 id: scw:android:SQLite-sqli-1st-parameter
-version: 8
+version: 9
 metadata:
   name: 'SQL Injection: SQLiteDatabase#query - 1st parameter'
   shortDescription: This query could lead to SQL injection
@@ -16,8 +16,9 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
       2:
         type: java.lang.String[]
     name:

@@ -1,5 +1,5 @@
 id: scw:spring:data:query-modifying
-version: 8
+version: 9
 metadata:
   name: Missing annotation in update query
   shortDescription: Queries performing write operations should have the @Modifying
@@ -15,13 +15,14 @@ search:
       parameters:
       - value:
           value:
-            anyOf:
-            - contains: INSERT
-              caseSensitive: false
-            - contains: DELETE
-              caseSensitive: false
-            - contains: UPDATE
-              caseSensitive: false
+            stringified:
+              anyOf:
+              - contains: INSERT
+                caseSensitive: false
+              - contains: DELETE
+                caseSensitive: false
+              - contains: UPDATE
+                caseSensitive: false
     without:
       annotation:
         type: org.springframework.data.jpa.repository.Modifying

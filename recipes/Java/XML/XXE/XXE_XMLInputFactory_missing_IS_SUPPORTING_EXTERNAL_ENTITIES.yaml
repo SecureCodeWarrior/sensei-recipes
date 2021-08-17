@@ -1,5 +1,5 @@
 id: scw:xxe:xmlinputfactory-missing-is_supporting
-version: 8
+version: 9
 metadata:
   name: 'XXE: XMLInputFactory: Add IS_SUPPORTING_EXTERNAL_ENTITIES feature'
   shortDescription: Could lead to XXE

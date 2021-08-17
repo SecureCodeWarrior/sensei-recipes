@@ -1,5 +1,5 @@
 id: scw:logging:printstacktrace
-version: 8
+version: 9
 metadata:
   name: 'Info Leakage: Throwable.printStacktrace leaks valuable program structure
     information'

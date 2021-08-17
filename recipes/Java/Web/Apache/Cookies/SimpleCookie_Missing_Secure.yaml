@@ -1,5 +1,5 @@
 id: scw:web:apache:simplecookie-missing-secure
-version: 8
+version: 9
 metadata:
   name: 'Session configuration: Cookies: Configure Secure flag'
   shortDescription: Prevent a cookie being sent over unencrypted HTTP by setting the

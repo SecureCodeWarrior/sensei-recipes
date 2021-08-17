@@ -1,5 +1,5 @@
 id: scw:android:disable-backups
-version: 8
+version: 9
 metadata:
   name: 'Manifest best practices: Disable Backups'
   shortDescription: Enabling backups could lead to undesired manipulation
