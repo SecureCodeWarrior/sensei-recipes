@@ -54,3 +54,8 @@ cookbooks: # List of cookbooks
     description: Recipes created from security recommendations in the official Android documentation (https://developer.android.com/)
     includedTags: [Android security set]
     excludedTags: []
+  - id: scw:owasp-top-10
+    name: OWASP Top 10 Set
+    description: Collection of all recipes related to the OWASP Top 10
+    includedTags: [OWASP Top 10]
+    excludedTags: []
