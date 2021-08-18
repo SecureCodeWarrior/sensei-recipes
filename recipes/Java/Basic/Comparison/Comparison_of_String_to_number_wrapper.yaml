@@ -15,10 +15,7 @@ search:
       1:
         type:
           reference:
-            anyOf:
-            - matches: java.lang.Short
-            - matches: java.lang.Integer
-            - matches: java.lang.Long
+            matches: java\.lang\.(Float|Integer|Long|Short|Double)
           checkInheritance: true
     name: equals
     type: java.lang.String

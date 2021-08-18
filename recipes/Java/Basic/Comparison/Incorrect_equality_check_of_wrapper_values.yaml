@@ -19,19 +19,13 @@ search:
       expression:
         type:
           reference:
-            anyOf:
-            - is: java.lang.Short
-            - is: java.lang.Integer
-            - is: java.lang.Long
+            matches: java\.lang\.(Boolean|Byte|Character|Float|Integer|Long|Short|Double)
           checkInheritance: true
     second:
       expression:
         type:
           reference:
-            anyOf:
-            - is: java.lang.Short
-            - is: java.lang.Integer
-            - is: java.lang.Long
+            matches: java\.lang\.(Boolean|Byte|Character|Float|Integer|Long|Short|Double)
           checkInheritance: true
 availableFixes:
 - name: Check equality using equals

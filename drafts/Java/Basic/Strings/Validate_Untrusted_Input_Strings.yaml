@@ -10,7 +10,7 @@ metadata:
   comment: To use this template, add your validation method to the "not in" and "trustedSources"
     section of the recipe. You can also provide custom quickfixes.
   descriptionFile: Strings/descriptions/Validate_Untrusted_Input_Strings.html
-  tags: template;SEI-CERT-IDS;security;java-basic
+  tags: template;SEI CERT;security;Java basic
 search:
   argument:
     containsUntrustedInput: true

@@ -15,7 +15,7 @@ metadata:
         minVersion: # IntegerModel
           lessThanOrEquals: 27
   descriptionFile: descriptions/ManifestbestpracticesdisableusesCleartextTraffic.html
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   element:
     tagName:

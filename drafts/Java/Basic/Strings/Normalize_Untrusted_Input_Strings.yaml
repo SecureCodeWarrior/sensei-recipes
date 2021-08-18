@@ -9,12 +9,9 @@ metadata:
   enabled: false
   comment: |-
     In case of custom normalization, add your normalization method to the trustedSources section of the recipe.
-
-
-    TODO:
-    - we should search for when this normalization is necessary & trigger on the sink probably
+    TODO: we should search for when this normalization is necessary & trigger on the sink probably
   descriptionFile: Strings/descriptions/Normalize_Untrusted_Input_Strings.html
-  tags: security;java-basic;SEI-CERT-IDS01-J
+  tags: security;Java basic;SEI CERT;opinionated
 search:
   argument:
     containsUntrustedInput: true

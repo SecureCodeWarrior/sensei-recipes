@@ -8,7 +8,7 @@ metadata:
   scwCategory: misconfig:generic
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationContentsniffingprotection.html
-  tags: Spring;security;framework specific;web;Spring security;OWASP Top 10
+  tags: Spring;security;framework specific;web;Spring Security;OWASP Top 10
 search:
   methodcall:
     not:

@@ -18,4 +18,5 @@ search:
 availableFixes:
 - name: Change android:exported to false
   actions:
-  - null
+  - set:
+      to: "false"

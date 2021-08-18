@@ -9,7 +9,7 @@ metadata:
   scwCategory: misconfig:debug
   enabled: true
   comment: 'Spring annotation: https://howtodoinjava.com/spring5/security/security-java-config-enablewebsecurity-example/'
-  tags: Spring;security;framework specific;web;Spring security;OWASP Top 10
+  tags: Spring;security;framework specific;web;Spring Security;OWASP Top 10
 search:
   annotationParameter:
     name: debug

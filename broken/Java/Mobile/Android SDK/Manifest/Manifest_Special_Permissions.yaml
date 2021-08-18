@@ -3,8 +3,8 @@ version: 9
 metadata:
   name: 'Manifest Best Practices: Permissions: Highly discourage to use these special
     permissions'
-  shortDescription: Highly discouraged to use these special permissions
-  level: error
+  shortDescription: It is highly discouraged to use these special permissions
+  level: warning
   language: xml
   enabled: true
   tags: security;framework specific;mobile;Android

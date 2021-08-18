@@ -10,7 +10,7 @@ metadata:
   comment: Add trusted validation methods to trustedSources in the search section
     of the recipe.
   descriptionFile: descriptions/Validate_file_paths_in_file_streams.html
-  tags: template;security;java-basic
+  tags: template;security;Java basic
 search:
   instanceCreation:
     args:

@@ -1,0 +1,46 @@
+id: scw:java:equality-object-primitive
+version: 9
+metadata:
+  name: Incorrect use of Objects.equals
+  shortDescription: Comparing a non-unboxable object and a primitive will always return
+    false
+  level: error
+  language: java
+  enabled: false
+  tags: Java basic;quality
+search:
+  methodcall:
+    name: equals
+    anyOf:
+    - args:
+        1:
+          type:
+            not:
+              reference:
+                matches: java\.lang\.(Boolean|Byte|Character|Float|Integer|Long|Short|Double)
+              checkInheritance: true
+            checkInheritance: true
+            isPrimitive: false
+        2:
+          type:
+            reference:
+              not: '{{{ arguments.0.type }}}'
+            checkInheritance: true
+            isPrimitive: true
+    - args:
+        1:
+          type:
+            reference:
+              not: '{{{ arguments.1.type }}}'
+            checkInheritance: true
+            isPrimitive: true
+        2:
+          type:
+            not:
+              reference:
+                matches: java\.lang\.(Boolean|Byte|Character|Float|Integer|Long|Short|Double)
+              checkInheritance: true
+            checkInheritance: true
+            isPrimitive: false
+    type: Objects
+availableFixes: []

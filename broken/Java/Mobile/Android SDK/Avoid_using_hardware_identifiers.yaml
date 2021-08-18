@@ -32,7 +32,7 @@ metadata:
     java_android_best_practices_on_unique_identifiers
     https://developer.android.com/reference/android/net/wifi/WifiInfo
     https://developer.android.com/reference/android/bluetooth/BluetoothAdapter
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   methodcall:
     anyOf:

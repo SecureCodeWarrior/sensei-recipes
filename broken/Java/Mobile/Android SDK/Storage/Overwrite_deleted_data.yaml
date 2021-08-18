@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   comment: To be scoped to Android
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   methodcall:
     name: delete

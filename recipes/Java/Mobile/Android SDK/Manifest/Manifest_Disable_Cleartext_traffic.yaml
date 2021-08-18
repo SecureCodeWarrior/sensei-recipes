@@ -23,6 +23,5 @@ search:
 availableFixes:
 - name: Change android:usesCleartextTraffic to false
   actions:
-  - null
   - set:
       to: "false"

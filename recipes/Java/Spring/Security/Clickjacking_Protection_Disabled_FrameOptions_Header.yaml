@@ -9,7 +9,8 @@ metadata:
   scwCategory: misconfig:clickjack
   enabled: true
   descriptionFile: descriptions/SecurityMisconfigurationDisabledclickjackingprotectioninSpringSecurity-frameOptions.html
-  tags: Spring;security;framework specific;web;Spring security;Clickjacking;OWASP Top 10
+  tags: Spring;security;framework specific;web;Spring Security;Clickjacking;OWASP
+    Top 10
 search:
   methodcall:
     in:

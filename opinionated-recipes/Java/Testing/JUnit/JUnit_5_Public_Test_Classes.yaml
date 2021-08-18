@@ -1,12 +1,12 @@
 id: scw:junit:public-classes
 version: 8
 metadata:
-  name: Test Classes in JUnit 5 do not need to be public
-  shortDescription: Test Classes in JUnit 5 do not need to be public
+  name: 'JUnit: JUnit 5 public test classes'
+  shortDescription: JUnit 5 test classes do not need public visibility
   level: warning
-  language: java
+  language: java; kotlin
   enabled: false
-  tags: framework-specific;JUnit;quality
+  tags: framework specific;JUnit;quality;opinionated
 search:
   typeDeclaration:
     with:
@@ -15,7 +15,7 @@ search:
           type: org.junit.jupiter.api.Test
     modifier: public
 availableFixes:
-- name: Remove public visibility from JUnit 5 Test class
+- name: Make the test class package private
   actions:
   - changeModifiers:
       visibility: ""

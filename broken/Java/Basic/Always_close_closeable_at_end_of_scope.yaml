@@ -1,12 +1,13 @@
 id: scw:java:unreleased-streams
-version: 8
+version: 9
 metadata:
   name: 'Unreleased Resource: Always close stream at end of scope'
   shortDescription: Resource has not been closed
   level: error
   language: java
   enabled: true
-  tags: java-basic;quality
+  tags: Java basic;quality
+  comment: On Cloudstack, this recipe triggers correctly, but the QF is broken
 search:
   instanceCreation:
     not:

@@ -9,7 +9,7 @@ metadata:
   cweCategory: 530
   enabled: true
   descriptionFile: descriptions/AndroidManifestbestpracticesDisableBackups.html
-  tags: security;framework-specific;mobile;Android
+  tags: security;framework specific;mobile;Android
 search:
   element:
     tagName:

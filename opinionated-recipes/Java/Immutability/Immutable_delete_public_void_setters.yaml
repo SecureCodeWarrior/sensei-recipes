@@ -7,7 +7,7 @@ metadata:
   level: warning
   language: java; kotlin
   enabled: true
-  tags: opinionated;java-basic;quality
+  tags: opinionated;Java basic;quality
 search:
   method:
     with:

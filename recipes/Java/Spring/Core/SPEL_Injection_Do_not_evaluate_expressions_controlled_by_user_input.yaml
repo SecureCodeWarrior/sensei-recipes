@@ -10,7 +10,8 @@ metadata:
   scwCategory: injection:generic
   enabled: true
   descriptionFile: descriptions/SPEL_Injection_User_controlled_input_evaluation.html
-  tags: expression language;Spring;Spring Core;security;framework specific;injection;OWASP Top 10
+  tags: expression language;Spring;Spring Core;security;framework specific;injection;OWASP
+    Top 10
 search:
   methodcall:
     args:
