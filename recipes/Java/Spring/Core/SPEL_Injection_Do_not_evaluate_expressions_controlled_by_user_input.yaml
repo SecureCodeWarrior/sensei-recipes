@@ -19,7 +19,11 @@ search:
         type: java.lang.String
         value:
           containsUntrustedInput: true
-    name: parseExpression
-    declaration:
-      type: org.springframework.expression.ExpressionParser
+    anyOf:
+    - name: parseExpression
+      declaration:
+        type: org.springframework.expression.ExpressionParser
+    - name: parseRaw
+      declaration:
+        type: org.springframework.expression.spel.standard.SpelExpressionParser
 availableFixes: []
