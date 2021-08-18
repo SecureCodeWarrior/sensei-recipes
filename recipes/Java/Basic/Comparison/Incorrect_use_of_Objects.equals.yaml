@@ -6,7 +6,7 @@ metadata:
     false
   level: error
   language: java
-  enabled: false
+  enabled: true
   tags: Java basic;quality
 search:
   methodcall:
