@@ -9,7 +9,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/String.format_return_value_being_ignored.html
-  tags: Java basics;quality
+  tags: Java basic;quality
 search:
   methodcall:
     not:

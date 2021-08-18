@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/StringsRegexUseEscapeRegexSpecialCharacterforAnyCharMatching.html
-  tags: security;Java basics
+  tags: security;Java basic
 search:
   methodcall:
     args:
