@@ -1,5 +1,5 @@
 id: scw:xml:missing_SSL
-version: 8
+version: 9
 metadata:
   name: 'Missing transport-level security: No SSL for database connection'
   shortDescription: ""
@@ -7,22 +7,26 @@ metadata:
   language: xml
   scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
   enabled: true
+  comment: |-
+    Cannot check xml node contents
+    File scope would be nice? Or perhaps library scope? (matches org\.hibernate\..*)
+    https://docs.datafabric.hpe.com/62/Hive/ConfiguringJDBCConnectionStringSSLencryption.html
+    https://stackoverflow.com/questions/49391470/what-is-the-difference-between-ssl-and-usessl-in-jdbc-postgres-driver
+    https://stackoverflow.com/questions/37898414/hibernate-configuration-i-have-already-set-usessl-false-but-still-got-the-warn
+    https://docs.microsoft.com/en-us/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15
 search:
   element:
     attribute:
       anyOf:
       - name:
-          caseSensitive: true
           is: name
         value: hibernate.connection.url
       - name:
-          caseSensitive: true
           is: value
         value:
           matches: .*useSSL=false.*?
       label: urlnode
     tagName:
-      caseSensitive: true
       is: property
 availableFixes:
 - name: Enable SSL in the connection string
