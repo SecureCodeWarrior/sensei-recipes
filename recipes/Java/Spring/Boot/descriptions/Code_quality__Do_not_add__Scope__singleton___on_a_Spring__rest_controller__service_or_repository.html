@@ -1,0 +1,21 @@
+<html>
+<body>
+<p id="abstract">Applying the <code>@Scope("singleton")</code> to a class annotated with <code>@Controller</code>, <code>@RestController</code>, <code>@Repository</code> or <code>@Service</code> is redundant as these classes are singletons by default.</p>
+<br>
+  <b>Before</b>
+<pre>@Scope("singleton")
+@Controller
+public class UserController {
+}</pre>
+  <br>
+  <b>After</b>
+<pre>@Controller
+public class UserController {
+}</pre>
+  <br>
+  <b>Resources</b>
+<ul>
+  <li><a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-scopes">Spring docs: Bean Scopes</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+id: scw:spring:boot:controller-restcontroller-service-repository-should-be-singletons
+version: 9
+metadata:
+  name: 'Spring recommendation: @(Rest)Controller, @Service, @Repository should be
+    singletons'
+  shortDescription: Classes annotated with @(Rest)Controller, @Service, @Repository
+    should have a singleton scope
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Spring_recommendation____Rest_Controller___Service___Repository_should_be_singletons.html
+search:
+  annotation:
+    in:
+      typeDeclaration:
+        annotation:
+          type:
+            reference:
+              matches: Controller|RestController|Repository|Service
+            checkInheritance: true
+    type: Scope
+    without:
+      parameters:
+      - value:
+          value:
+            stringified: singleton
+availableFixes:
+- name: Remove the annotation (defaults to singleton scope)
+  actions:
+  - remove:
+      target: self
