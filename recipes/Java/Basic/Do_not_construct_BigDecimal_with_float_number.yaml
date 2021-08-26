@@ -1,0 +1,27 @@
+id: scw:java:basic:BigDecimal-float
+version: 9
+metadata:
+  name: Do not construct BigDecimal objects from floating-point variables
+  shortDescription: The number may be represented incorrectly by BigDecimal
+  level: info
+  language: java
+  enabled: true
+  comment: |-
+    Case when value is literal is caught by IntelliJ
+
+    https://wiki.sei.cmu.edu/confluence/display/java/NUM10-J.+Do+not+construct+BigDecimal+objects+from+floating-point+literals
+  tags: quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type:
+          reference:
+            matches: double|Double|float|Float
+          checkInheritance: true
+        value:
+          not:
+            is:
+              literal: {}
+    type: java.math.BigDecimal
+availableFixes: []
