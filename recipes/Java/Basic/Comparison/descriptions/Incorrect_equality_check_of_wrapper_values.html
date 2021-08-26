@@ -1,8 +1,8 @@
 <html>
   <body>
-    <p id="abstract">Values contained in a wrapper class should be compared using the <code>equals</code> method of the wrapper instead of the reference comparison operator (==) to prevent unexpected results.</p>
+    <p id="abstract">Values contained in a not fully memoized wrapper class should be compared using the <code>equals</code> method of the wrapper instead of the reference comparison operator (==) to prevent unexpected results.</p>
     <br>
-    <p id="impact_and_desired_state">As an example, using the reference comparison operator for Long values in the range -128 to 127 will behave the same as the <code>equals</code> method. However, if we perform the same comparison with values outside of this range, the results will differ. This is due to Java maintaining a constant pool for the mentioned range of Long values. Using the <code>equals</code> method will always yield the expected results and should be preferred.</p>
+    <p id="impact_and_desired_state">As an example, using the reference comparison operator for Long values in the range -128 to 127 will behave the same as the <code>equals</code> method. However, if we perform the same comparison with values outside this range, the results will differ. This is due to Java maintaining a constant pool for the mentioned range of Long values. Using the <code>equals</code> method will always yield the expected results and should be preferred.</p>
     <br>
     <b>Before</b>
 <pre>
@@ -18,7 +18,8 @@ boolean isMatch = a<b>.equals(</b>b<b>)</b>;</pre>
 <br>
 <b>References</b>
 <ul>
-<li><a href="https://www.baeldung.com/java-compare-long-values">Baeldung on comparing Long values</a></li>
-</ul>
+<li><a href="https://wiki.sei.cmu.edu/confluence/display/java/EXP03-J.+Do+not+use+the+equality+operators+when+comparing+values+of+boxed+primitives">SEI CERT: EXP03-J. Do not use the equality operators when comparing values of boxed primitives</a></li>
+  <li><a href="https://www.baeldung.com/java-compare-long-values">Baeldung on comparing Long values</a></li>
+</ul
   </body>
 </html>
