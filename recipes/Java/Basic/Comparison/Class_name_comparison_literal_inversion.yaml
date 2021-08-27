@@ -1,0 +1,32 @@
+id: Copy_of_Copy_of_Do_not_compare_classes_types_by_their_name
+version: 9
+metadata:
+  name: Copy of Copy of Do not compare classes/types by their name
+  shortDescription: Comparing the class names is less robust than comparing the actual
+    classes
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Do_not_compare_classes_types_by_their_name.html
+  tags: Java basic;SEI CERT;quality;security
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          is:
+            methodcall:
+              name: getName
+              "on":
+                methodcall:
+                  name: getClass
+    name: equals
+    "on":
+      literal: {}
+availableFixes:
+- name: Compare classes instead of names
+  actions:
+  - rewrite:
+      to: '{{{ argumentList.expressions.0.qualifier }}} == {{#sed}}s/.*\.(.*)/$1/,{{{
+        qualifier }}}{{/sed}}.class'
+      target: self

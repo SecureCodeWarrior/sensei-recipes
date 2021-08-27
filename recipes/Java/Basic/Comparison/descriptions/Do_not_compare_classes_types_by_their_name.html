@@ -1,0 +1,22 @@
+<html>
+<body>
+<p id="abstract">Comparing classes/types based on the class name is less robust than comparing the class itself.</p>
+<br>
+<p id="impact_and_desired_state">By using the classes of the types themselves, there is less room for error as type checking can be performed. This implicitly checks the packages of the classes as well, which might be forgotten when providing the class name as a string literal. This in turn could lead to a mix-and-match attack in which the attacker creates a class with the same name in a different package.</p>
+<br>
+<b>Before</b>
+<pre>b.add(obj1.getClass().getName().equals("java.lang.Integer"));
+b.add("java.lang.Integer".equals(obj1.getClass().getName()));
+b.add(obj1.getClass().getName().equals(obj2.getClass().getName()));</pre>
+<br>
+<b>After</b>
+<pre>b.add(obj1.getClass() == Integer.class);
+b.add(obj1.getClass() == Integer.class);
+b.add(obj1.getClass() == obj2.getClass());</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://wiki.sei.cmu.edu/confluence/display/java/OBJ09-J.+Compare+classes+and+not+class+names">SEI CERT OBJ09-J. Compare classes and not class names</a></li>
+</ul>
+</body>
+</html>
