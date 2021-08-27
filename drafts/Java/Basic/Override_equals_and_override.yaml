@@ -1,0 +1,30 @@
+id: scw:java:basic:override-equals-hashcode
+version: 9
+metadata:
+  name: Override hashCode when overriding equals
+  shortDescription: When overriding equals, hashCode should also be overridden
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Override_hashCode_when_overriding_equals.html
+  tags: template;Java basic;quality
+search:
+  class:
+    without:
+      child:
+        method:
+          name: hashCode
+          type: java.lang.Object
+    child:
+      method:
+        name: equals
+        type: java.lang.Object
+availableFixes:
+- name: Add a stub for hashCode()
+  actions:
+  - addMethod:
+      method: |-
+        @Override
+        public int hashCode() {
+            return Objects.hash(/* list properties here */);
+        }

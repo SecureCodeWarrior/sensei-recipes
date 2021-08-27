@@ -1,0 +1,32 @@
+<html>
+<body>
+<p id="abstract">Classes that override the <code>equals</code> method should also override the <code>hashCode</code> method</p>
+<br>
+<p id="impact_and_desired_state">The <code>java.lang.Object</code> class of the Java SE documentation notes: "It is generally necessary to override the hashCode method whenever this method is overridden, so as to maintain the general contract for the hashCode method, which states that equal objects must have equal hash codes."</p>
+<br>
+<b>Before</b>
+<pre>public class MyClass {
+@Override
+public boolean equals(Object o) {
+    ...
+}</pre>
+<br>
+<b>After</b>
+<pre>public class MyClass {
+@Override
+public boolean equals(Object o) {
+    ...
+}
+
+<b>@Override
+public int hashCode() {
+    return Objects.hash(/* list properties here */);
+}</b></pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://wiki.sei.cmu.edu/confluence/display/java/MET09-J.+Classes+that+define+an+equals%28%29+method+must+also+define+a+hashCode%28%29+method">SEI CERT - MET09-J. Classes that define an equals() method must also define a hashCode() method</a></li>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-">Oracle Java SE 8 Documentation: Object#Equals</a></li>
+</ul>
+</body>
+</html>
