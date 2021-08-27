@@ -8,7 +8,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/Do_not_compare_classes_types_by_their_name.html
-  tags: Java basic;SEI CERT;quality
+  tags: Java basic;SEI CERT;quality;security
 search:
   methodcall:
     args:
