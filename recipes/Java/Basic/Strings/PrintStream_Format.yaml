@@ -7,7 +7,8 @@ metadata:
   language: java
   cweCategory: 134
   enabled: false
-  comment: Not working yet due to untrusted input not being detected correctly
+  comment: ""
+  descriptionFile: descriptions/PrintStream_Format.html
   tags: security;SEI CERT;Java basic;injection;OWASP Top 10
 search:
   methodcall:

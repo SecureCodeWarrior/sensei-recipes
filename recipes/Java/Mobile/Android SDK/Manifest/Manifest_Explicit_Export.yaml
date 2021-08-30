@@ -2,8 +2,7 @@ id: scw:android:explicit-export
 version: 9
 metadata:
   name: 'Manifest best practices: explicit exported components'
-  shortDescription: When android:exported is set to true any application will be able
-    to call this component.
+  shortDescription: When android:exported is set to true any application will be able to call this component.
   level: error
   language: xml
   scwCategory: improper_platform_usage:incorrect_activity_configuration

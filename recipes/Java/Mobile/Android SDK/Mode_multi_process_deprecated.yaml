@@ -6,11 +6,8 @@ metadata:
   level: warning
   language: java
   enabled: true
-  comment: |-
-    https://developer.android.com/training/data-storage/shared-preferences
-    https://developer.android.com/reference/android/content/SharedPreferences
-    https://developer.android.com/reference/android/content/Context#MODE_MULTI_PROCESS
-    Deprecated since API level 23
+  comment: ""
+  descriptionFile: descriptions/Storage_best_practices__deprecated_operating_mode.html
   tags: security;framework specific;mobile;Android
 search:
   argument:

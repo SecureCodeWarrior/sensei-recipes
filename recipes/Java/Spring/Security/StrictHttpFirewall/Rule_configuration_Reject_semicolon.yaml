@@ -1,8 +1,7 @@
 id: scw:spring:security:stricthttpfirewall-semicolon
 version: 9
 metadata:
-  name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject
-    semicolon'
+  name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject semicolon'
   shortDescription: Rejecting semicolons is more secure
   level: warning
   language: java

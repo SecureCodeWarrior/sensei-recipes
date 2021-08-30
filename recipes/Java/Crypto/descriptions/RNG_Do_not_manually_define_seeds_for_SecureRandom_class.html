@@ -1,0 +1,21 @@
+<html>
+<body>
+<p id="abstract">Secure coding practices prescribe that the seed value for the <code>java.security.SecureRandom</code> should not be set manually. Instead, the class should generate a secure value by itself.</p>
+<br>
+<p id="impact_and_desired_state">Using a manually set seed can lead to predictable randomness, which is undesirable in the case of:</p>
+<ul>
+  <li>Generated secrets</li>
+  <li>CSRF Tokens</li>
+  <li>Login and password reset tokens</li>
+</ul>
+<br>
+<b>Before</b>
+<pre>byte[] seed = "Custom seed".getBytes();
+  SecureRandom rnd = new SecureRandom(<b>seed</b>);
+  <b>rnd.setSeed(seed);</b></pre>
+<br>
+<b>After</b>
+<pre>byte[] seed = "Custom seed".getBytes();
+  SecureRandom rnd = new SecureRandom();</pre>
+</body>
+</html>

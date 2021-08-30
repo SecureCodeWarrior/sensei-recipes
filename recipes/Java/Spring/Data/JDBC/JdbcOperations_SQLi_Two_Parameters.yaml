@@ -1,8 +1,7 @@
 id: scw:spring:jdbc:JdbcOperations-two-parameters
 version: 9
 metadata:
-  name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements:
-    Two parameters'
+  name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements: Two parameters'
   shortDescription: Could lead to JDBC Injection
   level: error
   language: java

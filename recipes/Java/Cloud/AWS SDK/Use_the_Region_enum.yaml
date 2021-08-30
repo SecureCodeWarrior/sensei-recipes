@@ -22,5 +22,4 @@ availableFixes:
 - name: Use the Region enum
   actions:
   - rewrite:
-      to: software.amazon.awssdk.regions.Region.{{#sed}}s/-/_/g,{{#upperCase}}{{{
-        arguments.0.value }}}{{/upperCase}}{{/sed}}
+      to: software.amazon.awssdk.regions.Region.{{#sed}}s/-/_/g,{{#upperCase}}{{{ arguments.0.value }}}{{/upperCase}}{{/sed}}

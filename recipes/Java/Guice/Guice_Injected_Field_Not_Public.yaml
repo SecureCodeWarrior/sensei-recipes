@@ -2,12 +2,12 @@ id: scw:guice:public-injected-fields
 version: 9
 metadata:
   name: Guice Injected Field Not Public
-  shortDescription: If the Injected field is not public then the code might not be
-    wired up.
+  shortDescription: If the Injected field is not public then the code might not be wired up.
   level: warning
   language: java
   enabled: true
-  comment: Do we need to look back at the typeDeclaration itself to check the modifier?
+  comment: ""
+  descriptionFile: descriptions/Guice_Injected_Field_Not_Public.html
   tags: Guice;dependency injection;framework specific;quality
 search:
   field:
@@ -18,7 +18,7 @@ search:
         without:
           modifier: public
 availableFixes:
-- name: Change class to public. Remember to also request injection on this class
+- name: Change class to public. Remember to also request injection on this class.
   actions:
   - changeModifiers:
       visibility: public

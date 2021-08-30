@@ -2,8 +2,7 @@ id: scw:db:jpa:createquery
 version: 9
 metadata:
   name: 'Injection - SQL Injection in JPA: EntityManager#createQuery'
-  shortDescription: Avoid SQLi by using parameterized queries, instead of string concatenation
-    with untrusted input
+  shortDescription: Avoid SQLi by using parameterized queries, instead of string concatenation with untrusted input
   level: error
   language: java
   enabled: true

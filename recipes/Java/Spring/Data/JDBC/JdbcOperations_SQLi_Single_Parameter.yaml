@@ -1,8 +1,7 @@
 id: scw:spring:jdbc:JdbcOperations-single-parameter
 version: 9
 metadata:
-  name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements:
-    single parameter'
+  name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements: single parameter'
   shortDescription: Could lead to JDBC Injection
   level: error
   language: java

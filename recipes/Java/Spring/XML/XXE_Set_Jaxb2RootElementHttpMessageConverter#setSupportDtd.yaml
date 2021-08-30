@@ -1,8 +1,7 @@
 id: scw:spring:xml:xxe-Jaxb2RootElementHttpMessageConverter-setSupportDtd
 version: 9
 metadata:
-  name: 'Injection: XXE: Jaxb2RootElementHttpMessageConverter#setSupportDtd set to
-    true'
+  name: 'Injection: XXE: Jaxb2RootElementHttpMessageConverter#setSupportDtd set to true'
   shortDescription: Prevent XXE by disabling DTDs
   level: error
   language: java

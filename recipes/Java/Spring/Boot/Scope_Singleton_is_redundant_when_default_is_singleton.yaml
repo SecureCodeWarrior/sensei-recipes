@@ -1,13 +1,13 @@
 id: scw:spring:boot:default-singleton-scope-singleton-annotation-redundant
 version: 9
 metadata:
-  name: 'Code quality: Do not add @Scope("singleton") on a Spring (rest)controller,
-    service or repository'
+  name: 'Code quality: Do not add @Scope("singleton") on a Spring (rest)controller, service or repository'
   shortDescription: Adding @Scope("singleton") is redundant
   level: info
   language: java
   enabled: true
   descriptionFile: descriptions/Code_quality__Do_not_add__Scope__singleton___on_a_Spring__rest_controller__service_or_repository.html
+  tags: web;framework specific;Spring Boot;Spring;quality
 search:
   annotation:
     in:

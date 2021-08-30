@@ -2,8 +2,7 @@ id: scw:spring:security:cors:CrossOrigin-maxAge
 version: 9
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin - maxAge'
-  shortDescription: A value over 30 minutes is considered prolonged and likely to
-    reduce security
+  shortDescription: A value over 30 minutes is considered prolonged and likely to reduce security
   level: warning
   language: java
   enabled: true

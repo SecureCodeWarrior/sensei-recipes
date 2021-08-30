@@ -8,10 +8,8 @@ metadata:
   scwCategory: injection:sql
   cweCategory: 89
   enabled: true
-  comment: |-
-    Binding of parameters through bindString, bindDouble, bindFloat, bindLong
-    https://developer.android.com/reference/android/database/sqlite/SQLiteStatement
-    java_android_secure_database_queries.html
+  comment: ""
+  descriptionFile: descriptions/java_android_secure_database_queries.html
   tags: security;framework specific;mobile;injection;Android;SQL;OWASP Top 10
 search:
   methodcall:

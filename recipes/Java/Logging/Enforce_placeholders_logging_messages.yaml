@@ -2,8 +2,7 @@ id: scw:java:logging:slf4j-log-injection
 version: 9
 metadata:
   name: 'Logging: enforce usage of placeholders in the messages'
-  shortDescription: Do not concatinate untrusted data in the message string, instead
-    use placeholders ( '{}' )
+  shortDescription: Do not concatinate untrusted data in the message string, instead use placeholders ( '{}' )
   level: error
   language: java
   enabled: true

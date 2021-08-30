@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Secure coding practices prescribe to pass source implementations that do not require manual parsing to the unmarshaller, i.e. either <code>SAXSource</code> or <code>StreamSource</code>.
+</p>
+<br>
+<p>There are four possible source implementations passed to the unmarshaller: <code>DOMSource</code>, <code>StAXSource</code>, <code>SAXSource</code> and <code>StreamSource</code>.</p>
+<br>
+<p>For a <code><b>DOMSource</b></code>, the XML has already been parsed by user code and that code is responsible for protecting against XXE.</p>
+<br>
+<p>For a <code><b>StAXSource</b></code>, the XMLStreamReader has already been created by user code and that code is responsible for protecting against XXE.</p>
+<br>
+<p>For <code><b>SAXSource</b></code> and <code><b>StreamSource</b></code> instances, Spring has disabled external entity processing by default, protecting it from XXE.</p>
+<br>
+<p>It is recommended to use source implementations where external entity processing is handled by the framework, i.e. <code><b>SAXSource</b></code> or <code><b>StreamSource</b></code>.</p>
+</body>
+</html>

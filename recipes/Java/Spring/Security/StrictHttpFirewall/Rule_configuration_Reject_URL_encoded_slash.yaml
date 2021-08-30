@@ -1,8 +1,7 @@
 id: scw:spring:security:stricthttpfirewall-slash
 version: 9
 metadata:
-  name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject
-    URL encoded slash'
+  name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject URL encoded slash'
   shortDescription: Rejecting the use of a URL encoded slash is more secure
   level: warning
   language: java

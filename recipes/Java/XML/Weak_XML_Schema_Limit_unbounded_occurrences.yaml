@@ -2,8 +2,7 @@ id: scw:xml:weak-schema-unbounded-maxoccurs
 version: 9
 metadata:
   name: 'Weak XML Schema: Unbounded Occurrences: limit maxOccurs'
-  shortDescription: Unbounded sequences may lead to overflow or excessive resource
-    consumption
+  shortDescription: Unbounded sequences may lead to overflow or excessive resource consumption
   level: warning
   language: xml
   cweCategory: 770

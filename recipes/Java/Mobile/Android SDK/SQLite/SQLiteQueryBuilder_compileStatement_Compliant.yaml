@@ -8,8 +8,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/java_android_secure_database_queries.html
-  tags: security;framework specific;mobile;injection;Android;SQL;Android security
-    set;OWASP Top 10
+  tags: security;framework specific;mobile;injection;Android;SQL;Android security set;OWASP Top 10
 search:
   methodcall:
     args:

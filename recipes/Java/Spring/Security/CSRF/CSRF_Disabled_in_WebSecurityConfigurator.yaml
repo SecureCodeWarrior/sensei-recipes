@@ -2,13 +2,13 @@ id: scw:spring:csrf:disabled-HttpSecurity
 version: 9
 metadata:
   name: 'CSRF: Disabled CSRF protection (HttpSecurity)'
-  shortDescription: Disabling Spring Security's CSRF protection makes the application
-    vulnerable
+  shortDescription: Disabling Spring Security's CSRF protection makes the application vulnerable
   level: error
   language: java
   scwCategory: csrf:csrf
   cweCategory: 352
   enabled: true
+  descriptionFile: descriptions/CSRFprotectiondonotdisabledefaultprotection.html
   tags: Spring;security;framework specific;web;Spring Security;CSRF;OWASP Top 10
 search:
   methodcall:

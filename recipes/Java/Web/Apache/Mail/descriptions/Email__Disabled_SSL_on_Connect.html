@@ -1,0 +1,15 @@
+<html>
+<body>
+<p id="abstract">SSL/TLS with sufficient verification should be enabled when sending emails. Explicitly disabling SSL/TLS results in email contents being exposed. Disabling verification of the recipient can lead to spoofing attacks.</p>
+<br>
+<b>Before</b>
+<pre>Email email = new SimpleEmail();
+email.setSSLOnConnect(<b>false</b>);
+email.setSSLCheckServerIdentity(<b>false</b>);</pre>
+<br>
+<b>After</b>
+<pre>Email email = new SimpleEmail();
+email.setSSLOnConnect(<b>true</b>);
+email.setSSLCheckServerIdentity(<b>true</b>);</pre>
+</body>
+</html>

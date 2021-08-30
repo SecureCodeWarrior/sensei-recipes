@@ -6,6 +6,7 @@ metadata:
   level: warning
   language: xml
   enabled: true
+  descriptionFile: descriptions/Manifest_Best_Practices_Private_activities.html
   tags: security;framework specific;mobile;Android
 search:
   attribute:

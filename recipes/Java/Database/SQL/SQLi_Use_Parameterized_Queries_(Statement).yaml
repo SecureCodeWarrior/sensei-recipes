@@ -105,8 +105,7 @@ availableFixes:
             subject:
               insertBefore: true
   - changeTypeOfCallObject:
-      rewriteLastAssignment: '{{{ qualifier }}}.prepareStatement({{{ markedElement.arguments.0}}}{{#arguments}},
-        {{{.}}}{{/arguments}})'
+      rewriteLastAssignment: '{{{ qualifier }}}.prepareStatement({{{ markedElement.arguments.0}}}{{#arguments}}, {{{.}}}{{/arguments}})'
       type: java.sql.PreparedStatement
   - modifyArguments:
       remove:

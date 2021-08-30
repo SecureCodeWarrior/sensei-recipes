@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>It is discouraged to use SMS for any sensitive data. SMS is neither encrypted nor strongly authenticated on either the network or the device.</p>
+<br>
+<b>Example of SMS permissions:</b>
+<pre>&lt;uses-permission android:name="android.permission.SEND_SMS"/&gt;
+&lt;uses-permission android:name="android.permission.RECEIVE_SMS"/&gt;</pre>
+<br>
+<b>Example of SMS messaging:</b>
+<pre>String message = "user:"+user+";Password:"+password;
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phoneNumber));   
+intent.putExtra("sms_body", message);
+startActivity(intent);</pre>
+<b>Resources:</b>
+<ul>
+<li><a href="https://developer.android.com/guide/topics/permissions/requesting.html#special_permissions">Android Special Permissions</a></li>
+</ul>
+</body>
+</html>

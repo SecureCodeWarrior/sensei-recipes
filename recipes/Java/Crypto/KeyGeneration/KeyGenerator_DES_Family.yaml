@@ -1,8 +1,7 @@
 id: scw:crypto:keygen-des
 version: 9
 metadata:
-  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate
-    secret key generation algorithm: DES family'
+  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate secret key generation algorithm: DES family'
   shortDescription: Could lead to brute forcing or other cryptographic weakness
   level: error
   language: java

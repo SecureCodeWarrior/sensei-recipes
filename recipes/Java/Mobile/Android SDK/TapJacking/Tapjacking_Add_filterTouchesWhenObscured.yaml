@@ -2,8 +2,7 @@ id: scw:android:tapjacking-add-filterTouchesWhenObscured
 version: 9
 metadata:
   name: 'Configuration - User Interface: Avoid Tapjacking: Add filterTouchesWhenObscured'
-  shortDescription: Not setting filterTouchesWhenObscured to true allows adversaries
-    to hijack users' taps.
+  shortDescription: Not setting filterTouchesWhenObscured to true allows adversaries to hijack users' taps.
   level: warning
   language: xml
   cweCategory: 1021

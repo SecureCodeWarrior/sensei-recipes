@@ -1,0 +1,11 @@
+<html>
+  <body>
+  <p>The Android best practices and coding guidelines recommend that some properties should not be set to in the Android Manifest when dealing with private activities. Private activities are activities that do not have the <code>android:export</code> attribute set to true. The properties to avoid are: <code>android:taskAffinity</code> and <code>android:launchMode</code>.</p>
+    <br>
+    <b>Before</b>
+<pre>&lt;application android:allowBackup="<b>true</b>" android:allowBackup="<b>true</b>" ... /&gt;</pre>
+    <br>
+    <b>After</b>
+<pre>&lt;application ... /&gt;</pre>
+  </body>
+</html>

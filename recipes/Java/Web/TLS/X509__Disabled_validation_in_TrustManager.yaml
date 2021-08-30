@@ -2,12 +2,12 @@ id: scw:web:x509-validation-disabled
 version: 9
 metadata:
   name: 'X509: Disabled validation in TrustManager'
-  shortDescription: A TrustManager has overridden the getAcceptedIssuers method, and
-    only returns null.
+  shortDescription: A TrustManager has overridden the getAcceptedIssuers method, and only returns null.
   level: warning
   language: java
   scwCategory: insufficient_transport_layer_protection:weak_certificate_validation
   enabled: true
+  descriptionFile: descriptions/X509__Disabled_validation_in_TrustManager.html
   tags: security;web;TLS;OWASP Top 10
 search:
   method:

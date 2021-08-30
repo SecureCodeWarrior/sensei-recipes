@@ -6,9 +6,8 @@ metadata:
   level: warning
   language: java
   enabled: true
-  comment: |-
-    https://developer.android.com/reference/androidx/core/content/ContextCompat#public-methods
-    java_android_sensitive_information_avoid_storing_sensitive_information_in_device_encrypted_storage.html
+  comment: ""
+  descriptionFile: descriptions/java_android_sensitive_information_store_sensitive_data_in_a_private_location.html
   tags: security;framework specific;mobile;Android
 search:
   methodcall:
@@ -21,15 +20,8 @@ availableFixes:
 - name: Use the default secure storage location in the current context (try-with-resources)
   actions:
   - rewrite:
-      to: "String filename = \"myfile\";\nString string = \"output\";\n\ntry (java.io.FileOutputStream\
-        \ outputStream = {{{ children.0.children.0.children.0 }}}.openFileOutput(filename,\
-        \ android.content.Context.MODE_PRIVATE)) {\n\toutputStream.write(string.getBytes());\n\
-        } catch (Exception e) {\n\t// TODO: handle exception\n}"
+      to: "String filename = \"myfile\";\nString string = \"output\";\n\ntry (java.io.FileOutputStream outputStream = {{{ children.0.children.0.children.0 }}}.openFileOutput(filename, android.content.Context.MODE_PRIVATE)) {\n\toutputStream.write(string.getBytes());\n} catch (Exception e) {\n\t// TODO: handle exception\n}"
 - name: Use the default secure storage location in the current context
   actions:
   - rewrite:
-      to: "String filename = \"myfile\";\nString string = \"output\";\njava.io.FileOutputStream\
-        \ outputStream;\n\ntry {\n\toutputStream = {{{ children.0.children.0.children.0\
-        \ }}}.openFileOutput(filename, android.content.Context.MODE_PRIVATE);\n\t\
-        outputStream.write(string.getBytes());\n} catch (Exception e) {\n\t// TODO:\
-        \ handle exception\n} finally {\n\toutputStream.close();\n}"
+      to: "String filename = \"myfile\";\nString string = \"output\";\njava.io.FileOutputStream outputStream;\n\ntry {\n\toutputStream = {{{ children.0.children.0.children.0 }}}.openFileOutput(filename, android.content.Context.MODE_PRIVATE);\n\toutputStream.write(string.getBytes());\n} catch (Exception e) {\n\t// TODO: handle exception\n} finally {\n\toutputStream.close();\n}"

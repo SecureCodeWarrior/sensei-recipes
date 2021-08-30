@@ -2,11 +2,13 @@ id: scw:java:equality-object-primitive
 version: 9
 metadata:
   name: Incorrect use of Objects.equals
-  shortDescription: Comparing a non-unboxable object and a primitive will always return
-    false
-  level: error
+  shortDescription: Comparing a non-unboxable object and a primitive will always return false
+  level: warning
   language: java
+  scwCategory: blog:generic
+  cweCategory: 480
   enabled: true
+  descriptionFile: descriptions/Incorrect_use_of_Objects.equals.html
   tags: Java basic;quality
 search:
   methodcall:
@@ -43,4 +45,8 @@ search:
             checkInheritance: true
             isPrimitive: false
     type: Objects
-availableFixes: []
+availableFixes:
+- name: Simplify to false
+  actions:
+  - rewrite:
+      to: "false"

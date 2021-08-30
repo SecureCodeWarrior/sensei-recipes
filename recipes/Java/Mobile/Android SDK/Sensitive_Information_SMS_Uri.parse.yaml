@@ -6,7 +6,8 @@ metadata:
   level: error
   language: java
   enabled: true
-  comment: java_android_do_not_send_sensitive_information_over_sms.html
+  comment: ""
+  descriptionFile: Manifest/descriptions/Manifest_Best_Practices__Permissions__SMS.html
   tags: security;framework specific;mobile;Android
 search:
   methodcall:

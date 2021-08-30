@@ -1,8 +1,7 @@
 id: scw:crypto:keygen-missing-init
 version: 9
 metadata:
-  name: 'Data Protection - Cryptography: Avoid brute forcing: Use sufficiently long
-    key sizes: keyGenerator'
+  name: 'Data Protection - Cryptography: Avoid brute forcing: Use sufficiently long key sizes: keyGenerator'
   shortDescription: Could lead to brute forcing or other cryptographic weakness
   level: error
   language: java

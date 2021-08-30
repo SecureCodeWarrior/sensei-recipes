@@ -1,8 +1,7 @@
 id: scw:spring:security:stricthttpfirewall-null
 version: 9
 metadata:
-  name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject
-    (URL encoded) null'
+  name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject (URL encoded) null'
   shortDescription: Rejecting the use of a (URL encoded) null is more secure
   level: warning
   language: java

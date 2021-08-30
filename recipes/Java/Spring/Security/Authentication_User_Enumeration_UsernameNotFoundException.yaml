@@ -2,8 +2,7 @@ id: scw:spring:authentication-user-enum-UsernameNotFoundException
 version: 9
 metadata:
   name: 'Authentication: Username Enumeration: avoid UsernameNotFoundException'
-  shortDescription: Avoid throwing a UsernameNotFoundException as it could lead to
-    username enumeration
+  shortDescription: Avoid throwing a UsernameNotFoundException as it could lead to username enumeration
   level: warning
   language: java
   scwCategory: auth:userenum

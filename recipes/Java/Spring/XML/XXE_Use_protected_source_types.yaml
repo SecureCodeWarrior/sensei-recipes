@@ -9,6 +9,7 @@ metadata:
   scwCategory: injection:xml
   cweCategory: 611
   enabled: true
+  descriptionFile: descriptions/Input_Validation__Avoid_XXE__Use_automatically_protected_source_types.html
   tags: Spring;security;XXE;framework specific;Spring XML;OWASP Top 10
 search:
   methodcall:

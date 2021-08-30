@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Android best practices on unique identifiers state that developers should avoid using hardware identifiers.</p>
+<p>While there are valid reasons why your application may need to identify a device rather than an instance of the application or an authenticated user on the device, for the vast majority of applications, the ultimate goal is to identify a particular installation of your app. Hardware identifiers such as SSAID (Android ID) and IMEI can be avoided in most use-cases without limiting required functionality. For advertising uses developers should use <a href="https://support.google.com/googleplay/android-developer/answer/6048248?hl=en">Advertising ID's</a></p>
+<b>Dependency</b>
+<pre>compile 'com.google.android.gms:play-services:7.5.0'</pre>
+<br>
+<b>Class information</b>
+<pre>com.google.android.gms.iid.InstanceID
+  static instanceID <b>getInstance</b>(Context)
+  String <b>getId</b>()
+  String <b>getToken</b>(...)</pre>
+<br>
+<b>Correct code example</b>
+<pre>String iid = <b>InstanceID</b>.getInstance(context).getId();</pre>
+<br>
+<b>Resources</b>
+<ul>
+  <li><a href="https://developer.android.com/training/articles/user-data-ids.html">Android developer documentation: Best Practices for Unique Identifiers</a></li>
+  <li><a href="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2016-3862">CVE-2016-3862.</a></li>
+  <li><a href="https://developers.google.com/instance-id/guides/android-implementation">Android developer documentation: instanceID</a></li>
+  <li><a href="https://developer.android.com/reference/android/net/wifi/WifiInfo">Android developer documentation: WifiInfo</a></li>
+  <li><a href="https://developer.android.com/reference/android/bluetooth/BluetoothAdapter">Android developer documentation: BluetoothAdapter</a></li>
+</ul>
+</body>
+</html>

@@ -6,7 +6,8 @@ metadata:
   level: error
   language: java
   enabled: true
-  comment: java_android_webview_best_practices.html
+  comment: ""
+  descriptionFile: descriptions/AndroidWebViewbestpractices.html
   tags: security;framework specific;Android;mobile;Android security set
 search:
   methodcall:

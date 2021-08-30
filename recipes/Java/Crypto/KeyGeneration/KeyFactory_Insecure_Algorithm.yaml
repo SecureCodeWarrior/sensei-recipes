@@ -1,14 +1,14 @@
 id: scw:crypto:keyfactory-insecure-algos
 version: 9
 metadata:
-  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate
-    key pair generation algorithm: insecure'
+  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate key pair generation algorithm: insecure'
   shortDescription: Could lead to cryptographic weakness
   level: error
   language: java
   newCodeOnly: false
   scwCategory: broken_cryptography:use_of_insecuredeprecated_alogirthms
   enabled: true
+  descriptionFile: Java/Crypto/descriptions/Data_Protection_-_Cryptography__Avoid_cryptographic_weakness__Use_appropriate_key_pair_generation_algorithm__insecure.html
   tags: security;basic protection set
 search:
   methodcall:
