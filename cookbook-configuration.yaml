@@ -6,56 +6,31 @@ rootPaths:
 cookbooks: # List of cookbooks
   - id: scw:basic-protection-set
     name: Basic Protection Set
-    description: Cookbook which can be used as a starting point for security
-    includedTags: ["basic protection set"] # In the future this would be replaced with specific vulnerability tags
-    excludedTags: [] # In the future this would be replaced by 'framework-specific' to exclude those recipes
+    description: Starting point for security that detects weak cryptography, injection vulnerabilities and XXE in a framework-agnostic way. 
+    includedTags: ["basic protection set"]
+    excludedTags: []
   - id: scw:java
     name: "Java Gotcha's"
-    description: Examples of simple Java mistakes that can be easily detected and fixed with Sensei
+    description: Detection of mistakes relating to incorrect or unsafe use of Java language features and APIs such as object equality, exception handling, regular expressions and collections.
     includedTags: ["Java basic"]
     excludedTags: []
-#  - id: scw:recipes
-#    name: All SCW Recipes
-#    description: Collection of all recipes available
-#    includedTags: [] # Should be interpreted as wildcard to retrieve all cookbooks
-#    excludedTags: []
   - id: scw:aws
     name: AWS SDK
-    description: Examples of best practices that can be easily detected and fixed with Sensei
+    description: Best practices for the Amazon Web Services ecosystem including credential management/storage, databases and region selection.
     includedTags: [AWS]
     excludedTags: []
   - id: scw:spring
     name: Spring
-    description: Collection of recipes related to Java Spring
+    description: Best practices spanning the Java Spring projects including Boot, Core, Data, Security and Web. 
     includedTags: [Spring]
     excludedTags: []
-#  - id: scw:crypto
-#    name: Crypto
-#    description: Collection of recipes related to Cryptography
-#    includedTags: [crypto]
-#    excludedTags: []
-#  - id: scw:web
-#    name: Web
-#    description: Collection of recipes related to web applications
-#    includedTags: [web]
-#    excludedTags: []
-#  - id: scw:xml
-#    name: XML
-#    description: Collection of recipes related to XML
-#    includedTags: [XML,XXE]
-#    excludedTags: [] # Should Spring recipes or other framework specific recipes be filtered?
-#  - id: scw:snakeyaml
-#    name: SnakeYAML
-#    description: Collection of recipes related to YAML parsing using SnakeYAML
-#    includedTags: [SnakeYAML]
-#    excludedTags: []
   - id: scw:android
     name: Android Security Set
-    description: Recipes created from security recommendations in the official Android documentation (https://developer.android.com/)
+    description: Recipes created from security recommendations in the official Android documentation (https://developer.android.com/), including checks for the manifest file, injection vulnerability, configuration and storage.  
     includedTags: [Android security set]
     excludedTags: []
   - id: scw:owasp-top-10
     name: OWASP Top 10 Set
-    description: Collection of all recipes related to the OWASP Top 10
+    description: Collection of all recipes related to the OWASP Top 10 categories such as injection, authentication, security misconfiguration.
     includedTags: [OWASP Top 10]
     excludedTags: []
