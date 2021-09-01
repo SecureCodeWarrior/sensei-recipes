@@ -10,7 +10,7 @@ metadata:
   enabled: true
   tags: Java basic;SEI CERT;quality;security
   documentation:
-    abstract: |-
+    details: |-
       Comparing classes/types based on the class name is less robust than comparing the class itself.
 
       By using the classes of the types themselves, there is less room for error as type checking can be performed. This implicitly checks the packages of the classes as well, which might be forgotten when providing the class name as a string literal. This in turn could lead to a mix-and-match attack in which the attacker creates a class with the same name in a different package.
