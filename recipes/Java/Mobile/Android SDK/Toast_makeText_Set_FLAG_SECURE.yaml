@@ -6,6 +6,7 @@ metadata:
   level: error
   language: java
   enabled: true
+  descriptionFile: descriptions/java_android_handle_sensitive_information_in_ui_elements_with_care_use_flag_secure.html
   tags: security;mobile;framework specific;Android;Android security set
 search:
   methodcall:

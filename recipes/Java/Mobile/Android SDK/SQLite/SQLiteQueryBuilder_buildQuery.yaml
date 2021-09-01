@@ -2,17 +2,14 @@ id: scw:android:sqlite-buildQuery-SQLi
 version: 9
 metadata:
   name: 'SQL Injection: SQLiteQueryBuilder#buildQuery'
-  shortDescription: This method is vulnerable to SQL injection. Consider writing the
-    query instead of relying on builders.
+  shortDescription: This method is vulnerable to SQL injection. Consider writing the query instead of relying on builders.
   level: error
   language: java
   scwCategory: injection:sql
   cweCategory: 89
   enabled: true
-  comment: |-
-    Quickfix to be tested
-    https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder
-    java_android_secure_database_queries.html
+  comment: ""
+  descriptionFile: descriptions/java_android_secure_database_queries.html
   tags: security;framework specific;mobile;injection;SQL;Android;OWASP Top 10
 search:
   methodcall:

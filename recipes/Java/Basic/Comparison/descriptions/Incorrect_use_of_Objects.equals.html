@@ -1,0 +1,15 @@
+<html>
+<body>
+<p id="abstract"><code>Objects.equals</code> will always return false when comparing a primitive type to an object type that is not a wrapper type.</p>
+<br>
+<b>Before</b>
+<pre>Object o = new Object(); // Not a wrapper type
+boolean sameNumber = Objects.equals(o, 1);
+boolean sameNumber = Objects.equals(1, o);</pre>
+<br>
+<b>After</b>
+<pre>Object o = new Object(); // Not a wrapper type
+boolean sameNumber = <b>false</b>;
+boolean sameNumber = <b>false</b>;</pre>
+</body>
+</html>

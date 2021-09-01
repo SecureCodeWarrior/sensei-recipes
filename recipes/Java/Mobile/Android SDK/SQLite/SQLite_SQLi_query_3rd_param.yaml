@@ -8,9 +8,8 @@ metadata:
   scwCategory: injection:sql
   cweCategory: 89
   enabled: true
-  comment: |-
-    java_android_secure_database_queries.html
-    https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#public-methods
+  comment: ""
+  descriptionFile: descriptions/java_android_secure_database_queries.html
   tags: security;framework specific;mobile;injection;Android;SQL;OWASP Top 10
 search:
   methodcall:

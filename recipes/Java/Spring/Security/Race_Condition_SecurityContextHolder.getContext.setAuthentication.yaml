@@ -2,12 +2,12 @@ id: scw:spring:race-condition-SecurityContext
 version: 9
 metadata:
   name: 'Spring Security: race condition: SecurityContextHolder.getContext.setAuthentication'
-  shortDescription: It is important to create a new SecurityContext instance to avoid
-    race conditions across multiple threads.
+  shortDescription: It is important to create a new SecurityContext instance to avoid race conditions across multiple threads.
   level: error
   language: java
   enabled: true
-  comment: https://docs.spring.io/spring-security/site/docs/5.4.2/reference/html5/#servlet-authentication-securitycontextholder
+  comment: ""
+  descriptionFile: descriptions/Spring_Security__race_condition__SecurityContextHolder.getContext.setAuthentication.html
   tags: Spring;security;framework specific;web;Spring Security
 search:
   methodcall:

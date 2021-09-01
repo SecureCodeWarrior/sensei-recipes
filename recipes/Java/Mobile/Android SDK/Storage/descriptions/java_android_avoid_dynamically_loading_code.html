@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Dynamically loading code from unknown sources is not recommended. This can lead to remote code injection. Also note that dynamically loading code from a known location but over an unsafe connection can result in attacks (i.e., the downloaded code can be tampered with). Similarly, dynamic installation of APK files should be prevented.</p>
+
+<p>Prevent writing code which can dynamically execute code from other sources. Dynamically loading APK files is also discouraged. This functionality will usually fail since this is a settings option that is disabled by default for security reasons.</p>
+
+<p>Either remove the offending code or use a third-party library such as Grab-n-Run which offers secure dynamic loading of code. A secure code example which uses Grab-n-Run is given below.</p>
+<b>Correct code example</b>
+<pre>String jarContainerPath = "some.apk";
+try {
+  Map&lt;String, URL&gt; packageNamesToCertMap = new HashMap&lt;String, URL&gt;();
+  packageNamesToCertMap.put("com.example", new URL("certificate.pem"));
+  <b>SecureLoaderFactory</b> mSecureLoaderFactory = new SecureLoaderFactory(this);
+  SecureDexClassLoader mSecureDexClassLoader = mSecureLoaderFactory.<b>createDexClassLoader</b>(
+    jarContainerPath,null,getClass().getClassLoader(), packageNamesToCertMap);
+  Class&lt;?&gt; loadedClass = mSecureDexClassLoader.loadClass("com.example.MyClass");
+} catch (...) {
+  ...
+}</pre>
+<b>Resources</b>
+<ul>
+<li><a href="https://github.com/lukeFalsina/Grab-n-Run">(GitHub) Grab'n Run: Secure and Practical Dynamic Code Loading for Android Applications</a></li>
+<li><a href="http://tech.co/android-security-2014-07">Tech.Co - Dynamically Loading Code Securely with Android</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+<p id="abstract">Secure coding practices prescribe to use the RSA algorithm for asymmetric encryption. Using other asymmetric encryption algorithms could lead to cryptographic weakness.</p>
+<br>
+<b>Before</b>
+<pre>KeyFactory kf = KeyFactory.getInstance("<b>DiffieHellman"</b>);</pre>
+<br>
+<b>After</b>
+<pre>KeyFactory kf = KeyFactory.getInstance(<b>"RSA"</b>);</pre>
+</body>
+</html>

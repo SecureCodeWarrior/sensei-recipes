@@ -23,7 +23,6 @@ availableFixes:
 - name: Use a composed annotation
   actions:
   - changeAnnotation:
-      type: org.springframework.web.bind.annotation.{{#upperCaseFirst}}{{#lowerCase}}{{{
-        markedElement.elementValuePairs.method.value.name }}}{{/lowerCase}}{{/upperCaseFirst}}Mapping
+      type: org.springframework.web.bind.annotation.{{#upperCaseFirst}}{{#lowerCase}}{{{ markedElement.elementValuePairs.method.value.name }}}{{/lowerCase}}{{/upperCaseFirst}}Mapping
       removeParameter:
       - withName: method

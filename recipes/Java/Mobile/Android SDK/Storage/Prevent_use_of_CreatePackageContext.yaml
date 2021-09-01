@@ -6,7 +6,8 @@ metadata:
   level: warning
   language: java
   enabled: true
-  comment: java_android_avoid_dynamically_loading_code.html
+  comment: ""
+  descriptionFile: descriptions/java_android_avoid_dynamically_loading_code.html
   tags: security;framework specific;mobile;Android
 search:
   methodcall:

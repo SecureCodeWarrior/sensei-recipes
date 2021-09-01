@@ -1,8 +1,7 @@
 id: scw:crypto:cipher:symmetric
 version: 9
 metadata:
-  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use strong
-    symmetric cryptographic algorithm'
+  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use strong symmetric cryptographic algorithm'
   shortDescription: Could lead to cryptographic weakness
   level: error
   language: java

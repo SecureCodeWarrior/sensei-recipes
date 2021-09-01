@@ -1,8 +1,7 @@
 id: scw:android:layoutparams-flag-secure
 version: 9
 metadata:
-  name: 'Data Protection - Secure Data Display: Avoid Data Exposure: Use LayoutParams.FLAG_SECURE
-    Compliant'
+  name: 'Data Protection - Secure Data Display: Avoid Data Exposure: Use LayoutParams.FLAG_SECURE Compliant'
   shortDescription: Compliant
   level: compliant
   language: java

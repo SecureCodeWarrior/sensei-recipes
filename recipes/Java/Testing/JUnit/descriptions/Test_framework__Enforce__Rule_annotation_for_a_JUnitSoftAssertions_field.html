@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>As <code>JUnitSoftAssertions</code> are JUnit rules, fields referencing instances of <code>JUnitSoftAssertions</code> should always be marked with the <code>@Rule</code> annotation.</p>
+<br>
+<b>Before</b>
+<pre>public MyClass instance = new MyClass();</pre>
+<br>
+<b>After</b>
+<pre><b>@Rule</b>
+public MyClass instance = new MyClass();</pre>
+<b>References</b>
+<ul>
+  <li><a href="https://junit.org/junit4/javadoc/4.12/org/junit/Rule.html">JUnit 4 JavaDoc: @Rule</a></li>
+  <li><a href="https://github.com/assertj/assertj-core/blob/main/src/main/java/org/assertj/core/api/JUnitSoftAssertions.java">GitHub AssertJ: JUnitSoftAssertions</a></li>
+</ul>
+</body>
+</html>

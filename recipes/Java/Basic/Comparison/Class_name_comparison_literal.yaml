@@ -1,11 +1,12 @@
-id: Copy_of_Do_not_compare_classes_types_by_their_name
+id: scw:java:basic:class-compare-literal
 version: 9
 metadata:
-  name: Copy of Do not compare classes/types by their name
-  shortDescription: Comparing the class names is less robust than comparing the actual
-    classes
+  name: Do not compare classes/types by their name (literal)
+  shortDescription: Comparing the class names is less robust than comparing the actual classes
   level: warning
   language: java
+  scwCategory: blog:generic
+  cweCategory: 480
   enabled: true
   descriptionFile: descriptions/Do_not_compare_classes_types_by_their_name.html
   tags: Java basic;SEI CERT;quality;security
@@ -27,5 +28,4 @@ availableFixes:
 - name: Compare classes instead of names
   actions:
   - rewrite:
-      to: '{{{ qualifier.qualifier }}} == {{#sed}}s/.*\.(.*)/$1/,{{{ argumentList.expressions
-        }}}{{/sed}}.class'
+      to: '{{{ qualifier.qualifier }}} == {{#sed}}s/.*\.(.*)/$1/,{{{ argumentList.expressions }}}{{/sed}}.class'

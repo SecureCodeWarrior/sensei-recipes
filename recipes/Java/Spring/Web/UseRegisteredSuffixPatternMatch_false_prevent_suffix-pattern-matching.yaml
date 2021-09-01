@@ -1,10 +1,8 @@
 id: scw:spring:web:UseRegisteredSuffixPatternMatch
 version: 9
 metadata:
-  name: 'Suffix Matching: UseRegisteredSuffixPatternMatch set to false to prevent
-    suffix pattern matching'
-  shortDescription: Prevent suffix pattern matching by setting UseRegisteredSuffixPatternMatch
-    to false
+  name: 'Suffix Matching: UseRegisteredSuffixPatternMatch set to false to prevent suffix pattern matching'
+  shortDescription: Prevent suffix pattern matching by setting UseRegisteredSuffixPatternMatch to false
   level: warning
   language: xml; java; kotlin
   enabled: true

@@ -1,8 +1,7 @@
 id: scw:spring:el-javax
 version: 9
 metadata:
-  name: 'Input Validation: Avoid Expression Language Injection: Do not evaluate expressions
-    controlled by user input (javax)'
+  name: 'Input Validation: Avoid Expression Language Injection: Do not evaluate expressions controlled by user input (javax)'
   shortDescription: Could lead to Expression Language Injection
   level: error
   language: java

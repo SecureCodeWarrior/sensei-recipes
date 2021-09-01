@@ -2,11 +2,11 @@ id: scw:spring:data:query-modifying
 version: 9
 metadata:
   name: Missing annotation in update query
-  shortDescription: Queries performing write operations should have the @Modifying
-    annotation.
+  shortDescription: Queries performing write operations should have the @Modifying annotation.
   level: error
   language: java
   enabled: true
+  descriptionFile: descriptions/Missing_annotation_in_update_query.html
   tags: Spring;framework specific;Spring Data;quality
 search:
   method:

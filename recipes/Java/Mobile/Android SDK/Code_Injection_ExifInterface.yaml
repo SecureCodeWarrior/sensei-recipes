@@ -8,6 +8,7 @@ metadata:
   scwCategory: injection:code
   enabled: true
   comment: java_android_avoid_androidmediaexifinterface.html
+  descriptionFile: descriptions/Code_Injection__ExifInterface_can_lead_to_DoS_or_RCE.html
   tags: security;framework specific;mobile;Android
 search:
   import:

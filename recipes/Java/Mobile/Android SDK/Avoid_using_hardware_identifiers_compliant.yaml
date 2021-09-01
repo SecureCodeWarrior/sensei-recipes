@@ -6,10 +6,8 @@ metadata:
   level: error
   language: java
   enabled: true
-  comment: |-
-    java_android_best_practices_on_unique_identifiers
-    https://developer.android.com/reference/android/net/wifi/WifiInfo
-    https://developer.android.com/reference/android/bluetooth/BluetoothAdapter
+  comment: ""
+  descriptionFile: descriptions/Information_Exposure__Avoid_using_hardware_identifiers_-_Compliant.html
   tags: security;framework specific;mobile;Android
 search:
   methodcall:

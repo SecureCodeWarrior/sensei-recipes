@@ -1,8 +1,7 @@
 id: scw:spring:security:stricthttpfirewall-period
 version: 9
 metadata:
-  name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject
-    URL encoded period'
+  name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject URL encoded period'
   shortDescription: Rejecting the use of a URL encoded period is more secure
   level: warning
   language: java

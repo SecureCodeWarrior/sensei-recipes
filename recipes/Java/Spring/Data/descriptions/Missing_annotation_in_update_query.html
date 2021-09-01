@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Queries that perform a write operation (Insert, Delete, Update) should receive the Spring Data <code>@Modifying</code> annotation. This annotation enables the <code>@Query</code> annotation to perform these modifications instead of performing queries only with returning the amount of changed records in the data store.</p>
+<br>
+<b>Before</b>
+<pre>@Query("delete User u where u.active = false")
+int deleteDeactivatedUsers(); // Will produce InvalidDataAccessApiUsageException</pre>
+<br>
+<b>After</b>
+<pre><b>@Modifying</b>
+@Query("delete User u where u.active = false")
+int deleteDeactivatedUsers(); // No exception</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://www.baeldung.com/spring-data-jpa-modifying-annotation">Baeldung on @Modifying</a></li>
+</ul>
+</body>
+</html>

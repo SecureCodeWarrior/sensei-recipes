@@ -6,6 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
+  descriptionFile: descriptions/Information_Exposure__Sensitive_information.html
   tags: security;framework specific;mobile;Android
 search:
   methodcall:
@@ -13,8 +14,7 @@ search:
       any:
         value:
           stringified:
-            matches: (?i).*([Cc]redit( )?[cC]ard|password|pass|pwd|passwd|[sS][sS][nN]|[cC][cC][nN]|[sS]ocial(
-              )?[sS]ecurity( )?[nN]umber).*
+            matches: (?i).*([Cc]redit( )?[cC]ard|password|pass|pwd|passwd|[sS][sS][nN]|[cC][cC][nN]|[sS]ocial( )?[sS]ecurity( )?[nN]umber).*
     anyOf:
     - name: putExtra
       type: android.content.Intent

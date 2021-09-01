@@ -27,28 +27,23 @@ availableFixes:
 - name: Set to @GetMapping
   actions:
   - rewrite:
-      to: '@org.springframework.web.bind.annotation.GetMapping({{{ elementValuePairs
-        }}})'
+      to: '@org.springframework.web.bind.annotation.GetMapping({{{ elementValuePairs }}})'
 - name: Set to @PostMapping
   actions:
   - rewrite:
-      to: '@org.springframework.web.bind.annotation.PostMapping({{{ elementValuePairs
-        }}})'
+      to: '@org.springframework.web.bind.annotation.PostMapping({{{ elementValuePairs }}})'
 - name: Set to @PutMapping
   actions:
   - rewrite:
-      to: '@org.springframework.web.bind.annotation.PutMapping({{{ elementValuePairs
-        }}})'
+      to: '@org.springframework.web.bind.annotation.PutMapping({{{ elementValuePairs }}})'
 - name: Set to @DeleteMapping
   actions:
   - rewrite:
-      to: '@org.springframework.web.bind.annotation.DeleteMapping({{{ elementValuePairs
-        }}})'
+      to: '@org.springframework.web.bind.annotation.DeleteMapping({{{ elementValuePairs }}})'
 - name: Set to @PatchMapping
   actions:
   - rewrite:
-      to: '@org.springframework.web.bind.annotation.PatchMapping({{{ elementValuePairs
-        }}})'
+      to: '@org.springframework.web.bind.annotation.PatchMapping({{{ elementValuePairs }}})'
 - name: Set to HEAD by adding method parameter
   actions:
   - rewrite:

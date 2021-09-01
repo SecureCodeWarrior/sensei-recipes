@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>Public methods within a controller class should be treated as request handlers, therefore should be annotated as such. If you really believe this method should not be exposed as a Rest endpoint, please consider extracting it into an external Component class and call it from inside this controller.</p>
+<br>
+<b>Before</b>
+<pre>@RestController
+public class MyController {
+
+  public String home() {
+    return "home";
+  }
+}</pre>
+<br>
+<b>After</b>
+<pre>@RestController
+public class MyController {
+
+  <b>@GetMapping</b>
+  public String home() {
+    return "home";
+  }
+}</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://www.baeldung.com/spring-controllers">Baeldung on Spring Controllers</a></li>
+</ul>
+</body>
+</html>

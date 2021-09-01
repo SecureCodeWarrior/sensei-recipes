@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Reusing <code>SecurityContext</code> instances can lead to race conditions across multiple threads. To prevent this, consider using a fresh instance of <code>SecurityContext</code>.</p>
+<br>
+<b>Before</b>
+<pre>SecurityContextHolder.getContext.setAuthentication(authentication);</pre>
+<br>
+<b>After</b>
+<pre>SecurityContext newContext = SecurityContextHolder.createEmptyContext();
+newContext.setAuthentication(authentication);</pre>
+<br>
+<b>Resources</b>
+<ul>
+  <li><a href="https://docs.spring.io/spring-security/site/docs/5.4.2/reference/html5/#servlet-authentication-securitycontextholder">Spring documentation: SecurityContextHolder</a>
+  </li>
+</ul>
+</body>
+</html>

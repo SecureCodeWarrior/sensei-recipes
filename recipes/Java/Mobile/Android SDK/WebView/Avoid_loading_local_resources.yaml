@@ -7,7 +7,8 @@ metadata:
   language: java
   cweCategory: 20
   enabled: true
-  comment: java_android_webview_best_practices.html
+  comment: ""
+  descriptionFile: descriptions/AndroidWebViewbestpractices.html
   tags: security;framework specific;mobile;Android
 search:
   methodcall:

@@ -2,8 +2,7 @@ id: scw:spring:security:cors:CrossOrigin-origins
 version: 9
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin - origins'
-  shortDescription: Allowing all origins makes the application vulnerable to scripts
-    from any domain
+  shortDescription: Allowing all origins makes the application vulnerable to scripts from any domain
   level: warning
   language: java
   enabled: true

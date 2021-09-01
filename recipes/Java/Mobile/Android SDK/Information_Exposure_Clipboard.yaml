@@ -6,6 +6,7 @@ metadata:
   level: info
   language: java
   enabled: true
+  descriptionFile: descriptions/Information_Exposure__Sensitive_information.html
   tags: security;framework specific;mobile;Android
 search:
   methodcall:

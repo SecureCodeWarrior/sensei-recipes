@@ -2,12 +2,11 @@ id: scw:android:storage-operating-mode
 version: 9
 metadata:
   name: 'Storage best practices: insecure operating mode'
-  shortDescription: When using this value other applications will have access to your
-    application's data
+  shortDescription: When using this value other applications will have access to your application's data
   level: error
   language: java
   enabled: true
-  comment: https://stuff.mit.edu/afs/sipb/project/android/docs/reference/android/content/Context.html#MODE_PRIVATE
+  comment: ""
   descriptionFile: descriptions/Androidstoragebestpracticesinsecureoperatingmode.html
   tags: security;framework specific;mobile;Android;Android security set
 search:

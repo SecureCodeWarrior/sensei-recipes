@@ -1,0 +1,34 @@
+<html>
+<body>
+<p>Out of best practices and android coding guidelines, recommendations were abstracted which state that no sensitive information should be placed on the <code>ClipBoard</code>.</p>
+<br>
+<p><code>ClipBoard</code> data is public and accessible to all running apps without any permission requirements or user interaction. Never put sensitive input on the <code>ClipBoard</code>. The guidelines recommend that no <code>ClipData</code> can be instantiated containing sensitive information.</p>
+<br>
+<b>Bad code example</b>
+<br>
+<pre>
+import android.content.<b>ClipData</b>;
+import android.content.<b>ClipboardManager</b>;
+...
+ClipData forbiddenClip = ClipData.newPlainText("MY_APP", "password is myPassword123");
+clipboard.setPrimaryClip(forbiddenClip);
+</pre>
+<br>
+<b>Correct code example</b>
+<br>
+<pre>
+import android.content.<b>ClipData</b>;
+import android.content.<b>ClipboardManager</b>;
+...
+ClipData clip = ClipData.newPlainText("MY_APP", <b>"this can not be sensitive info"</b>);
+clipboard.setPrimaryClip(clip);
+</pre>
+<br>
+<b>Resources</b>
+<ul>
+    <li><a href="https://developer.android.com/reference/android/content/ClipboardManager.html">(Android)ClipBoardManager</a></li>
+<li><a href="https://developer.android.com/reference/android/content/ClipData.html">(Android) ClipData</a></li>
+    <li><a href="http://www.cis.syr.edu/~wedu/Research/paper/clipboard_attack_dimva2014.pdf">Attacks on Android Clipboard - Xiao Zhang and Wenliang Du</a></li>
+</ul>
+</body>
+</html>

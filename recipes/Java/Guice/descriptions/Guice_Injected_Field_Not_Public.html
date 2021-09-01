@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Guice can only perform injection into fields if the class is publicly accessible.</p>
+<br>
+<b>Before</b>
+<pre><b>private</b> class MyClass {
+  @Inject
+  private OtherClass dependency;
+
+  public MyClass() {}
+}</pre>
+<br>
+<b>After</b>
+<pre><b>public</b> class MyClass {
+  @Inject
+  private OtherClass dependency;
+
+  public MyClass() {}
+}</pre>
+</body>
+</html>

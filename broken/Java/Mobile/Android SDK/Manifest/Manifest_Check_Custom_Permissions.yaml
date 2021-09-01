@@ -2,8 +2,7 @@ id: scw:android:custom-permissions
 version: 9
 metadata:
   name: 'Manifest Best Practices: Check Before Defining Custom Permissions'
-  shortDescription: Custom permissions should be checked at first run time of the
-    application
+  shortDescription: Custom permissions should be checked at first run time of the application
   level: error
   language: xml; java; kotlin
   enabled: true

@@ -24,5 +24,4 @@ availableFixes:
 - name: Use eq() with ObjectId
   actions:
   - rewrite:
-      to: com.mongodb.client.model.Filters.eq("_id", new ObjectId({{{ arguments.0.operands.1
-        }}}))
+      to: com.mongodb.client.model.Filters.eq("_id", new ObjectId({{{ arguments.0.operands.1 }}}))

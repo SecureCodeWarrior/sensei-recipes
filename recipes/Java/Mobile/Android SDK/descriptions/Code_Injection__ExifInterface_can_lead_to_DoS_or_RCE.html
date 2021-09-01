@@ -1,0 +1,17 @@
+<html>
+<body>
+<p><code>android.media.ExifInterface</code> can lead to Denial of service attacks or code injection. Use <code>android.<b>support</b>.media.ExifInterface</code> instead.</p>
+<br>
+<b>Correct code example</b>
+<pre>import android.<b>support</b>.media.ExifInterface;</pre>
+<p>In order to add this package to your dependencies add the following line of code to your gradle file:</p>
+<pre>compile "com.android.support:exifinterface:25.1.0"</pre>
+<br>
+<b>Resources</b>
+<ul>
+  <li><a href="https://developer.android.com/reference/android/media/ExifInterface.html">Android developer documentation: ExifInterface</a></li>
+  <li><a href="https://android-developers.googleblog.com/2016/12/introducing-the-exifinterface-support-library.html">Android Developers Blog: Introducing the ExifInterface Support Library</a></li>
+  <li><a href="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2016-3862">CVE-2016-3862.</a></li>
+</ul>
+</body>
+</html>

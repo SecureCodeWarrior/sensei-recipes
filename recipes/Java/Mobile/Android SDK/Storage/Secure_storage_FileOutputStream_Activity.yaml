@@ -1,13 +1,13 @@
 id: scw:android:secure-storage-FileOutputStream-Activity
 version: 9
 metadata:
-  name: 'Insecure Data Storage: Store Sensitive Data in a Private Location (FileOutputStream
-    constructor) in Activity'
+  name: 'Insecure Data Storage: Store Sensitive Data in a Private Location (FileOutputStream constructor) in Activity'
   shortDescription: Do not store sensitive data in a public location
   level: warning
   language: java
   enabled: true
   comment: ""
+  descriptionFile: descriptions/java_android_sensitive_information_store_sensitive_data_in_a_private_location.html
   tags: security;framework specific;mobile;Android
 search:
   instanceCreation:
@@ -20,6 +20,5 @@ availableFixes:
 - name: Store data in a private location
   actions:
   - rewrite:
-      to: this.getApplicationContext().openFileOutput({{{ arguments.0 }}}.getPath(),
-        android.content.Context.MODE_PRIVATE)
+      to: this.getApplicationContext().openFileOutput({{{ arguments.0 }}}.getPath(), android.content.Context.MODE_PRIVATE)
       target: self

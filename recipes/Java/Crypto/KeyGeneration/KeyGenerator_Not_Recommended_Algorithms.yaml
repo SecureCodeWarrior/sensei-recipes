@@ -1,8 +1,7 @@
 id: scw:crypto:keygen-other-algos
 version: 9
 metadata:
-  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate
-    secret key generation algorithm: Other algorithms'
+  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate secret key generation algorithm: Other algorithms'
   shortDescription: Could lead to brute forcing or other cryptographic weakness
   level: marked_information
   language: java

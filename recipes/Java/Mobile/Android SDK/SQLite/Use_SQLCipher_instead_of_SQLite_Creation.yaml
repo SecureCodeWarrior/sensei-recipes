@@ -6,7 +6,8 @@ metadata:
   level: warning
   language: xml; java; kotlin
   enabled: true
-  comment: descriptions/java_android_storage_encrypt_local_database_files_use_sqlcipher.html
+  comment: ""
+  descriptionFile: descriptions/java_android_storage_encrypt_local_database_files_use_sqlcipher.html
   tags: security;framework specific;mobile;Android;SQL;Android security set
 search:
   methodcall:
@@ -24,5 +25,4 @@ availableFixes:
 - name: Use a SQLCipher database
   actions:
   - rewrite:
-      to: net.sqlcipher.database.SQLiteDatabase.openOrCreateDatabase(databaseFile,
-        "secretKey", null)
+      to: net.sqlcipher.database.SQLiteDatabase.openOrCreateDatabase(databaseFile, "secretKey", null)

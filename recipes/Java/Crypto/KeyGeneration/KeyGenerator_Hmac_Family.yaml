@@ -1,8 +1,7 @@
 id: scw:crypto:keygen-hmac
 version: 9
 metadata:
-  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate
-    secret key generation algorithm: Hmac family'
+  name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate secret key generation algorithm: Hmac family'
   shortDescription: Could lead to brute forcing or other cryptographic weakness
   level: warning
   language: java

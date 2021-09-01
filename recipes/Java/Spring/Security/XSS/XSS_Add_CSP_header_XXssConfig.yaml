@@ -2,8 +2,7 @@ id: scw:spring:xss:XXssConfig
 version: 9
 metadata:
   name: 'Security Misconfiguration: XSS protection: Add CSP header - XXssConfig'
-  shortDescription: Add a CSP header for additional protection agains XSS and data
-    injection
+  shortDescription: Add a CSP header for additional protection agains XSS and data injection
   level: info
   language: java
   scwCategory: xss:generic

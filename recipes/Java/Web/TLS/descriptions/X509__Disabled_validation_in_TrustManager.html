@@ -1,0 +1,10 @@
+<html>
+<body>
+<p>By overriding the <code>getAcceptedIssuers</code> to return <code>null</code>, two issues arise. Firstly, the overridden method's JavaDoc indicates that the return value of the function should be non-null. Returning null would break that contract. Secondly, not listing the accepted issuers disables validation of the issuer. This could lead to forged certificates, issued by a fraudulent issuer to be accepted. This in turn results in weakened transport encryption or even circumvention of the encryption.</p>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://docs.oracle.com/javase/7/docs/api/javax/net/ssl/X509TrustManager.html#getAcceptedIssuers()">Oracle JavaDoc: X509TrustManager.html#getAcceptedIssuers</a></li>
+</ul>
+</body>
+</html>
