@@ -24,7 +24,6 @@ search:
 availableFixes:
 - name: Set android:filterTouchesWhenObscured="true"
   actions:
-  - null
   - set:
       to: '"true"'
       target: label:filter
