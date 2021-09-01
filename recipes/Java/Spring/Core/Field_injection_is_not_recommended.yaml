@@ -4,7 +4,7 @@ metadata:
   name: Field injection is not recommended
   shortDescription: Field injection is not recommended, because the list of required dependencies are unclear during instance creation. This makes testing more difficult and could lead to runtime exceptions when the bean is instantiated without spring.
   level: info
-  language: xml; java; js; php; py; swift; jsp; kotlin
+  language: xml; java; kotlin
   enabled: true
   comment: ""
   descriptionFile: descriptions/Field_injection_is_not_recommended.html
