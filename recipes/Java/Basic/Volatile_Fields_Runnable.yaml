@@ -1,0 +1,28 @@
+id: scw:java:race-conditions:volatile-field
+version: 9
+metadata:
+  name: 'Possible Race Condition: Volatile field'
+  shortDescription: This field might lead to a race condition as it is assigned in this runnable class
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Possible_Race_Condition__Volatile_field.html
+search:
+  field:
+    not:
+      type: boolean
+    in:
+      class:
+        super:
+          name: java.lang.Runnable
+        child:
+          method:
+            child:
+              assignment: {}
+    without:
+      modifier: volatile
+availableFixes:
+- name: Make this field volatile
+  actions:
+  - changeModifiers:
+      volatile: true

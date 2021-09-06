@@ -1,0 +1,28 @@
+id: Copy_of_Copy_of_Possible_Race_Condition__Volatile_field_(boolean,__no_init)
+version: 9
+metadata:
+  name: 'Copy of Copy of Possible Race Condition: Volatile field (boolean,  no init)'
+  shortDescription: This field might lead to a race condition as it is assigned in this runnable class
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Possible_Race_Condition__Volatile_field.html
+search:
+  field:
+    in:
+      class:
+        super:
+          name: java.lang.Runnable
+        child:
+          method:
+            child:
+              assignment:
+                label: usage
+    type: boolean
+    without:
+      modifier: volatile
+availableFixes:
+- name: Make this field volatile
+  actions:
+  - changeModifiers:
+      volatile: true

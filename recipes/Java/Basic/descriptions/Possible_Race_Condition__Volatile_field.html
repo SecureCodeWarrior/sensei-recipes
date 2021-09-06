@@ -1,0 +1,54 @@
+<html>
+<body>
+<p id="abstract">When fields are shared across instances of a class that implements <code>Runnable</code>, race conditions may occur.</p>
+<br>
+<p id="impact_and_desired_state">Race conditions occur when multiple threads are using variables that are defined at the class level such as fields. To prevent threads from sharing a field, the field should be marked volatile. The threads will then keep a private copy of the field instead of sharing it with other instances of the class.</p>
+<br>
+<b>Before</b>
+<pre>public class RunnableFields implements Runnable {
+    private boolean done = false;
+
+    @Override
+    public void run() {
+        while (!done) {
+            try {
+                // ...
+                Thread.currentThread().sleep(1000); // Do something
+            } catch(InterruptedException ie) {
+                Thread.currentThread().interrupt(); // Reset interrupted status
+            }
+        }
+    }
+
+    public void shutdown() {
+        done = true;
+    }
+}</pre>
+<br>
+<b>After</b>
+<pre>public class RunnableFields implements Runnable {
+  private <b>volatile</b> boolean done = false;
+
+    @Override
+    public void run() {
+        while (!done) {
+            try {
+                // ...
+                Thread.currentThread().sleep(1000); // Do something
+            } catch(InterruptedException ie) {
+                Thread.currentThread().interrupt(); // Reset interrupted status
+            }
+        }
+    }
+
+    public void shutdown() {
+        done = true;
+    }
+}</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://wiki.sei.cmu.edu/confluence/display/java/VNA00-J.+Ensure+visibility+when+accessing+shared+primitive+variables">SEI CERT - VNA00-J. Ensure visibility when accessing shared primitive variables</a></li>
+</ul>
+</body>
+</html>
