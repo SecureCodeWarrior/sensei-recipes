@@ -4,7 +4,7 @@ metadata:
   name: 'Injection: Avoid Code Injection: Use SafeConstructor: 1st argument of type Constructor'
   shortDescription: Could lead to Remote Code Execution
   level: error
-  language: xml; java; kotlin
+  language: java
   newCodeOnly: false
   scwCategory: injection:code
   enabled: true

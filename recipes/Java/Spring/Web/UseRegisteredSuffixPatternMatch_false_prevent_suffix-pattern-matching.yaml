@@ -4,7 +4,7 @@ metadata:
   name: 'Suffix Matching: UseRegisteredSuffixPatternMatch set to false to prevent suffix pattern matching'
   shortDescription: Prevent suffix pattern matching by setting UseRegisteredSuffixPatternMatch to false
   level: warning
-  language: xml; java; kotlin
+  language: java
   enabled: true
   descriptionFile: descriptions/Suffix_Matching_UseRegisteredSuffixPatternMatch_set_to_false_to_prevent_suffix_pattern_matching.html
   tags: Spring;security;framework specific;web;Spring Web
