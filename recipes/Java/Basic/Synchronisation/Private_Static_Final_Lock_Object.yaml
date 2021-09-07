@@ -1,0 +1,26 @@
+id: scw:java:sync-private-final
+version: 9
+metadata:
+  name: 'Synchronized statements: private static final lock object'
+  shortDescription: Lock objects used in synchronized statements should be private, static and final
+  level: warning
+  language: java; kotlin
+  cweCategory: 413
+  enabled: true
+  comment: ""
+  descriptionFile: descriptions/Synchronized_statements__private_and_final_lock_object.html
+  tags: SEI CERT;quality
+search:
+  field:
+    without:
+      allOf:
+      - modifier: private
+      - modifier: static
+      - modifier: final
+availableFixes:
+- name: Make the field private, static and final
+  actions:
+  - changeModifiers:
+      static: true
+      visibility: private
+      final: true

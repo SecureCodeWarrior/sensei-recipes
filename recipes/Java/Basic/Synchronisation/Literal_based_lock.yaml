@@ -1,0 +1,28 @@
+id: scw:java:sync-literal-lock
+version: 9
+metadata:
+  name: 'Synchronized statements: Literal as base for lock object'
+  shortDescription: This lock is based on a literal and should not be used
+  level: warning
+  language: java
+  cweCategory: 413
+  enabled: true
+  descriptionFile: descriptions/Synchronized_statements__Literal_as_base_for_lock_object.html
+  tags: SEI CERT;quality
+search:
+  synchronizedStatement:
+    lock:
+      literal:
+        label: lock
+availableFixes:
+- name: Create a non-literal based lock object
+  actions:
+  - rewrite:
+      to: lock_{{{ markedElement.lockExpression.value }}}
+      target: label:lock
+  - addField:
+      field: private final Object lock_{{{ markedElement.lockExpression.value }}} = new Object();
+      position:
+        before:
+          method: {}
+      target: parentClass

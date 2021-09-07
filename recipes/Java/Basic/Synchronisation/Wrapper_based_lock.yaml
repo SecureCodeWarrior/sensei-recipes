@@ -1,0 +1,25 @@
+id: scw:java:sync-wrapper-lock
+version: 9
+metadata:
+  name: 'Synchronized statements: Wrapped primitive as base for lock object'
+  shortDescription: This lock is based on a primitive type and should not be used
+  level: warning
+  language: java
+  cweCategory: 413
+  enabled: true
+  descriptionFile: descriptions/Synchronized_statements__Literal_as_base_for_lock_object.html
+  tags: SEI CERT;quality
+search:
+  synchronizedStatement:
+    lock:
+      expression:
+        type:
+          reference:
+            label: ref
+            matches: java\.lang\.(Character|Float|Integer|Long|Short|Double)
+          checkInheritance: true
+availableFixes:
+- name: Create a non-literal based lock object
+  actions:
+  - rewrite:
+      to: ""

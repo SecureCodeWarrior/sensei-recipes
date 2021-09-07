@@ -1,0 +1,23 @@
+id: scw:java:sync-lock-class
+version: 9
+metadata:
+  name: 'Synchronized statements: Lock on Class'
+  shortDescription: When using the class object as a lock, ensure it is retrieved correctly
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Synchronized_statements__Lock_on_Class.html
+  tags: SEI CERT;quality
+search:
+  synchronizedStatement:
+    lock:
+      methodcall:
+        argCount: 0
+        name: getClass
+        label: lock
+availableFixes:
+- name: Replace with fully qualified class object
+  actions:
+  - rewrite:
+      to: '{{{ parent.containingClass.qualifiedName }}}.class'
+      target: label:lock

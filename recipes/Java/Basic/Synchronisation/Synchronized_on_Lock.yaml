@@ -1,0 +1,25 @@
+id: scw:java:sync-intrinsic-lock
+version: 9
+metadata:
+  name: 'Synchronized statements: Do not lock on intrinsic lock'
+  shortDescription: The intrinsic lock should not be used to lock a synchronized block.
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Synchronized_statements__Do_not_lock_on_intrinsic_lock.html
+  tags: SEI CERT;quality
+search:
+  synchronizedStatement:
+    lock:
+      expression:
+        label: lock
+        type: java.util.concurrent.locks.Lock
+availableFixes:
+- name: Convert to regular use of Lock
+  actions:
+  - rewrite:
+      to: |-
+        {{{ lockExpression }}}.lock();
+        try {{{ children.6 }}} finally {
+          lock.unlock();
+        }
