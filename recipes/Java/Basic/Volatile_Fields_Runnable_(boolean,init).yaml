@@ -1,7 +1,7 @@
-id: Copy_of_Copy_of_Possible_Race_Condition__Volatile_field_(boolean,__no_init)
+id: scw:java:race-conditions:volatile-field-boolean-init
 version: 9
 metadata:
-  name: 'Copy of Copy of Possible Race Condition: Volatile field (boolean,  no init)'
+  name: 'Possible Race Condition: Volatile field (boolean, init)'
   shortDescription: This field might lead to a race condition as it is assigned in this runnable class
   level: warning
   language: java
@@ -15,6 +15,7 @@ search:
           name: java.lang.Runnable
         child:
           method:
+            label: usingMethod
             child:
               assignment:
                 label: usage
@@ -26,3 +27,15 @@ availableFixes:
   actions:
   - changeModifiers:
       volatile: true
+- name: Make the methods using this field synchronized
+  actions:
+  - changeModifiers:
+      synchronized: true
+      target: label:usingMethod
+- name: Change type to AtomicBoolean
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.set({{{ assignedExpression }}})'
+      target: label:usage
+  - rewrite:
+      to: '{{{ modifierList }}} java.util.concurrent.atomic.AtomicBoolean {{{ name }}} = new java.util.concurrent.atomic.AtomicBoolean({{{ assignedExpression }}});'

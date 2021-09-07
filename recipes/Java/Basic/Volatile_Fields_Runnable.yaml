@@ -17,6 +17,7 @@ search:
           name: java.lang.Runnable
         child:
           method:
+            label: usingMethod
             child:
               assignment: {}
     without:
@@ -26,3 +27,8 @@ availableFixes:
   actions:
   - changeModifiers:
       volatile: true
+- name: Make the methods using this field synchronized
+  actions:
+  - changeModifiers:
+      synchronized: true
+      target: label:usingMethod
