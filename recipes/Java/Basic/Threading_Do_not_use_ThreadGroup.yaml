@@ -1,0 +1,14 @@
+id: scw:java:threading-threadgroup
+version: 9
+metadata:
+  name: 'Threading: Do not use ThreadGroup'
+  shortDescription: ThreadGroup's methods are not thread-safe, consider using ExecutorService instead
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Threading__Do_not_use_ThreadGroup.html
+  tags: SEI CERT;quality
+search:
+  methodcall:
+    type: java.lang.ThreadGroup
+availableFixes: []

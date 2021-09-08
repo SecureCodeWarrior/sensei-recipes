@@ -1,0 +1,23 @@
+id: scw:java:threading-stop
+version: 9
+metadata:
+  name: 'Threading: Do not use Thread#Stop'
+  shortDescription: Stopping a thread this way may leave shared variables in an inconsistent state
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Threading__Do_not_use_Thread_Stop.html
+  tags: SEI CERT;quality
+search:
+  methodcall:
+    argCount: 0
+    name: stop
+    type: java.lang.Thread
+availableFixes:
+- name: Replace with Thread.interrupt (remember to check isInterrupted in thread)
+  actions:
+  - rewrite:
+      to: '{{{qualifier}}}.interrupt()'
+- name: Remove method call
+  actions:
+  - remove: {}

@@ -1,0 +1,33 @@
+id: scw:java:threading:wait-loop
+version: 9
+metadata:
+  name: 'Threading: Wait in a loop'
+  shortDescription: Prefer waiting in a loop to verify the condition when the thread is notified
+  level: warning
+  language: java
+  enabled: true
+  comment: Waiting for update to the ifstatement and searcher for the For loop
+  descriptionFile: descriptions/Threading__Wait_in_a_loop.html
+  tags: SEI CERT;quality
+search:
+  methodcall:
+    not:
+      anyOf:
+      - in:
+          while: {}
+      - in:
+          while: {}
+    in:
+      ifThenElse:
+        label: if
+    anyOf:
+    - name: wait
+      type: java.lang.Object
+    - name: await
+      type: java.util.concurrent.locks.Condition
+availableFixes:
+- name: Change the surrounding if statement to a while loop
+  actions:
+  - rewrite:
+      to: 'while ({{{condition}}}) '
+      target: label:if

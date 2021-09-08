@@ -1,0 +1,24 @@
+id: scw:java:threading-wake-all
+version: 9
+metadata:
+  name: 'Threading: Prefer waking all waiting threads'
+  shortDescription: Consider waking all waiting threads instead
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Threading__Prefer_waking_all_waiting_threads.html
+  tags: SEI CERT;quality
+search:
+  methodcall:
+    argCount: 0
+    anyOf:
+    - name: notify
+      type: java.lang.Object
+    - name: signal
+      type: java.util.concurrent.locks.Condition
+availableFixes:
+- name: Change method to wake all waiting threads
+  actions:
+  - rewrite:
+      to: '{{{qualifier}}}.{{{methodName}}}All()'
+      target: self
