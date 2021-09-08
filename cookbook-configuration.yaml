@@ -9,26 +9,31 @@ cookbooks: # List of cookbooks
     description: Starting point for security that detects weak cryptography, injection vulnerabilities and XXE in a framework-agnostic way. 
     includedTags: ["basic protection set"]
     excludedTags: []
+    featured: true
   - id: scw:java
     name: "Java Gotcha's"
     description: Detection of mistakes relating to incorrect or unsafe use of Java language features and APIs such as object equality, exception handling, regular expressions and collections.
     includedTags: ["Java basic"]
     excludedTags: []
+    featured: true
   - id: scw:aws
     name: AWS SDK
     description: Best practices for the Amazon Web Services ecosystem including credential management/storage, databases and region selection.
     includedTags: [AWS]
     excludedTags: []
+    featured: true
   - id: scw:spring
     name: Spring
     description: Best practices spanning the Java Spring projects including Boot, Core, Data, Security and Web. 
     includedTags: [Spring]
     excludedTags: []
+    featured: true
   - id: scw:android
     name: Android Security Set
     description: Recipes created from security recommendations in the official Android documentation (https://developer.android.com/), including checks for the manifest file, injection vulnerability, configuration and storage.  
     includedTags: [Android security set]
     excludedTags: []
+    featured: true
   - id: scw:owasp-top-10
     name: OWASP Top 10 Set
     description: Collection of all recipes related to the OWASP Top 10 categories such as injection, authentication, security misconfiguration.
