@@ -1,0 +1,29 @@
+id: scw:java:serialization:inner-class
+version: 9
+metadata:
+  name: 'Serialization: Do not serialize instances of inner classes'
+  shortDescription: Serialization of inner classes (including local and anonymous classes) is error prone
+  level: warning
+  language: java
+  cweCategory: 499
+  enabled: true
+  descriptionFile: descriptions/Serialization__Do_not_serialize_instances_of_inner_classes.html
+search:
+  class:
+    super:
+      name: java.io.Serializable
+    in:
+      class:
+        super:
+          name: java.io.Serializable
+availableFixes:
+- name: Remove Serializable from the inner class
+  actions:
+  - modifyClassDefinition:
+      removeInterface:
+      - reference: java.io.Serializable
+        checkInheritance: true
+- name: Make the inner class static
+  actions:
+  - changeModifiers:
+      static: true

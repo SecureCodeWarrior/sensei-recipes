@@ -1,0 +1,37 @@
+id: scw:java:serialization:readObject-methodcalls
+version: 9
+metadata:
+  name: 'Serialization: Do not call public or non-static methods from readObject'
+  shortDescription: 'Calling public or non-static methods provides premature access to the object '
+  level: warning
+  language: java
+  enabled: true
+  comment: How to change modifiers only in the QF's?
+  descriptionFile: descriptions/Serialization__Do_not_call_public_or_non-static_methods_from_readObject.html
+  tags: SEI CERT;quality
+search:
+  methodcall:
+    in:
+      method:
+        in:
+          class:
+            super:
+              name: java.io.Serializable
+        name: readObject
+        parameters:
+          1:
+            type: java.io.ObjectInputStream
+    declaration:
+      not:
+        anyOf:
+        - modifier: static
+        - modifier: private
+      label: declaration
+availableFixes:
+- name: Remove the method call
+  actions:
+  - remove: {}
+- name: Make the method private
+  actions: []
+- name: Make the method final
+  actions: []
