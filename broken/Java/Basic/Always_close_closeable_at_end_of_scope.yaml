@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   tags: Java basic;quality
-  comment: On Cloudstack, this recipe triggers correctly, but the QF is broken
+  comment: On Cloudstack, this recipe triggers correctly, but the QF is broken (https://wiki.sei.cmu.edu/confluence/display/java/FIO04-J.+Release+resources+when+they+are+no+longer+needed)
 search:
   instanceCreation:
     not:

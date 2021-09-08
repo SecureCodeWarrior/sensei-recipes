@@ -1,0 +1,48 @@
+id: scw:java:io:system-out-write-int
+version: 9
+metadata:
+  name: 'IO: System.out.write: integer out of range'
+  shortDescription: This method's contract specifies the int value should be in the range [0 - 255]
+  level: warning
+  language: java
+  enabled: true
+  comment: Other ways of using integers? How to deal with IOException (let IDE highlight or provide fix)? Does the created stream need to be closed? Trailing semicolon on rewrite?
+  descriptionFile: descriptions/IO__System.out.write__integer_out_of_range.html
+  tags: SEI CERT;quality
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - value:
+            integer:
+              anyOf:
+              - greaterThan: 255
+              - lessThan: 0
+    name: write
+    type: java.io.PrintStream
+availableFixes:
+- name: Use DataOutputStream#writeInt instead (try-with-resources)
+  actions:
+  - rewrite:
+      to: |-
+        try (java.io.DataOutputStream dos = new DataOutputStream({{{qualifier}}})) {
+            dos.{{{methodName}}}Int{{{argumentList}}};
+        } catch (IOException e) {
+            throw e;
+        }
+- name: Use DataOutputStream#writeInt instead
+  actions:
+  - rewrite:
+      to: |-
+        java.io.DataOutputStream dos = new DataOutputStream({{{qualifier}}});
+        dos.{{{methodName}}}Int{{{argumentList}}}
+- name: Add range check
+  actions:
+  - rewrite:
+      to: |-
+        int value = Integer.valueOf({{{ arguments }}});
+            if (value < 0 || value > 255) {
+              throw new ArithmeticException("Value is out of range");
+        }
+        {{{qualifier}}}.{{{ methodName }}}(value)
