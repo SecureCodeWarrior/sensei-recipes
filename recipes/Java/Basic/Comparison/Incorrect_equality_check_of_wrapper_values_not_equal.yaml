@@ -1,7 +1,7 @@
-id: scw:java:equality-wrappers-equals
+id: scw:java:equality-wrappers-not-equals
 version: 9
 metadata:
-  name: Incorrect equality check of wrapper values (equals)
+  name: Incorrect equality check of wrapper values (not equals)
   shortDescription: Use equals method to compare wrapped values
   level: error
   language: java
@@ -18,7 +18,7 @@ search:
           reference:
             matches: java\.lang\.(Character|Float|Integer|Long|Short|Double)
           checkInheritance: true
-    operator: ==
+    operator: '!='
     second:
       expression:
         type:
@@ -29,4 +29,4 @@ availableFixes:
 - name: Check equality using equals
   actions:
   - rewrite:
-      to: '{{{leftOperand}}}.equals({{{rightOperand}}})'
+      to: '!{{{leftOperand}}}.equals({{{rightOperand}}})'
