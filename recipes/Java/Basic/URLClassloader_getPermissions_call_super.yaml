@@ -1,0 +1,27 @@
+id: scw:java:URLClassLoader-getPermissions
+version: 9
+metadata:
+  name: 'URLClassloader: Call super when overriding getPermissions'
+  shortDescription: Custom permissions should be based on those of the super class using super.getPermissions
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/URLClassloader__Call_super_when_overriding_getPermissions.html
+  tags: security;Java basic;SEI CERT
+search:
+  method:
+    in:
+      class:
+        super:
+          name: java.net.URLClassLoader
+    name: getPermissions
+    type: java.net.URLClassLoader
+    without:
+      child:
+        methodcall:
+          name: getPermissions
+          "on":
+            expression:
+              value:
+                stringified: super
+availableFixes: []
