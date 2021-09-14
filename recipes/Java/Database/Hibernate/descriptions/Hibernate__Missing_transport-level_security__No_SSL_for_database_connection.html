@@ -1,0 +1,29 @@
+<html>
+  <body>
+  <p id="abstract">A secure communication channel should be used to interact with the database. Otherwise, the contents of messages sent between the application and the database could be sniffed by attackers.</p>
+  <br>
+  <b>Before</b>
+<pre>&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+	...
+        &lt;property name = "hibernate.connection.url"&gt;
+            jdbc:mysql://localhost/test?useSSL=false
+        &lt;/property&gt;
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;</pre>
+  <b>After</b>
+<pre>&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+	...
+        &lt;property name = "hibernate.connection.url"&gt;
+            jdbc:mysql://localhost/test?useSSL=<b>true</b>
+        &lt;/property&gt;
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;</pre>
+  <br>
+  <b>References</b>
+  <ul>
+    <li><a href="https://cwe.mitre.org/data/definitions/319.html">CWE-319: Cleartext Transmission of Sensitive Information</a></li>
+  </ul>
+  </body>
+</html>

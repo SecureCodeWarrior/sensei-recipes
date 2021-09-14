@@ -1,0 +1,36 @@
+id: scw:database:hibernate:missing_SSL
+version: 9
+metadata:
+  name: 'Hibernate: Missing transport-level security: No SSL for database connection'
+  shortDescription: Use transport level security to connect to the database
+  level: warning
+  language: xml
+  scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
+  cweCategory: 319
+  enabled: true
+  comment: ""
+  descriptionFile: descriptions/Hibernate__Missing_transport-level_security__No_SSL_for_database_connection.html
+  tags: database;security;Hibernate;framework specific;OWASP Top 10;TLS
+search:
+  element:
+    in:
+      file:
+        name: hibernate.cfg.xml
+        child:
+          element:
+            tagName:
+              is: hibernate-configuration
+    attribute:
+      anyOf:
+      - name:
+          is: name
+        value: hibernate.connection.url
+    text:
+      matches: .*useSSL=false.*?
+    tagName:
+      is: property
+availableFixes:
+- name: Enable SSL in the connection string
+  actions:
+  - rewrite:
+      to: '{{#sed}}s/useSSL=false/useSSL=true/,{{{ . }}}{{/sed}}'
