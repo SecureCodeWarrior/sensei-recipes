@@ -17,7 +17,17 @@ search:
     declaration:
       type: java.lang.Throwable
 availableFixes:
-- name: Print the message of the exception instead
+- name: Use SLF4J logger
   actions:
+  - addField:
+      field: private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger({{type}}.class);
+      target: parentClass
   - rewrite:
-      to: java.lang.System.err.println({{{ qualifier }}}.getMessage())
+      to: log.info({{{ qualifier }}}.getMessage())
+- name: Use Logger class
+  actions:
+  - addField:
+      field: private static final java.util.logging.Logger logger = Logger.getLogger({{{ containingClass.name }}}.class.getName())
+      target: parentClass
+  - rewrite:
+      to: logger.log(java.util.logging.Level.INFO, {{{ qualifier }}}.getMessage())

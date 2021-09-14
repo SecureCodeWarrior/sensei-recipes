@@ -1,10 +1,10 @@
 id: scw:junit:public-classes
-version: 8
+version: 9
 metadata:
   name: 'JUnit: JUnit 5 public test classes'
   shortDescription: JUnit 5 test classes do not need public visibility
   level: warning
-  language: java; kotlin
+  language: java
   enabled: false
   tags: framework specific;JUnit;quality;opinionated
 search:

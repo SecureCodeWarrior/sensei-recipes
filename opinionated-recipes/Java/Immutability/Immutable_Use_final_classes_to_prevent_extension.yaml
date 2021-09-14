@@ -1,5 +1,5 @@
 id: scw:immutable:final-classes
-version: 8
+version: 9
 metadata:
   name: 'Immutable: use final classes to prevent extension'
   shortDescription: Make the classes final to prevent people extending as mutable

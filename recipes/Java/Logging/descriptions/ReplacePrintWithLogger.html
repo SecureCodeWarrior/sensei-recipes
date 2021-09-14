@@ -7,6 +7,7 @@
     <b>Before</b>
 <pre>public class Example {
     public void testLoggingRecipe() {
+        System.out.print("Printing logs");
         System.out.println("Printing logs");
     }
 }
@@ -21,6 +22,7 @@ public class Example {
   <b>Logger logger = Logger.getLogger(Example.class.getName());</b>
 
     public void testLoggingRecipe() {
+ 	<b>logger.log(Level.INFO,</b> "Printing logs");
         <b>logger.log(Level.INFO,</b> "Printing logs");
     }
 }</pre>

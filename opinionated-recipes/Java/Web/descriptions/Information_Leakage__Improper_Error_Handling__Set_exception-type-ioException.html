@@ -1,0 +1,24 @@
+<html>
+  <body>
+  <p id="abstract">Not having a custom error page for <code>java.io.IOException</code> could lead to information leakage.</p>
+  <br>
+  <p id="impact_and_desired_state">Default error pages often contain full stack traces of the errors that are encountered. This discloses information about the inner workings of the application that could be abused by attackers.</p>
+  <br>
+  <b>Before</b>
+<pre>&lt;web-app&gt;
+...
+&lt;/web-app&gt;
+</pre>
+  <b>After</b>
+<pre>&lt;web-app&gt;
+    <b>&lt;error-page&gt;
+        &lt;error-code&gt;java.io.IOException;/error-code&gt;
+    &lt;/error-page&gt;</b>
+&lt;/web-app&gt;</pre>
+  <br>
+  <b>References</b>
+  <ul>
+    <li><a href=""></a></li>
+  </ul>
+  </body>
+</html>

@@ -1,9 +1,8 @@
 id: scw:java:public-static-final
-version: 8
+version: 9
 metadata:
   name: 'Code quality: public static fields should be final'
-  shortDescription: Making this field final prevents accidentally overwriting it at
-    runtime
+  shortDescription: Making this field final prevents accidentally overwriting it at runtime
   level: warning
   language: java; kotlin
   enabled: true

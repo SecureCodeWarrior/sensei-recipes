@@ -1,9 +1,8 @@
 id: scw:immutable:public-void-setters
-version: 8
+version: 9
 metadata:
   name: 'Immutable: delete public void setters'
-  shortDescription: void setters can be replaced with use of constructor or static
-    factory methods
+  shortDescription: void setters can be replaced with use of constructor or static factory methods
   level: warning
   language: java; kotlin
   enabled: true

@@ -1,9 +1,8 @@
 id: scw:immutable:getters
-version: 8
+version: 9
 metadata:
   name: 'Immutable: use a getter rather than public field'
-  shortDescription: To encourage use of interfaces rather than direct field access,
-    add a getter.
+  shortDescription: To encourage use of interfaces rather than direct field access, add a getter.
   level: warning
   language: java
   enabled: true
