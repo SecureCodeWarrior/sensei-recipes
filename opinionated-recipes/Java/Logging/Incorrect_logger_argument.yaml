@@ -1,5 +1,5 @@
 id: scw:logging:incorrect-class-name
-version: 8
+version: 9
 metadata:
   name: Incorrect logger argument
   shortDescription: The logger should use the class name
@@ -15,8 +15,10 @@ search:
         not:
           anyOf:
           - type: java.lang.String
-            value: '{{{ containingClass.name }}}'
-          - value: '{{{ containingClass.name }}}.class.getName()'
+            value:
+              stringified: '{{{ containingClass.name }}}'
+          - value:
+              stringified: '{{{ containingClass.name }}}.class.getName()'
     name: getLogger
     type: java.util.logging.Logger
 availableFixes:

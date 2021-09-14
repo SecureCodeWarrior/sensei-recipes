@@ -1,5 +1,5 @@
 id: scw:immutable:setter-returns
-version: 8
+version: 9
 metadata:
   name: 'Immutable: avoid setters that return values'
   shortDescription: Avoid setters methods that return values

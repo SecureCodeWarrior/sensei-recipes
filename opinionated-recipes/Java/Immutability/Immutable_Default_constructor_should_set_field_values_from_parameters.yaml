@@ -1,9 +1,8 @@
 id: scw:immutable:constructor-parameters
-version: 8
+version: 9
 metadata:
   name: 'Immutable: default constructor should set field values from parameters'
-  shortDescription: Avoid default constructor and create a private constructor that
-    sets the field values
+  shortDescription: Avoid default constructor and create a private constructor that sets the field values
   level: warning
   language: java
   enabled: true
@@ -14,8 +13,7 @@ search:
       child:
         parameter: {}
 availableFixes:
-- name: amend to private constructor that sets fields with a static factory create
-    method
+- name: amend to private constructor that sets fields with a static factory create method
   actions:
   - rewrite:
       to: |-

@@ -1,11 +1,10 @@
 id: scw:immutable:void-methods
-version: 8
+version: 9
 metadata:
   name: 'Immutable: avoid void methods'
-  shortDescription: Void methods have side-effects, return a new Object or primitve instead
-    instead
+  shortDescription: Void methods have side-effects, return a new Object or primitve instead instead
   level: info
-  language: java
+  language: java; kotlin
   enabled: false
   excludeTestDirs: true
   tags: opinionated;Java basic;quality

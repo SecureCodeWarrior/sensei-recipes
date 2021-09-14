@@ -1,5 +1,5 @@
 id: scw:immutable:final-fields
-version: 8
+version: 9
 metadata:
   name: 'Immutable: Fields should be final and set in the constructor'
   shortDescription: Making fields final can highlight mutability issues

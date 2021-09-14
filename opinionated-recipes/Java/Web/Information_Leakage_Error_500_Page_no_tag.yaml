@@ -1,0 +1,32 @@
+id: scw:web:Error-500-missing-no-tag
+version: 9
+metadata:
+  name: 'Information Leakage: Improper Error Handling: Set error-page 500 (no tag)'
+  shortDescription: Missing required error page for error-code 500
+  level: warning
+  language: xml
+  scwCategory: infoexposure:errordetails
+  enabled: false
+  descriptionFile: descriptions/Information_Leakage__Improper_Error_Handling__Set_error-page_500.html
+  tags: security;web;opinionated
+search:
+  element:
+    in:
+      file:
+        name: web.xml
+    tagName:
+      is: web-app
+    without:
+      child:
+        tagName:
+          is: error-page
+availableFixes:
+- name: Add custom error 500 page configuration
+  actions:
+  - add:
+      childElement:
+        code: |-
+          <error-page>
+          <error-code>500</error-code>
+          <location><!-- Fill in custom error page location here --></location>
+          </error-page>

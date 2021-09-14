@@ -1,0 +1,36 @@
+id: scw:web:ServletException
+version: 9
+metadata:
+  name: 'Information Leakage: Improper Error Handling: javax.servlet.ServletException'
+  shortDescription: Missing required error page for error type javax.servlet.ServletException
+  level: warning
+  language: xml
+  scwCategory: infoexposure:errordetails
+  enabled: false
+  descriptionFile: descriptions/Information_Leakage__Improper_Error_Handling__Set_exception-type-servletException.html
+  tags: security;web;opinionated
+search:
+  element:
+    with:
+      child:
+        tagName:
+          is: error-page
+        without:
+          child:
+            text: javax.servlet.ServletException
+            tagName:
+              is: exception-type
+    in:
+      file:
+        name: web.xml
+    tagName:
+      is: web-app
+availableFixes:
+- name: Add custom error configuration
+  actions:
+  - add:
+      childElement:
+        code: |-
+          <error-page>
+          <exception-type>javax.servlet.ServletException</exception-type>
+          </error-page>

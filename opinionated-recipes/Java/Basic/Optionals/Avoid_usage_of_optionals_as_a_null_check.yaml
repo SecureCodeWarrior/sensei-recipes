@@ -1,5 +1,5 @@
 id: scw:java:optional-null-check
-version: 8
+version: 9
 metadata:
   name: 'Code Quality: Avoid usage of optionals as a null check'
   shortDescription: Avoid usage of optionals as a null check

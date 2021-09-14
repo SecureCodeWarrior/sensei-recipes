@@ -1,0 +1,36 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>comingsoon</servlet-name>
+        <servlet-class>...</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>comingsoon</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <!--<error-code>500</error-code>-->
+        <location>...</location>
+    </error-page>
+</web-app>
+
+<web-app></web-app>
+
+<web-app>
+    <error-page>
+        <!--<error-code>500</error-code>-->
+        <location>...</location>
+    </error-page>
+</web-app>
+
+<web-app>
+    <error-page>
+        <error-code>50</error-code>
+        <location>...</location>
+    </error-page>
+</web-app>
+
