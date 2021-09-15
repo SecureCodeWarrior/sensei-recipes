@@ -12,10 +12,14 @@ metadata:
   tags: security;framework specific;mobile;Android
 search:
   attribute:
-    in:
-      element:
-        tagName:
-          is: application
+    allOf:
+    - in:
+        element:
+          tagName:
+            is: application
+    - in:
+        file:
+          name: AndroidManifest.xml
     name: android:allowBackup
     value:
       matches: true|^$

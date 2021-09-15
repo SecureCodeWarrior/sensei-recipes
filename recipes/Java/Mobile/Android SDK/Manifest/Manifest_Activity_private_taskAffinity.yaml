@@ -10,15 +10,19 @@ metadata:
   tags: security;framework specific;mobile;Android
 search:
   attribute:
-    in:
-      element:
-        tagName:
-          is: activity
-        without:
-          attribute:
-            name:
-              is: android:export
-            value: "true"
+    allOf:
+    - in:
+        file:
+          name: AndroidManifest.xml
+    - in:
+        element:
+          tagName:
+            is: activity
+          without:
+            attribute:
+              name:
+                is: android:export
+              value: "true"
     name:
       is: android:taskAffinity
 availableFixes:

@@ -12,15 +12,17 @@ metadata:
   tags: security;framework specific;mobile;Android
 search:
   attribute:
-    in:
-      element:
-        tagName:
-          is: application
+    allOf:
+    - in:
+        file:
+          name: AndroidManifest.xml
+    - in:
+        element:
+          tagName:
+            is: application
     name: android:usesCleartextTraffic
     value:
       not: "false"
 availableFixes:
 - name: Change android:usesCleartextTraffic to false
-  actions:
-  - set:
-      to: "false"
+  actions: []

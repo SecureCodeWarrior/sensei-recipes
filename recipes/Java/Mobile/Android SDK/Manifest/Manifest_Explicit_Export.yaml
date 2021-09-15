@@ -12,6 +12,9 @@ metadata:
   tags: security;framework specific;mobile;Android
 search:
   attribute:
+    in:
+      file:
+        name: AndroidManifest.xml
     name: android:exported
     value: "true"
 availableFixes:

@@ -10,15 +10,19 @@ metadata:
   tags: security;framework specific;mobile;Android
 search:
   attribute:
-    in:
-      element:
-        tagName:
-          is: activity
-        without:
-          attribute:
-            name:
-              is: android:export
-            value: "true"
+    allOf:
+    - in:
+        element:
+          tagName:
+            is: activity
+          without:
+            attribute:
+              name:
+                is: android:export
+              value: "true"
+    - in:
+        file:
+          name: AndroidManifest.xml
     name:
       is: android:launchMode
 availableFixes:
