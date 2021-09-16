@@ -1,15 +1,14 @@
 id: scw:spring:non-static-singleton-members
-version: 8
+version: 9
 metadata:
-  name: 'Data Protection: Secure Data Presentation: Avoid Sensitive Data Exposure:
-    Use injection for non-static members in singletons'
+  name: 'Data Protection: Secure Data Presentation: Avoid Sensitive Data Exposure: Use injection for non-static members in singletons'
   shortDescription: Could lead to Sensitive Data Exposure
   level: error
   language: java
   newCodeOnly: false
-  scwCategory: infoexposure
+  scwCategory: infoexposure:sensitiveinfo
   enabled: false
-  descriptionFile: descriptions/Use_injection_for_non-static_members_in_singletons.html
+  comment: How to determine that the component is a singleton?
   tags: spring;security;dependency-injection;framework-specific
 search:
   field:

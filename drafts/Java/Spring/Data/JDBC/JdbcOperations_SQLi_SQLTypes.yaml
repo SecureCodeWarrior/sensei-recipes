@@ -1,40 +1,27 @@
 id: scw:spring:jdbc:jdbcoperations-sqltypes
-version: 8
+version: 9
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements'
-  shortDescription: Could lead to SQL Injection
+  shortDescription: Could lead to SQL Injection, parameterize the query and add the untrusted input and its type to the method parameters instead
   level: error
   language: java
   newCodeOnly: false
   scwCategory: injection:sql
+  cweCategory: 89
   enabled: true
-  comment: Any method in JdbcOperations starting with a string is vulnerable to SQLi.
-    They are prepared statements, but should still not contain any untrusted input.
-  descriptionFile: ""
+  comment: ""
   tags: Spring;security;Spring Data;framework specific;injection;SQL;OWASP Top 10
 search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
       3:
         parameterDeclaration:
           name: argTypes
         type: int[]
     declaration:
       type: org.springframework.jdbc.core.JdbcOperations
-availableFixes:
-- name: Use parameterized queries
-  actions:
-  - parameterize:
-      placeholderFormat: '?'
-      extractUntrustedInput:
-        array:
-          type: java.lang.Object[]
-          atArgumentPosition: 2
-  - rewrite:
-      to: |-
-        // TODO: Append type of extracted untrusted input to the third argument
-        {{{.}}}
-      target: self
+availableFixes: []

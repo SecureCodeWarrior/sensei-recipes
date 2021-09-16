@@ -1,5 +1,5 @@
 id: scw:java:use_logical_operator_global
-version: 8
+version: 9
 metadata:
   name: 'Operators: Bitwise: Use logical operator (Global)'
   shortDescription: Use logical operator instead of bitwise operator
@@ -10,7 +10,7 @@ metadata:
   enabled: true
   comment: ""
   descriptionFile: descriptions/BitwiseOperatorInConditional.html
-  tags: security;java-basic
+  tags: security;opinionated;Java basic
 search:
   binaryExpression:
     anyOf:

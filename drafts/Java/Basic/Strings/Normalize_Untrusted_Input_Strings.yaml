@@ -1,5 +1,5 @@
 id: scw:java:strings:normalize-untrusted
-version: 8
+version: 9
 metadata:
   name: Normalize Untrusted Input Strings
   shortDescription: Normalize untrusted inputs before using them
@@ -14,17 +14,18 @@ metadata:
   tags: security;Java basic;SEI CERT;opinionated
 search:
   argument:
-    containsUntrustedInput: true
     not:
       in:
         methodcall:
           name: normalize
           type: Normalizer
-    trustedSources:
-    - methodcall:
-        name: normalize
-        type: Normalizer
     type: java.lang.String
+    value:
+      containsUntrustedInput: true
+      trustedSources:
+      - methodcall:
+          name: normalize
+          type: Normalizer
 availableFixes:
 - name: Insert normalize call
   actions:

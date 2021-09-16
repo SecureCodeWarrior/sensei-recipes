@@ -1,0 +1,28 @@
+id: scw:spring:service
+version: 9
+metadata:
+  name: Annotate with @Service
+  shortDescription: This class looks like the implementation of a Spring Service
+  level: info
+  language: java
+  enabled: false
+  descriptionFile: descriptions/Annotate_with__Service.html
+  tags: Spring;framework specific;quality;Spring Core
+search:
+  class:
+    not:
+      annotation:
+        type: org.springframework.stereotype.Service
+    anyOf:
+    - name:
+        matches: ^.*Service$
+scopes:
+  library:
+    name:
+      contains: org.springframework:spring-core
+availableFixes:
+- name: Add @Service annotation
+  actions:
+  - addAnnotation:
+      annotation: '@org.springframework.stereotype.Service'
+      target: self

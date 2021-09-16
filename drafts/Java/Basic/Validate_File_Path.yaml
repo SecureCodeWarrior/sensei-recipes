@@ -1,5 +1,5 @@
 id: scw:java:file-path-stream
-version: 8
+version: 9
 metadata:
   name: Validate file paths in file streams
   shortDescription: Validate the path before using it to create a stream
@@ -7,17 +7,17 @@ metadata:
   language: java
   cweCategory: 73
   enabled: true
-  comment: Add trusted validation methods to trustedSources in the search section
-    of the recipe.
+  comment: Add trusted validation methods to trustedSources in the search section of the recipe.
   descriptionFile: descriptions/Validate_file_paths_in_file_streams.html
   tags: template;security;Java basic
 search:
   instanceCreation:
     args:
       1:
-        containsUntrustedInput: true
-        trustedSources: []
         type: java.lang.String
+        value:
+          containsUntrustedInput: true
+          trustedSources: []
     anyOf:
     - type: java.io.FileInputStream
     - type: java.io.FileOutputStream

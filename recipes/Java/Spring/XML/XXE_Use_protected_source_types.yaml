@@ -25,4 +25,9 @@ search:
         reference:
           matches: org.springframework.oxm.Unmarshaller|org.springframework.oxm.jaxb.Jaxb2Marshaller
         checkInheritance: false
+scopes:
+  library:
+    name:
+      contains: org.springframework:spring-core
+    maxVersion: 4.0.1
 availableFixes: []

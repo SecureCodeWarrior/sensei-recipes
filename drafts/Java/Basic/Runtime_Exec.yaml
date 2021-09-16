@@ -1,5 +1,5 @@
 id: scw:java:runtime-exec-untrusted
-version: 8
+version: 9
 metadata:
   name: Use of untrusted input in Runtime Exec
   shortDescription: Avoid the use of Runtime.exec
@@ -13,7 +13,8 @@ search:
   methodcall:
     args:
       1:
-        containsUntrustedInput: true
+        value:
+          containsUntrustedInput: true
     name: exec
     type: java.lang.Runtime
 availableFixes:

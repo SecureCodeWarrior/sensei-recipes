@@ -1,5 +1,5 @@
 id: scw:java:strings:validate-untrusted-template
-version: 8
+version: 9
 metadata:
   name: Validate Untrusted Input Strings
   shortDescription: Validate untrusted inputs before using them
@@ -7,23 +7,23 @@ metadata:
   language: java
   cweCategory: 20
   enabled: false
-  comment: To use this template, add your validation method to the "not in" and "trustedSources"
-    section of the recipe. You can also provide custom quickfixes.
+  comment: To use this template, add your validation method to the "not in" and "trustedSources" section of the recipe. You can also provide custom quickfixes.
   descriptionFile: Strings/descriptions/Validate_Untrusted_Input_Strings.html
   tags: template;SEI CERT;security;Java basic
 search:
   argument:
-    containsUntrustedInput: true
     not:
       in:
         methodcall:
           name: validate
           type: MyValidator
-    trustedSources:
-    - methodcall:
-        name: validate
-        type: MyValidator
     type: java.lang.String
+    value:
+      containsUntrustedInput: true
+      trustedSources:
+      - methodcall:
+          name: validate
+          type: MyValidator
 availableFixes:
 - name: Insert validation call
   actions:

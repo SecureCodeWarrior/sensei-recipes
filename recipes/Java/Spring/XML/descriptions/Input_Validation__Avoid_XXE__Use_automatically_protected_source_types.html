@@ -4,13 +4,17 @@
 </p>
 <br>
 <p>There are four possible source implementations passed to the unmarshaller: <code>DOMSource</code>, <code>StAXSource</code>, <code>SAXSource</code> and <code>StreamSource</code>.</p>
-<br>
-<p>For a <code><b>DOMSource</b></code>, the XML has already been parsed by user code and that code is responsible for protecting against XXE.</p>
-<br>
-<p>For a <code><b>StAXSource</b></code>, the XMLStreamReader has already been created by user code and that code is responsible for protecting against XXE.</p>
-<br>
-<p>For <code><b>SAXSource</b></code> and <code><b>StreamSource</b></code> instances, Spring has disabled external entity processing by default, protecting it from XXE.</p>
+<ul>
+<li>For a <code><b>DOMSource</b></code>, the XML has already been parsed by user code and that code is responsible for protecting against XXE.</li>
+<li>For a <code><b>StAXSource</b></code>, the XMLStreamReader has already been created by user code and that code is responsible for protecting against XXE.</li>
+<li>For <code><b>SAXSource</b></code> and <code><b>StreamSource</b></code> instances, Spring has disabled external entity processing by default, protecting it from XXE.</li>
 <br>
 <p>It is recommended to use source implementations where external entity processing is handled by the framework, i.e. <code><b>SAXSource</b></code> or <code><b>StreamSource</b></code>.</p>
+<br>
+<b>References</b>
+<ul>
+<li><a href="https://tanzu.vmware.com/security/cve-2013-4152">CVE-2013-4152: XML eXternal Entity (XXE) injection in Spring Framework</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html#spring-framework-mvcoxm-xxe-vulnerabilities">OWASP Cheat Sheet Series: XXE Prevention Cheat Sheet - Spring Framework MVC/OXM XXE Vulnerabilities</a></li>
+</ul>
 </body>
 </html>

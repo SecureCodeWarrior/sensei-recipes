@@ -1,0 +1,28 @@
+id: scw:spring:controller
+version: 9
+metadata:
+  name: Annotate with @Controller
+  shortDescription: This class looks like the implementation of a Spring Controller
+  level: info
+  language: java
+  enabled: false
+  descriptionFile: descriptions/Annotate_with__Controller.html
+  tags: Spring;framework specific;quality;Spring Core
+search:
+  class:
+    not:
+      annotation:
+        type: org.springframework.stereotype.Controller
+    anyOf:
+    - name:
+        matches: ^.*Controller$
+scopes:
+  library:
+    name:
+      contains: org.springframework:spring-core
+availableFixes:
+- name: Add @Controller annotation
+  actions:
+  - addAnnotation:
+      annotation: '@org.springframework.stereotype.Controller'
+      target: self
