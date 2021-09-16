@@ -14,4 +14,4 @@ search:
         - operator: '&'
         - operator: '|'
     expressionType: boolean
-availableFixes: []:
+availableFixes: []
