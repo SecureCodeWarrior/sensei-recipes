@@ -1,0 +1,22 @@
+id: scw:java:SSLSocket
+version: 9
+metadata:
+  name: Use SSLSocket instead of Socket/ServerSocket
+  shortDescription: Use SSLSocket instead of Socket/ServerSocket
+  level: warning
+  language: java
+  scwCategory: insufficient_transport_layer_protection:communication_over_cleartext_protocol_http
+  enabled: true
+  descriptionFile: descriptions/Use_SSLSocket_instead_of_Socket/ServerSocket.html
+  tags: security;web;SEI CERT
+search:
+  instanceCreation:
+    type:
+      reference:
+        anyOf:
+        - is: java.net.ServerSocket
+        - is: java.net.Socket
+      checkInheritance: true
+availableFixes:
+- name: ""
+  actions: []

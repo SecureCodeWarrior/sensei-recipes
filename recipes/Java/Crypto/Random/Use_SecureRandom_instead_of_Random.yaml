@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: Java/Crypto/descriptions/Use_SecureRandom_instead_of_Random.html
-  tags: security
+  tags: security;SEI CERT
 search:
   instanceCreation:
     type:

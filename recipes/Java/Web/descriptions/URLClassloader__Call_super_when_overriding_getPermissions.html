@@ -1,0 +1,10 @@
+<html>
+<body>
+<p id="abstract">As explained by the SEI CERT coding guidelines: "When a custom class loader must override the getPermissions() method, the implementation must consult the default system policy by explicitly invoking the superclass's getPermissions() method before assigning arbitrary permissions to the code source. A custom class loader that ignores the superclass's getPermissions() could load untrusted classes with elevated privileges. ClassLoader is abstract and must not be directly subclassed."</p>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://wiki.sei.cmu.edu/confluence/display/java/SEC07-J.+Call+the+superclass%27s+getPermissions%28%29+method+when+writing+a+custom+class+loader">SEI CERT - SEC07-J. Call the superclass's getPermissions() method when writing a custom class loader</a></li>
+</ul>
+</body>
+</html>
