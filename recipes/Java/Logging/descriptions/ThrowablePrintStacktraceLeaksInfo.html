@@ -1,25 +1,23 @@
 <html>
   <body>
-    <p id="abstract"><code>Throwable.printStacktrace</code> leaks valuable program structure information</p>
+    <p id="abstract"><code>Throwable.printStacktrace</code> leaks valuable program structure information.</p>
     <br>
-    <p id="impact_and_desired_state">Printing a stack trace gives valuable information about software internals, including library/framework names and versions, to an attacker. The method <code>printStaceTrace</code> of <code>java.lang.Throwable</code> will result in valuable program information being printed on standard error.</p>
+    <p id="impact_and_desired_state">Printing a stack trace gives valuable information about the application's internals, including library/framework names and versions, to an attacker. The method <code>printStaceTrace</code> of <code>java.lang.Throwable</code> will result in valuable program information being printed on standard error. Instead, an appropriate logger, such as SLF4J, should be used.</p>
     <br>
     <b>Before</b>
-<pre>public void doSomething() {
-    try {
-        bar();
-    } catch(Exception ex) {
-        ex.printStackTrace();
-    }
+<pre>public void printMessages(Throwable e) {
+    e.printStackTrace();
+    e.printStackTrace(System.err);
+    e.printStackTrace(System.out);
 }</pre>
     <br>
     <b>After</b>
-<pre>public void doSomething() {
-    try {
-        bar();
-    } catch(Exception ex) {
-        System.err.println(ex.getMessage());
-    }
+<pre>private final static org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(LoggingExample.class);
+
+public void printMessages(Throwable e) {
+    LOGGER.error("", e);
+    LOGGER.error("", e);
+    LOGGER.error("", e);
 }</pre>
   </body>
 </html>

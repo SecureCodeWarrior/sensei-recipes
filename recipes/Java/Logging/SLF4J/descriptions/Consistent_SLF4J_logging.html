@@ -1,0 +1,30 @@
+<html>
+  <body>
+    <p id="abstract">The system's <code>PrintStream</code>'s should not be used for logging purposes. Instead replace them with consistent SLF4J error logging.</p>
+    <br>
+    <p id="impact_and_desired_state">SLF4J provides a simple facade for various logging frameworks allowing them to be plugged in at deployment time. It also comes with specific methods for the different log levels.</p>
+    <br>
+    <b>Before</b>
+<pre> public void printMessages(Throwable e) {
+    System.out.println(e.getMessage());
+    System.out.print(e.getMessage());
+    System.err.println(e.getMessage());
+    System.err.print(e.getMessage());
+}</pre>
+    <br>
+    <b>After</b>
+<pre>private final static org.slf4j.Logger Logger = org.slf4j.LoggerFactory.getLogger(LoggingExample.class);
+
+public void printMessages(Throwable e) {
+    Logger.debug(e.getMessage());
+    Logger.error(e.getMessage());
+    Logger.info(e.getMessage());
+    Logger.warn(e.getMessage());
+}</pre>
+<br>
+<b>References</b>
+<ul>
+<li><a href="http://www.slf4j.org/manual.html">SLF4J Manual</a></li>
+</ul>
+  </body>
+</html>

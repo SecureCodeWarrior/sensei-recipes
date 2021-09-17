@@ -1,13 +1,15 @@
 id: scw:java:logging:slf4j-log-injection
 version: 9
 metadata:
-  name: 'Logging: enforce usage of placeholders in the messages'
-  shortDescription: Do not concatinate untrusted data in the message string, instead use placeholders ( '{}' )
+  name: 'SLF4J Logging: enforce usage of placeholders in the messages'
+  shortDescription: Do not concatenate untrusted data in the message string, instead use placeholders ( '{}' )
   level: error
   language: java
+  scwCategory: injection:generic
+  cweCategory: 117
   enabled: true
-  descriptionFile: descriptions/Enforce_placeholders_logging_messages.html
-  tags: security;logging;injection;OWASP Top 10
+  descriptionFile: Java/Logging/descriptions/Enforce_placeholders_logging_messages.html
+  tags: security;logging;injection;OWASP Top 10;SLF4J;framework specific
 search:
   methodcall:
     args:

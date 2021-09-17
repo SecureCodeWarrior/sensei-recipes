@@ -9,8 +9,8 @@ metadata:
   cweCategory: 117
   enabled: true
   comment: ""
-  descriptionFile: descriptions/Untrusted_input_in_logging.html
-  tags: security;logging;injection;OWASP Top 10
+  descriptionFile: Java/Logging/descriptions/Untrusted_input_in_logging.html
+  tags: security;OWASP Top 10;framework specific;logging;Logger;injection
 search:
   argument:
     in:
@@ -25,5 +25,3 @@ availableFixes:
   actions:
   - rewrite:
       to: ({{{ markedElement }}}).replaceAll("(\\r|\\n)","")
-- name: Mark source as trusted for this recipe
-  actions: []

@@ -1,0 +1,25 @@
+id: scw:logging:slf4j:printstacktrace
+version: 9
+metadata:
+  name: Pipe the stacktrace to the logger
+  shortDescription: Let's pipe the stackTrace through the logger instead of printing it
+  level: marked_information
+  language: java
+  scwCategory: infoexposure:debuginfo
+  cweCategory: 200
+  enabled: true
+  comment: ""
+  descriptionFile: Java/Logging/descriptions/ThrowablePrintStacktraceLeaksInfo.html
+  tags: security;SLF4J;framework specific;logging
+search:
+  methodcall:
+    name: printStackTrace
+    type: java.lang.Throwable
+availableFixes:
+- name: Pipe the stacktrace to the SLF4J logger instead of the print
+  actions:
+  - addField:
+      field: private static final org.slf4j.Logger Logger = org.slf4j.LoggerFactory.getLogger({{type}}.class);
+      target: parentClass
+  - rewrite:
+      to: Logger.error("", {{{ qualifier }}})
