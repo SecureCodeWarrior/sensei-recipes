@@ -3,7 +3,7 @@ version: 9
 metadata:
   name: 'SLF4J Logging: enforce usage of placeholders in the messages'
   shortDescription: Do not concatenate untrusted data in the message string, instead use placeholders ( '{}' )
-  level: error
+  level: marked_information
   language: java
   scwCategory: injection:generic
   cweCategory: 117

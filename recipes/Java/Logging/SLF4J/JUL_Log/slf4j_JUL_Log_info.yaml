@@ -1,61 +1,62 @@
-id: scw:logging:slf4j:System.out_consistent_logging
+id: scw:logging:slf4j-jul-log-info
 version: 9
 metadata:
-  name: System.out consistent SLF4J logging
-  shortDescription: Replace System.out.print.* with consistent SLF4J error logging
+  name: 'SLF4J Logging: Replace java.util.logging with SLF4J (Log Info)'
+  shortDescription: Standardise on SLF4J by replacing this call
   level: marked_information
   language: java
   scwCategory: insufficient_logging:generic
   cweCategory: 778
   enabled: true
-  descriptionFile: descriptions/Consistent_SLF4J_logging.html
   tags: SLF4J;framework specific;logging;quality
 search:
   methodcall:
-    name:
-      matches: print.*
-    declaration:
-      type: java.io.PrintStream
-    "on":
-      reference:
-        name: out
+    args:
+      1:
+        referenceTo:
+          name: java.util.logging.Level.INFO
+      2:
+        type: java.lang.String
+    argCount: 2
+    name: log
+    type: java.util.logging.Logger
 availableFixes:
-- name: '[OPTIONAL] Replace System.out with SLF4J error function'
+- name: '[OPTIONAL] Replace with SLF4J debug function'
   actions:
   - rewrite:
-      to: logger.error({{{ arguments }}})
+      to: logger.debug({{{arguments.1}}})
       target: self
   - addField:
       field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
-- name: '[RECOMMENDED] Replace System.out with SLF4J debug function'
+- name: '[OPTIONAL] Replace with SLF4J error function'
   actions:
   - rewrite:
-      to: logger.debug({{{ arguments }}})
+      to: logger.error({{{arguments.1}}})
       target: self
   - addField:
       field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
-- name: '[OPTIONAL] Replace System.out with SLF4J info function'
+- name: '[RECOMMENDED] Replace with SLF4J info function'
   actions:
   - rewrite:
-      to: logger.info({{{ arguments }}})
+      to: logger.info({{{arguments.1}}})
       target: self
   - addField:
       field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
-- name: '[OPTIONAL] Replace System.out with SLF4J warn function'
+- name: '[OPTIONAL] Replace with SLF4J warn function'
   actions:
   - rewrite:
-      to: logger.warn({{{ arguments }}})
+      to: logger.warn({{{arguments.1}}})
       target: self
   - addField:
       field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
-- name: '[OPTIONAL] Replace System.out with SLF4J trace function'
+- name: '[OPTIONAL] Replace with SLF4J trace function'
   actions:
   - rewrite:
-      to: logger.trace({{{ arguments }}})
+      to: logger.trace({{{arguments.1}}})
       target: self
   - addField:
       field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);

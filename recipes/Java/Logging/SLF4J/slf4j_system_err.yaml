@@ -6,6 +6,7 @@ metadata:
   level: marked_information
   language: java
   scwCategory: insufficient_logging:generic
+  cweCategory: 778
   enabled: true
   descriptionFile: descriptions/Consistent_SLF4J_logging.html
   tags: SLF4J;framework specific;logging;quality
@@ -19,35 +20,43 @@ search:
       reference:
         name: err
 availableFixes:
-- name: ' [RECOMMENDED] Replace System.err with SLF4J error function'
+- name: '[RECOMMENDED] Replace System.err with SLF4J error function'
   actions:
   - rewrite:
-      to: Logger.error({{{ arguments }}})
+      to: logger.error({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger Logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace System.err with SLF4J debug function'
   actions:
   - rewrite:
-      to: Logger.debug({{{ arguments }}})
+      to: logger.debug({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger Logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace System.err with SLF4J info function'
   actions:
   - rewrite:
-      to: Logger.info({{{ arguments }}})
+      to: logger.info({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger Logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace System.err with SLF4J warn function'
   actions:
   - rewrite:
-      to: Logger.warn({{{ arguments }}})
+      to: logger.warn({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger Logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      target: parentClass
+- name: '[OPTIONAL] Replace System.err with SLF4J trace function'
+  actions:
+  - rewrite:
+      to: logger.trace({{{ arguments }}})
+      target: self
+  - addField:
+      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass

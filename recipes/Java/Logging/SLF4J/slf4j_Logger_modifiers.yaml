@@ -1,0 +1,26 @@
+id: scw:logging:slf4j:logger-modifiers
+version: 9
+metadata:
+  name: SLF4J Logger modifiers
+  shortDescription: The logger should be a private static final field
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  tags: SLF4J;framework specific;logging;quality
+search:
+  field:
+    not:
+      allOf:
+      - modifier: private
+      - modifier: final
+      - modifier: static
+    type: org.slf4j.Logger
+availableFixes:
+- name: Make the logger field private static final
+  actions:
+  - changeModifiers:
+      static: true
+      visibility: private
+      final: true
