@@ -1,7 +1,7 @@
 id: scw:logging:logger-name
 version: 9
 metadata:
-  name: 'Naming convention: Standardise logger name'
+  name: 'SLF4J Logging: Naming convention: Standardise logger name'
   shortDescription: The logger field name should be standardised to "logger" universally
   level: marked_information
   language: java

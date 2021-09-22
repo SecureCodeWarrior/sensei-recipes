@@ -1,7 +1,7 @@
 id: scw:logging:slf4j:logger-modifiers
 version: 9
 metadata:
-  name: SLF4J Logger modifiers
+  name: 'SLF4J Logging: Logger modifiers'
   shortDescription: The logger should be a private static final field
   level: marked_information
   language: java

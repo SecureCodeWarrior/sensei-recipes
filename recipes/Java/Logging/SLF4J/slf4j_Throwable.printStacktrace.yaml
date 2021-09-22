@@ -1,7 +1,7 @@
 id: scw:logging:slf4j:printstacktrace
 version: 9
 metadata:
-  name: Pipe the stacktrace to the logger
+  name: 'SLF4J Logging: Print Exceptions using SLF4J instead'
   shortDescription: Standardise on SLF4J by replacing this call
   level: marked_information
   language: java
