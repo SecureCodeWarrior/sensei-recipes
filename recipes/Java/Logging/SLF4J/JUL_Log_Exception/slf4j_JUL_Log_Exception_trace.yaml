@@ -18,6 +18,16 @@ search:
             matches: java\.util\.logging\.Level\.(FINER|FINEST)
       2:
         type: java.lang.Throwable
+    in:
+      typeDeclaration:
+        without:
+          child:
+            field:
+              name: logger
+              type:
+                reference:
+                  not: org.slf4j.Logger
+                checkInheritance: true
     argCount: 3
     name: log
     type: java.util.logging.Logger

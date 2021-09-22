@@ -11,6 +11,16 @@ metadata:
   tags: framework specific;logging;Logger;quality
 search:
   methodcall:
+    in:
+      typeDeclaration:
+        without:
+          child:
+            field:
+              name: logger
+              type:
+                reference:
+                  not: java.util.logging.Logger
+                checkInheritance: true
     name:
       matches: print.*
     declaration:
@@ -26,3 +36,4 @@ availableFixes:
       target: parentClass
   - rewrite:
       to: logger.log(java.util.logging.Level.INFO, {{{ arguments }}})
+      target: self

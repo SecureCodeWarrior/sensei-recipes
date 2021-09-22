@@ -11,6 +11,16 @@ metadata:
   tags: SLF4J;framework specific;logging;quality
 search:
   methodcall:
+    in:
+      typeDeclaration:
+        without:
+          child:
+            field:
+              name: logger
+              type:
+                reference:
+                  not: org.slf4j.Logger
+                checkInheritance: true
     name:
       matches: info
     type: java.util.logging.Logger

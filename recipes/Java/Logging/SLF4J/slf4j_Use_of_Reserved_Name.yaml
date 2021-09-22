@@ -1,0 +1,21 @@
+id: scw:logging:slf4j:reserved-name
+version: 9
+metadata:
+  name: 'Naming convention: Reserved logger name'
+  shortDescription: The name "logger" should be reserved for logger instances only. Use Shift+F6 to refactor rename this variable.
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  tags: SLF4J;framework specific;logging;quality
+search:
+  field:
+    name: logger
+    type:
+      reference:
+        not: org.slf4j.Logger
+      checkInheritance: true
+availableFixes:
+- name: Use Shift+F6 to refactor rename this variable
+  actions: []

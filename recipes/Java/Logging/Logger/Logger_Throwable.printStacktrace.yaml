@@ -13,6 +13,16 @@ metadata:
   tags: security;framework specific;logging;Logger
 search:
   methodcall:
+    in:
+      typeDeclaration:
+        without:
+          child:
+            field:
+              name: logger
+              type:
+                reference:
+                  not: java.util.logging.Logger
+                checkInheritance: true
     name: printStackTrace
     declaration:
       type: java.lang.Throwable
