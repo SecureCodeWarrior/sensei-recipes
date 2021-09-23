@@ -13,8 +13,7 @@ search:
   field:
     name: logger
     type:
-      reference:
-        not: org.slf4j.Logger
+      not: org.slf4j.Logger
       checkInheritance: true
 availableFixes:
 - name: The name "logger" should be reserved for the SLF4J logger instance. Use Refactor Rename (Shift+F6) to rename this variable.
