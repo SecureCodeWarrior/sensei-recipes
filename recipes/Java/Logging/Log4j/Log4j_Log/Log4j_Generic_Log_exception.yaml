@@ -1,0 +1,29 @@
+id: scw:logging:log4j:log-exception
+version: 9
+metadata:
+  name: 'Copy of Log4j Logging: Replace generic log call (with Exception)'
+  shortDescription: Call the more specific method for this level
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  tags: framework specific;Log4j;logging;quality
+search:
+  methodcall:
+    args:
+      1:
+        referenceTo:
+          name:
+            matches: org\.apache\.log4j\.Level\.(WARN|INFO|TRACE|DEBUG|ERROR|FATAL)
+      3:
+        type: java.lang.Throwable
+    argCount: 3
+    name: log
+    type: org.apache.log4j.Logger
+availableFixes:
+- name: Replace with specific Log4j function
+  actions:
+  - rewrite:
+      to: '{{{qualifier}}}.{{#lowerCase}}{{{arguments.0.identifier}}}{{/lowerCase}}({{{arguments.1}}}, {{{arguments.2}}})'
+      target: self

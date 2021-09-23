@@ -1,0 +1,24 @@
+id: scw:logging:log4j:migrate-getlogger-factory
+version: 9
+metadata:
+  name: 'Migration Log4j: Logger.getLogger (with LoggerFactory)'
+  shortDescription: Factory parameters are no longer supported. This method is replaced in v2 with org.apache.logging.log4j.LogManager.getLogger
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  comment: // Should use other extensions of v2?
+  tags: framework specific;migration;Log4j;logging
+search:
+  methodcall:
+    args:
+      2:
+        type: org.apache.log4j.spi.LoggerFactory
+    name: getLogger
+    type: org.apache.log4j.Logger
+availableFixes:
+- name: Replace with v2 LogManager call
+  actions:
+  - rewrite:
+      to: org.apache.logging.log4j.LogManager.getLogger({{{ arguments.0 }}})

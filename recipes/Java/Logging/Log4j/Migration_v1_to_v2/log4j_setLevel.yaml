@@ -1,0 +1,23 @@
+id: scw:logging:log4j-setlevel
+version: 9
+metadata:
+  name: 'Migration Log4j: setLevel'
+  shortDescription: This method is replaced not supported in v2. Replace subsequent log calls by their level.
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  tags: framework specific;migration;Log4j;logging
+search:
+  methodcall:
+    name: setLevel
+    type: org.apache.log4j.Logger
+availableFixes:
+- name: Remove unsupported call
+  actions:
+  - remove: {}
+- name: Set the level on the configuration level
+  actions:
+  - rewrite:
+      to: org.apache.logging.log4j.core.config.Configurator.setLevel({{{arguments}}})

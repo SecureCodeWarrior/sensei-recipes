@@ -1,0 +1,22 @@
+id: scw:logging:log4j:LogManager-shutdown
+version: 9
+metadata:
+  name: 'Migration Log4j: LogManager.shutdown'
+  shortDescription: This method is replaced in v2 with getLevel
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  tags: framework specific;migration;Log4j;logging
+search:
+  methodcall:
+    name: shutdown
+    type: org.apache.log4j.LogManager
+availableFixes:
+- name: Replace with v2 call
+  actions:
+  - rewrite:
+      to: org.apache.logging.log4j.LogManager.shutdown()
+- name: Remove the shutdown call (automatically handled by Log4j Core)
+  actions: []

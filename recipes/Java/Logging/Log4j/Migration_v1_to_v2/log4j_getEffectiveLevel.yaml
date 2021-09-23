@@ -1,0 +1,20 @@
+id: scw:logging:log4j:migrate-geteffectivelevel
+version: 9
+metadata:
+  name: 'Migration Log4j: Logger.getEffectiveLevel'
+  shortDescription: This method is replaced in v2 with getLevel
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  tags: framework specific;migration;Log4j;logging
+search:
+  methodcall:
+    name: getEffectiveLevel
+    type: org.apache.log4j.Logger
+availableFixes:
+- name: Replace with v2 call
+  actions:
+  - rewrite:
+      to: '{{{qualifier}}}.getLevel()'

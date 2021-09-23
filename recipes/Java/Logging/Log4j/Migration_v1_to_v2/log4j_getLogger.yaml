@@ -1,0 +1,24 @@
+id: scw:logging:log4j:migrate-getlogger
+version: 9
+metadata:
+  name: 'Migration Log4j: Logger.getLogger'
+  shortDescription: This method is replaced in v2 with org.apache.logging.log4j.LogManager.getLogger
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  tags: framework specific;migration;Log4j;logging
+search:
+  methodcall:
+    not:
+      args:
+        2:
+          type: org.apache.log4j.spi.LoggerFactory
+    name: getLogger
+    type: org.apache.log4j.Logger
+availableFixes:
+- name: Replace with v2 LogManager call
+  actions:
+  - rewrite:
+      to: org.apache.logging.log4j.LogManager.getLogger{{{ argumentList }}}

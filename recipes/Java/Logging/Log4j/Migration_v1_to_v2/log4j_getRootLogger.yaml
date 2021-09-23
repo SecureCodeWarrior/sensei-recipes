@@ -1,0 +1,20 @@
+id: scw:logging:log4j:migrate-getrootlogger
+version: 9
+metadata:
+  name: 'Migration Log4j: Logger.getRootLogger'
+  shortDescription: This method is replaced in v2 with org.apache.logging.log4j.LogManager.getRootLogger
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 778
+  enabled: true
+  tags: framework specific;migration;Log4j;logging
+search:
+  methodcall:
+    name: getRootLogger
+    type: org.apache.log4j.Logger
+availableFixes:
+- name: Replace with v2 LogManager call
+  actions:
+  - rewrite:
+      to: org.apache.logging.log4j.LogManager.getRootLogger{{{ argumentList }}}
