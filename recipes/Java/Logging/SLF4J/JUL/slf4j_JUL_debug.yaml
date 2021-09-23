@@ -25,7 +25,7 @@ search:
       matches: fine
     type: java.util.logging.Logger
 availableFixes:
-- name: '[RECOMMENDED] Replace with SLF4J debug function'
+- name: ' [RECOMMENDED] Replace with SLF4J debug function'
   actions:
   - rewrite:
       to: logger.debug({{{arguments}}})

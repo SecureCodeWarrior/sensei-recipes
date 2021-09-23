@@ -25,7 +25,7 @@ search:
       matches: finer|finest
     type: java.util.logging.Logger
 availableFixes:
-- name: '[RECOMMENDED] Replace with SLF4J trace function'
+- name: ' [RECOMMENDED] Replace with SLF4J trace function'
   actions:
   - rewrite:
       to: logger.trace({{{arguments}}})

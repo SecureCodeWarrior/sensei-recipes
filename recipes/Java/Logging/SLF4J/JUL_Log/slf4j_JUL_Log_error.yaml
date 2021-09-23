@@ -39,7 +39,7 @@ availableFixes:
   - addField:
       field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
-- name: '[RECOMMENDED] Replace with SLF4J error function'
+- name: ' [RECOMMENDED] Replace with SLF4J error function'
   actions:
   - rewrite:
       to: logger.error({{{arguments.1}}})

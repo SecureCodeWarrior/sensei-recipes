@@ -30,7 +30,7 @@ search:
       reference:
         name: err
 availableFixes:
-- name: '[RECOMMENDED] Replace System.err with SLF4J error function'
+- name: ' [RECOMMENDED] Replace System.err with SLF4J error function'
   actions:
   - rewrite:
       to: logger.error({{{ arguments }}})

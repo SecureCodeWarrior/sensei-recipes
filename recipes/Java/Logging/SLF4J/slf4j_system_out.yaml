@@ -38,7 +38,7 @@ availableFixes:
   - addField:
       field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
-- name: '[RECOMMENDED] Replace System.out with SLF4J debug function'
+- name: ' [RECOMMENDED] Replace System.out with SLF4J debug function'
   actions:
   - rewrite:
       to: logger.debug({{{ arguments }}})
