@@ -13,14 +13,20 @@ search:
   methodcall:
     in:
       typeDeclaration:
-        without:
-          child:
-            field:
-              name: logger
-              type:
-                reference:
-                  not: org.slf4j.Logger
-                checkInheritance: true
+        anyOf:
+        - with:
+            child:
+              field:
+                name: logger
+                type: org.slf4j.Logger
+        - without:
+            child:
+              field:
+                name: logger
+                type:
+                  reference:
+                    not: org.slf4j.Logger
+                  checkInheritance: true
     name:
       matches: warning
     type: java.util.logging.Logger
