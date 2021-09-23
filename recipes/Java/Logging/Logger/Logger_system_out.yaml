@@ -6,6 +6,7 @@ metadata:
   level: marked_information
   language: java
   scwCategory: insufficient_logging:generic
+  cweCategory: 778
   enabled: true
   descriptionFile: Java/Logging/descriptions/ReplacePrintWithLogger.html
   tags: framework specific;logging;Logger;quality
