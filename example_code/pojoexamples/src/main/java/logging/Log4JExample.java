@@ -7,6 +7,10 @@ import java.io.*;
 import java.sql.SQLException;
 
 // https://logging.apache.org/log4j/2.x/manual/migration.html
+// https://www.marcobehler.com/guides/java-logging
+// https://stackoverflow.com/questions/30019585/log4j2-why-would-you-use-it-over-log4j
+// https://www.overops.com/blog/is-standard-java-logging-dead-log4j-vs-log4j2-vs-logback-vs-java-util-logging/
+// https://stackoverflow.com/questions/35900555/migrating-from-log4j-to-log4j2-properties-file-configuration
 public class Log4JExample{
 
     /* Get the class name to be printed on */
