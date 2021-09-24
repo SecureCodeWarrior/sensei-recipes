@@ -2,7 +2,7 @@ id: scw:logging:logger-name
 version: 9
 metadata:
   name: 'SLF4J Logging: Naming convention: Standardise logger name'
-  shortDescription: The logger field name should be standardised to "logger" universally
+  shortDescription: The SLF4J logger instance should be named "logger". Use Refactor Rename (Shift+F6) to rename this variable.
   level: marked_information
   language: java
   scwCategory: insufficient_logging:generic
