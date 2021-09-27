@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Convert_LocalTime
+version: 10
+metadata:
+  name: Convert LocalTime
+  shortDescription: Convert LocalTime from Joda To java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localtime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: now
+    type: org.joda.time.LocalTime
+availableFixes:
+- name: Convert to java.time.LocalTime
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.LocalTime
+  - rewrite:
+      to: java.time.LocalTime.now()

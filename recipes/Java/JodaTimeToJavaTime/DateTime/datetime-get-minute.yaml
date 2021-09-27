@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:datetime-getminute
+version: 10
+metadata:
+  name: Convert DateTime getMinuteOfHour to Java Time
+  shortDescription: Convert DateTime getMinuteOfHour to Java Time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    with:
+      anyOf:
+      - name: getMinuteOfHour
+      - name: minuteOfHour
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java time getMinute
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getMinute()'

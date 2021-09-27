@@ -1,0 +1,28 @@
+id: scw:java.time:Joda-Time:between-period
+version: 10
+metadata:
+  name: 'Joda-Time: Between Period'
+  shortDescription: 'Migrate this call to java.time: Between'
+  level: marked_information
+  language: java
+  enabled: true
+  descriptionFile: descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: yearsBetween
+      type: org.joda.time.Years
+    - name: monthsBetween
+      type: org.joda.time.Months
+    - name: weeksBetween
+      type: org.joda.time.Weeks
+    - name: daysBetween
+      type: org.joda.time.Days
+availableFixes:
+- name: Convert to Period.between()
+  actions:
+  - rewrite:
+      to: java.time.Period.between({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Period

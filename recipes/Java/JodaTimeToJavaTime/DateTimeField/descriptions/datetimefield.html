@@ -1,0 +1,25 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DateTimeField to Java Time</p>
+<br>
+<p>Joda-Time DateTimeField and DateTimeFieldType migrate to java.time ChronoField.</p>
+<p>ChronoField has a similar concept, although it has a different API and implementation.</p>
+<br>
+<b>Before</b>
+<pre>
+    DateTimeField dateTimeField;
+    DateTimeFieldType clockHour = DateTimeFieldType.clockhourOfDay();
+</pre>
+<b>After</b>
+<pre>
+    ChronoField dateTimeField;
+    ChronoField clockHour = ChronoField.CLOCK_HOUR_OF_DAY;
+</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoField.html">ChronoField (Java Platform SE 8 )</a></li>
+  <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

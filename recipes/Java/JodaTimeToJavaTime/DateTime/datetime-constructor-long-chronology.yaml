@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:datetime-constructor-long-chronology
+version: 10
+metadata:
+  name: Convert new DateTime(long, chronology) to java.time
+  shortDescription: Convert new DateTime(long, chronology) to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: long
+      2:
+        type: java.time.chrono.Chronology
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Rewrite using java.time ZonedDateTime
+  actions:
+  - rewrite:
+      to: (java.time.ZonedDateTime) {{{ arguments.1 }}}.zonedDateTime(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), java.time.ZoneId.systemDefault())
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

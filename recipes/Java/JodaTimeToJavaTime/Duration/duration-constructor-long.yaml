@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:duration-constructor-long
+version: 10
+metadata:
+  name: Convert Joda Duration to java.time.Duration
+  shortDescription: Convert Joda Duration to java.time.Duration
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+    argCount: 1
+    type: org.joda.time.Duration
+availableFixes:
+- name: Convert to java.time.Duration.ofMillis()
+  actions:
+  - rewrite:
+      to: java.time.Duration.ofMillis({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Duration

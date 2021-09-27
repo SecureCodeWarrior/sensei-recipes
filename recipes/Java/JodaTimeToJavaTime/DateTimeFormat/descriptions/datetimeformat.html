@@ -1,0 +1,25 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DateTimeFormat to Java Time</p>
+<br>
+<p>Joda-Time DateTimeFormat and ISODateTimeFormat migrate to java.time DateTimeFormatter.</p>
+<p>Concepts exposed as static methods on DateTimeFormatter.</p>
+<br>
+<b>Before</b>
+<pre>
+    DateTimeFormatter forPattern = DateTimeFormat.forPattern("somepattern");
+    DateTimeFormatter shortDate = DateTimeFormat.shortDate();
+</pre>
+<b>After</b>
+<pre>
+    java.time.format.DateTimeFormatter forPattern = java.time.format.DateTimeFormatter.ofPattern("somepattern");
+    java.time.format.DateTimeFormatter shortDate = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html">DateTimeFormatter (Java Platform SE 8 )</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

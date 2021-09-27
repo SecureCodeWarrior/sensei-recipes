@@ -1,0 +1,27 @@
+id: scw:java.time:Joda-Time:datetime-constructor
+version: 10
+metadata:
+  name: Convert new DateTime() to java.time
+  shortDescription: Convert new DateTime() to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    argCount: 0
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Convert to ZonedDateTime.now
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+  - rewrite:
+      to: java.time.ZonedDateTime.now()
+- name: Convert to OffsetDateTime
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime
+  - rewrite:
+      to: java.time.OffsetDateTime.now()

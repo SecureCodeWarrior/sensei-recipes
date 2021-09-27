@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetime-field
+version: 10
+metadata:
+  name: Convert DateTime field to java.time
+  shortDescription: Convert DateTime field to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  field:
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Convert to ZonedDateTime
+  actions:
+  - changeType:
+      type: java.time.ZonedDateTime
+- name: Convert to OffsetDateTime
+  actions:
+  - changeType:
+      type: java.time.OffsetDateTime

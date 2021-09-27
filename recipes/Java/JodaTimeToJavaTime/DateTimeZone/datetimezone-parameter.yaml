@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetimezone_parameter
+version: 10
+metadata:
+  name: Migrate DateTimeZone parameter to java.time
+  shortDescription: Migrate DateTimeZone parameter to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  parameter:
+    type: org.joda.time.DateTimeZone
+availableFixes:
+- name: Migrate DateTimeZone parameter to ZoneId
+  actions:
+  - changeType:
+      type: java.time.ZoneId
+- name: Migrate DateTimeZone parameter to ZoneOffset
+  actions:
+  - changeType:
+      type: java.time.ZoneOffset

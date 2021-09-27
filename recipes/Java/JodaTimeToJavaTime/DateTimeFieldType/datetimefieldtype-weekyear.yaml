@@ -1,0 +1,15 @@
+id: scw:java.time:Joda-Time:datetimefieldtype-weekyear
+version: 10
+metadata:
+  name: DateTimeFieldType.weekyear() is not Supported in java.time
+  shortDescription: DateTimeFieldType.weekyear() is not Supported in java.time so there is no automatic transformation available
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeField/descriptions/datetimefield.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: weekyear
+    type: org.joda.time.DateTimeFieldType
+availableFixes: []

@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:zoneddatetime-getmillis
+version: 10
+metadata:
+  name: Convert Joda-Time getMillis() to java.time toInstant().toEpochMilli()
+  shortDescription: Convert Joda-Time getMillis() to java.time toInstant().toEpochMilli()
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: getMillis
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time ZonedDateTime.toInstant().toEpochMilli()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.toInstant().toEpochMilli()'

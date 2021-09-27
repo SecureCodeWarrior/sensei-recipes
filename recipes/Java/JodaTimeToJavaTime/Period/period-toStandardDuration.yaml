@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:period-tostandardduration
+version: 10
+metadata:
+  name: Convert Period.toStandardDuration to Duration.from
+  shortDescription: Convert Period.toStandardDuration to Duration.from
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: toStandardDuration
+    type: java.time.Period
+availableFixes:
+- name: Rewrite to Duration.from(period)
+  actions:
+  - rewrite:
+      to: java.time.Duration.from({{{ qualifier }}})
+  - modifyAssignedVariable:
+      type: java.time.Duration

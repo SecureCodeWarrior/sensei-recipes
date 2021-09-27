@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/example_code/guice-examples/guiceexamples.iml" filepath="$PROJECT_DIR$/example_code/guice-examples/guiceexamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/example_code/java-basic-examples/java-basic-examples.iml" filepath="$PROJECT_DIR$/example_code/java-basic-examples/java-basic-examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/example_code/junit-examples/junit-examples.iml" filepath="$PROJECT_DIR$/example_code/junit-examples/junit-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example_code/joda-time-to-java-time-examples/joda-time-to-java-time-examples.iml" filepath="$PROJECT_DIR$/example_code/joda-time-to-java-time-examples/joda-time-to-java-time-examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/example_code/pojoexamples/pojoexamples.iml" filepath="$PROJECT_DIR$/example_code/pojoexamples/pojoexamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/sensei-recipes.iml" filepath="$PROJECT_DIR$/.idea/sensei-recipes.iml" />
       <module fileurl="file://$PROJECT_DIR$/example_code/SQL-examples/sqlexamples.iml" filepath="$PROJECT_DIR$/example_code/SQL-examples/sqlexamples.iml" />

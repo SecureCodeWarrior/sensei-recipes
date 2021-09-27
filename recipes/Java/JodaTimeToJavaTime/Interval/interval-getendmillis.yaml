@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:interval-endmillis
+version: 10
+metadata:
+  name: Use getEnd().toEpochMilli() instead of getEndMillis()
+  shortDescription: Use getEnd().toEpochMilli() instead of getEndMillis()
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/interval.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: getEndMillis
+    type: org.threeten.extra.Interval
+availableFixes:
+- name: Rewrite to getEnd().toEpochMilli()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getEnd().toEpochMilli()'

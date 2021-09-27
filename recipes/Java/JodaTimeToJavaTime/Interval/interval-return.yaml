@@ -1,0 +1,23 @@
+id: scw:java.time:Joda-Time:migrate_interval_return_type
+version: 10
+metadata:
+  name: Migrate Joda-Time Interval return type to org.threeten.extra.Interval
+  shortDescription: Migrate Joda-Time Interval return type to org.threeten.extra.Interval
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: descriptions/interval.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  method:
+    returnType: org.joda.time.Interval
+scopes:
+  library:
+    name:
+      contains: threeten-extra
+      caseSensitive: false
+availableFixes:
+- name: Migrate Joda-Time Interval return type to org.threeten.extra.Interval
+  actions:
+  - changeType:
+      type: org.threeten.extra.Interval

@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:interval_to_threenten-extra
+version: 10
+metadata:
+  name: Migrate Joda-Time Interval to threeten-extra
+  shortDescription: Migrate Joda-Time Interval to threeten-extra
+  level: marked_information
+  language: java
+  enabled: true
+  descriptionFile: descriptions/interval.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    type: org.joda.time.Interval
+scopes:
+  not:
+    library:
+      name:
+        contains: threeten-extra
+availableFixes:
+- name: Add ThreeTen-Extra library to your project to use Interval
+  actions:
+  - goto:
+      type: URL
+      value: https://www.threeten.org/threeten-extra/

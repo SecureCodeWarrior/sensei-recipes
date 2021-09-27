@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:durationfieldtype-weeks
+version: 10
+metadata:
+  name: Convert DurationFieldType.weeks() to ChronoUnit.WEEKS
+  shortDescription: Convert DurationFieldType.weeks() to ChronoUnit.WEEKS
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DurationFieldType/descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: weeks
+    type: org.joda.time.DurationFieldType
+availableFixes:
+- name: Convert to ChronoUnit.WEEKS
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoUnit.WEEKS
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

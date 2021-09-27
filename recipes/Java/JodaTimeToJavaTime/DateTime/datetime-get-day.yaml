@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetime-getday
+version: 10
+metadata:
+  name: Convert DateTime getDayOfWeek to java.time
+  shortDescription: Convert DateTime getDayOfWeek to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: getDayOfWeek
+    type: org.joda.time.base.AbstractDateTime
+availableFixes:
+- name: Rewrite using java.time GetValue
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.{{{ methodName }}}().getValue()'

@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Seconds-parseSeconds
+version: 10
+metadata:
+  name: Convert Seconds.parseSeconds to java.time.Duration.parse
+  shortDescription: Seconds is not supported in java.time - convert it to Duration instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Duration/descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: parseSeconds
+    type: org.joda.time.Seconds
+availableFixes:
+- name: Convert to Duration.parse(string)
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.Duration
+  - rewrite:
+      to: java.time.Duration.parse({{{ arguments }}})

@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:convert-localdate-import-to-java.time
+version: 10
+metadata:
+  name: Convert LocalDate import to java.time
+  shortDescription: Convert LocalDate import to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  import:
+    path: org.joda.time.LocalDate
+availableFixes:
+- processImports: true
+  name: Convert Import to java.time.LocalDate
+  actions:
+  - rewrite:
+      to: import java.time.LocalDate;

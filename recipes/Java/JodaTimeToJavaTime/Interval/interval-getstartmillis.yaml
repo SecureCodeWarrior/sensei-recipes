@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:interval-startmillis
+version: 10
+metadata:
+  name: Use getStart().toEpochMilli() instead of getStartMillis()
+  shortDescription: Use getStart().toEpochMilli() instead of getStartMillis()
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/interval.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: getStartMillis
+    type: org.threeten.extra.Interval
+availableFixes:
+- name: Rewrite to getStart().toEpochMilli()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getStart().toEpochMilli()'

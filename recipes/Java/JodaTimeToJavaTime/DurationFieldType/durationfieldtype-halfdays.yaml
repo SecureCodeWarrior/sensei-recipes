@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:durationfieldtype-halfdays
+version: 10
+metadata:
+  name: Convert DurationFieldType.halfdays() to ChronoUnit.HALF_DAYS
+  shortDescription: Convert DurationFieldType.halfdays() to ChronoUnit.HALF_DAYS
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: halfdays
+    type: org.joda.time.DurationFieldType
+availableFixes:
+- name: Convert to ChronoUnit.HALF_DAYS
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoUnit.HALF_DAYS
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

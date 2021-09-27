@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:datetime-gethour
+version: 10
+metadata:
+  name: Convert DateTime getHourOfDay to java.time
+  shortDescription: Convert DateTime getHourOfDay to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    with:
+      anyOf:
+      - name: getHourOfDay
+      - name: hourOfDay
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time getHour
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getHour()'

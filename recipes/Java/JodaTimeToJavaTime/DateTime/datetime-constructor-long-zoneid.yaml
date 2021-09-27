@@ -1,0 +1,32 @@
+id: scw:java.time:Joda-Time:datetime-constructor-long-zoneid
+version: 10
+metadata:
+  name: Convert new DateTime(long, zoneid) to java.time
+  shortDescription: Convert new DateTime(long, zoneid) to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: long
+      2:
+        type: java.time.ZoneId
+    argCount: 2
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Replace to java.time OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), {{{ arguments.1 }}})
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime
+- name: Replace to java.time ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}) ,{{{ arguments.1 }}})
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

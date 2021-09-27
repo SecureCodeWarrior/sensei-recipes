@@ -1,0 +1,23 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.LocalDate to Java Time</p>
+<br>
+<p>Joda-Time LocalDate migrates to Java Time LocalDate.</p>
+<p>It's the same concept, a date without time or time-zone.</p>
+<br>
+<b>Before</b>
+<pre>
+    LocalDate LocalDate1 = new LocalDate();
+</pre>
+<b>After</b>
+<pre>
+     java.time.LocalDate LocalDate1 = java.time.LocalDate.now();
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://www.threeten.org/threeten-extra/">ThreeTen Extra</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

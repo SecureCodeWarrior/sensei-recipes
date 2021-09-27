@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:isodatetimeformat-datetimenomillis
+version: 10
+metadata:
+  name: Convert ISODateTimeFormat to java.time
+  shortDescription: Convert ISODateTimeFormat to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeFormatter/descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: dateTimeNoMillis
+    type: org.joda.time.format.ISODateTimeFormat
+availableFixes:
+- name: Convert to java.time.format.DateTimeFormatter.ISO_DATE_TIME
+  actions:
+  - rewrite:
+      to: java.time.format.DateTimeFormatter.ISO_DATE_TIME
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatter

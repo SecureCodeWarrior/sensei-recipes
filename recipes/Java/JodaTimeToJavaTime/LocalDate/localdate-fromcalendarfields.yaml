@@ -1,0 +1,30 @@
+id: scw:java.time:Joda-Time:Convert-LocalDate.fromDateFields-java.util.Date-to-java.time.LocalDate
+version: 10
+metadata:
+  name: Convert LocalDate.fromCalendarFields to java.time.LocalDate
+  shortDescription: Convert LocalDate.fromCalendarFields to java.time.LocalDate
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: fromCalendarFields
+    anyOf:
+    - type: org.joda.time.YearMonthDay
+    - type: org.joda.time.LocalDate
+availableFixes:
+- name: Convert to java.time.LocalDate using calendar.toInstant() (Java 8)
+  actions:
+  - rewrite:
+      to: '{{{ arguments }}}.toInstant().atZone({{{ arguments }}}.getTimeZone().toZoneId()).toLocalDate()'
+      target: self
+  - modifyAssignedVariable:
+      type: java.time.LocalDate
+- name: Convert to java.time.LocalDate using LocalDate.ofInstant (Java 9+)
+  actions:
+  - rewrite:
+      to: java.time.LocalDate.ofInstant({{{ arguments }}}.toInstant(), {{{ arguments }}}.getTimeZone().toZoneId())
+  - modifyAssignedVariable:
+      type: java.time.LocalDate

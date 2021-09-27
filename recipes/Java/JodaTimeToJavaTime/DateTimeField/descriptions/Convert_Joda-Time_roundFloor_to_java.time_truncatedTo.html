@@ -1,0 +1,22 @@
+<html>
+<body>
+
+<p>This recipe provides an equivalent for Joda-Time <b>roundFloor</b>, however please note the following precautions:</p>
+<ul>
+	<li>It is assumed that the originating Joda-Time Field was obtained using <b>ISOChronology.getInstanceUTC()</b></li>
+<li>This recipe has only been tested to be equivalent based on the following mappings
+	<ul>
+		<li>DateTimeFieldType.dayOfMonth() -> ChronoField.DAY_OF_MONTH</li>
+		<li>DateTimeFieldType.dayOfWeek() -> ChronoField.DAY_OF_WEEK</li>
+		<li>DateTimeFieldType.dayOfYear() -> ChronoField.DAY_OF_YEAR</li>
+		<li>DateTimeFieldType.hourOfDay() -> ChronoField.HOUR_OF_DAY</li>
+		<li>DateTimeFieldType.millisOfDay() -> ChronoField.MILLI_OF_DAY</li>
+		<li>DateTimeFieldType.millisOfSecond() -> ChronoField.MILLI_OF_SECOND</li>
+		<li>DateTimeFieldType.minuteOfHour() -> ChronoField.MINUTE_OF_HOUR</li>
+		<li>DateTimeFieldType.secondOfDay() -> ChronoField.SECOND_OF_DAY</li>
+		<li>DateTimeFieldType.secondOfMinute() -> ChronoField.SECOND_OF_MINUTE</li>
+	</ul>
+</li>
+</ul>
+</body>
+</html>

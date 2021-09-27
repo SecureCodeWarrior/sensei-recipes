@@ -1,0 +1,15 @@
+id: scw:java.time:Joda-Time:datetimefieldtype-weekyearOfCentury
+version: 10
+metadata:
+  name: DateTimeFieldType.weekyearOfCentury() is not Supported in java.time
+  shortDescription: DateTimeFieldType.weekyearOfCentury() is not Supported in java.time so there is no automatic transformation available
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeField/descriptions/datetimefield.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: weekyearOfCentury
+    type: org.joda.time.DateTimeFieldType
+availableFixes: []

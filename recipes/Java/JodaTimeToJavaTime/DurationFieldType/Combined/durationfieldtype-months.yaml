@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:durationfieldtype-months
+version: 10
+metadata:
+  name: Convert DurationFieldType.months() to ChronoUnit.MONTHS
+  shortDescription: Convert DurationFieldType.months() to ChronoUnit.MONTHS
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DurationFieldType/descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: months
+    type: org.joda.time.DurationFieldType
+availableFixes:
+- name: Convert to ChronoUnit.MONTHS
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoUnit.MONTHS
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

@@ -66,3 +66,8 @@ cookbooks: # List of cookbooks
     includedTags: [JUnit 5]
     excludedTags: []
     featured: true
+  - id: scw:java-time
+    name: Standardisation on java.time (JSR-310)
+    description: Standardisation on java.time (JSR-310) including migrations from other time frameworks.
+    includedTags: [java.time]
+    excludedTags: []

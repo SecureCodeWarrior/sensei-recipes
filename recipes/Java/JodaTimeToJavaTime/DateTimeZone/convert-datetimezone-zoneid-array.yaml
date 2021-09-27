@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:Convert_DateTimeZone_to_ZoneId-array
+version: 10
+metadata:
+  name: Convert DateTimeZone[] to ZoneId[]
+  shortDescription: Convert DateTimeZone[] to ZoneId[]
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  field:
+    type: org.joda.time.DateTimeZone[]
+availableFixes:
+- name: Change Arrays of DateTimeZone to ZoneId
+  actions:
+  - rewrite:
+      to: '{{{ modifierList }}} java.time.ZoneId[] {{{ qualifier }}};'
+      target: self

@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:datetime-with-hour
+version: 10
+metadata:
+  name: Convert DateTime withHour to java.time
+  shortDescription: Convert DateTime withHour to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: int
+    name: withHourOfDay
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withHour({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: '{{{ qualifier.type }}}'

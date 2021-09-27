@@ -1,0 +1,27 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.Chronology to java.time.chrono.Chronology</p>
+<br>
+<p>Java Time API has similar concept to Joda-Time in terms of Chronology, although the API and implementation is very different.</p>
+<br>
+<br>
+<b>Before</b>
+<pre>
+    Chronology c = ISOChronology.getInstance();
+    Chronology ic1 = IslamicChronology.getInstance();
+    Chronology bc1 = BuddhistChronology.getInstance();
+</pre>
+<b>After</b>
+<pre>
+    java.time.chrono.Chronology c = IsoChronology.INSTANCE;
+    java.time.chrono.Chronology ic1 = HijrahChronology.INSTANCE;
+    java.time.chrono.Chronology bc1 = ThaiBuddhistChronology.INSTANCE;
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/chrono/Chronology.html">Chronology (Java Platform SE 8 )</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

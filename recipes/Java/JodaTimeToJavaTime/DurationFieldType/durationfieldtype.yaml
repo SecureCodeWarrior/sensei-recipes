@@ -1,0 +1,33 @@
+id: scw:java.time:Joda-Time:durationfieldtype
+version: 10
+metadata:
+  name: Convert DurationFieldType yo ChronoUnit
+  shortDescription: Convert DurationFieldType yo ChronoUnit
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name:
+      anyOf:
+      - is: centuries
+      - is: days
+      - is: eras
+      - is: hours
+      - is: millis
+      - is: minutes
+      - is: months
+      - is: seconds
+      - is: weeks
+      - is: weekyears
+      - is: years
+    type: org.joda.time.DurationFieldType
+availableFixes:
+- name: Convert to ChronoUnit
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoUnit.{{#upperCase}}{{{methodName}}}{{/upperCase}}
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

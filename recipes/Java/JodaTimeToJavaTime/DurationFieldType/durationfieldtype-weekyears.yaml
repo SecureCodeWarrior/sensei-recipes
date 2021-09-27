@@ -1,0 +1,15 @@
+id: scw:java.time:Joda-Time:durationfieldtype-weekyears
+version: 10
+metadata:
+  name: DurationFieldType.weekyears() is not supported in java.time
+  shortDescription: DurationFieldType.weekyears() is not supported in java.time
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: weekyears
+    type: org.joda.time.DurationFieldType
+availableFixes: []

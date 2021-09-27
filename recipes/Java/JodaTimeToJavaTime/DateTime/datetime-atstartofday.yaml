@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:datetime-atstartofday
+version: 10
+metadata:
+  name: Convert DateTime toDateMidnight to atStartOfDay
+  shortDescription: Convert DateTime toDateMidnight to atStartOfDay
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: toDateMidnight
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.LocalDate.now().atStartOfDay(ZoneId.systemDefault())
+  - modifyAssignedVariable:
+      type: ZonedDateTime

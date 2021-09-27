@@ -1,0 +1,24 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.Interval to Java Time</p>
+<br>
+<p>Joda-Time Interval cannot be migrated to Java Time API.</p>
+<p>It's necessary a third-party library. We recommend to use ThreeTen-Extra</p>
+<p>ThreeTen-Extra provides additional date-time classes that complement those in Java SE 8.</p>
+<br>
+<b>Before</b>
+<pre>
+    Interval interval = new Interval(start, finish);
+</pre>
+<b>After</b>
+<pre>
+     org.threeten.extra.Interval interval = org.threeten.extra.Interval.of(Instant.ofEpochMilli(start), Instant.ofEpochMilli(finish));
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://www.threeten.org/threeten-extra/">ThreeTen Extra</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

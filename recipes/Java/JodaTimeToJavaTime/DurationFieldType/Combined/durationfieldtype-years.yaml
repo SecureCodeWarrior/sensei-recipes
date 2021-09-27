@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:durationfieldtype-years
+version: 10
+metadata:
+  name: Convert DurationFieldType.years() to ChronoUnit.YEARS
+  shortDescription: Convert DurationFieldType.years() to ChronoUnit.YEARS
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DurationFieldType/descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: years
+    type: org.joda.time.DurationFieldType
+availableFixes:
+- name: Convert to ChronoUnit.YEARS
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoUnit.YEARS
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

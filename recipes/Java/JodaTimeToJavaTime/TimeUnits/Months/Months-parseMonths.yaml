@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Months-parseMonths
+version: 10
+metadata:
+  name: Convert Months.parseMonths to java.time.Period.parse
+  shortDescription: Months is not supported in java.time - convert it to Period instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Period/descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: parseMonths
+    type: org.joda.time.Months
+availableFixes:
+- name: Convert to Period.parse(string)
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.Period
+  - rewrite:
+      to: java.time.Period.parse({{{ arguments }}})

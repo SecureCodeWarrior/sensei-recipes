@@ -1,0 +1,40 @@
+id: scw:java.time:Joda-Time:datetimefieldtype-convert
+version: 10
+metadata:
+  name: Convert DateTimeFieldType method to ChronoField property
+  shortDescription: Convert DateTimeFieldType method to ChronoField property
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeField/descriptions/datetimefield.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name:
+      anyOf:
+      - is: dayOfMonth
+      - is: dayOfWeek
+      - is: dayOfYear
+      - is: era
+      - is: hourOfDay
+      - is: millisOfDay
+      - is: millisOfSecond
+      - is: minuteOfDay
+      - is: minuteOfHour
+      - is: monthOfYear
+      - is: secondOfDay
+      - is: secondOfMinute
+      - is: weekOfWeekyear
+      - is: weekyear
+      - is: weekyearOfCentury
+      - is: year
+      - is: yearOfEra
+    type: org.joda.time.DateTimeFieldType
+availableFixes:
+- name: Convert to corresponding ChronoField property
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoField.{{#upperCase}}{{#camelToUnderscoreCase}}{{#sed}}s/millis/milli/,{{{methodName}}}{{/sed}}{{/camelToUnderscoreCase}}{{/upperCase}}
+      target: self
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoField

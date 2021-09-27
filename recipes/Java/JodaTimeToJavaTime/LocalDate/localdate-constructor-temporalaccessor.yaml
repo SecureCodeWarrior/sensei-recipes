@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:Convert_new_LocalDate(long)_to_LocalDate.ofEpochDay
+version: 10
+metadata:
+  name: Convert new LocalDate(long) to LocalDate.ofEpochDay
+  shortDescription: Convert new LocalDate(long) to LocalDate.ofEpochDay
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: java.time.temporal.TemporalAccessor
+    argCount: 1
+    type: java.time.LocalDate
+availableFixes:
+- name: Rewrite to LocalDate.from(temporalAccessor)
+  actions:
+  - rewrite:
+      to: LocalDate.from({{{ arguments }}})

@@ -1,0 +1,28 @@
+id: scw:java.time:Joda-Time:datetime-factory-now
+version: 10
+metadata:
+  name: Converting DateTime.now to java.time
+  shortDescription: Converting DateTime.now to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: now
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Rewrite using java.time OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime
+- name: Rewrite using java.time ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

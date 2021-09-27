@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:interval_threenten-extra-import
+version: 10
+metadata:
+  name: Replace Interval import to use ThreeTen Lib
+  shortDescription: Replace Interval import to use ThreeTen Lib
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/interval.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  import:
+    path: org.joda.time.Interval
+scopes:
+  library:
+    name:
+      contains: threeten
+      caseSensitive: false
+availableFixes:
+- name: Use Interval from ThreeTen Lib
+  actions:
+  - rewrite:
+      to: import org.threeten.extra.Interval;
+      target: self

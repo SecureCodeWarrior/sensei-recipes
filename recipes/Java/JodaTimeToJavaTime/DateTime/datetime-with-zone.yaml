@@ -1,0 +1,23 @@
+id: scw:java.time:Joda-Time:datetime-withzone
+version: 10
+metadata:
+  name: Convert DateTime withZone to java.time
+  shortDescription: Convert DateTime withZone to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: withZone
+    - name: withZoneRetainFields
+    type: java.time.ZonedDateTime
+availableFixes:
+- name: Rewrite using java.time ZonedDateTime
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withZoneSameLocal({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

@@ -1,0 +1,28 @@
+id: scw:java.time:Joda-Time:of-period
+version: 10
+metadata:
+  name: 'Joda-Time: Of Period'
+  shortDescription: 'Migrate this call to java.time: Of'
+  level: marked_information
+  language: java
+  enabled: true
+  descriptionFile: descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: years
+      type: org.joda.time.Years
+    - name: months
+      type: org.joda.time.Months
+    - name: weeks
+      type: org.joda.time.Weeks
+    - name: days
+      type: org.joda.time.Days
+availableFixes:
+- name: Convert to Period.ofWeeks()
+  actions:
+  - rewrite:
+      to: java.time.Period.of{{#upperCaseFirst}}{{{methodName}}}{{/upperCaseFirst}}({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Period

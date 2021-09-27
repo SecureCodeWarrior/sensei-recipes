@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:duration-factory
+version: 10
+metadata:
+  name: Migrate Joda-Time Duration to java.time Duration
+  shortDescription: Migrate Joda-Time Duration to java.time Duration
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: standardDays
+    - name: standardHours
+    - type: standardMillis
+    - type: standardSeconds
+    type: org.joda.time.Duration
+availableFixes:
+- name: Rewrite to Duration.of<Unit>()
+  actions:
+  - rewrite:
+      to: java.time.Duration.of{{#sed}}s/standard//,{{{ methodName }}}{{/sed}}({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Duration

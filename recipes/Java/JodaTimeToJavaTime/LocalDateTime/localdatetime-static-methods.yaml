@@ -1,0 +1,26 @@
+id: scw:java.time:localdatetime-factory
+version: 10
+metadata:
+  name: Migrate Joda-Time LocalDateTime to java.time.LocalDateTime
+  shortDescription: Migrate Joda-Time LocalDateTime to java.time.LocalDateTime
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdatetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name:
+      anyOf:
+      - is: parse
+      - is: now
+      - is: fromCalendarFields
+      - is: fromDateFields
+    type: org.joda.time.LocalDateTime
+availableFixes:
+- name: Convert to java.time.LocalDateTime
+  actions:
+  - rewrite:
+      to: java.time.LocalDateTime.{{{ methodName }}}({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.LocalDateTime

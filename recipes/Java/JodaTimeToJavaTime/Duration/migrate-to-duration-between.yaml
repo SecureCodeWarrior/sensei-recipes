@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:between-duration
+version: 10
+metadata:
+  name: 'Joda-Time: Between Duration'
+  shortDescription: 'Migrate this call to java.time: Between'
+  level: marked_information
+  language: java
+  enabled: true
+  descriptionFile: descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: hoursBetween
+      type: org.joda.time.Hours
+    - name: minutesBetween
+      type: org.joda.time.Minutes
+    - name: secondsBetween
+      type: org.joda.time.Seconds
+availableFixes:
+- name: Convert to Duration.between()
+  actions:
+  - rewrite:
+      to: java.time.Duration.between({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Duration

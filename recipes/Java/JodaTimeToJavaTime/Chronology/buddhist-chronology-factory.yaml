@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:convert-buddhist-to-thaiBuddhist-chronology
+version: 10
+metadata:
+  name: Convert BuddhistChronology to ThaiBuddhistChronology
+  shortDescription: Convert BuddhistChronology to ThaiBuddhistChronology
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/chronology.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: getInstance
+    type: org.joda.time.chrono.BuddhistChronology
+availableFixes:
+- name: Convert to ThaiBuddhistChronology.INSTANCE
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.chrono.Chronology
+  - rewrite:
+      to: java.time.chrono.ThaiBuddhistChronology.INSTANCE

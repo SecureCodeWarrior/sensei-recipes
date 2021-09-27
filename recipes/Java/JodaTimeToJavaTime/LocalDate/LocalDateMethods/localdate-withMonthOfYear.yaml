@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:localdate
+version: 10
+metadata:
+  name: 'Joda-Time: Change LocalDate usage to java.time'
+  shortDescription: Change LocalDate usage to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/LocalDate/descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: withMonthOfYear
+    type: org.joda.time.LocalDate
+availableFixes:
+- name: Change to withMonth()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withMonth({{{ arguments }}})'
+  - modifyAssignedVariable:
+      type: java.time.LocalDate

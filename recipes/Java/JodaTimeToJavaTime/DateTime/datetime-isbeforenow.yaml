@@ -1,0 +1,20 @@
+id: scw:java.time:Joda-Time:zoneddatetime-isbeforenow
+version: 10
+metadata:
+  name: Convert ZonedDateTime isBeforeNow to java.time equivalent
+  shortDescription: Convert ZonedDateTime isBeforeNow to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: isBeforeNow
+    type: java.time.ZonedDateTime
+availableFixes:
+- name: Rewrite to isBefore(ZonedDateTime.now())
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.isBefore(java.time.ZonedDateTime.now())'

@@ -1,0 +1,29 @@
+id: scw:java.time:Joda-Time:datetime-plus-something
+version: 10
+metadata:
+  name: Convert DateTime plus to java.time
+  shortDescription: Convert DateTime plus to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: int
+    argCount: 1
+    name:
+      contains: plus
+      not: plusMillis
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time
+  actions:
+  - rewrite:
+      to: '{{{ expressionElement }}}({{{ arguments.0 }}}L)'
+  - modifyAssignedVariable:
+      type: '{{{ type }}}'

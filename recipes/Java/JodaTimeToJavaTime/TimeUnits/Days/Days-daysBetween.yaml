@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Days-daysBetween
+version: 10
+metadata:
+  name: Convert Days.daysBetween to java.time.Period
+  shortDescription: Days is not supported in java.time - convert it to Period instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Period/descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: daysBetween
+    type: org.joda.time.Days
+availableFixes:
+- name: Convert to Period.between()
+  actions:
+  - rewrite:
+      to: java.time.Period.between({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Period

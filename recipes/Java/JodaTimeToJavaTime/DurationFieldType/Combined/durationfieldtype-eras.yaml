@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:durationfieldtype-eras
+version: 10
+metadata:
+  name: Convert DurationFieldType.eras() to ChronoUnit.ERAS
+  shortDescription: Convert DurationFieldType.eras() to ChronoUnit.ERAS
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DurationFieldType/descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: eras
+    type: org.joda.time.DurationFieldType
+availableFixes:
+- name: Convert to ChronoUnit.ERAS
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoUnit.ERAS
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

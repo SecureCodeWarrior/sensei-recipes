@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:localdate-change-dayofmonth
+version: 10
+metadata:
+  name: Change dayOfMonth() to getDayOfMonth()
+  shortDescription: Change dayOfMonth() to getDayOfMonth()
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/LocalDate/descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: dayOfMonth
+    type: org.joda.time.LocalDate
+availableFixes:
+- name: Change to getDayOfMonth()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getDayOfMonth()'

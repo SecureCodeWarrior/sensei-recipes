@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:dateTime-withMillisOfSecond
+version: 10
+metadata:
+  name: Convert DateTime.withMillisOfSecond to java.time
+  shortDescription: Convert DateTime.withMillisOfSecond to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: int
+    name: withMillisOfSecond
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.with(java.time.temporal.ChronoField.MILLI_OF_SECOND, {{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: '{{{ qualifier.type }}}'

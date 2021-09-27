@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:migrate-parameter
+version: 10
+metadata:
+  name: Migrate Joda-Time Paramater to java.time equivalent
+  shortDescription: Migrate Joda-Time Paramater to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  parameter:
+    anyOf:
+    - type: org.joda.time.Duration
+    - type: org.joda.time.Period
+availableFixes:
+- name: Migrate Joda-Time parameter to java.time Equivalent
+  actions:
+  - changeType:
+      type: java.time.{{{ typeElement }}}

@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Minutes-minutes
+version: 10
+metadata:
+  name: Convert Minutes to java.time.Duration
+  shortDescription: Minutes is not supported in java.time - convert it to Duration instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Duration/descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: minutes
+    type: org.joda.time.Minutes
+availableFixes:
+- name: Convert to Duration.ofMinutes()
+  actions:
+  - rewrite:
+      to: java.time.Duration.ofMinutes({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Duration

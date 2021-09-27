@@ -1,0 +1,31 @@
+id: scw:java.time:Joda-Time:convert-datetimezone-utc
+version: 10
+metadata:
+  name: Convert DateTimeZone.UTC to java.time
+  shortDescription: Convert DateTimeZone.UTC to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  assignment:
+    expression:
+      reference:
+        name: UTC
+    expressionType: DateTimeZone
+availableFixes:
+- name: Convert DateTimeZone To ZoneId
+  actions:
+  - changeType:
+      type: java.time.ZoneId
+      target: variable
+  - rewrite:
+      to: java.time.ZoneId {{{ qualifier }}} = ZoneId.of("UTC");
+- name: Convert DateTimeZone to ZoneOffset
+  actions:
+  - changeType:
+      type: java.time.ZoneOffset
+      target: variable
+  - rewrite:
+      to: java.time.ZoneOffset {{{ qualifier }}} = java.time.ZoneOffset.of("UTC");

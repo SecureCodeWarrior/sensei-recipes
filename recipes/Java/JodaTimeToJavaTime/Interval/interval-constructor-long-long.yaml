@@ -1,0 +1,23 @@
+id: scw:java.time:Joda-Time:interval-constructor-long-long
+version: 10
+metadata:
+  name: Convert Interval to org.threeten.extra.Interval
+  shortDescription: Convert Interval to org.threeten.extra.Interval
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/interval.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: long
+      2:
+        type: long
+    type: org.threeten.extra.Interval
+availableFixes:
+- name: Rewrite using ThreeTen Lib
+  actions:
+  - rewrite:
+      to: 'Interval.of(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), java.time.Instant.ofEpochMilli({{{ arguments.1 }}})) '

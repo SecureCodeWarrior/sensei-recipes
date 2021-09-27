@@ -1,0 +1,28 @@
+id: scw:java.time:Joda-Time:parse-period
+version: 10
+metadata:
+  name: 'Joda-Time: Parse Period'
+  shortDescription: 'Migrate this call to java.time: Parse'
+  level: marked_information
+  language: java
+  enabled: true
+  descriptionFile: descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: parseYears
+      type: org.joda.time.Years
+    - name: parseMonths
+      type: org.joda.time.Months
+    - name: parseWeeks
+      type: org.joda.time.Weeks
+    - name: parseDays
+      type: org.joda.time.Days
+availableFixes:
+- name: Convert to Period.parse(string)
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.Period
+  - rewrite:
+      to: java.time.Period.parse({{{ arguments }}})

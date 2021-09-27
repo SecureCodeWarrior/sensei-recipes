@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Weeks-parseWeeks
+version: 10
+metadata:
+  name: Convert Weeks.parseWeeks to java.time.Period.parse
+  shortDescription: Weeks is not supported in java.time - convert it to Period instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Period/descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: parseWeeks
+    type: org.joda.time.Weeks
+availableFixes:
+- name: Convert to Period.parse(string)
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.Period
+  - rewrite:
+      to: java.time.Period.parse({{{ arguments }}})

@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Seconds-secondsBetween
+version: 10
+metadata:
+  name: Convert Seconds.secondsBetween to java.time.Duration
+  shortDescription: Seconds is not supported in java.time - convert it to Duration instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Duration/descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: secondsBetween
+    type: org.joda.time.Seconds
+availableFixes:
+- name: Convert to Duration.between()
+  actions:
+  - rewrite:
+      to: java.time.Duration.between({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Duration

@@ -1,0 +1,25 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.Duration to Java Time</p>
+<br>
+<p>Joda-Time Duration migrates to java.time Duration.</p>
+<p>It's a same concept, amount of time, based on fractional seconds.</p>
+<br>
+<b>Before</b>
+<pre>
+    Duration duration = new Duration(longArg);
+    Duration standardDays = Duration.standardDays(longArg);
+</pre>
+<b>After</b>
+<pre>
+    java.time.Duration duration = java.time.Duration.ofMillis(longArg);
+    java.time.Duration standardDays = java.time.Duration.ofDays(longArg);
+</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration (Java Platform SE 8 )</a></li>
+  <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

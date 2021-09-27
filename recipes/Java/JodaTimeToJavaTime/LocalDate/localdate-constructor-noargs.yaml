@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:convert-localdate-to-javatime-noargs
+version: 10
+metadata:
+  name: Convert LocalDate to java.time
+  shortDescription: Convert org.joda.time.LocalDate to java.time.LocalDate
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    argCount: 0
+    anyOf:
+    - type: org.joda.time.YearMonthDay
+    - type: org.joda.time.LocalDate
+    - type: java.time.LocalDate
+availableFixes:
+- name: Change to LocalDate.now();
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.LocalDate
+  - rewrite:
+      to: java.time.LocalDate.now()

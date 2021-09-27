@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetime-method-return
+version: 10
+metadata:
+  name: Convert DateTime method return to java.time
+  shortDescription: Convert DateTime method return to java.time
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  method:
+    returnType: org.joda.time.DateTime
+availableFixes:
+- name: change return type to java.time.ZonedDateTime
+  actions:
+  - changeType:
+      type: java.time.ZonedDateTime
+- name: change return type to java.time.OffsetDateTime
+  actions:
+  - changeType:
+      type: java.time.OffsetDateTime

@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Hours-hours
+version: 10
+metadata:
+  name: Convert Hours to java.time.Duration
+  shortDescription: Hours is not supported in java.time - convert it to Duration instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Duration/descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: hours
+    type: org.joda.time.Hours
+availableFixes:
+- name: Convert to Duration.ofHours()
+  actions:
+  - rewrite:
+      to: java.time.Duration.ofHours({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Duration

@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:convert-islamicchronology-factory
+version: 10
+metadata:
+  name: Convert ISOChronology from Joda to java.time
+  shortDescription: Convert ISOChronology from Joda to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/chronology.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: getInstance
+    type: org.joda.time.chrono.IslamicChronology
+availableFixes:
+- name: Convert to HijrahChronology.INSTANCE
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.chrono.Chronology
+  - rewrite:
+      to: java.time.chrono.HijrahChronology.INSTANCE

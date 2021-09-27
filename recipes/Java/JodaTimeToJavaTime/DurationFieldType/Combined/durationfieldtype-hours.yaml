@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:durationfieldtype-hours
+version: 10
+metadata:
+  name: Convert DurationFieldType.hours() to ChronoUnit.HOURS
+  shortDescription: Convert DurationFieldType.hours() to ChronoUnit.HOURS
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DurationFieldType/descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: hours
+    type: org.joda.time.DurationFieldType
+availableFixes:
+- name: Convert to ChronoUnit.HOURS
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoUnit.HOURS
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

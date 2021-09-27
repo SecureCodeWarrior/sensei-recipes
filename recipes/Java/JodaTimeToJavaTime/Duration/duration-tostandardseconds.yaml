@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:duration-tostandardseconds
+version: 10
+metadata:
+  name: Convert getStandardSeconds to getSeconds
+  shortDescription: Convert getStandardSeconds to getSeconds
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: getStandardSeconds
+    type: java.time.Duration
+availableFixes:
+- name: Convert toStandardSeconds to getSeconds
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getSeconds()'

@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Days-parseDays
+version: 10
+metadata:
+  name: Convert Days.parseDays to java.time.Period.parse
+  shortDescription: Days is not supported in java.time - convert it to Period instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Period/descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: parseDays
+    type: org.joda.time.Days
+availableFixes:
+- name: Convert to Period.parse(string)
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.Period
+  - rewrite:
+      to: java.time.Period.parse({{{ arguments }}})

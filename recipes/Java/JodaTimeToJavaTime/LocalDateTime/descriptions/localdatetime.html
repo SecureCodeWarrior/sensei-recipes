@@ -1,0 +1,23 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.LocalDateTime to Java Time</p>
+<br>
+<p>Joda-Time LocalDateTime migrates to Java Time LocalDateTime.</p>
+<p>It's the same concept, a date and time without time-zone.</p>
+<br>
+<b>Before</b>
+<pre>
+    LocalDateTime now1 = LocalDateTime.now();
+</pre>
+<b>After</b>
+<pre>
+     java.time.LocalDateTime now1 = java.time.LocalDateTime.now();
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html">LocalDateTime (Java Platform SE 8 )</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

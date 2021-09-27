@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:localdate-notsupported
+version: 10
+metadata:
+  name: This Joda LocalDate method is not supported in java.time
+  shortDescription: This Joda LocalDate method is not supported in java.time
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/LocalDate/descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: centuryOfEra
+    - name: getCenturyOfEra
+    - name: yearOfCentury
+    - name: yearOfEra
+    - name: withYearOfEra
+    - name: withYearOfCentury
+    - name: withCenturyOfEra
+    - name: withWeekOfWeekyear
+    - name: withWeekyear
+    - name: withDayOfWeek
+    type: org.joda.time.LocalDate
+availableFixes: []

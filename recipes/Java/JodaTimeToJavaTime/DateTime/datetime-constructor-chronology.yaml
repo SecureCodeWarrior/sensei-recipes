@@ -1,0 +1,17 @@
+id: scw:java.time:Joda-Time:datetime-constructor-chronology
+version: 10
+metadata:
+  name: NO ACTION Impossible to convert new DateTime(chronology) to java.time
+  shortDescription: NO ACTION Impossible to convert new DateTime(chronology) to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: java.time.chrono.Chronology
+    type: org.joda.time.DateTime
+availableFixes: []

@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:localdate-change-dayofweek
+version: 10
+metadata:
+  name: Change dayOfWeek() to getDayOfWeek()
+  shortDescription: Change dayOfWeek() to getDayOfWeek()
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/LocalDate/descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: dayOfWeek
+    type: org.joda.time.LocalDate
+availableFixes:
+- name: Change to getDayOfWeek()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getDayOfWeek()'

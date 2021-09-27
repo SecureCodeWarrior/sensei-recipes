@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetimeformatter-chronolgy
+version: 10
+metadata:
+  name: DateTimeFormatter deprecated getChronolgy
+  shortDescription: DateTimeFormatter deprecated getChronolgy
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeFormatter/descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: getChronolgy
+    type: java.time.format.DateTimeFormatter
+availableFixes:
+- name: Rewrite to getChronology()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getChronology()'

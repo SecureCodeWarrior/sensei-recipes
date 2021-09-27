@@ -1,0 +1,23 @@
+id: scw:java.time:Joda-Time:migrate-getunit-tounit
+version: 10
+metadata:
+  name: Use toUnit() instead of getUnit()
+  shortDescription: Use toUnit() instead of getUnit()
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: getDays
+    - name: getHours
+    - name: getMillis
+    - name: getMinutes
+    type: java.time.Duration
+availableFixes:
+- name: Rewrite to duration.to<Unit>();
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.{{#sed}}s/get/to/,{{{ methodName }}}{{/sed}}()'

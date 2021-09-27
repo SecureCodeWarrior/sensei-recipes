@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:parse-duration
+version: 10
+metadata:
+  name: 'Joda-Time: Parse Duration'
+  shortDescription: 'Migrate this call to java.time: Parse'
+  level: marked_information
+  language: java
+  enabled: true
+  descriptionFile: descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: parseHours
+      type: org.joda.time.Hours
+    - name: parseMinutes
+      type: org.joda.time.Minutes
+    - name: parseSeconds
+      type: org.joda.time.Seconds
+availableFixes:
+- name: Convert to Duration.parse(string)
+  actions:
+  - rewrite:
+      to: java.time.Duration.parse({{{ arguments }}})
+      target: self

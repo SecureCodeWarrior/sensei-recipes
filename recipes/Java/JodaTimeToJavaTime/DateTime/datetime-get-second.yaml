@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:datetime-getsecond
+version: 10
+metadata:
+  name: Convert DateTime getSecondOfMinute to java.time
+  shortDescription: Convert DateTime getSecondOfMinute to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    with:
+      anyOf:
+      - name: getSecondOfMinute
+      - name: secondOfMinute
+    name: getSecondOfMinute
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time getSecond
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getSecond()'

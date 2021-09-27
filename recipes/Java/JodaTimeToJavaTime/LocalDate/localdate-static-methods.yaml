@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:LocalDate_static_methods_to_java.time
+version: 10
+metadata:
+  name: LocalDate.static methods
+  shortDescription: LocalDate.static methods
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name:
+      anyOf:
+      - is: parse
+      - is: now
+      - is: fromCalendarFields
+      - is: fromDateFields
+    type: org.joda.time.LocalDate
+availableFixes:
+- name: Convert to java.time.LocalDate static
+  actions:
+  - rewrite:
+      to: java.time.LocalDate.{{{ methodName }}}({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.LocalDate

@@ -1,0 +1,30 @@
+id: scw:java.time:Joda-Time:localdate-constructor-instant-chronology
+version: 10
+metadata:
+  name: Convert LocalDate(long,Chronology) to ChronoLocalDate
+  shortDescription: Convert LocalDate Chronology to ChronoLocalDate
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+      2:
+        type: java.time.chrono.Chronology
+    argCount: 2
+    anyOf:
+    - type: org.joda.time.LocalDate
+    - type: org.joda.time.YearMonthDay
+availableFixes:
+- name: Rewrite to ChronoLocalDate
+  actions:
+  - rewrite:
+      to: '{{{ arguments.1 }}}.dateEpochDay({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.LocalDate

@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:localdate-change-dayofyear
+version: 10
+metadata:
+  name: Change dayOfYear() to getDayOfYear()
+  shortDescription: Change dayOfYear() to getDayOfYear()
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/LocalDate/descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: dayOfYear
+    type: org.joda.time.LocalDate
+availableFixes:
+- name: Change to getDayOfYear()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getDayOfYear()'

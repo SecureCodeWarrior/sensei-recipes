@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:LocalDate-ZoneId-to-java.time.LocalDate
+version: 10
+metadata:
+  name: Convert LocalDate(ZoneId) to java.time.LocalDate
+  shortDescription: Convert to java.time.LocalDate
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: java.time.ZoneId
+    argCount: 1
+    anyOf:
+    - type: org.joda.time.LocalDate
+    - type: org.joda.time.YearMonthDay
+availableFixes:
+- name: Convert to java.time.LocalDate.now(ZoneId)
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.LocalDate
+  - rewrite:
+      to: java.time.LocalDate.now({{{ arguments }}})

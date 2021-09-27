@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetime-constant
+version: 10
+metadata:
+  name: Convert DateTimeConstants.MILLIS_PER_DAY to java.time
+  shortDescription: Convert DateTimeConstants.MILLIS_PER_DAY to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  expression:
+    value:
+      stringified: DateTimeConstants.MILLIS_PER_DAY
+availableFixes:
+- name: Replace to java util concurrent
+  actions:
+  - rewrite:
+      to: java.util.concurrent.TimeUnit.DAYS.toMillis(1)

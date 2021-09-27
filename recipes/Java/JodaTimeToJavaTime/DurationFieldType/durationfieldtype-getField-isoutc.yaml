@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:durationfieldtype-getfield
+version: 10
+metadata:
+  name: Remove Obsolete getField
+  shortDescription: Remove Obsolete getField
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: org.joda.time.chrono.ISOChronology
+    name: getField
+    type: java.time.temporal.ChronoUnit
+availableFixes:
+- name: Remove obsolete getField() call
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}'
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

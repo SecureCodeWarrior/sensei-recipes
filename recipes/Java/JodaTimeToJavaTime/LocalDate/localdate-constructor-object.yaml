@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:localdate-constructor-object
+version: 10
+metadata:
+  name: No Equivalent for new LocalDate(Object) in java.time.LocalDate
+  shortDescription: There is No Equivalent to new LocalDate(Object) in java.time.LocalDate
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type:
+          reference: java.lang.Object
+          checkInheritance: false
+    anyOf:
+    - type: org.joda.time.LocalDate
+    - type: org.joda.time.YearMonthDay
+availableFixes: []

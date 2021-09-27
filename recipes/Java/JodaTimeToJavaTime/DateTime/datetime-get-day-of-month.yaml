@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:datetime-getday-of-month
+version: 10
+metadata:
+  name: Convert DateTime getDayOfMonth to java.time
+  shortDescription: Convert DateTime getDayOfMonth to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: dayOfMonth
+    anyOf:
+    - type: java.time.OffsetDateTime
+    - type: java.time.ZonedDateTime
+availableFixes:
+- name: Rewrite using java.time getDayOfMonth
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getDayOfMonth()'

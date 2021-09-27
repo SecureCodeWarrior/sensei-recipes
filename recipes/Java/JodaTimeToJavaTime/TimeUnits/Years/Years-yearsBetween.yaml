@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:Years-yearsBetween
+version: 10
+metadata:
+  name: Convert Years.yearsBetween to java.time.Period
+  shortDescription: Years is not supported in java.time - convert it to Period instead
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/Period/descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: yearsBetween
+    type: org.joda.time.Years
+availableFixes:
+- name: Convert to Period.between()
+  actions:
+  - rewrite:
+      to: java.time.Period.between({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Period

@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:datetimefieldtype-hourofhalfday
+version: 10
+metadata:
+  name: Convert DateTimeFieldType.hourOfHalfday() to ChronoField
+  shortDescription: Convert DateTimeFieldType.hourOfHalfday() to ChronoField
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeField/descriptions/datetimefield.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: hourOfHalfday
+    type: org.joda.time.DateTimeFieldType
+availableFixes:
+- name: Convert to ChronoField.HOUR_OF_AMPM
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoField
+  - rewrite:
+      to: java.time.temporal.ChronoField.HOUR_OF_AMPM

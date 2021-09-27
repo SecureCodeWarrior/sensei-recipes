@@ -1,0 +1,23 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DurationFieldType to Java Time</p>
+<br>
+<p>Joda-Time DurationFieldType migrates to java.time ChronoUnit.</p>
+<p>ChronoUnit has a similar concept but a very different API and implementation.</p>
+<br>
+<b>Before</b>
+<pre>
+    DurationFieldType ft1 = DurationFieldType.centuries();
+</pre>
+<b>After</b>
+<pre>
+     ChronoUnit ft1 = ChronoUnit.CENTURIES;
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html">ChronoUnit (Java Platform SE 8 )</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

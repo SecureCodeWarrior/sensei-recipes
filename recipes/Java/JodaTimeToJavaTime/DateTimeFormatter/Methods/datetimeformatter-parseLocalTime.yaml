@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:datetimeformatter-parseLocalTime
+version: 10
+metadata:
+  name: Convert parseLocalTime to java.time version
+  shortDescription: Convert parseLocalTime to java.time version
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeFormatter/descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: parseLocalTime
+    type: java.time.format.DateTimeFormatter
+availableFixes:
+- name: Rewrite parseLocalTime to java.time equivalent
+  actions:
+  - rewrite:
+      to: java.time.LocalTime.parse({{{ arguments}}},{{{ qualifier }}})
+  - modifyAssignedVariable:
+      type: java.time.LocalTime

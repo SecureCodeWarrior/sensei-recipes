@@ -1,0 +1,20 @@
+id: scw:java.time:Joda-Time:Convert_LocalDate_Constructed_with_Chronology_to_ChronoLocalDate-joda.time
+version: 10
+metadata:
+  name: Convert LocalDate Constructed with Chronology to ChronoLocalDate
+  shortDescription: 'BLOCKED: In order to convert this to LocalDate you must first Convert the Chronology Argument to java.time'
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      4:
+        type: org.joda.time.Chronology
+    argCount: 4
+    anyOf:
+    - type: org.joda.time.LocalDate
+    - type: org.joda.time.YearMonthDay
+availableFixes: []

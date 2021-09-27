@@ -1,0 +1,33 @@
+id: scw:java.time:Joda-Time:datetime-constructor-date-time-zoneid
+version: 10
+metadata:
+  name: Convert new DateTime(year, month, day, hour, minute, zoneid) to java.time
+  shortDescription: Convert new DateTime(year, month, day, hour, minute, zoneid) to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: int
+      2:
+        type: int
+      3:
+        type: int
+      4:
+        type: int
+      5:
+        type: int
+      6:
+        type: java.time.ZoneId
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Replace to ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.of({{{ arguments.0 }}}, {{{ arguments.1 }}}, {{{ arguments.2 }}}, {{{ arguments.3 }}}, {{{ arguments.4 }}}, 0, 0, {{{ arguments.5 }}})
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

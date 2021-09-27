@@ -1,0 +1,20 @@
+id: scw:java.time:Joda-Time:DateTimeZone-to-LocalDate
+version: 10
+metadata:
+  name: Convert LocalDate(DateTimeZone) to java.time.LocalDate
+  shortDescription: 'Can''t migrate to LocalDate yet: You must first convert the DateTimeZone argument to ZoneId or ZoneOffset using the appropriate Sensei recipe'
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: org.joda.time.DateTimeZone
+    argCount: 1
+    anyOf:
+    - type: org.joda.time.LocalDate
+    - type: org.joda.time.YearMonthDay
+availableFixes: []

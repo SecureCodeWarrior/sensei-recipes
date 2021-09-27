@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:datetimefieldtype-halfdayofday
+version: 10
+metadata:
+  name: Convert DateTimeFieldType.halfdayOfDay() to ChronoField
+  shortDescription: Convert DateTimeFieldType.halfdayOfDay() to ChronoField
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeField/descriptions/datetimefield.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: halfdayOfDay
+    type: org.joda.time.DateTimeFieldType
+availableFixes:
+- name: Convert to ChronoField.AMPM_OF_DAY
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoField
+  - rewrite:
+      to: java.time.temporal.ChronoField.AMPM_OF_DAY

@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetime-parameter
+version: 10
+metadata:
+  name: Convert DateTime parameter to java.time
+  shortDescription: Convert DateTime parameter to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  parameter:
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Convert parameter to ZonedDateTime
+  actions:
+  - changeType:
+      type: java.time.ZonedDateTime
+- name: Change parameter to OffsetDateTime
+  actions:
+  - changeType:
+      type: java.time.OffsetDateTime

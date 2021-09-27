@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:period-contructor
+version: 10
+metadata:
+  name: Convert Period Contructor to java.time API
+  shortDescription: Convert Period Contructor to java.time API
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/period.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args: {}
+    argCount: 1
+    type: org.joda.time.Period
+availableFixes:
+- name: Convert to java.time.Period.from(TemporalAmount)
+  actions:
+  - rewrite:
+      to: java.time.Period.from({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Period

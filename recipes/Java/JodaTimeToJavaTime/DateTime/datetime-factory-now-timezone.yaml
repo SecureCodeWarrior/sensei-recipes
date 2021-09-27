@@ -1,0 +1,31 @@
+id: scw:java.time:Joda-Time:datetime-factory-now-timezone
+version: 10
+metadata:
+  name: Converting DateTime.now(zoneId) to java.time
+  shortDescription: Converting DateTime.now(zoneId) to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.time.ZoneId
+    argCount: 1
+    name: now
+    returnType: org.joda.time.DateTime
+availableFixes:
+- name: Rewrite using java.time OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.now({{{ arguments.0 }}})
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime
+- name: Rewrite using java.time ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.now({{{ arguments.0 }}})
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

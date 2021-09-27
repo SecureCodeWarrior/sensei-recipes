@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:durationfieldtype-seconds
+version: 10
+metadata:
+  name: Convert DurationFieldType.seconds() to ChronoUnit.SECONDS
+  shortDescription: Convert DurationFieldType.seconds() to ChronoUnit.SECONDS
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DurationFieldType/descriptions/durationfieldtype.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: seconds
+    type: org.joda.time.DurationFieldType
+availableFixes:
+- name: Convert to ChronoUnit.SECONDS
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoUnit.SECONDS
+  - modifyAssignedVariable:
+      type: java.time.temporal.ChronoUnit

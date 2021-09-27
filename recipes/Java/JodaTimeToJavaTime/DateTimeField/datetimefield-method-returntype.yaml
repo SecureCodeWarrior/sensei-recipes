@@ -1,0 +1,18 @@
+id: scw:java.time:Joda-Time:datetimefield-method-returntype
+version: 10
+metadata:
+  name: Migrate method return type DateTimeField to ChronoField
+  shortDescription: Migrate method return type DateTimeField to ChronoField
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: descriptions/datetimefield.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  method:
+    returnType: org.joda.time.DateTimeField
+availableFixes:
+- name: Replace return type to Chrono
+  actions:
+  - changeType:
+      type: java.time.temporal.ChronoField

@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:convert-localdate-chronology-to-chronolocaldate
+version: 10
+metadata:
+  name: Convert LocalDate.now(chronology) to ChronoLocalDate
+  shortDescription: Convert LocalDate.now(chronology) to ChronoLocalDate
+  level: warning
+  language: java
+  enabled: false
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.time.chrono.Chronology
+    name: now
+    type: java.time.LocalDate
+availableFixes:
+- name: Rewrite to chronology.dateNow()
+  actions:
+  - rewrite:
+      to: '{{{ arguments.0 }}}.dateNow()'

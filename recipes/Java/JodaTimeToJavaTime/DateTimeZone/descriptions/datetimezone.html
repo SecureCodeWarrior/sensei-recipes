@@ -1,0 +1,27 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DateTimeZone to Java Time</p>
+<br>
+<p>Joda-Time DateTimeZone migrates to java.time ZoneId or ZoneOffset.</p>
+<p>ZoneId is the same concept, an identifier of a time-zone.</p>
+<p>ZoneOffset is a new concept, an offset from UTC.</p>
+<br>
+<b>Before</b>
+<pre>
+    org.joda.time.DateTimeZone forID = DateTimeZone.forID(zoneId);
+    org.joda.time.DateTimeZone forOffsetHours = DateTimeZone.forOffsetHours(offsetHours);
+</pre>
+<b>After</b>
+<pre>
+    ZoneId forID = ZoneId.of(zoneId);
+    ZoneOffset forOffsetHours = ZoneOffset.ofHours(offsetHours);
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html">ZoneId (Java Platform SE 8 )</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneOffset.html">ZoneOffset (Java Platform SE 8 )</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

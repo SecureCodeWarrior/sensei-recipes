@@ -1,0 +1,15 @@
+id: scw:java.time:Joda-Time:datetimefieldtype-yearOfCentury
+version: 10
+metadata:
+  name: DateTimeFieldType.yearOfCentury() is not Supported in java.time
+  shortDescription: DateTimeFieldType.yearOfCentury() is not Supported in java.time so there is no automatic transformation available
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeField/descriptions/datetimefield.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: yearOfCentury
+    type: org.joda.time.DateTimeFieldType
+availableFixes: []

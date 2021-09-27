@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:of-duration
+version: 10
+metadata:
+  name: 'Joda-Time: Of Duration'
+  shortDescription: 'Migrate this call to java.time: Of'
+  level: marked_information
+  language: java
+  enabled: true
+  descriptionFile: descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: hours
+      type: org.joda.time.Hours
+    - name: minutes
+      type: org.joda.time.Minutes
+    - name: seconds
+      type: org.joda.time.Seconds
+availableFixes:
+- name: Convert to Duration.ofHours()
+  actions:
+  - rewrite:
+      to: java.time.Duration.of{{#upperCaseFirst}}{{{methodName}}}{{/upperCaseFirst}}({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Duration

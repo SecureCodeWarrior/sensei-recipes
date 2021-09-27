@@ -1,0 +1,27 @@
+id: scw:java.time:Joda-Time:datetime-minus-millis
+version: 10
+metadata:
+  name: Convert DateTime minus millis to java.time
+  shortDescription: Convert DateTime minus millis to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: int
+    argCount: 1
+    name: minusMillis
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.minus({{{ arguments.0 }}}, java.time.temporal.ChronoUnit.MILLIS)'
+  - modifyAssignedVariable:
+      type: '{{{ qualifier.type }}}'

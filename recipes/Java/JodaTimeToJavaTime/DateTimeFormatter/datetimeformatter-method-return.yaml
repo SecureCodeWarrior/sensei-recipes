@@ -1,0 +1,18 @@
+id: scw:java.time:Joda-Time:datetimeformatter-convert-return
+version: 10
+metadata:
+  name: Convert Return type to java.time.DateTimeFormatter
+  shortDescription: Convert Return type to java.time.DateTimeFormatter
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  method:
+    returnType: org.joda.time.format.DateTimeFormatter
+availableFixes:
+- name: Change return Type to java.time DateTimeFormatter
+  actions:
+  - changeType:
+      type: java.time.format.DateTimeFormatter

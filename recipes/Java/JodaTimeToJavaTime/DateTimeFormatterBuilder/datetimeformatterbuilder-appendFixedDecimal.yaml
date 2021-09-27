@@ -1,0 +1,18 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-append
+version: 10
+metadata:
+  name: Rewrite appendFixedDecimal to appendValue
+  shortDescription: Rewrite appendFixedDecimal to appendValue
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeFormatter/descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: appendFixedDecimal
+availableFixes:
+- name: Rewrite to appendValue(field, width)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.appendValue({{{ arguments }}})'

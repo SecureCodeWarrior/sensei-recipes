@@ -1,0 +1,27 @@
+id: scw:java.time:Joda-Time:convert-roundfloor-to-java.time-equivalent
+version: 10
+metadata:
+  name: Convert Joda-Time roundFloor to java.time truncatedTo
+  shortDescription: Convert roundFloor to truncatedTo
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Convert_Joda-Time_roundFloor_to_java.time_truncatedTo.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+        - type: int
+        - type: java.lang.Integer
+    argCount: 1
+    name: roundFloor
+    type: java.time.temporal.ChronoField
+availableFixes:
+- name: Rewrite to Instant.ofEpochMillis().truncatedTo(TemporalUnit)
+  actions:
+  - rewrite:
+      to: java.time.Instant.ofEpochMilli({{{ arguments }}}).truncatedTo({{{ qualifier }}}.getBaseUnit()).toEpochMilli()

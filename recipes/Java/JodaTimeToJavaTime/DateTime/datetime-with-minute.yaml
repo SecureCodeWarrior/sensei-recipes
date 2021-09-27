@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:datetime-with-minute
+version: 10
+metadata:
+  name: Convert DateTime.withMinute to java.time
+  shortDescription: Convert DateTime.withMinute to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: int
+    name: withMinuteOfHour
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withMinute({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: '{{{ qualifier.type }}}'

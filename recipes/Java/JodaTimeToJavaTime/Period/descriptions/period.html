@@ -1,0 +1,25 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.Period to Java Time</p>
+<br>
+<p>Joda-Time Period migrates to Java Time Period and/or Duration.</p>
+<p>It's a similar concept, it represents an amount of time</p>
+<p>Joda-Time Period includes years to milliseconds, but java.time only year/month/day (see also (ThreeTen-Extra PeriodDuration).</p>
+<br>
+<b>Before</b>
+<pre>
+    Period period = new Period(periodLong);
+</pre>
+<b>After</b>
+<pre>
+     java.time.Period period = java.time.Period.from(periodLong);
+</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Period.html">Period (Java Platform SE 8 )</a></li>
+  <li><a href="https://www.threeten.org/threeten-extra/">ThreeTen Extra</a></li>
+  <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

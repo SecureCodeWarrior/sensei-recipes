@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:localdate-change-era
+version: 10
+metadata:
+  name: Change era() to getEra()
+  shortDescription: Change era() to getEra()
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/LocalDate/descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: era
+    type: org.joda.time.LocalDate
+availableFixes:
+- name: Change to getEra()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getEra()'

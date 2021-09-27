@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:localdate-constructor-sqldate
+version: 10
+metadata:
+  name: Convert new LocalDate(java.sql.Date) to java.time.LocalDate
+  shortDescription: Convert new LocalDate(java.sql.Date) to java.time.LocalDate
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: java.sql.Date
+    anyOf:
+    - type: org.joda.time.LocalDate
+    - type: org.joda.time.YearMonthDay
+availableFixes:
+- name: Convert to java.time.LocalDate using sqldate.toLocalDate()
+  actions:
+  - rewrite:
+      to: '{{{ arguments }}}.toLocalDate()'
+      target: self
+  - modifyAssignedVariable:
+      type: java.time.LocalDate

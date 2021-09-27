@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:migrate-returnType
+version: 10
+metadata:
+  name: Migrate Joda-Time returnType to java.time Equivalent
+  shortDescription: Migrate Joda-Time returnType to java.time Equivalent
+  level: warning
+  language: java; kotlin
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  method:
+    anyOf:
+    - returnType: org.joda.time.Period
+    - returnType: ord.joda.time.Duration
+availableFixes:
+- name: Convert Joda-Time returnType to java.time equivalent
+  actions:
+  - changeType:
+      type: java.time.{{{ returnTypeElement }}}

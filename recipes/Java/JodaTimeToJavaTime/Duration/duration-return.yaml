@@ -1,0 +1,18 @@
+id: scw:java.time:Joda-Time:duration_return_type
+version: 10
+metadata:
+  name: Migrate Joda-Time Duration return type to java.time.Duration
+  shortDescription: Migrate Joda-Time Duration return type to java.time.Duration
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: descriptions/duration.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  method:
+    returnType: org.joda.time.Duration
+availableFixes:
+- name: Migrate Joda-Time return type to java.time.Duration
+  actions:
+  - changeType:
+      type: java.time.Duration

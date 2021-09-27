@@ -1,0 +1,41 @@
+id: scw:java.time:Joda-Time:interval-constructor-long-long-datetimezone
+version: 10
+metadata:
+  name: Convert Interval to org.threeten.extra.Interval
+  shortDescription: Convert Interval to org.threeten.extra.Interval
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/interval.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+        - type: int
+        - type: java.lang.Integer
+      2:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+        - type: int
+        - type: java.lang.Integer
+    anyOf:
+    - argCount: 2
+    - argCount: 3
+    type: org.joda.time.Interval
+scopes:
+  library:
+    name:
+      contains: threeten-extra
+      caseSensitive: false
+availableFixes:
+- name: Convert to org.threeten.extra.Interval
+  actions:
+  - rewrite:
+      to: org.threeten.extra.Interval.of(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}),java.time.Instant.ofEpochMilli({{{ arguments.1 }}}))
+  - modifyAssignedVariable:
+      type: org.threeten.extra.Interval

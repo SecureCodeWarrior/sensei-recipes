@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:convert-localdate-constructor-parts
+version: 10
+metadata:
+  name: Convert org.joda.time.LocalDate to java.time.LocalDate
+  shortDescription: Convert org.joda.time.LocalDate to java.time.LocalDate
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/localdate.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    argCount: 3
+    anyOf:
+    - type: org.joda.time.LocalDate
+    - type: org.joda.time.YearMonthDay
+    - type: java.time.LocalDate
+availableFixes:
+- name: Convert to java.time.LocalDate.of(year, month, day)
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.LocalDate
+  - rewrite:
+      to: java.time.LocalDate.of({{{ arguments }}})

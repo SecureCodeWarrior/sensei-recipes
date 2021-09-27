@@ -1,0 +1,28 @@
+id: scw:java.time:Joda-Time:interval_instance-creation
+version: 10
+metadata:
+  name: Replace Interval Instance creation with Interval Of
+  shortDescription: Replace Interval Instance creation with Interval Of
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/interval.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        anyOf:
+        - type: java.time.ZonedDateTime
+        - type: java.time.OffsetDateTime
+      2:
+        anyOf:
+        - type: java.time.ZonedDateTime
+        - type: java.time.OffsetDateTime
+    type: org.threeten.extra.Interval
+availableFixes:
+- name: Rewrite Interval using ThreeTen Lib
+  actions:
+  - rewrite:
+      to: Interval.of({{{ arguments.0 }}}.toInstant(), {{{ arguments.1 }}}.toInstant())
+      target: self
