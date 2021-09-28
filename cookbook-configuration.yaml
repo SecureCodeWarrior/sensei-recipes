@@ -10,12 +10,14 @@ cookbooks: # List of cookbooks
     includedTags: ["basic protection set"]
     excludedTags: []
     featured: true
+    recommended: true
   - id: scw:java
     name: "Java Gotcha's"
     description: Detection of mistakes relating to incorrect or unsafe use of Java language features and APIs such as object equality, exception handling, regular expressions and collections.
     includedTags: ["Java basic"]
     excludedTags: []
     featured: true
+    recommended: true
   - id: scw:aws
     name: AWS SDK
     description: Best practices for the Amazon Web Services ecosystem including credential management/storage, databases and region selection.
