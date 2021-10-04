@@ -1,5 +1,7 @@
 package logging;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,7 +11,7 @@ public class LoggingAllTheThings {
 
     private final static org.slf4j.Logger loggerDink = org.slf4j.LoggerFactory.getLogger(LoggingAllTheThings.class);
 
-    private String logger = "logger";
+    //private String logger = "logger";
 
     public static void main(String[] untrusted) {
 
@@ -18,6 +20,18 @@ public class LoggingAllTheThings {
         System.out.print("Just print it on std out!");
         System.err.print("Or perhaps on std err?");
         System.console().printf("Format it like: %s", "What I actually want to print");
+
+        loggerDink.debug(untrusted[0], untrusted[1]);
+        loggerDink.info(untrusted[0], untrusted[1]);
+        loggerDink.trace(untrusted[0], untrusted[1]);
+        loggerDink.warn(untrusted[0], untrusted[1]);
+        loggerDink.error(untrusted[0], untrusted[1]);
+
+        loggerDink.debug(untrusted[0], URLEncoder.encode(untrusted[1], StandardCharsets.UTF_8));
+        loggerDink.info(untrusted[0], URLEncoder.encode(untrusted[1], StandardCharsets.UTF_8));
+        loggerDink.trace(untrusted[0], URLEncoder.encode(untrusted[1], StandardCharsets.UTF_8));
+        loggerDink.warn(untrusted[0], URLEncoder.encode(untrusted[1], StandardCharsets.UTF_8));
+        loggerDink.error(untrusted[0], URLEncoder.encode(untrusted[1], StandardCharsets.UTF_8));
     }
 
     public void imTrying() {

@@ -1,0 +1,34 @@
+id: scw:logging:slf4j-crlf-injection
+version: 9
+metadata:
+  name: Prevent CRLF injection in SLF4J
+  shortDescription: Encode untrustated data to prevent the log files from CRLF injections
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 117
+  enabled: true
+  tags: security;SLF4J;framework specific;logging;injection
+search:
+  methodcall:
+    args:
+      1:
+        type: java.lang.String
+      2:
+        type: java.lang.String
+        value:
+          containsUntrustedInput: true
+          not:
+            is:
+              methodcall:
+                name: encode
+                type: java.net.URLEncoder
+    name:
+      matches: (debug|info|trace|error|warn)
+    declaration:
+      type: org.slf4j.Logger
+availableFixes:
+- name: Encode untrustated data to prevent the log files from CRLF injections
+  actions:
+  - rewrite:
+      to: '{{{expressionElement}}}({{{ arguments.0 }}}, java.net.URLEncoder.encode({{{ arguments.1 }}}, java.nio.charset.StandardCharsets.UTF_8))'

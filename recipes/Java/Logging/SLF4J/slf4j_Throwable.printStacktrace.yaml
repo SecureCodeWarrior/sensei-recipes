@@ -35,40 +35,40 @@ availableFixes:
 - name: '[OPTIONAL] Replace with SLF4J debug function'
   actions:
   - rewrite:
-      to: logger.debug("", {{{ qualifier }}})
+      to: logger.debug({{{qualifier}}}.toString(), {{{ qualifier }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: ' [RECOMMENDED] Replace with SLF4J error function'
   actions:
   - rewrite:
-      to: logger.error("", {{{ qualifier }}})
+      to: logger.error({{{qualifier}}}.toString(), {{{ qualifier }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace with SLF4J info function'
   actions:
   - rewrite:
-      to: logger.info("", {{{ qualifier }}})
+      to: logger.info({{{qualifier}}}.toString(), {{{ qualifier }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace with SLF4J warn function'
   actions:
   - rewrite:
-      to: logger.warn("", {{{ qualifier }}})
+      to: logger.warn({{{qualifier}}}.toString(), {{{ qualifier }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace with SLF4J trace function'
   actions:
   - rewrite:
-      to: logger.trace("", {{{ qualifier }}})
+      to: logger.trace({{{qualifier}}}.toString(), {{{ qualifier }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass

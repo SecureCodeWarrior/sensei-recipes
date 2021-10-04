@@ -1,0 +1,33 @@
+id: scw:logging:slf4j-crlf-injection-logstash
+version: 9
+metadata:
+  name: Prevent CRLF injection in SLF4J using the Logstash Logback Encoder
+  shortDescription: Encode untrustated data to prevent the log files from CRLF injections
+  level: marked_information
+  language: java
+  scwCategory: insufficient_logging:generic
+  cweCategory: 117
+  enabled: true
+  tags: security;SLF4J;framework specific;logging;injection
+search:
+  methodcall:
+    args:
+      any:
+        type: java.lang.String
+        value:
+          containsUntrustedInput: true
+    name:
+      matches: (debug|info|trace|error|warn)
+    declaration:
+      type: org.slf4j.Logger
+scopes:
+  without:
+    library:
+      name:
+        contains: logstash
+availableFixes:
+- name: Add logstash encoder to your production configuration
+  actions:
+  - goto:
+      type: URL
+      value: https://github.com/logstash/logstash-logback-encoder

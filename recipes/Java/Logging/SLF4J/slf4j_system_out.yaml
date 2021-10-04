@@ -42,7 +42,7 @@ availableFixes:
       to: logger.error({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: ' [RECOMMENDED] Replace System.out with SLF4J debug function'
   actions:
@@ -50,7 +50,7 @@ availableFixes:
       to: logger.debug({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace System.out with SLF4J info function'
   actions:
@@ -58,7 +58,7 @@ availableFixes:
       to: logger.info({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace System.out with SLF4J warn function'
   actions:
@@ -66,7 +66,7 @@ availableFixes:
       to: logger.warn({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
 - name: '[OPTIONAL] Replace System.out with SLF4J trace function'
   actions:
@@ -74,5 +74,5 @@ availableFixes:
       to: logger.trace({{{ arguments }}})
       target: self
   - addField:
-      field: private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
+      field: private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger({{{ containingClass.containingClass.name }}}.class);
       target: parentClass
