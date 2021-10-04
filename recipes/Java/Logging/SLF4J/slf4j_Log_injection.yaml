@@ -24,7 +24,7 @@ search:
                 name: encode
                 type: java.net.URLEncoder
     name:
-      matches: (debug|info|trace|error|warn)
+      matches: (trace|debug|info|warn|error)
     declaration:
       type: org.slf4j.Logger
 availableFixes:

@@ -17,14 +17,14 @@ search:
         value:
           containsUntrustedInput: true
     name:
-      matches: (debug|info|trace|error|warn)
+      matches: (trace|debug|info|warn|error)
     declaration:
       type: org.slf4j.Logger
 scopes:
   without:
     library:
       name:
-        contains: logstash
+        contains: net.logstash.logstash
 availableFixes:
 - name: Add logstash encoder to your production configuration
   actions:
