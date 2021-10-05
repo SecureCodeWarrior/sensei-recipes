@@ -1,5 +1,5 @@
 id: scw:spring:jdbc:jdbcoperations-sqltypes
-version: 9
+version: 10
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements'
   shortDescription: Could lead to SQL Injection, parameterize the query and add the untrusted input and its type to the method parameters instead

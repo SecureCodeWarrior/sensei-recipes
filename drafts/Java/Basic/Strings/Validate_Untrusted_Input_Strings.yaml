@@ -1,5 +1,5 @@
 id: scw:java:strings:validate-untrusted-template
-version: 9
+version: 10
 metadata:
   name: Validate Untrusted Input Strings
   shortDescription: Validate untrusted inputs before using them

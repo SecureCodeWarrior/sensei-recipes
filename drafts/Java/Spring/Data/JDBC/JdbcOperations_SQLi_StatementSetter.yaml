@@ -1,5 +1,5 @@
 id: scw:spring:jdbc:jdbcoperations-statementsetter
-version: 9
+version: 10
 metadata:
   name: 'Input Validation: Avoid JDBC Injection: Bind variables in prepared statements'
   shortDescription: Could lead to SQL Injection, add the untrusted input to the PreparedStatementSetter instead

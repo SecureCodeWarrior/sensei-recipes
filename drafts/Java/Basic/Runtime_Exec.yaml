@@ -1,5 +1,5 @@
 id: scw:java:runtime-exec-untrusted
-version: 9
+version: 10
 metadata:
   name: Use of untrusted input in Runtime Exec
   shortDescription: Avoid the use of Runtime.exec

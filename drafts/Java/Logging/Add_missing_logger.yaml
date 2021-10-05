@@ -1,5 +1,5 @@
 id: scw:addmissinglogger
-version: 9
+version: 10
 metadata:
   name: 'Logger: add missing logger'
   shortDescription: Add logger to class

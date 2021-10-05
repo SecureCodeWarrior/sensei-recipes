@@ -1,5 +1,5 @@
 id: scw:java:strings:normalize-untrusted
-version: 9
+version: 10
 metadata:
   name: Normalize Untrusted Input Strings
   shortDescription: Normalize untrusted inputs before using them

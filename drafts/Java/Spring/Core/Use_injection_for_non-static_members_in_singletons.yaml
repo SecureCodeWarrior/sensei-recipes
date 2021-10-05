@@ -1,5 +1,5 @@
 id: scw:spring:non-static-singleton-members
-version: 9
+version: 10
 metadata:
   name: 'Data Protection: Secure Data Presentation: Avoid Sensitive Data Exposure: Use injection for non-static members in singletons'
   shortDescription: Could lead to Sensitive Data Exposure

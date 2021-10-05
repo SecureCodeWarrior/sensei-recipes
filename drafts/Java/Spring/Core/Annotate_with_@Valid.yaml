@@ -1,5 +1,5 @@
 id: scw:spring:valid-args
-version: 9
+version: 10
 metadata:
   name: Annotate with @Valid
   shortDescription: You can enforce validation against the arguments passed to this function

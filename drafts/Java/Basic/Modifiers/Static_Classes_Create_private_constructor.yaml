@@ -1,5 +1,5 @@
 id: scw:java:static-private-constructor
-version: 9
+version: 10
 metadata:
   name: 'Static Classes: create private constructor'
   shortDescription: Create a private constructor for static classes

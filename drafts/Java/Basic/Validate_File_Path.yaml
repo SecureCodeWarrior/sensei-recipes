@@ -1,5 +1,5 @@
 id: scw:java:file-path-stream
-version: 9
+version: 10
 metadata:
   name: Validate file paths in file streams
   shortDescription: Validate the path before using it to create a stream
