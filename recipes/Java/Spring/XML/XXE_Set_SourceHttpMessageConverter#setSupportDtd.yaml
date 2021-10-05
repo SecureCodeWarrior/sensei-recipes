@@ -1,5 +1,5 @@
 id: scw:spring:xml:xxe-SourceHttpMessageConverter-setSupportDtd
-version: 9
+version: 10
 metadata:
   name: 'Injection: XXE: SourceHttpMessageConverter#setSupportDtd set to true'
   shortDescription: Prevent XXE by disabling DTDs

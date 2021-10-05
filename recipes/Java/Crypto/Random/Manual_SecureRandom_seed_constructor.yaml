@@ -1,5 +1,5 @@
 id: scw:crypto:secure-random-seed-constructor
-version: 9
+version: 10
 metadata:
   name: 'Secure Random: Do not use initializer with custom seed'
   shortDescription: Do not use your own defined seeds

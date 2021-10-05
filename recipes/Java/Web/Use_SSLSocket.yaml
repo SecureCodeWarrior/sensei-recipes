@@ -1,5 +1,5 @@
 id: scw:java:SSLSocket
-version: 9
+version: 10
 metadata:
   name: Use SSLSocket instead of Socket/ServerSocket
   shortDescription: Use SSLSocket instead of Socket/ServerSocket

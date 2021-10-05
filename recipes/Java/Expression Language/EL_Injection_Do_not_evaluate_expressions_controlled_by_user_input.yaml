@@ -1,5 +1,5 @@
 id: scw:spring:el-javax
-version: 9
+version: 10
 metadata:
   name: 'Input Validation: Avoid Expression Language Injection: Do not evaluate expressions controlled by user input (javax)'
   shortDescription: Could lead to Expression Language Injection

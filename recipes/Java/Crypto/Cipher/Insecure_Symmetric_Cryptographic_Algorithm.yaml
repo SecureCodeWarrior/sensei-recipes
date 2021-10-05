@@ -1,5 +1,5 @@
 id: scw:crypto:cipher:symmetric
-version: 9
+version: 10
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use strong symmetric cryptographic algorithm'
   shortDescription: Could lead to cryptographic weakness

@@ -1,5 +1,5 @@
 id: scw:logging:slf4j-crlf-injection-logstash
-version: 9
+version: 10
 metadata:
   name: Prevent CRLF injection in SLF4J using the Logstash Logback Encoder
   shortDescription: Encode untrustated data to prevent the log files from CRLF injections

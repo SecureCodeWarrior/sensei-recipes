@@ -1,5 +1,5 @@
 id: scw:android:restrict-access-local-resources
-version: 9
+version: 10
 metadata:
   name: 'WebView Best Practices: Do not allow access to local resources'
   shortDescription: Avoid targeting local resources

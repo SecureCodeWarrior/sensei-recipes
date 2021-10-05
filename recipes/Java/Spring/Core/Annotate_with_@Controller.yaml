@@ -1,5 +1,5 @@
 id: scw:spring:controller
-version: 9
+version: 10
 metadata:
   name: Annotate with @Controller
   shortDescription: This class looks like the implementation of a Spring Controller

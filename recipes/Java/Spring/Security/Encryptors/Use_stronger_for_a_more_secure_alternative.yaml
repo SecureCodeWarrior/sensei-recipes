@@ -1,5 +1,5 @@
 id: scw:spring:encryptors:stronger
-version: 9
+version: 10
 metadata:
   name: Use .stronger() for a more secure alternative
   shortDescription: Encryptors.stronger() is more secure than Encryptors.standard()

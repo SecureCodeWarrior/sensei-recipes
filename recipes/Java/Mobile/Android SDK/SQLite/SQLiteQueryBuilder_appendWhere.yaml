@@ -1,5 +1,5 @@
 id: scw:android:sqli-appendWhere
-version: 9
+version: 10
 metadata:
   name: 'SQL Injection: SQLiteQueryBuilder appendWhere'
   shortDescription: This query could lead to SQL injection

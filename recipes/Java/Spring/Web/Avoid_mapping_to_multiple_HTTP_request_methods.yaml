@@ -1,5 +1,5 @@
 id: scw:spring:web:multiple-http-mappings
-version: 9
+version: 10
 metadata:
   name: Avoid mapping to multiple HTTP request methods
   shortDescription: Map to one HTTP request method for best practices

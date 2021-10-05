@@ -1,5 +1,5 @@
 id: scw:spring:security:stricthttpfirewall-double-slash
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject URL encoded double slash'
   shortDescription: Rejecting the use of a URL encoded double slash in the URL is more secure

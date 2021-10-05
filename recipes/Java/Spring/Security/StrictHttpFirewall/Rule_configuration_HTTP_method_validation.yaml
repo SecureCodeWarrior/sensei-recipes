@@ -1,5 +1,5 @@
 id: scw:spring:security:stricthttpfirewall-any-http-method
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: HTTP method validation'
   shortDescription: Not allowing just any HTTP method is more secure

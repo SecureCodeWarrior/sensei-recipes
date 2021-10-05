@@ -1,5 +1,5 @@
 id: scw:spring:encryptors:salt
-version: 9
+version: 10
 metadata:
   name: Encryptors requires the use of a random 8-byte salt
   shortDescription: The salt should be random, 8-bytes and in hex-encoded String

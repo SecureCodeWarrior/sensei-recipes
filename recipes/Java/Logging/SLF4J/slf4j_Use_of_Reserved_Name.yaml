@@ -1,5 +1,5 @@
 id: scw:logging:slf4j:reserved-name
-version: 9
+version: 10
 metadata:
   name: 'SLF4J Logging: Naming convention: Reserved logger name'
   shortDescription: The name "logger" should be reserved for the SLF4J logger instance. Use Refactor Rename (Shift+F6) to rename this variable.

@@ -1,5 +1,5 @@
 id: scw:spring:websecurity-debug-enabled
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: EnableWebSecurity with Debug enabled'
   shortDescription: The debug parameter on EnableWebSecurity should not be hardcoded to true

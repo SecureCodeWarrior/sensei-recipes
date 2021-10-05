@@ -1,5 +1,5 @@
 id: scw:web:apache:simplecookie-set-secure
-version: 9
+version: 10
 metadata:
   name: 'Session configuration: Cookies: Set Secure flag to true'
   shortDescription: Prevent a cookie being sent over unencrypted HTTP by setting the Secure flag to true

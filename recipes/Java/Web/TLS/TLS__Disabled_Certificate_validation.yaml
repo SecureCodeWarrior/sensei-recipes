@@ -1,5 +1,5 @@
 id: scw:web:cert-validation-disabled
-version: 9
+version: 10
 metadata:
   name: 'TLS: Disabled Certificate validation'
   shortDescription: The verify method has been overridden, and always returns true

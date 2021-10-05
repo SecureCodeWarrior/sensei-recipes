@@ -1,5 +1,5 @@
 id: scw:android:manifest:launchMode
-version: 9
+version: 10
 metadata:
   name: 'Manifest Best Practices: Activity: launch mode should not be set'
   shortDescription: Launch mode should not be set for private activities

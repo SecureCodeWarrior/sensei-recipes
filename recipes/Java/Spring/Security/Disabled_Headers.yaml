@@ -1,5 +1,5 @@
 id: scw:spring:disabled-headers
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: Disabled Headers'
   shortDescription: Disabling Spring Security's default headers makes the application vulnerable

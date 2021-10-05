@@ -1,5 +1,5 @@
 id: scw:android:sensitive-data-clipboard
-version: 9
+version: 10
 metadata:
   name: 'Information Exposure: Do not place sensitive information on ClipBoard'
   shortDescription: Never copy sensitive information to the ClipBoard

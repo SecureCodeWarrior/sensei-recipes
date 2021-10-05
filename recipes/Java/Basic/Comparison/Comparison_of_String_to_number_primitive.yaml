@@ -1,5 +1,5 @@
 id: scw:java:equality-string-number-primitive
-version: 9
+version: 10
 metadata:
   name: Invalid comparison of String to number primitive
   shortDescription: This comparison of a String to a number will always return false

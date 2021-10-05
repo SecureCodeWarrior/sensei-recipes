@@ -1,5 +1,5 @@
 id: scw:java:equality-wrappers-not-equals
-version: 9
+version: 10
 metadata:
   name: Incorrect equality check of wrapper values (not equals)
   shortDescription: Use equals method to compare wrapped values

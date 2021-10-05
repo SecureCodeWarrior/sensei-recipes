@@ -1,5 +1,5 @@
 id: scw:java:regex-injection
-version: 9
+version: 10
 metadata:
   name: Regex Injection
   shortDescription: Use Pattern#quote to include untrusted input in regexes.

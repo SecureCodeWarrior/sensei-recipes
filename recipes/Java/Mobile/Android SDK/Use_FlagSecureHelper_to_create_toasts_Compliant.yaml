@@ -1,5 +1,5 @@
 id: scw:android:secure-toast-compliant
-version: 9
+version: 10
 metadata:
   name: 'Data Protection - Secure Data Display: Avoid Data Exposure: Use FlagSecureHelper to create toasts Compliant'
   shortDescription: Could lead to Data Exposure - Compliant

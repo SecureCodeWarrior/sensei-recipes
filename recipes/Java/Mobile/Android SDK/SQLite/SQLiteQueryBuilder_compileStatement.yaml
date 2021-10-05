@@ -1,5 +1,5 @@
 id: scw:android:sqli-compileStatement
-version: 9
+version: 10
 metadata:
   name: 'SQL Injection: SQLiteQueryBuilder compileStatement'
   shortDescription: This query could lead to SQL injection

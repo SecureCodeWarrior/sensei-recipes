@@ -1,5 +1,5 @@
 id: scw:db:jpa:createnativequery
-version: 9
+version: 10
 metadata:
   name: 'Injection - SQL Injection in JPA: EntityManager#createNativeQuery'
   shortDescription: Avoid SQLi by using parameterized queries, instead of string concatenation with untrusted input

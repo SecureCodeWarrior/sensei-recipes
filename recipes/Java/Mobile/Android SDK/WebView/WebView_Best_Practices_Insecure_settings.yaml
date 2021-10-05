@@ -1,5 +1,5 @@
 id: scw:android:insecure-settings
-version: 9
+version: 10
 metadata:
   name: 'Android WebView best practices: Insecure settings'
   shortDescription: Enabling this WebView setting has security implications

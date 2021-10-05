@@ -1,5 +1,5 @@
 id: scw:spring:security:RequiresSecure-missing
-version: 9
+version: 10
 metadata:
   name: Should use requiresSecure
   shortDescription: Use of HTTP instead of HTTPS is insecure

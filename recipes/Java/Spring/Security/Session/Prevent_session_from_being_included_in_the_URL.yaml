@@ -1,5 +1,5 @@
 id: scw:spring:security:session:url-include
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: Prevent session from being included in the URL'
   shortDescription: Do not use URL Parameters for session tracking

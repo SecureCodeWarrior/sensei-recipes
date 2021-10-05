@@ -1,5 +1,5 @@
 id: scw:spring:service
-version: 9
+version: 10
 metadata:
   name: Annotate with @Service
   shortDescription: This class looks like the implementation of a Spring Service

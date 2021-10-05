@@ -1,5 +1,5 @@
 id: scw:spring:xml:xxe-Jaxb2Marshaller-setProcessExternalEntities
-version: 9
+version: 10
 metadata:
   name: 'Injection: XXE: Jaxb2Marshaller#setProcessExternalEntities set to true'
   shortDescription: Prevent XXE by disabling the processing of external entities

@@ -1,5 +1,5 @@
 id: scw:android:webview-url-allowlist
-version: 9
+version: 10
 metadata:
   name: 'WebView Best Practices: Check URL to White List'
   shortDescription: Consider allowlist validation for URLs passed to this method

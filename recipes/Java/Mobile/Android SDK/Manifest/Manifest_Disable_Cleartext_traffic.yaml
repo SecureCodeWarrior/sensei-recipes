@@ -1,5 +1,5 @@
 id: scw:android:disabled-cleartext
-version: 9
+version: 10
 metadata:
   name: 'Manifest best practices: disable cleartext traffic'
   shortDescription: When android:usesCleartextTraffic="true" is set the application will allow clear text traffic which could lead to data leakage

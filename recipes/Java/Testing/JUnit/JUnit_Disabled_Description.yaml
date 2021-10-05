@@ -1,5 +1,5 @@
 id: scw:junit:disabled-description
-version: 9
+version: 10
 metadata:
   name: JUnit @Disabled Description
   shortDescription: Add a description to indicate why the test has been disabled

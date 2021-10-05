@@ -1,5 +1,5 @@
 id: scw:java:basic:class-compare
-version: 9
+version: 10
 metadata:
   name: Do not compare classes/types by their name
   shortDescription: Comparing the class names is less robust than comparing the actual classes

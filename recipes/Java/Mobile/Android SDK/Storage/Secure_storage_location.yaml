@@ -1,5 +1,5 @@
 id: scw:android:secure-storage-context
-version: 9
+version: 10
 metadata:
   name: 'Information Exposure: Avoid DeviceEncryptedStorage for Sensitive Information'
   shortDescription: Using DeviceEncryptedStorage for Sensitive information is insecure

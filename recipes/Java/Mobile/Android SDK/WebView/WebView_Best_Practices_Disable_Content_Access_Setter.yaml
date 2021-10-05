@@ -1,5 +1,5 @@
 id: scw:android:disable-content-access-setter
-version: 9
+version: 10
 metadata:
   name: 'Android WebView best practices: Disable Content Access (setter)'
   shortDescription: Enabling content access in the webview could lead to misuse

@@ -1,5 +1,5 @@
 id: scw:logging:slf4j:logger-modifiers
-version: 9
+version: 10
 metadata:
   name: 'SLF4J Logging: Logger modifiers'
   shortDescription: The logger should be a private static final field

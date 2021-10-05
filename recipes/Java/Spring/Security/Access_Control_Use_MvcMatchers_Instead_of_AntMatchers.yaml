@@ -1,5 +1,5 @@
 id: scw:spring:access-control-use-mvcMatchers-over-antMatchers
-version: 9
+version: 10
 metadata:
   name: 'Access Control: MvcRequestMatcher is more secure than AntPathRequestMatcher for Spring MVC patterns'
   shortDescription: When using Spring MVC it's recommended to use MvcRequestMatcher as it protects the paths Spring annotations will match on, instead of only the one provided.

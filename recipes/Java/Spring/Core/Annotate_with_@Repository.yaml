@@ -1,5 +1,5 @@
 id: scw:spring:repository
-version: 9
+version: 10
 metadata:
   name: Annotate with @Repository
   shortDescription: This class looks like the implementation of a Spring Repository

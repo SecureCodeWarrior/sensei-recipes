@@ -1,5 +1,5 @@
 id: scw:android:createDeviceProtectedStorageContext
-version: 9
+version: 10
 metadata:
   name: 'Data Protection: Avoid Data Exposure - Avoid Device Protected Storage - Compliant'
   shortDescription: Compliant

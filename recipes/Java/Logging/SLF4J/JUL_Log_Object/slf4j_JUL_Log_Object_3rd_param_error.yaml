@@ -1,5 +1,5 @@
 id: scw:logging:slf4j-jul-object-3rd-error
-version: 9
+version: 10
 metadata:
   name: 'SLF4J Logging: Replace java.util.logging with SLF4J (Log Object Error)'
   shortDescription: Standardise on SLF4J by replacing this call

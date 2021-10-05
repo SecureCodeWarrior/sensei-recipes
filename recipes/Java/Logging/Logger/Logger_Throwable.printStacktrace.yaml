@@ -1,5 +1,5 @@
 id: scw:logging:Logger:printstacktrace
-version: 9
+version: 10
 metadata:
   name: 'Info Leakage: Throwable.printStacktrace leaks valuable program structure information'
   shortDescription: Printing a stack trace gives valuable information about software internals, including library/framework names and versions, to an attacker

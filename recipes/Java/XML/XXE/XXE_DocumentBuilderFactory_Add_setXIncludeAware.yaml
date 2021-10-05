@@ -1,5 +1,5 @@
 id: scw:xxe:documentbuilderfactory-missing-xincludeaware
-version: 9
+version: 10
 metadata:
   name: 'XXE: DocumentBuilderFactory: Add missing feature setXIncludeAware'
   shortDescription: Could lead to XXE

@@ -1,5 +1,5 @@
 id: scw:sqli:statement-execute
-version: 9
+version: 10
 metadata:
   name: 'Injection: Avoid SQL Injection: Use Parameterized Queries (Statement)'
   shortDescription: Could lead to SQL Injection

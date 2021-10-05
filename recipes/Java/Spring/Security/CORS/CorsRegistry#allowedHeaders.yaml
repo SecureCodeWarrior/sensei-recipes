@@ -1,5 +1,5 @@
 id: scw:spring:security:cors:CorsRegistry#allowedHeaders
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: CorsRegistry#allowedHeaders'
   shortDescription: Allowing all headers makes the application vulnerable

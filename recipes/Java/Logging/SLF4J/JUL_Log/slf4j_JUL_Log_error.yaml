@@ -1,5 +1,5 @@
 id: scw:logging:slf4j-jul-log-error
-version: 9
+version: 10
 metadata:
   name: 'SLF4J Logging: Replace java.util.logging with SLF4J (Log Error)'
   shortDescription: Standardise on SLF4J by replacing this call

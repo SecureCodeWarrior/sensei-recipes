@@ -1,5 +1,5 @@
 id: scw:xxe:documentbuilderfactory-missing-dissallow-doctype-decl
-version: 9
+version: 10
 metadata:
   name: 'XXE: DocumentBuilderFactory: Add missing feature dissallow-doctype-decl'
   shortDescription: Could lead to XXE

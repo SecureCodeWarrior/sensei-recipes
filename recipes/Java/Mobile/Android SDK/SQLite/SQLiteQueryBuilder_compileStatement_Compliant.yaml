@@ -1,5 +1,5 @@
 id: scw:android:sqli-compliant
-version: 9
+version: 10
 metadata:
   name: 'SQL Injection: SQLiteQueryBuilder compileStatement Compliant'
   shortDescription: 'SQL Injection: SQLiteQueryBuilder compileStatement - Compliant'

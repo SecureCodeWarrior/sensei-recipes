@@ -1,5 +1,5 @@
 id: scw:logging:logger-name
-version: 9
+version: 10
 metadata:
   name: 'SLF4J Logging: Naming convention: Standardise logger name'
   shortDescription: The SLF4J logger instance should be named "logger". Use Refactor Rename (Shift+F6) to rename this variable.

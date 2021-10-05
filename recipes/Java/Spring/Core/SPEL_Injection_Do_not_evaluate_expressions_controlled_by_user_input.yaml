@@ -1,5 +1,5 @@
 id: scw:spring:el-expressionparser
-version: 9
+version: 10
 metadata:
   name: 'Input Validation: Avoid Spring Expression Language Injection: Do not evaluate expressions controlled by user input (ExpressionParser)'
   shortDescription: Could lead to Spring Expression Language Injection

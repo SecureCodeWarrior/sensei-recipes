@@ -1,5 +1,5 @@
 id: scw:spring:security:cors:CrossOrigin-methods
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin - methods'
   shortDescription: Allowing unsafe methods puts the application at risk

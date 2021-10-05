@@ -1,5 +1,5 @@
 id: scw:database:hibernate:missing_SSL
-version: 9
+version: 10
 metadata:
   name: 'Hibernate: Missing transport-level security: No SSL for database connection'
   shortDescription: Use transport level security to connect to the database

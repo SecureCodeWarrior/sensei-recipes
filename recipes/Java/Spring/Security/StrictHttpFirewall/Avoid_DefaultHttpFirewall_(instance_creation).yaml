@@ -1,5 +1,5 @@
 id: scw:spring:security:stricthttpfirewall-instance
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: StrictHttpFirewall: Avoid DefaultHttpFirewall (instance creation)'
   shortDescription: Using DefaultHttpFirewall may lead to security flaws

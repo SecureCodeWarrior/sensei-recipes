@@ -1,5 +1,5 @@
 id: scw:android:uri-parse-sms
-version: 9
+version: 10
 metadata:
   name: 'Sensitive Information: SMS: Uri.parse'
   shortDescription: Usage of SMS discouraged

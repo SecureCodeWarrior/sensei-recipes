@@ -1,5 +1,5 @@
 id: scw:logging:Logger:System.err_consistent_logging
-version: 9
+version: 10
 metadata:
   name: System.err consistent Java Logger logging
   shortDescription: Replace System.err.print.* with consistent Java Logger error logging

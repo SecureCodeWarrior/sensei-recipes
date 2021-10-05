@@ -1,5 +1,5 @@
 id: scw:java:string-indexof
-version: 9
+version: 10
 metadata:
   name: Inefficient use of String.indexOf
   shortDescription: Inefficient use of String.indexOf

@@ -1,5 +1,5 @@
 id: scw:xml:secure-processing-true
-version: 9
+version: 10
 metadata:
   name: 'XML Injection: Set secure processing feature to true'
   shortDescription: Could lead to XML Injection

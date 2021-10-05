@@ -1,5 +1,5 @@
 id: scw:crypto:cipher:symmetric-untrusted
-version: 9
+version: 10
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use strong symmetric cryptographic algorithm (Untrusted)'
   shortDescription: Alowing untrusted input to determine the encryption algorithm could lead to cryptographic weakness.

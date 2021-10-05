@@ -1,5 +1,5 @@
 id: scw:db:mongo:id-injection
-version: 9
+version: 10
 metadata:
   name: 'MongoDB: _id NoSQL Injection'
   shortDescription: Do not use string concatenation in where filters

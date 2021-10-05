@@ -1,5 +1,5 @@
 id: scw:android:SQLCipher-other
-version: 9
+version: 10
 metadata:
   name: 'Insecure Data Storage: Use SQLCipher Database (all other methods)'
   shortDescription: SQLite Databases are an insecure means of storage

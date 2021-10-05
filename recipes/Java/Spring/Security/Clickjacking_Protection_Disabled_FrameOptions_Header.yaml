@@ -1,5 +1,5 @@
 id: scw:spring:clickjacking-disabled-header
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: Clickjacking protection: Disabled Header - frameOptions()'
   shortDescription: Disabling Spring Security default headers makes the application vulnerable to clickjackin

@@ -1,5 +1,5 @@
 id: scw:android:sensitive-data
-version: 9
+version: 10
 metadata:
   name: 'Information Exposure: Sensitive information'
   shortDescription: Do not send sensitive information or put it on the clipboard

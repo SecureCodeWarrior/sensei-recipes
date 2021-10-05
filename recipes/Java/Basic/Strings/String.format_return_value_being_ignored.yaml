@@ -1,5 +1,5 @@
 id: scw:java:string-format-unused
-version: 9
+version: 10
 metadata:
   name: String.format return value being ignored
   shortDescription: A call to String.format is being made without the return value being used

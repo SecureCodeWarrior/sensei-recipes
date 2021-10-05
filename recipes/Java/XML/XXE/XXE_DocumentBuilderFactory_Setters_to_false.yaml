@@ -1,5 +1,5 @@
 id: scw:xxe:documentbuilderfactory-setters-false
-version: 9
+version: 10
 metadata:
   name: 'XXE: DocumentBuilderFactory: Setters to false'
   shortDescription: Could lead to XXE

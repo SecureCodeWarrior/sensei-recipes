@@ -1,5 +1,5 @@
 id: scw:spring:security:stricthttpfirewall-backslash
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: StrictHttpFirewall: Rule configuration: Reject (URL encoded) backslash'
   shortDescription: Rejecting the use of a (URL encoded) backslash is more secure

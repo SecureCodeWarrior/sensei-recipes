@@ -1,5 +1,5 @@
 id: scw:java:printstream-format-untrusted
-version: 9
+version: 10
 metadata:
   name: PrintStream Format contains untrusted input
   shortDescription: The format string contains untrusted input

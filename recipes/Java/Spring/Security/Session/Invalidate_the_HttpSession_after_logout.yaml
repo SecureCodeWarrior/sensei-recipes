@@ -1,5 +1,5 @@
 id: scw:spring:security:session:invalidate
-version: 9
+version: 10
 metadata:
   name: 'Session Configuration: Invalidate the HttpSession after logout'
   shortDescription: Delete all sessions after logout

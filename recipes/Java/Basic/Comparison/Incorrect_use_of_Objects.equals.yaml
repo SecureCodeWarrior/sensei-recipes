@@ -1,5 +1,5 @@
 id: scw:java:equality-object-primitive
-version: 9
+version: 10
 metadata:
   name: Incorrect use of Objects.equals
   shortDescription: Comparing a non-unboxable object and a primitive will always return false

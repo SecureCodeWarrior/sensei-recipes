@@ -1,5 +1,5 @@
 id: scw:java:junit:JUnitSoftAssertions-rule
-version: 9
+version: 10
 metadata:
   name: 'Test framework: Enforce @Rule annotation for a JUnitSoftAssertions field'
   shortDescription: A JUnitSoftAssertions field always need to have the @Rule annotation

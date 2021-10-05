@@ -1,5 +1,5 @@
 id: scw:spring:xml:xxe-SourceHttpMessageConverter-setProcessExternalEntities
-version: 9
+version: 10
 metadata:
   name: 'Injection: XXE: SourceHttpMessageConverter#setProcessExternalEntities set to true'
   shortDescription: Prevent XXE by disabling the processing of External Entities

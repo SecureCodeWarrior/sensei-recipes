@@ -1,5 +1,5 @@
 id: scw:web:tls-outdated
-version: 9
+version: 10
 metadata:
   name: 'TLS: Weak Encryption: Outdated Version'
   shortDescription: Could lead to Data Exposure

@@ -1,5 +1,5 @@
 id: scw:crypto:keypairgen-insecure-algos
-version: 9
+version: 10
 metadata:
   name: 'Crypto: KeyPair Generation: Insecure Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is insecure

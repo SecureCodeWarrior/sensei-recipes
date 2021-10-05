@@ -1,5 +1,5 @@
 id: scw:spring:data:query-modifying
-version: 9
+version: 10
 metadata:
   name: Missing annotation in update query
   shortDescription: Queries performing write operations should have the @Modifying annotation.

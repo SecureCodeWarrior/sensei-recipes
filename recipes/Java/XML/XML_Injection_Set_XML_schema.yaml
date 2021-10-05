@@ -1,5 +1,5 @@
 id: scw:xml:xml-schema
-version: 9
+version: 10
 metadata:
   name: 'XML Injection: Use XML schema'
   shortDescription: Could lead to XML Injection

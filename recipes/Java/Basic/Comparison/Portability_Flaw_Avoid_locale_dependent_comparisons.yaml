@@ -1,5 +1,5 @@
 id: scw:java:equals-after-case-conversion
-version: 9
+version: 10
 metadata:
   name: 'Portability Flaw: Avoid locale dependent comparisons: equals after case conversion'
   shortDescription: This comparison is sensitive to the system's locale. Ignore the case or add a locale.

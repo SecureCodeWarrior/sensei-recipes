@@ -1,5 +1,5 @@
 id: scw:spring:security:hsts-includeSubDomains
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: HSTS - includeSubDomains'
   shortDescription: Include subdomains in the HSTS domain

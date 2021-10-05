@@ -1,5 +1,5 @@
 id: scw:spring:csrf:disabled-AbstractHttpConfigurer
-version: 9
+version: 10
 metadata:
   name: 'CSRF: Disabled CSRF protection (AbstractHttpConfigurer)'
   shortDescription: Disabling Spring Security's CSRF protection makes the application vulnerable

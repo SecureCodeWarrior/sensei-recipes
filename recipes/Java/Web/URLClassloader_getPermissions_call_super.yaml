@@ -1,5 +1,5 @@
 id: scw:java:URLClassLoader-getPermissions
-version: 9
+version: 10
 metadata:
   name: 'URLClassloader: Call super when overriding getPermissions'
   shortDescription: Custom permissions should be based on those of the super class using super.getPermissions

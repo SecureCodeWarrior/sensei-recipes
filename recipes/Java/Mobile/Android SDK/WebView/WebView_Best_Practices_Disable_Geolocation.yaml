@@ -1,5 +1,5 @@
 id: scw:android:webview-disable-geolocation-constructor
-version: 9
+version: 10
 metadata:
   name: 'WebView best practices: Disable Geolocation (constructor)'
   shortDescription: Enabling geolocation in the webview could lead to data exposure

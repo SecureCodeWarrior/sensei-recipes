@@ -1,5 +1,5 @@
 id: scw:crypto:keypairgen-non-standard-algos
-version: 9
+version: 10
 metadata:
   name: 'Crypto: KeyPair Generation: Non Standard Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is not recommended

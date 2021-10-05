@@ -1,5 +1,5 @@
 id: scw:spring:boot:controller-restcontroller-service-repository-should-be-singletons
-version: 9
+version: 10
 metadata:
   name: 'Spring recommendation: @(Rest)Controller, @Service, @Repository should be singletons'
   shortDescription: Classes annotated with @(Rest)Controller, @Service, @Repository should have a singleton scope

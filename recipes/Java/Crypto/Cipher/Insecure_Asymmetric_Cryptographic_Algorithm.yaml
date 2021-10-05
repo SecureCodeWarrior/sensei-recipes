@@ -1,5 +1,5 @@
 id: scw:crypto:cipher:asymmetric
-version: 9
+version: 10
 metadata:
   name: 'Crypto: Cipher: Insecure Asymmetric Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is not recommended

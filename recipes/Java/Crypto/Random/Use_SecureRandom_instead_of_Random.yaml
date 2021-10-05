@@ -1,5 +1,5 @@
 id: scw:crypto:secure-random
-version: 9
+version: 10
 metadata:
   name: Use SecureRandom instead of Random
   shortDescription: Using Random can lead to predictable randomness

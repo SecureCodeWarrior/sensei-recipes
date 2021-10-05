@@ -1,5 +1,5 @@
 id: scw:crypto:keygen-des
-version: 9
+version: 10
 metadata:
   name: 'Data Protection - Cryptography: Avoid cryptographic weakness: Use appropriate secret key generation algorithm: DES family'
   shortDescription: Could lead to brute forcing or other cryptographic weakness

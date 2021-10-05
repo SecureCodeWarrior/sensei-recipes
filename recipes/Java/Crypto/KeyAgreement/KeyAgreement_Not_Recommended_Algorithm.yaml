@@ -1,5 +1,5 @@
 id: scw:crypto:keyagreement-not-recommended
-version: 9
+version: 10
 metadata:
   name: 'Crypto: KeyAgreement: Guide on Approved Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is not recommended

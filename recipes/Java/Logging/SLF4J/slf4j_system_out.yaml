@@ -1,5 +1,5 @@
 id: scw:logging:slf4j:System.out_consistent_logging
-version: 9
+version: 10
 metadata:
   name: 'SLF4J Logging: System.out'
   shortDescription: Replace System.out.print.* with consistent SLF4J error logging

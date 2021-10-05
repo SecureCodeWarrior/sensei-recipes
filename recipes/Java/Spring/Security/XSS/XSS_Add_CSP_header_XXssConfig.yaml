@@ -1,5 +1,5 @@
 id: scw:spring:xss:XXssConfig
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: XSS protection: Add CSP header - XXssConfig'
   shortDescription: Add a CSP header for additional protection agains XSS and data injection

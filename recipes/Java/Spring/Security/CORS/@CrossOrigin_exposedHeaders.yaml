@@ -1,5 +1,5 @@
 id: scw:spring:security:cors:CrossOrigin-exposedHeaders
-version: 9
+version: 10
 metadata:
   name: 'Security Misconfiguration: CORS: Avoid broad settings: @CrossOrigin - exposedHeaders'
   shortDescription: Exposing all headers makes the application vulnerable

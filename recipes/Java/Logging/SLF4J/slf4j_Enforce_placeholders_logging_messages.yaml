@@ -1,5 +1,5 @@
 id: scw:java:logging:slf4j-log-injection
-version: 9
+version: 10
 metadata:
   name: 'SLF4J Logging: enforce usage of placeholders in the messages'
   shortDescription: Do not concatenate untrusted data in the message string, instead use placeholders ( '{}' )

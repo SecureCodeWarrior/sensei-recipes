@@ -1,5 +1,5 @@
 id: scw:spring:field-injection
-version: 9
+version: 10
 metadata:
   name: Field injection is not recommended
   shortDescription: Field injection is not recommended, because the list of required dependencies are unclear during instance creation. This makes testing more difficult and could lead to runtime exceptions when the bean is instantiated without spring.

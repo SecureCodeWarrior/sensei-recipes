@@ -1,5 +1,5 @@
 id: scw:crypto:keyagreement-insecure
-version: 9
+version: 10
 metadata:
   name: 'Crypto: KeyAgreement: Insecure Cryptographic Algorithm'
   shortDescription: This cryptographic algorithm is insecure

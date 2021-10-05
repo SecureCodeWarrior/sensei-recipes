@@ -1,5 +1,5 @@
 id: scw:android:SQLite-sqli-2nd-parameter
-version: 9
+version: 10
 metadata:
   name: 'SQL Injection: SQLiteDatabase#query - 2nd parameter'
   shortDescription: This query could lead to SQL injection

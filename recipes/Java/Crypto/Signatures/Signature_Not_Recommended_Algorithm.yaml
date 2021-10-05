@@ -1,5 +1,5 @@
 id: scw:crypto:signature-not-recommended
-version: 9
+version: 10
 metadata:
   name: 'Crypto: Signature: Approved Hashing Algorithm'
   shortDescription: This hashing algorithm is not recommended for cryptographic use

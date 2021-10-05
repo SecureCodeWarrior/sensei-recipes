@@ -1,5 +1,5 @@
 id: scw:android:manifest:taskAffinity
-version: 9
+version: 10
 metadata:
   name: 'Manifest Best Practices: Activity: task affinity should not be set'
   shortDescription: Task affinity should not be set for private activities
