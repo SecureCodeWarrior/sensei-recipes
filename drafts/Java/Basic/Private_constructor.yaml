@@ -1,0 +1,40 @@
+id: scw:java:private-constructor
+version: 10
+metadata:
+  name: Create private constructor for utility class (all fields/methods are static)
+  shortDescription: This utility class only contains static fields and methods. Consider protecting against accidental instantiation.
+  level: info
+  language: java
+  enabled: true
+  tags: Java basic;quality
+search:
+  class:
+    with:
+      anyOf:
+      - child:
+          field:
+            allOf:
+            - modifier: public
+            - modifier: static
+      - child:
+          method:
+            allOf:
+            - modifier: public
+            - modifier: static
+    without:
+      anyOf:
+      - child:
+          constructor: {}
+      - child:
+          field:
+            not:
+              modifier: static
+      - child:
+          method:
+            not:
+              modifier: static
+availableFixes:
+- name: Insert private constructor to prevent instantiation
+  actions:
+  - addMethod:
+      method: private {{{name}}}() {}
