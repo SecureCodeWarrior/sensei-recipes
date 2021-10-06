@@ -1,0 +1,23 @@
+id: scw:java:processbuilder-command-untrusted
+version: 10
+metadata:
+  name: 'Command Injection: Untrusted data in ProcessBuilder command'
+  shortDescription: This call to ProcessBuilder#command contains untrusted input. Consider sanitizing the untrusted input.
+  level: error
+  language: java
+  scwCategory: injection:oscmd
+  cweCategory: 78
+  enabled: true
+  descriptionFile: descriptions/Command_Injection__Untrusted_data_in_ProcessBuilder_command.html
+  tags: security;Java basic;injection
+search:
+  methodcall:
+    args:
+      any:
+        value:
+          containsUntrustedInput: true
+    name: command
+    type: java.lang.ProcessBuilder
+availableFixes:
+- name: Validate the untrusted input input if the call to ProcessBuilder#command can't be avoided
+  actions: []
