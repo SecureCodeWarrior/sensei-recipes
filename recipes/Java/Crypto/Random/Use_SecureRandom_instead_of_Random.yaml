@@ -8,6 +8,7 @@ metadata:
   enabled: true
   descriptionFile: Java/Crypto/descriptions/Use_SecureRandom_instead_of_Random.html
   tags: security;SEI CERT
+  cweCategory: 330
 search:
   instanceCreation:
     type:
