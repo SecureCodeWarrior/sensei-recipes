@@ -5,10 +5,10 @@ metadata:
   shortDescription: Using Random can lead to predictable randomness
   level: error
   language: java
+  cweCategory: 330
   enabled: true
   descriptionFile: Java/Crypto/descriptions/Use_SecureRandom_instead_of_Random.html
   tags: security;SEI CERT
-  cweCategory: 330
 search:
   instanceCreation:
     type:
