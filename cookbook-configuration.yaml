@@ -41,8 +41,10 @@ cookbooks: # List of cookbooks
     description: Collection of all recipes related to the OWASP Top 10 categories such as injection, authentication, security misconfiguration.
     includedTags: [OWASP Top 10]
     excludedTags: []
+    featured: true
   - id: scw:logging:slf4j
     name: Standardisation on SLF4J
     description: Recipes to standardise on the SLF4J framework including migrations from other logging frameworks
     includedTags: [SLF4J]
     excludedTags: []
+    featured: true
