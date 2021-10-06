@@ -1,0 +1,24 @@
+id: scw:java:runtime-exec-untrusted
+version: 10
+metadata:
+  name: 'Command Injection: Avoid Runtime.exec'
+  shortDescription: This call to Runtime.exec contains untrusted input. Consider replacing it with a call that does not rely on untrusted input.
+  level: error
+  language: java
+  scwCategory: injection:oscmd
+  cweCategory: 78
+  enabled: false
+  comment: ""
+  descriptionFile: descriptions/Command_Injection__Avoid_Runtime.exec.html
+  tags: security;Java basic;injection;SEI CERT
+search:
+  methodcall:
+    args:
+      any:
+        value:
+          containsUntrustedInput: true
+    name: exec
+    type: java.lang.Runtime
+availableFixes:
+- name: Avoid using exec or validate the input if exec can't be avoided
+  actions: []
