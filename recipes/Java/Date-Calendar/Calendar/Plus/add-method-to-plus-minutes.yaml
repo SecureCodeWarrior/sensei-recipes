@@ -1,0 +1,26 @@
+id: scw:calendar:plus-minutes
+version: 10
+metadata:
+  name: Migrate add method to java.time plus method
+  shortDescription: Migrate add method to java.time plus method
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          stringified: Calendar.MINUTE
+    name: add
+    anyOf:
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using plusMinutes method
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}} = {{{ qualifier.name }}}.plusMinutes({{{ arguments.1 }}})'

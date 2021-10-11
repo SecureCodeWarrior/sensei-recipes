@@ -1,0 +1,30 @@
+id: scw:calendar:return-type
+version: 10
+metadata:
+  name: Migrate return type to java.time
+  shortDescription: Migrate return type to java.time
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  method:
+    returnType: java.util.Calendar
+availableFixes:
+- name: Migrate method return type to java.time.LocalDate
+  actions:
+  - changeType:
+      type: java.time.LocalDate
+- name: Migrate method return type to java.time.LocalDateTime
+  actions:
+  - changeType:
+      type: java.time.LocalDateTime
+- name: Migrate method return type to java.time.ZonedDateTime
+  actions:
+  - changeType:
+      type: java.time.ZonedDateTime
+- name: Use OffsetDateTime
+  actions:
+  - changeType:
+      type: java.time.OffsetDateTime

@@ -1,0 +1,41 @@
+id: scw:date:contructor-no-args
+version: 10
+metadata:
+  name: Replace new Date() with java.time
+  shortDescription: Replace new Date() with java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Date;quality
+search:
+  instanceCreation:
+    type: java.util.Date
+    without:
+      args:
+        any: {}
+availableFixes:
+- name: Migrate to java.time.LocalDate
+  actions:
+  - rewrite:
+      to: java.time.LocalDate.now()
+  - modifyAssignedVariable:
+      type: java.time.LocalDate
+- name: Migrate to java.time.LocalDateTime
+  actions:
+  - rewrite:
+      to: java.time.LocalDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.LocalDateTime
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

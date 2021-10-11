@@ -1,0 +1,34 @@
+id: scw:gregorian-calendar:constructor-locale-timezone
+version: 10
+metadata:
+  name: Migrate new GregorianCalendar to java.time
+  shortDescription: Migrate new GregorianCalendar to java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: This recipe doesn't use java.util.Locale. It generates a java.time.ZonedDateTime or java.time.OffsetDateTime using only java.time.ZoneId previously converted.
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        anyOf:
+        - type: java.time.ZoneId
+        - type: java.util.TimeZone
+      2:
+        type: java.util.Locale
+    type: java.util.GregorianCalendar
+availableFixes:
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.now({{{ arguments.0 }}})
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.now({{{ arguments.0 }}})
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

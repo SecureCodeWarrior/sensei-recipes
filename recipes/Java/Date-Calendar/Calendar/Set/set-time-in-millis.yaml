@@ -1,0 +1,29 @@
+id: scw:calendar:set-time-in-millis
+version: 10
+metadata:
+  name: 'Migrate Calendar setTimeInMillis() to java.time '
+  shortDescription: 'Migrate Calendar setTimeInMillis() to java.time '
+  level: warning
+  language: java
+  enabled: true
+  comment: 'Be aware this recipe uses a system default timezone (ZoneId.systemDefault()). '
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: int
+    name: setTimeInMillis
+    anyOf:
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.LocalDate
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using ofInstant
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}} = {{{ qualifier.type }}}.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), java.time.ZoneId.systemDefault())'
