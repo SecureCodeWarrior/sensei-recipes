@@ -1,0 +1,28 @@
+id: new_recipe
+version: 10
+metadata:
+  name: RestTemplateBuilder#requestFactory(ClientHttpRequestFactory) is deprecated
+  shortDescription: RestTemplateBuilder#requestFactory(ClientHttpRequestFactory) is deprecated
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: descriptions/RestTemplateBuilder_requestFactory_ClientHttpRequestFactory__is_deprecated.html
+  tags: Spring Boot;Spring
+search:
+  methodcall:
+    args:
+      1:
+        type: org.springframework.http.client.ClientHttpRequestFactory
+    name: requestFactory
+    type: org.springframework.boot.web.client.RestTemplateBuilder
+scopes:
+  library:
+    minVersion: 2.0.0
+    name:
+      matches: .*org.springframework.*
+availableFixes:
+- name: Wrap in supplier
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: () -> {{{.}}}

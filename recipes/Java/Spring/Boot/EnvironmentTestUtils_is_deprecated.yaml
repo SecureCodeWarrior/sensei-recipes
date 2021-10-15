@@ -1,0 +1,32 @@
+id: EnvironmentTestUtils to TestPropertyValues
+version: 10
+metadata:
+  name: EnvironmentTestUtils is deprecated
+  shortDescription: EnvironmentTestUtils is deprecated
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/EnvironmentTestUtils_is_deprecated.html
+  tags: Spring Boot;Spring
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - type: org.springframework.context.annotation.AnnotationConfigApplicationContext
+        - type: org.springframework.core.env.ConfigurableEnvironment
+      2:
+        type: java.lang.String
+    name: addEnvironment
+    type: EnvironmentTestUtils
+scopes:
+  library:
+    minVersion: 2.0.0.RELEASE
+    name:
+      matches: .*org.springframework.boot:spring-boot-starter.*
+    maxVersion: 2.0.9.RELEASE
+availableFixes:
+- name: Replace with TestPropertyValues
+  actions:
+  - rewrite:
+      to: org.springframework.boot.test.util.TestPropertyValues.of({{{arguments.1}}}).applyTo({{{arguments.0}}})

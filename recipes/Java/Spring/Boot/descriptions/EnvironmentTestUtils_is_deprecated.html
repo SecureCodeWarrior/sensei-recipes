@@ -1,0 +1,21 @@
+<html>
+<body>
+Spring Boot 2.0 deprecated <code>EnvironmentTestUtils</code>, 
+use <code>TestPropertyValues</code> instead.
+
+<br>
+  <b>Before</b>
+<pre>EnvironmentTestUtils.addEnvironment(context, "acme.first=1");</pre>
+  <br>
+  <b>After</b>
+<pre>TestPropertyValues.of("acme.first=1").applyTo(context);
+</pre>
+  <br>
+
+  <b>Resources</b>
+<ul>
+  <li><a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide#environmenttestutils">Spring Boot 2.0 Migration Guide · spring-projects/spring-boot Wiki</a></li>
+</ul>
+
+</body>
+</html>

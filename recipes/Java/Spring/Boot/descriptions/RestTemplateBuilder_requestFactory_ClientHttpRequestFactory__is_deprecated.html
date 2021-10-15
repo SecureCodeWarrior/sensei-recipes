@@ -1,0 +1,20 @@
+<html>
+<body>
+Spring Boot 2.0 deprecated <code>RestTemplateBuilder#requestFactory(ClientHttpRequestFactory)</code>, 
+use <code>RestTemplateBuilder#requestFactory(Supplier&lt;ClientHttpRequestFactory&gt; requestFactorySupplier)</code> instead.
+
+<br>
+  <b>Before</b>
+<pre>restTemplateBuilder.requestFactory(httpRequestFactory);</pre>
+  <br>
+  <b>After</b>
+<pre>restTemplateBuilder.requestFactory(() -> httpRequestFactory);</pre>
+  <br>
+
+  <b>Resources</b>
+<ul>
+  <li><a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide#resttemplatebuilder">Spring Boot 2.0 Migration Guide · spring-projects/spring-boot Wiki</a></li>
+</ul>
+
+</body>
+</html>
