@@ -14,4 +14,4 @@ The recipes pool is structured as follows:
 ## Example code
 To use the example code efficiently, load the root of this repository as an IntelliJ project. This way, the projects in example code will be loaded as modules.
 
-See also the [Spring recipe examples repo](https://github.com/SecureCodeWarrior/spring-recipes-examples).
+See also the [Spring recipe examples repo](https://github.com/SecureCodeWarrior/spring-recipes-examples). a
