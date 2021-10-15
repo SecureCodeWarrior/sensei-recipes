@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: xml
   cweCategory: 770
-  enabled: true
+  enabled: false
   descriptionFile: descriptions/Weak_XML_Schema__Unbounded_Occurrences__limit_maxOccurs.html
   tags: security;XML;OWASP Top 10
 search:
