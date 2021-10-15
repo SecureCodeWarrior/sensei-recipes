@@ -1,4 +1,4 @@
-id: new_recipe
+id: resttemplatebuilder_requestFactory_signature_change
 version: 10
 metadata:
   name: RestTemplateBuilder#requestFactory(ClientHttpRequestFactory) is deprecated
