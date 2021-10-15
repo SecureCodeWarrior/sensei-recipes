@@ -1,0 +1,43 @@
+id: neo4j#query-is-vulnerable-to-injection
+version: 10
+metadata:
+  name: Spring Data Neo4jClient#query is vulnerable to injections
+  shortDescription: Spring Data Neo4jClient#query is vulnerable to injections
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: descriptions/Spring_Data_Neo4jClient_query_is_vulnerable_to_injections.html
+  tags: security;Neo4j;framework specific;OWASP Top 10;injection;Spring Data
+search:
+  methodcall:
+    args:
+      1:
+        type: java.lang.String
+        value:
+          containsUntrustedInput: true
+          trustNonTextualsByDefault: false
+    followedBy:
+      methodcall:
+        name: in
+    name: query
+    type: org.springframework.data.neo4j.core.Neo4jClient
+availableFixes:
+- name: Parameterize the query
+  actions:
+  - parameterize:
+      placeholderFormat: ${{{name}}}
+      extractUntrustedInput:
+        methodsOnObject:
+          methods:
+          - methodName: put
+            args:
+              "1": '"{{{name}}}"'
+              "2": '{{{.}}}'
+          target:
+            variable:
+              variableName: map
+              type: java.util.HashMap<String, Object>
+          applyExtraction:
+            target: followedByElement
+            methodcall: bindAll({{{target-variable}}})
+      target: self
