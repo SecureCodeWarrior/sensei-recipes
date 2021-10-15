@@ -1,0 +1,24 @@
+<html>
+<body>
+<p id="abstract">Whenever a test is ignored, e.g. using the <code>@Ignore</code> annotation, a reason for ignoring the test should be added. The <code>@Ignore</code> annotation supports this by providing an argument.</p>
+<br>
+<p id="impact_and_desired_state"></p>
+<br>
+<b>Before</b>
+<pre>@Ignore
+void thisTestIsIgnored() {
+  ...
+}</pre>
+<br>
+<b>After</b>
+<pre>@Ignore<b>("TODO: Add a reason for ignoring the test")</b>
+void thisTestIsIgnored() {
+  ...
+}</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="http://junit.sourceforge.net/javadoc/org/junit/Ignore.html">JUnit 4 API - Annotation Type Ignore</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+id: scw:java:junit:mixed-versions
+version: 10
+metadata:
+  name: 'JUnit: Mixed use of JUnit versions'
+  shortDescription: This class is using multiple versions of JUnit. Consider standardizing to one the latest JUnit version.
+  level: warning
+  language: java
+  enabled: false
+  comment: "No highlighting on file, so need to add \nclass:\n    in:\nbut this leads to performance issues for large files (see SEN-2444)"
+  tags: JUnit;testing;framework specific;quality
+search:
+  file:
+    allOf:
+    - child:
+        import:
+          path:
+            matches: ^org\.junit\.(?!jupiter).*
+    - child:
+        import:
+          path:
+            matches: ^org\.junit\.jupiter\..*
+availableFixes:
+- name: Get the JUnit migration cookbook from the Sensei Hub
+  actions:
+  - goto:
+      type: URL
+      value: https://sensei.securecodewarrior.com/cookbooks
+      target: self

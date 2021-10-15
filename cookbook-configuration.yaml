@@ -48,3 +48,15 @@ cookbooks: # List of cookbooks
     includedTags: [SLF4J]
     excludedTags: []
     featured: true
+  - id: scw:testing:junit4
+    name: JUnit 4 Best Practices
+    description: Best practices for the JUnit 4 testing framework including correct usage of its API and annotations.
+    includedTags: [JUnit 4]
+    excludedTags: []
+    featured: true
+  - id: scw:testing:junit5
+    name: JUnit 5 Best Practices
+    description: Best practices for the JUnit 5 testing framework including correct usage of its API and annotations.
+    includedTags: [JUnit 5]
+    excludedTags: []
+    featured: true

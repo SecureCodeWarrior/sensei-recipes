@@ -1,0 +1,24 @@
+id: scw:java:junit5:private-test-method
+version: 10
+metadata:
+  name: 'JUnit 5: Test method cannot be private.'
+  shortDescription: JUnit tests methods cannot be private. This test will not be ran as a test.
+  level: warning
+  language: java; kotlin
+  enabled: true
+  tags: testing;framework specific;JUnit 5;quality
+search:
+  method:
+    annotation:
+      label: testannotation
+      type: org.junit.jupiter.api.Test
+    modifier: private
+availableFixes:
+- name: Make the test method public
+  actions:
+  - changeModifiers:
+      visibility: public
+- name: Remove the @Test annotation
+  actions:
+  - remove:
+      target: label:testannotation

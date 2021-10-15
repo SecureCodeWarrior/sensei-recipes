@@ -1,0 +1,25 @@
+id: scw:java:junit4:nested-testclass-must-be-static
+version: 10
+metadata:
+  name: 'JUnit 4: Nested Test classes must be static'
+  shortDescription: Inner test classes must be static nested classes
+  level: error
+  language: java
+  enabled: false
+  comment: |-
+    Nested test classes in JUnit 4 are only run when the class is annotated with @RunWith(Enclosed.class).
+    Sensei cannot check the value of the annotation yet.
+  tags: testing;framework specific;JUnit 4;quality
+search:
+  class:
+    in:
+      class:
+        annotation:
+          type: org.junit.runner.RunWith
+    without:
+      modifier: static
+availableFixes:
+- name: Make the class static
+  actions:
+  - changeModifiers:
+      static: true

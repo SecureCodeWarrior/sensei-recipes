@@ -1,0 +1,21 @@
+id: scw:java:junit5:nested-annotation-unnecessary-not-nested
+version: 10
+metadata:
+  name: 'JUnit 5: @Nested annotation unnecessary'
+  shortDescription: '@Nested is only needed on nested classes'
+  level: warning
+  language: java
+  enabled: true
+  tags: testing;framework specific;JUnit 5;quality
+search:
+  annotation:
+    owner:
+      class:
+        not:
+          in:
+            typeDeclaration: {}
+    type: org.junit.jupiter.api.Nested
+availableFixes:
+- name: Remove annotation
+  actions:
+  - remove: {}

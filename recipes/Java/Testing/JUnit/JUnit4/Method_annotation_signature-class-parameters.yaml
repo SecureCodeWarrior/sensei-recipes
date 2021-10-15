@@ -1,0 +1,27 @@
+id: scw:java:junit4:annotation-method-signature-class-parameters
+version: 10
+metadata:
+  name: 'JUnit 4: Incorrect method signature for annotation (Class - arguments)'
+  shortDescription: The annotations on this method require it to have no arguments.
+  level: error
+  language: java
+  enabled: true
+  comment: http://junit.sourceforge.net/javadoc/org/junit/Before.html
+  tags: testing;framework specific;JUnit 4;quality
+search:
+  method:
+    annotation:
+      label: beforeannotation
+      type:
+        reference:
+          matches: org.junit.(Before|After)Class
+        checkInheritance: true
+    with:
+      parameters:
+        any:
+          label: param
+availableFixes:
+- name: Remove arguments from method signature
+  actions:
+  - remove:
+      target: label:param

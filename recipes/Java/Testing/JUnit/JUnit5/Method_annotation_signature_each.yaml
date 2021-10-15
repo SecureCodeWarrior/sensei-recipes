@@ -1,0 +1,37 @@
+id: scw:java:junit5:annotation-method-signature-each
+version: 10
+metadata:
+  name: 'JUnit 5: Incorrect method signature for annotation (Each)'
+  shortDescription: The annotations on this method require it to have a void return type, not be private, and not be static.
+  level: error
+  language: java; kotlin
+  enabled: true
+  comment: ""
+  descriptionFile: descriptions/JUnit_5__Incorrect_method_signature_for_annotation__Each_.html
+  tags: testing;framework specific;JUnit 5;quality
+search:
+  method:
+    annotation:
+      label: beforeeachannotation
+      type:
+        reference:
+          matches: org.junit.jupiter.api.(Before|After)Each
+        checkInheritance: true
+    anyOf:
+    - modifier: private
+    - returnType:
+        not: void
+        checkInheritance: true
+    - modifier: static
+availableFixes:
+- name: Remove annotation
+  actions:
+  - remove:
+      target: label:beforeeachannotation
+- name: Change method to public void
+  actions:
+  - changeModifiers:
+      static: false
+      visibility: public
+  - changeType:
+      type: void

@@ -1,0 +1,19 @@
+id: scw:java:junit5:MethodSourceProviderShouldBeStatic
+version: 10
+metadata:
+  name: 'JUnit 5: MethodSourceProvider should be static'
+  shortDescription: Methods that return a Stream of Arguments should be as static
+  level: error
+  language: java; kotlin
+  enabled: true
+  tags: testing;framework specific;JUnit 5;quality
+search:
+  method:
+    returnType: java.util.stream.Stream<org.junit.jupiter.params.provider.Arguments>
+    without:
+      modifier: static
+availableFixes:
+- name: Make method static
+  actions:
+  - changeModifiers:
+      static: true

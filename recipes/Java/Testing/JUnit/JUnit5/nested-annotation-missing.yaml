@@ -1,0 +1,31 @@
+id: scw:java:junit5:nested-annotation-missing
+version: 10
+metadata:
+  name: 'JUnit 5: @Nested annotation missing'
+  shortDescription: Inner classes that contain test information should be marked with the @Nested annotation
+  level: error
+  language: java
+  enabled: true
+  descriptionFile: descriptions/JUnit_5_Nested_annotation_missing.html
+  tags: testing;framework specific;JUnit 5;quality
+search:
+  class:
+    with:
+      child:
+        method:
+          annotation:
+            type:
+              reference:
+                matches: ^org.junit.jupiter.*
+              checkInheritance: true
+    in:
+      typeDeclaration: {}
+    without:
+      annotation:
+        type: org.junit.jupiter.api.Nested
+availableFixes:
+- name: Add @Nested annotation
+  actions:
+  - addAnnotation:
+      annotation: '@org.junit.jupiter.api.Nested'
+      target: self

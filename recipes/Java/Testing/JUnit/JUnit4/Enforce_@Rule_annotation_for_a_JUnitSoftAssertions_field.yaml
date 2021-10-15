@@ -1,4 +1,4 @@
-id: scw:java:junit:JUnitSoftAssertions-rule
+id: scw:java:junit4:JUnitSoftAssertions-rule
 version: 10
 metadata:
   name: 'Test framework: Enforce @Rule annotation for a JUnitSoftAssertions field'
@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   descriptionFile: descriptions/Test_framework__Enforce__Rule_annotation_for_a_JUnitSoftAssertions_field.html
-  tags: framework specific;JUnit;quality
+  tags: testing;framework specific;JUnit 4;quality
 search:
   field:
     type: org.assertj.core.api.JUnitSoftAssertions

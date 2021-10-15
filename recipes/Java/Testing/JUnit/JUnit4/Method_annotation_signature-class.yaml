@@ -1,0 +1,35 @@
+id: scw:java:junit4:annotation-method-signature-class
+version: 10
+metadata:
+  name: 'JUnit 4: Incorrect method signature for annotation (Class)'
+  shortDescription: The annotations on this method require it to have a void return type, not be private, and be static.
+  level: error
+  language: java; kotlin
+  enabled: true
+  comment: http://junit.sourceforge.net/javadoc/org/junit/Before.html
+  tags: testing;framework specific;JUnit 4;quality
+search:
+  method:
+    annotation:
+      label: beforeannotation
+      type:
+        reference:
+          matches: org.junit.(Before|After)Class
+        checkInheritance: true
+    without:
+      allOf:
+      - returnType: void
+      - modifier: static
+      - modifier: public
+availableFixes:
+- name: Remove annotation
+  actions:
+  - remove:
+      target: label:beforeannotation
+- name: Change method to public void
+  actions:
+  - changeModifiers:
+      static: true
+      visibility: public
+  - changeType:
+      type: void

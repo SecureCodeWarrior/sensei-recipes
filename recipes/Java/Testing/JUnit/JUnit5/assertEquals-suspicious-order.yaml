@@ -1,0 +1,30 @@
+id: scw:java:junit5:assertEquals-suspicious-order
+version: 10
+metadata:
+  name: 'JUnit 5: assertEquals suspicious order of arguments'
+  shortDescription: Suspicious argument values for 'expected' and 'actual'
+  level: warning
+  language: java
+  enabled: true
+  tags: testing;framework specific;JUnit 5;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          not:
+            is:
+              literal: {}
+      2:
+        value:
+          is:
+            literal: {}
+    argCount: 2
+    name: assertEquals
+    type: org.junit.jupiter.api.Assertions
+availableFixes:
+- name: Swap arguments 'actual' and 'expected'
+  actions:
+  - rewrite:
+      to: assertEquals({{{arguments.1}}}, {{{arguments.0}}})
+      target: self

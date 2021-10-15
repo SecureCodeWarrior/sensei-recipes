@@ -1,0 +1,29 @@
+id: scw:java:junit5:test-annotation-missing
+version: 10
+metadata:
+  name: 'JUnit 5: @Test annotation missing'
+  shortDescription: Method with assertions is missing @Test annotation
+  level: error
+  language: java
+  enabled: true
+  tags: testing;framework specific;JUnit 5;quality
+search:
+  method:
+    with:
+      child:
+        methodcall:
+          type: org.junit.jupiter.api.Assertions
+    not:
+      modifier: private
+    without:
+      annotation:
+        type:
+          reference:
+            matches: ^org.junit.*
+          checkInheritance: true
+availableFixes:
+- name: Add @Test annotation
+  actions:
+  - addAnnotation:
+      annotation: '@org.junit.jupiter.api.Test'
+      target: self

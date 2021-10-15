@@ -1,0 +1,26 @@
+id: scw:java:junit5:nested-annotation-unnecessary-no-tests
+version: 10
+metadata:
+  name: 'JUnit 5: @Nested annotation unnecessary'
+  shortDescription: There is no test information in this nested class.
+  level: warning
+  language: java
+  enabled: true
+  tags: testing;framework specific;JUnit 5;quality
+search:
+  annotation:
+    owner:
+      class:
+        without:
+          child:
+            method:
+              annotation:
+                type:
+                  reference:
+                    matches: ^org.junit.jupiter.*
+                  checkInheritance: true
+    type: org.junit.jupiter.api.Nested
+availableFixes:
+- name: Remove annotation
+  actions:
+  - remove: {}

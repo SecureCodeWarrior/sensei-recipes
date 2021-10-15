@@ -1,0 +1,22 @@
+id: scw:java:junit4:ignored-description
+version: 10
+metadata:
+  name: 'JUnit 4: @Ignored Description'
+  shortDescription: Add a description to indicate why the test has been ignored.
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/JUnit_Ignored_Description.html
+  tags: testing;framework specific;JUnit 4;quality
+search:
+  annotation:
+    type: org.junit.Ignore
+    without:
+      parameters:
+      - {}
+availableFixes:
+- name: Add a todo comment parameter
+  actions:
+  - rewrite:
+      to: '{{{ . }}}("TODO: Add a reason for ignoring the test")'
+      target: self

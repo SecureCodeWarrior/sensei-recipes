@@ -1,0 +1,34 @@
+id: scw:java:junit4:nested-nontestclass-must-be-ignored
+version: 10
+metadata:
+  name: 'JUnit 4: Nested non-test class must be ignored'
+  shortDescription: Static nested classes without tests must be ignored
+  level: error
+  language: java
+  enabled: false
+  comment: |-
+    Nested test classes in JUnit 4 are only run when the class is annotated with @RunWith(Enclosed.class).
+    Sensei cannot check the value of the annotation yet.
+  tags: testing;framework specific;JUnit 4;quality
+search:
+  class:
+    allOf:
+    - without:
+        annotation:
+          type: org.junit.Ignore
+    - without:
+        child:
+          method:
+            annotation:
+              type: org.junit.Test
+    with:
+      modifier: static
+    in:
+      class:
+        annotation:
+          type: org.junit.runner.RunWith
+availableFixes:
+- name: Add @Ignore annotation
+  actions:
+  - addAnnotation:
+      annotation: '@org.junit.Ignore'

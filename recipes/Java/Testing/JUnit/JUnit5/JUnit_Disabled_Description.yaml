@@ -1,13 +1,13 @@
-id: scw:junit:disabled-description
+id: scw:java:junit5:disabled-description
 version: 10
 metadata:
-  name: JUnit @Disabled Description
-  shortDescription: Add a description to indicate why the test has been disabled
+  name: 'JUnit 5: @Disabled Description'
+  shortDescription: Add a description to indicate why the test has been disabled.
   level: warning
   language: java
   enabled: true
-  descriptionFile: descriptions/JUnit__Disabled_Description.html
-  tags: framework specific;JUnit;quality
+  descriptionFile: descriptions/JUnit_Disabled_Description.html
+  tags: testing;framework specific;JUnit 5;quality
 search:
   annotation:
     type: org.junit.jupiter.api.Disabled
