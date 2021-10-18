@@ -1,0 +1,25 @@
+id: Use_AssertJ_s_isEqualTo_with_message
+version: 10
+metadata:
+  name: Use AssertJ's isEqualTo() (with message)
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ
+search:
+  methodcall:
+    args:
+      1:
+        type: String
+    argCount: 3
+    name: assertEquals
+    anyOf:
+      - type: org.junit.Assert
+      - type: junit.framework.TestCase
+      - type: junit.framework.Assert
+availableFixes:
+  - name: Change to assertThat(actual).as(message).isEqualTo(expected)
+    actions:
+      - rewrite:
+          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.2 }}}).as({{{ arguments.0 }}}).isEqualTo({{{ arguments.1 }}})

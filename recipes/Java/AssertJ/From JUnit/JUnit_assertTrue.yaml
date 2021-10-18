@@ -1,0 +1,28 @@
+id: Use_AssertJ_s_assertTrue
+version: 10
+metadata:
+  name: Use AssertJ's isTrue()
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+          - type: java.lang.Boolean
+          - type: boolean
+    argCount: 1
+    name: assertTrue
+    anyOf:
+      - type: org.junit.Assert
+      - type: junit.framework.TestCase
+      - type: junit.framework.Assert
+      - type: org.junit.jupiter.api.Assertions
+availableFixes:
+  - name: Change to assertThat(actual).isTrue()
+    actions:
+      - rewrite:
+          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isTrue()

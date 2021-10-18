@@ -1,0 +1,21 @@
+id: Use_AssertJ_s_isEqualTo_instead_of_assertArrayEquals
+version: 10
+metadata:
+  name: Use AssertJ's isEqualTo() instead of assertArrayEquals
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ
+search:
+  methodcall:
+    argCount: 2
+    name: assertArrayEquals
+    anyOf:
+      - type: org.junit.Assert
+      - type: org.junit.jupiter.api.Assertions
+availableFixes:
+  - name: Change to assertThat(actualArray).isEqualTo(expectedArray)
+    actions:
+      - rewrite:
+          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).isEqualTo({{{ arguments.0 }}})
