@@ -1,0 +1,25 @@
+id: Use_AssertJ_s_assertNull_with_message
+version: 10
+metadata:
+  name: Use AssertJ's isNull() (with message)
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ
+search:
+  methodcall:
+    args:
+      1:
+        type: String
+    argCount: 2
+    name: assertNull
+    anyOf:
+      - type: org.junit.Assert
+      - type: junit.framework.TestCase
+      - type: junit.framework.Assert
+availableFixes:
+  - name: Change to assertThat(actual).as(message).isNull()
+    actions:
+      - rewrite:
+          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.0 }}}).isNull()

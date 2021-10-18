@@ -1,0 +1,23 @@
+id: Use_AssertJ_s_assertNull
+version: 10
+metadata:
+  name: Use AssertJ's isNull()
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ
+search:
+  methodcall:
+    argCount: 1
+    name: assertNull
+    anyOf:
+      - type: org.junit.Assert
+      - type: junit.framework.TestCase
+      - type: junit.framework.Assert
+      - type: org.junit.jupiter.api.Assertions
+availableFixes:
+  - name: Change to assertThat(actual).isNull()
+    actions:
+      - rewrite:
+          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isNull()
