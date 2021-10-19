@@ -48,6 +48,12 @@ cookbooks: # List of cookbooks
     includedTags: [SLF4J]
     excludedTags: []
     featured: true
+  - id: scw:testing:assertj
+    name: Standardisation on AssertJ for unit testing
+    description: Recipes to standardise on the AssertJ framework including idiomatic assertions and migrations from other frameworks.
+    includedTags: [AssertJ]
+    excludedTags: []
+    featured: true
   - id: scw:testing:junit4
     name: JUnit 4 Best Practices
     description: Best practices for the JUnit 4 testing framework including correct usage of its API and annotations.
