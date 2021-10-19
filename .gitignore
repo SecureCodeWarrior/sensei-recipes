@@ -25,3 +25,5 @@
 **/.idea/kotlinc.xml
 **/.idea/jarRepositories.xml
 **/.idea/libraries/
+
+example_code/*/target/

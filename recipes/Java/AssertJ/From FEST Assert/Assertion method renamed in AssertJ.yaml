@@ -1,0 +1,37 @@
+id: Assertion method renamed in AssertJ
+version: 10
+metadata:
+  name: Assertion method renamed in AssertJ
+  shortDescription: Assertion method renamed in AssertJ
+  level: error
+  language: java
+  enabled: true
+  tags: AssertJ
+search:
+  methodcall:
+    anyOf:
+      - name: isLenientEqualsToByIgnoringFields
+      - name: isLenientEqualsToByAcceptingFields
+      - name: isLenientEqualsToByIgnoringNullFields
+      - name: isEqualsToByComparingFields
+    type:
+      reference:
+        matches: org\.assertj\.core\.api\.ObjectAssert<.*>
+      checkInheritance: true
+availableFixes:
+  - name: Replace FEST method with AssertJ
+    actions:
+      - findAndReplace:
+          replacements:
+            - from: isLenientEqualsToByIgnoringFields
+              to: isEqualToIgnoringGivenFields
+              regex: false
+            - from: isLenientEqualsToByAcceptingFields
+              to: isEqualToComparingOnlyGivenFields
+              regex: false
+            - from: isLenientEqualsToByIgnoringNullFields
+              to: isEqualToIgnoringNullFields
+              regex: false
+            - from: isEqualsToByComparingFields
+              to: isEqualToComparingFieldByField
+              regex: false
