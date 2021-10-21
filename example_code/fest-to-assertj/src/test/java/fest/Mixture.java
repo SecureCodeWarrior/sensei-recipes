@@ -1,4 +1,4 @@
-package staticimportfest;
+package fest;
 
 import org.junit.jupiter.api.Test;
 import org.fest.assertions.api.Assertions;
@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import static org.fest.assertions.api.Assertions.*;
 import static org.fest.util.Closeables.closeQuietly;
 
-
-class X {
+/* This class imports FEST normally and statically, but still must be handled by the FEST recipes */
+class Mixture {
     @Test
     public void shouldBeEqual() {
         assertThat(5 + 10).isEqualTo(15);

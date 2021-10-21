@@ -1,8 +1,8 @@
-id: Assertion method removed in AssertJ
+id: FEST Assertion method removed in AssertJ
 version: 10
 metadata:
-  name: Assertion method removed in AssertJ
-  shortDescription: Assertion method removed in AssertJ
+  name: FEST Assertion method removed in AssertJ
+  shortDescription: FEST Assertion method removed in AssertJ
   level: warning
   language: java
   enabled: true

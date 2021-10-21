@@ -1,0 +1,58 @@
+id: Use_AssertJ_rather_than_FEST_assertions
+version: 10
+metadata:
+  name: Use AssertJ rather than FEST assertions
+  shortDescription: Use AssertJ rather than FEST assertions
+  level: warning
+  language: java
+  enabled: true
+  comment: ""
+  tags: AssertJ
+search:
+  class:
+    anyOf:
+    - child:
+        reference:
+          in:
+            file:
+              label: file
+          name:
+            matches: (org.fest.assertions.*|org.fest.util.*)
+    - in:
+        file:
+          with:
+            child:
+              import:
+                path:
+                  matches: (org.fest.assertions.*|org.fest.util.*)
+          label: file
+availableFixes:
+- name: Use AssertJ equivalents throughout file
+  actions:
+  - findAndReplace:
+      replacements:
+      - from: org.fest.assertions.data.
+        to: org.assertj.core.data.
+        regex: false
+      - from: org.fest.util.
+        to: org.assertj.core.util.
+        regex: false
+      - from: org\.fest\.assertions\.core\.Condition\b
+        to: org.assertj.core.api.Condition
+        regex: true
+      - from: org.fest.assertions.api.
+        to: org.assertj.core.api.
+        regex: false
+      - from: isLenientEqualsToByIgnoringFields
+        to: isEqualToIgnoringGivenFields
+        regex: false
+      - from: isLenientEqualsToByAcceptingFields
+        to: isEqualToComparingOnlyGivenFields
+        regex: false
+      - from: isLenientEqualsToByIgnoringNullFields
+        to: isEqualToIgnoringNullFields
+        regex: false
+      - from: isEqualsToByComparingFields
+        to: isEqualToComparingFieldByField
+        regex: false
+      target: label:file
