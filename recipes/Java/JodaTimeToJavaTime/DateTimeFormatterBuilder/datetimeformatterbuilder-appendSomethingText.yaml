@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendSomethingText
+version: 10
+metadata:
+  name: Convert appendSomethingText to appendText(ChronoField.SOMETHING)
+  shortDescription: Convert appendSomethingText to appendText(ChronoField.SOMETHING)
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    anyOf:
+    - name: appendEraText
+    - name: appendDayOfWeekText
+    - name: appendMonthOfYearText
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Rewrite to appendText(ChronoField)
+  actions:
+  - rewrite:
+      to: |
+        {{{ qualifier }}}.appendText(java.time.temporal.ChronoField.{{#upperCase}}{{#camelToUnderscoreCase}}{{#sed}}s/append(.*)Text/$1/,{{{methodName}}}{{/sed}}{{/camelToUnderscoreCase}}{{/upperCase}})
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder

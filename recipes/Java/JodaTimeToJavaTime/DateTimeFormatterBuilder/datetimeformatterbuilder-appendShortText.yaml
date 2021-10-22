@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendshorttext
+version: 10
+metadata:
+  name: appendShortText is different in java.time
+  shortDescription: appendShortText is different in java.time
+  level: warning
+  language: java
+  enabled: true
+search:
+  methodcall:
+    name: appendShortText
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Rewrite to appendText(field, TextStyle.SHORT)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.appendText({{{ arguments }}}, java.time.format.TextStyle.SHORT)'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder

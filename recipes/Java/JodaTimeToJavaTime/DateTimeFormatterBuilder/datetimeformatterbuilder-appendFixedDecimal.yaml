@@ -16,3 +16,5 @@ availableFixes:
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.appendValue({{{ arguments }}})'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder

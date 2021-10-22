@@ -44,6 +44,10 @@ public class DateTimeFormatterBuilderExamples {
         boolean canBuildFormatter = dtfb.canBuildFormatter();
         boolean canBuildPrinter = dtfb.canBuildPrinter();
         boolean canBuildParser = dtfb.canBuildParser();
+
+        // look in Joda Source Code to help understand the mappings used
+        // https://github.com/JodaOrg/joda-time/blob/master/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+
         DateTimeFormatterBuilder appendOptional = dtfb.appendOptional(datetimeparserArg);
         DateTimeFormatterBuilder appendLiteral = dtfb.appendLiteral(stringArg);
         DateTimeFormatterBuilder appendLiteral1 = dtfb.appendLiteral(charArg);

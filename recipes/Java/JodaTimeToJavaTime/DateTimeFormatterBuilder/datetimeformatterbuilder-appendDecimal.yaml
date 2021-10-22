@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendDecimal
+version: 10
+metadata:
+  name: Convert appendDecimal to appendValue
+  shortDescription: Convert appendDecimal to appendValue
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 3
+    name: appendDecimal
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Rewrite appendDecimal to appendValue
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.appendValue({{{ arguments }}}, java.time.format.SignStyle.NORMAL)'

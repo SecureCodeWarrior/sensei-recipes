@@ -1,0 +1,21 @@
+id: scw:java.time:Java-Time:datetimeformatterbuilder-appendtimezoneid
+version: 10
+metadata:
+  name: appendTimeZoneId is now appendZoneId
+  shortDescription: appendTimeZoneId is now appendZoneId
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: appendTimeZoneId
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Rewrite to appendZoneId()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.appendZoneId()'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder

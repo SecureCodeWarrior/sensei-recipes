@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-toparser-toprinter
+version: 10
+metadata:
+  name: DateTimeFormatterBuilder Joda-Time toParser/toPrinter is obsolete in java.time
+  shortDescription: DateTimeFormatterBuilder Joda-Time toParser/toPrinter is obsolete in java.time
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: toPrinter
+    - name: toParser
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Replace Joda-Time toPrinter/toParser with toFormatter()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.toFormatter()'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatter

@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendfixedsigneddecimal
+version: 10
+metadata:
+  name: Rewrite appendFixedSignedDecimal to appendValue
+  shortDescription: Rewrite appendFixedSignedDecimal to appendValue
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeFormatter/descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 2
+    name: appendFixedSignedDecimal
+availableFixes:
+- name: Rewrite to appendValue(field, width)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.appendValue({{{ arguments.0 }}},{{{ arguments.1 }}}, {{{ arguments.1 }}}, java.time.format.SignStyle.ALWAYS)'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder
