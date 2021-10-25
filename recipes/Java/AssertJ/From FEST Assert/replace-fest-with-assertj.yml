@@ -1,4 +1,4 @@
-id: Use_AssertJ_rather_than_FEST_assertions
+id: scw:assertj:replace-fest-with-assertj
 version: 10
 metadata:
   name: Use AssertJ rather than FEST assertions
