@@ -1,4 +1,4 @@
-id: Use_AssertJ_s_isEqualTo
+id: scw:assertj:junit-assert-equals
 version: 10
 metadata:
   name: Use AssertJ's isEqualTo()

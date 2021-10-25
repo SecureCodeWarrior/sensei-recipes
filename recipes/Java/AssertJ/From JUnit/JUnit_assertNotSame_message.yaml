@@ -1,4 +1,4 @@
-id: Use_AssertJ_s_isNotSameAs_with_message
+id: scw:assertj:junit-assert-not-same-message
 version: 10
 metadata:
   name: Use AssertJ's isNotSameAs() (with message)

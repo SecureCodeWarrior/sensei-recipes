@@ -1,4 +1,4 @@
-id: Use_AssertJ_s_assertFalse
+id: scw:assertj:junit-assert-false
 version: 10
 metadata:
   name: Use AssertJ's isFalse()
