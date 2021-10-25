@@ -16,9 +16,9 @@ search:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite using java.time ZonedDateTime
+- name: Rewrite using java.time atStartOfDay
   actions:
   - rewrite:
-      to: java.time.LocalDate.now().atStartOfDay(ZoneId.systemDefault())
+      to: '{{{ qualifier }}}.toLocalDate().atStartOfDay(java.time.ZoneId.systemDefault())'
   - modifyAssignedVariable:
-      type: ZonedDateTime
+      type: '{{{ qualifier.type }}}'
