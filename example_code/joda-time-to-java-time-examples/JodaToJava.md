@@ -10,75 +10,78 @@ The java.time library contains many of the lessons learned from Joda-Time, inclu
 ## Converting types
 ### Classes not including a time-zone:
 
-Joda-Time	java.time	Notes
-LocalDate	LocalDate	Same concept - date without time or time-zone
-YearMonthDayLocalDate	Same concept - date without time or time-zone
-LocalTime	LocalTime	Same concept - time without date or time-zone
-TimeOfDay   LocalTime	Same concept - time without date or time-zone
-LocalDateTime	LocalDateTime	Same concept - date and time without time-zone
-MonthDay	MonthDay	Same concept - month and day without time-zone
-YearMonth	YearMonth	Same concept - year and month without time-zone
-- Year	New concept - a value type for the year
-- Month	New concept - an enum for the month-of-year
-- DayOfWeek	New concept - an enum for the day-of-week
-     Partial	-	Not included in java.time
+| Joda-Time     | java.time     | Notes 
+|---------------|---------------|---------------------------------------------
+| LocalDate     | LocalDate     | Same concept - date without time or time-zone
+| YearMonthDay  | LocalDate     | Same concept - date without time or time-zone
+| LocalTime     | LocalTime     | Same concept - time without date or time-zone
+| TimeOfDay     | LocalTime     | Same concept - time without date or time-zonee
+| LocalDateTime | LocalDateTime | Same concept - date and time without time-zone
+| MonthDay      | MonthDay      | Same concept - month and day without time-zone
+| YearMonth     | YearMonth     | Same concept - year and month without time-zone
+|               | Year          | New concept - a value type for the year
+|               | Month         | New concept - an enum for the month-of-year
+|               | DayOfWeek     | New concept - an enum for the day-of-week
+| Partial       |               | Not included in java.time
 
 ### Classes including a time-zone or representing an instant:
 
-Joda-Time	java.time	Notes
-DateTime	ZonedDateTime	Same concept - Date and time with time-zone
-OffsetDateTime	New concept - Date and time with offset from Greenwich/UTC
-MutableDateTime	-	Not included in java.time, use immutable ZonedDateTime instead
-DateMidnight	-	Deprecated as a bad idea in Joda-Time, Use LocalDate or ZonedDateTime
-- OffsetTime	New concept - Time with offset from Greenwich/UTC
-     Instant	Instant	Same concept - Instantaneous point on timeline
-     DateTimeZone	ZoneId	Same concept - Identifier for a time-zone, such as Europe/Paris
-     ZoneOffset	New concept - An offset from Greenwich/UTC, such as +02:00
+| Joda-Time         | java.time         | Notes
+|-------------------|-------------------|--------------
+| DateTime          | ZonedDateTime     | Same concept - Date and time with time-zone
+| DateTime          | OffsetDateTime    | New concept - Date and time with offset from Greenwich/UTC
+| MutableDateTime   |                   | Not included in java.time, use immutable ZonedDateTime instead
+| DateMidnight      |                   | Deprecated as a bad idea in Joda-Time, Use LocalDate or ZonedDateTime
+|                   | OffsetTime        | New concept - Time with offset from Greenwich/UTC
+| Instant           | Instant           | Same concept - Instantaneous point on timeline
+| DateTimeZone      | ZoneId            | Same concept - Identifier for a time-zone, such as Europe/Paris
+| DateTimeZone      | ZoneOffset        | New concept - An offset from Greenwich/UTC, such as +02:00
      
 
 ### Amounts of time:
 
-Joda-Time	java.time	Notes
-Duration	Duration	Same concept - Amount of time, based on fractional seconds
-Period	Period and/or Duration	Similar concept - Amount of time
-Joda-Time Period includes years to milliseconds, java.time only year/month/day (see also (ThreeTen-Extra PeriodDuration)
-MutablePeriod	-	Not included in java.time, use immutable Period or Duration instead
-Years	-	Not included in java.time, use Period instead (or ThreeTen-Extra)
-Months
-Weeks
-Days
-Hours	-	Not included in java.time, use Duration instead (or ThreeTen-Extra)
-Minutes
-Seconds
-Interval	-	Not included in java.time (see ThreeTen-Extra)
-MutableInterval	-	Not included in java.time
+| Joda-Time         | java.time              | Notes
+|-------------------|------------------------|----------------------
+| Duration          | Duration               | Same concept - Amount of time, based on fractional seconds
+| Period            | Period and/or Duration | Similar concept - Amount of timeJoda-Time Period includes years to milliseconds, java.time only year/month/day (see also (ThreeTen-Extra PeriodDuration)
+| MutablePeriod     |                        | Not included in java.time, use immutable Period or Duration instead
+| Years             |                        | Not included in java.time, use Period instead (or ThreeTen-Extra)
+| Months            |                        | Not included in java.time, use Period instead (or ThreeTen-Extra)
+| Weeks             |                        | Not included in java.time, use Period instead (or ThreeTen-Extra)
+| Days              |                        | Not included in java.time, use Period instead (or ThreeTen-Extra)
+| Hours             |                        | Not included in java.time, use Duration instead (or ThreeTen-Extra)
+| Minutes           |                        | Not included in java.time, use Duration instead (or ThreeTen-Extra)
+| Seconds           |                        | Not included in java.time, use Duration instead (or ThreeTen-Extra)
+| Interval          |                        | Not included in java.time (see ThreeTen-Extra)
+| MutableInterval   |                        | Not included in java.time
 
 ### Formatting:
 
-Joda-Time	java.time	Notes
-DateTimeFormatter	DateTimeFormatter	Same concept - an immutable formatter
-DateTimeFormatterBuilder	DateTimeFormatterBuilder	Same concept - a builder of the formatter
-DateTimeFormat	DateTimeFormatter	Concepts exposed as static methods on DateTimeFormatter
-ISODateTimeFormat
-PeriodFormatter	-	Not included in java.time (see ThreeTen-Extra for limited support)
-PeriodFormatterBuilder
-PeriodFormat
-ISOPeriodFormat
+| Joda-Time                 | java.time                 | Notes
+|---------------------------|---------------------------|---------------------------
+| DateTimeFormatter         | DateTimeFormatter         | Same concept - an immutable formatter
+| DateTimeFormatterBuilder  | DateTimeFormatterBuilder  | Same concept - a builder of the formatter
+| DateTimeFormat            | DateTimeFormatter         | Concepts exposed as static methods on DateTimeFormatter
+| ISODateTimeFormat         | DateTimeFormatter         | Concepts exposed as static methods on DateTimeFormatter
+| PeriodFormatter           |                           | Not included in java.time (see ThreeTen-Extra for limited support)
+| PeriodFormatterBuilder    |                           | Not included in java.time (see ThreeTen-Extra for limited support)
+| PeriodFormat              |                           | Not included in java.time (see ThreeTen-Extra for limited support)
+| ISOPeriodFormat           |                           | Not included in java.time (see ThreeTen-Extra for limited support)
 
 ### Other classes and interfaces:
 
-Joda-Time	java.time	Notes
-- Clock	New concept - Standard way to pass around the current time
-     Chronology	Chronology	Similar concept - Very different API and implementation
-     ISOChronology	IsoChronology	Similar concept - Very different API and implementation
-     DateTimeFieldType	ChronoField	Similar concept - Very different API and implementation
-     DateTimeField
-     DurationFieldType	ChronoUnit	Similar concept - Very different API and implementation
-     DurationField
-     PeriodType	-	Not included in java.time
-     Readable*	Temporal*	The Readable* interfaces are most closely replaced by the Temporal* interfaces
-     It is strongly recommended to use the value types, not the temporal interfaces
-     
+| Joda-Time             | java.time         | Notes
+|-----------------------|-------------------|-------------------------------
+| Clock                 |                   | New concept - Standard way to pass around the current time
+| Chronology            | Chronology        | Similar concept - Very different API and implementation
+| ISOChronology         | IsoChronology     | Similar concept - Very different API and implementation
+| DateTimeFieldType     | ChronoField       | Similar concept - Very different API and implementation
+| DateTimeField         | ChronoField       | Similar concept - Very different API and implementation
+| DurationFieldType     | ChronoUnit        | Similar concept - Very different API and implementation
+| DurationField         | ChronoUnit        | Similar concept - Very different API and implementation
+| PeriodType            |                   | Not included in java.time
+| Readable*             | Temporal*         | The Readable* interfaces are most closely replaced by the Temporal* interfaces. It is strongly recommended to use the value types, not the temporal interfaces
+    
 ### Odds and Ends
 
 In most cases, the table above will be sufficient to identify the class to convert to. After that, in most cases the method needed will be obvious. Some special cases are noted below.
