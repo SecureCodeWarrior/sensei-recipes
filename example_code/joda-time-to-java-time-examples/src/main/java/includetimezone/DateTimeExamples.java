@@ -6,8 +6,6 @@ import org.joda.time.chrono.ISOChronology;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 public class DateTimeExamples {
@@ -32,9 +30,13 @@ public class DateTimeExamples {
         DateTime fromPartsChronology = new DateTime(2021, 1, 15,12,30, chronology);
         DateTime fromPartsDateTimeZone = new DateTime(2021, 1, 15,12,30, dateTimeZone);
 
-        DateTime fromPartsWithMillis = new DateTime(2021, 1, 15,12,30,123);
-        DateTime fromPartsChronologyWithMillis = new DateTime(2021, 1, 15,12,30,123, chronology);
-        DateTime fromPartsDateTimeZoneWithMillis = new DateTime(2021, 1, 15,12,30,123, dateTimeZone);
+        DateTime fromPartsWithSeconds = new DateTime(2021, 1, 15,12,30,45);
+        DateTime fromPartsChronologyWithSeconds = new DateTime(2021, 1, 15,12,30,45, chronology);
+        DateTime fromPartsDateTimeZoneWithSeconds = new DateTime(2021, 1, 15,12,30,45, dateTimeZone);
+
+        DateTime fromPartsWithMillis = new DateTime(2021, 1, 15,12,30,45, 123456789);
+        DateTime fromPartsChronologyWithMillis = new DateTime(2021, 1, 15,12,30,45, 123456789, chronology);
+        DateTime fromPartsDateTimeZoneWithMillis = new DateTime(2021, 1, 15,12,30,45, 123456789, dateTimeZone);
 
         DateTime fromInstant = new DateTime(longInstant);
         DateTime fromInstantChronology = new DateTime(longInstant, chronology);
