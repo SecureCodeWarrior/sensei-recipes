@@ -1,0 +1,20 @@
+id: scw:java.time:Joda-Time:datetimezone-getshortname
+version: 10
+metadata:
+  name: Convert DateTimeZone.getShortName to java.time equivalent
+  shortDescription: Convert DateTimeZone.getShortName to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetimezone.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 1
+    name: getShortName
+    type: java.time.ZoneId
+availableFixes:
+- name: Rewrite to Instant.ofEpochMilli(long).atZone(zoneId).format()
+  actions:
+  - rewrite:
+      to: java.time.Instant.ofEpochMilli({{{ arguments.0 }}}).atZone({{{ qualifier }}}).format(java.time.format.DateTimeFormatter.ofPattern("z"));

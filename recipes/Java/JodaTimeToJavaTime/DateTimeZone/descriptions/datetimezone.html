@@ -1,0 +1,35 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DateTimeZone to Java Time</p>
+<br>
+<p>Joda-Time DateTimeZone migrates to java.time ZoneId or ZoneOffset.</p>
+<p>ZoneId is the same concept, an identifier of a time-zone.</p>
+<p>ZoneOffset is a new concept, an offset from UTC.</p>
+<br>
+<b>Before</b>
+<pre>
+    org.joda.time.DateTimeZone forID = DateTimeZone.forID(zoneId);
+    org.joda.time.DateTimeZone forOffsetHours = DateTimeZone.forOffsetHours(offsetHours);
+</pre>
+<b>After</b>
+<pre>
+    ZoneId forID = ZoneId.of(zoneId);
+    ZoneOffset forOffsetHours = ZoneOffset.ofHours(offsetHours);
+</pre>
+<br>
+<p>Note: the recipes for getName and getShortName do not map exactly to the ZoneId.getName method, this is deliberate.
+    The Joda-Time getName and getShortName methods will return different names depending on whether the long
+    argument(which represents an instant in time) is in daylight savings time or not.<br>
+    In java.time, the ZoneId getName method does not respect daylight savings time changes.
+    In order to follow this original behaviour, we need to create a ZonedDateTime and format it using a
+    DateTimeFormatter, this is what the recipes have been designed to do.</p>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html">ZoneId (Java Platform SE 8 )</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneOffset.html">ZoneOffset (Java Platform SE 8 )</a></li>
+    <li><a href="https://www.joda.org/joda-time/apidocs/org/joda/time/DateTimeZone.html">DateTimeZone (Joda-Time)</a></li>
+</ul>
+</body>
+</html>

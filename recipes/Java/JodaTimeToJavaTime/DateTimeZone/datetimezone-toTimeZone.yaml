@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetimezone-toTimeZone
+version: 10
+metadata:
+  name: Convert toTimeZone to TimeZone.getTimeZone(ZoneId)
+  shortDescription: Convert toTimeZone to TimeZone.getTimeZone(ZoneId)
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetimezone.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: toTimeZone
+    type: java.time.ZoneId
+availableFixes:
+- name: Rewrite as TimeZone.getTimeZone(ZoneId)
+  actions:
+  - rewrite:
+      to: java.util.TimeZone.getTimeZone({{{ qualifier }}})

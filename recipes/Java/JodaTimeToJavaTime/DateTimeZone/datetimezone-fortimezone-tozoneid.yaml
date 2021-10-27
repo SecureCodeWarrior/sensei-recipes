@@ -1,0 +1,30 @@
+id: scw:java.time:Joda-Time:DateTimeZone_forTimeZone
+version: 10
+metadata:
+  name: Convert DateTimeZone.forTimeZone to ZoneId.forID
+  shortDescription: Convert DateTimeZone.forTimeZone to ZoneId.forID
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.util.TimeZone
+    name: forTimeZone
+    type: org.joda.time.DateTimeZone
+availableFixes:
+- name: Convert to TimeZone.toZoneId()
+  actions:
+  - rewrite:
+      to: '{{{ arguments }}}.toZoneId()'
+  - modifyAssignedVariable:
+      type: java.time.ZoneId
+- name: Convert to ZoneOffset.of().getID()
+  actions:
+  - rewrite:
+      to: ZoneOffset.of({{{ arguments}}}.getID())
+  - modifyAssignedVariable:
+      type: java.time.ZoneOffset

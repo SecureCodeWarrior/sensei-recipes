@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetimezone-getavailableIds
+version: 10
+metadata:
+  name: Convert DateTimeZone.getAvailableIds to java.time equivalent
+  shortDescription: Convert DateTimeZone.getAvailableIds to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetimezone.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: getAvailableIDs
+    type: org.joda.time.DateTimeZone
+availableFixes:
+- name: Rewrite to ZoneId.getAvailableZoneIds()
+  actions:
+  - rewrite:
+      to: java.time.ZoneId.getAvailableZoneIds()

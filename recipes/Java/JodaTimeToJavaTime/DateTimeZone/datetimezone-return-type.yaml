@@ -1,0 +1,18 @@
+id: scw:java.time:Joda-Time:datetimezone_return-type
+version: 10
+metadata:
+  name: Migrate DateTimeZone return type to java.time
+  shortDescription: Migrate DateTimeZone return type to java.time
+  level: warning
+  language: java; kotlin
+  enabled: true
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  method:
+    returnType: org.joda.time.DateTimeZone
+availableFixes:
+- name: Change return type
+  actions:
+  - changeType:
+      type: java.time.ZoneId
