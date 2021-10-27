@@ -1,0 +1,33 @@
+id: scw:assertj:remove-fest-assertion
+version: 10
+metadata:
+  name: FEST Assertion method removed in AssertJ
+  shortDescription: FEST Assertion method removed in AssertJ
+  level: warning
+  language: java
+  enabled: true
+  comment: After migrating to AssertJ, the class org.fest.assertions.core.ObjectEnumerableAssert is replaced by org.assertj.core.api.ObjectEnumerableAssert, but the AssertJ version does not implement certain methods.
+  tags: AssertJ
+search:
+  methodcall:
+    anyOf:
+    - name: areNotAtLeast
+    - name: areNotAtMost
+    - name: areNotExactly
+    - name: haveNotAtLeast
+    - name: haveNotAtMost
+    - name: haveNotExactly
+    - name: doNotHaveAtLeast
+    - name: doNotHaveAtMost
+    - name: doNotHaveExactly
+    type:
+      reference:
+        matches: org\.fest\.assertions\.core\.ObjectEnumerableAssert<.*>|org\.assertj\.core\.api\.ObjectEnumerableAssert<.*>
+      checkInheritance: true
+availableFixes:
+- name: Comment out with TODO
+  actions:
+  - rewrite:
+      to: |-
+        // TODO (migrate to AssertJ):
+        /* {{{ . }}} */

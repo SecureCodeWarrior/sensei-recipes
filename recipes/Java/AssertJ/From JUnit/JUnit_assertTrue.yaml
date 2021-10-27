@@ -1,4 +1,4 @@
-id: Use_AssertJ_s_assertTrue
+id: scw:assertj:junit-assert-true
 version: 10
 metadata:
   name: Use AssertJ's isTrue()

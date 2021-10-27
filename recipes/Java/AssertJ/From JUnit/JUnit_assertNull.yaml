@@ -1,4 +1,4 @@
-id: Use_AssertJ_s_assertNull
+id: scw:assertj:junit-assert-null
 version: 10
 metadata:
   name: Use AssertJ's isNull()

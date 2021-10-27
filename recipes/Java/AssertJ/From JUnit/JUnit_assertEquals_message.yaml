@@ -1,4 +1,4 @@
-id: Use_AssertJ_s_isEqualTo_with_message
+id: scw:assertj:junit-assert-equals-message
 version: 10
 metadata:
   name: Use AssertJ's isEqualTo() (with message)

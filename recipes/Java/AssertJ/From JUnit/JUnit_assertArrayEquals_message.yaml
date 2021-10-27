@@ -1,4 +1,4 @@
-id: Use_AssertJ_s_isEqualTo_instead_of_assertArrayEquals_with_message
+id: scw:assertj:junit-assert-array-equals-message
 version: 10
 metadata:
   name: Use AssertJ's isEqualTo() instead of assertArrayEquals (with message)

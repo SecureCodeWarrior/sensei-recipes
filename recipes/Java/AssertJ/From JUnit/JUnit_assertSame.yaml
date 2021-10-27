@@ -1,4 +1,4 @@
-id: Use_AssertJ_s_isSameAs
+id: scw:assertj:junit-assert-same
 version: 10
 metadata:
   name: Use AssertJ's isSameAs()
