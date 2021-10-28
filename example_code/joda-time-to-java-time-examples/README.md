@@ -34,7 +34,7 @@ For example, org.joda.time.DateTimeZone, Chronology, DateTimeField
 ## Migration Limitations
 
 Whilst these recipes are designed to assist in many common use-cases of Joda-Time, it is still recommended that you gain
-a full understanding of the new api and it's differences from Joda-Time. 
+a full understanding of the new api and its differences from Joda-Time. 
 
 ### Recommended Reading
 
@@ -43,9 +43,10 @@ a full understanding of the new api and it's differences from Joda-Time.
   * Includes [links to various articles videos][4] 
 * From Stephen Colebourne:
   * [Intuitive, Robust Date and Time Handling, Finally Comes to Java][2]
-  * [Coverting from Joda-Time to Java-time][1]
+  * [Converting from Joda-Time to Java-time][1]
 
-The following table was extracted from one of the articles above. This is useful explanation of the method prefixes used within the api, and their corresponding
+The following table was extracted from one of the [Intuitive, Robust Date and Time Handling, Finally Comes to Java][2] 
+article. This is useful explanation of the method prefixes used within the api, and their corresponding
 description:
 
 | Prefix    | Description
