@@ -15,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DateTimeZoneExamplesTest {
 
-    @Test
     /*
         This is just a test to verify that the migration recipes for DateTimeZone.getName and DateTimeZone.getShortName
         are going to be good enough. There are a few exceptions but these are most likely just because of different
         Time Zone provider details. Conceptually this test should prove the recipe is the best approximation.
      */
+    @Test
     public void test_equivalent_names() {
 
         LocalDateTime summer = LocalDateTime.of(2021, 1, 1, 5, 5, 5, 0);
