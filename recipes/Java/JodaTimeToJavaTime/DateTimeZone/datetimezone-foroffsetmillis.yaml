@@ -16,9 +16,15 @@ search:
     name: forOffsetMillis
     type: org.joda.time.DateTimeZone
 availableFixes:
-- name: 'Convert to ZoneOffset.ofTotalSeconds (Note: Loss of precision)'
+- name: 'Convert to ZoneOffset.ofTotalSeconds Java 9+ (Note: Loss of precision)'
   actions:
   - rewrite:
-      to: java.time.ZoneOffset.ofTotalSeconds({{{ arguments }}} / 1000)
+      to: java.time.ZoneOffset.ofTotalSeconds((int)java.time.Duration.ofMillis({{{ arguments }}}).toSeconds())
+  - modifyAssignedVariable:
+      type: java.time.ZoneOffset
+- name: 'Convert to ZoneOffset.ofTotalSeconds Java 8 (Note: Loss of precision)'
+  actions:
+  - rewrite:
+      to: java.time.ZoneOffset.ofTotalSeconds((int)java.time.Duration.ofMillis({{{ arguments }}}).getSeconds())
   - modifyAssignedVariable:
       type: java.time.ZoneOffset
