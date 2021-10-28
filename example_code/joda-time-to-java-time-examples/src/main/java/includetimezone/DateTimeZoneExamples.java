@@ -27,7 +27,7 @@ public class DateTimeZoneExamples {
 
         org.joda.time.DateTimeZone forID = DateTimeZone.forID(zoneId);
         org.joda.time.DateTimeZone forOffsetHours = DateTimeZone.forOffsetHours(offsetHours);
-        org.joda.time.DateTimeZone forOffsetHoursMinutes = DateTimeZone.forOffsetHoursMinutes(offsetHours,offsetMinutes);
+        org.joda.time.DateTimeZone forOffsetHoursMinutes = DateTimeZone.forOffsetHoursMinutes(offsetHours, offsetMinutes);
         org.joda.time.DateTimeZone forOffsetMillis = DateTimeZone.forOffsetMillis(offsetMillis);
         org.joda.time.DateTimeZone forTimeZone = DateTimeZone.forTimeZone(timeZone);
         java.util.Set<String> getAvailableIDs = DateTimeZone.getAvailableIDs();
@@ -49,8 +49,6 @@ public class DateTimeZoneExamples {
         // Use without assignment
         DateTimeZone.UTC.equals(DateTimeZone.UTC);
 
-
-        // I think this is out of scope
         java.lang.String myDEFAULT_TZ_DATA_PATH = DateTimeZone.DEFAULT_TZ_DATA_PATH;
 
     }
@@ -64,37 +62,30 @@ public class DateTimeZoneExamples {
         LocalDateTime localdatetimeArg = LocalDateTime.now();
         ReadableInstant readableinstantArg = DateTime.now();
 
-        // No equivalent?
-        java.lang.String getNameKey = testDateTimeZone.getNameKey(longArg);
-
-        java.lang.String getShortName = testDateTimeZone.getShortName(longArg,localeArg);
+        java.util.TimeZone toTimeZone = testDateTimeZone.toTimeZone();
+        java.lang.String getID = testDateTimeZone.getID();
+        java.lang.String getName = testDateTimeZone.getName(longArg, localeArg);
+        java.lang.String getName2 = testDateTimeZone.getName(longArg);
+        java.lang.String getShortName = testDateTimeZone.getShortName(longArg, localeArg);
         java.lang.String getShortName2 = testDateTimeZone.getShortName(longArg);
 
-        // Not Sure
+        // No recipes for these yet. Further investigation needed
+        java.lang.String getNameKey = testDateTimeZone.getNameKey(longArg);
         int getStandardOffset = testDateTimeZone.getStandardOffset(longArg);
         boolean isStandardOffset = testDateTimeZone.isStandardOffset(longArg);
-
-        // Not sure
         int getOffsetFromLocal = testDateTimeZone.getOffsetFromLocal(longArg);
         long convertUTCToLocal = testDateTimeZone.convertUTCToLocal(longArg);
-        long convertLocalToUTC = testDateTimeZone.convertLocalToUTC(longArg,booleanArg);
-        long convertLocalToUTC2 = testDateTimeZone.convertLocalToUTC(longArg,booleanArg,longArg);
-        long getMillisKeepLocal = testDateTimeZone.getMillisKeepLocal(datetimezoneArg,longArg);
+        long convertLocalToUTC = testDateTimeZone.convertLocalToUTC(longArg, booleanArg);
+        long convertLocalToUTC2 = testDateTimeZone.convertLocalToUTC(longArg, booleanArg, longArg);
+        long getMillisKeepLocal = testDateTimeZone.getMillisKeepLocal(datetimezoneArg, longArg);
         boolean isLocalDateTimeGap = testDateTimeZone.isLocalDateTimeGap(localdatetimeArg);
-        long adjustOffset = testDateTimeZone.adjustOffset(longArg,booleanArg);
+        long adjustOffset = testDateTimeZone.adjustOffset(longArg, booleanArg);
         boolean isFixed = testDateTimeZone.isFixed();
         long nextTransition = testDateTimeZone.nextTransition(longArg);
         long previousTransition = testDateTimeZone.previousTransition(longArg);
-
-
-        java.util.TimeZone toTimeZone = testDateTimeZone.toTimeZone();
-        java.lang.String getID = testDateTimeZone.getID();
-        java.lang.String getName = testDateTimeZone.getName(longArg,localeArg);
-        java.lang.String getName2 = testDateTimeZone.getName(longArg);
-
-        // Not Sure
         int getOffset = testDateTimeZone.getOffset(readableinstantArg);
         int getOffset2 = testDateTimeZone.getOffset(longArg);
+
 
     }
 

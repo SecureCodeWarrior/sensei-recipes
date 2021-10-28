@@ -23,14 +23,14 @@ public class DateTimeZoneExamplesTest {
      */
     public void test_equivalent_names() {
 
-        LocalDateTime summer = LocalDateTime.of(2021,1,1,5,5,5,0);
-        LocalDateTime winter = LocalDateTime.of(2021,6,1,5,5,5,0);
+        LocalDateTime summer = LocalDateTime.of(2021, 1, 1, 5, 5, 5, 0);
+        LocalDateTime winter = LocalDateTime.of(2021, 6, 1, 5, 5, 5, 0);
 
         // Add a list of known exceptions.
         Map<String, String> knownExceptions = new HashMap<>();
-        knownExceptions.put("America/Godthab","Western Greenland Time vs West Greenland Standard Time");
-        knownExceptions.put("Pacific/Johnston","Hawaii Standard Time vs Hawaii-Aleutian Standard Time");
-        knownExceptions.put("America/Santa_Isabel","GMT-08:00 vs PST");
+        knownExceptions.put("America/Godthab", "Western Greenland Time vs West Greenland Standard Time");
+        knownExceptions.put("Pacific/Johnston", "Hawaii Standard Time vs Hawaii-Aleutian Standard Time");
+        knownExceptions.put("America/Santa_Isabel", "GMT-08:00 vs PST");
 
         for (String testId : ZoneId.getAvailableZoneIds()) {
 
@@ -74,8 +74,7 @@ public class DateTimeZoneExamplesTest {
         Instant instant = localDateTime.atZone(zoneId).toInstant();
         long epochMilli = instant.toEpochMilli();
 
-        //
-        String nameDateTimeZone =  dateTimeZone.getShortName(instant.toEpochMilli());
+        String nameDateTimeZone = dateTimeZone.getShortName(instant.toEpochMilli());
         String nameZoneId = Instant.ofEpochMilli(epochMilli).atZone(zoneId).format(DateTimeFormatter.ofPattern("z"));
 
         assertEquals(nameDateTimeZone, nameZoneId);
@@ -89,7 +88,7 @@ public class DateTimeZoneExamplesTest {
 
         Instant instant = localDateTime.atZone(zoneId).toInstant();
 
-        String nameDateTimeZone =  dateTimeZone.getName(instant.toEpochMilli());
+        String nameDateTimeZone = dateTimeZone.getName(instant.toEpochMilli());
         String nameZoneId = instant.atZone(zoneId).format(DateTimeFormatter.ofPattern("zzzz"));
 
         assertEquals(nameDateTimeZone, nameZoneId);
@@ -103,8 +102,8 @@ public class DateTimeZoneExamplesTest {
 
         Instant instant = localDateTime.atZone(zoneId).toInstant();
 
-        String nameDateTimeZone =  dateTimeZone.getShortName(instant.toEpochMilli(), locale);
-        String nameZoneId = instant.atZone(zoneId).format(DateTimeFormatter.ofPattern("z",locale));
+        String nameDateTimeZone = dateTimeZone.getShortName(instant.toEpochMilli(), locale);
+        String nameZoneId = instant.atZone(zoneId).format(DateTimeFormatter.ofPattern("z", locale));
 
         assertEquals(nameDateTimeZone, nameZoneId);
 
@@ -117,14 +116,11 @@ public class DateTimeZoneExamplesTest {
 
         Instant instant = localDateTime.atZone(zoneId).toInstant();
 
-        String nameDateTimeZone =  dateTimeZone.getName(instant.toEpochMilli(), locale);
-        String nameZoneId = instant.atZone(zoneId).format(DateTimeFormatter.ofPattern("zzzz",locale));
+        String nameDateTimeZone = dateTimeZone.getName(instant.toEpochMilli(), locale);
+        String nameZoneId = instant.atZone(zoneId).format(DateTimeFormatter.ofPattern("zzzz", locale));
 
         assertEquals(nameDateTimeZone, nameZoneId);
 
     }
-
-
-
 
 }
