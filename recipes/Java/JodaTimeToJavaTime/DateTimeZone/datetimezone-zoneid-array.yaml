@@ -6,6 +6,11 @@ metadata:
   level: warning
   language: java
   enabled: true
+  comment: |-
+    This recipe searches for a field that is declared as a DateTimeZone array and provides a fix to rewrite it to a java.time.ZoneId array.
+
+    This may introduce further problem markers in the IDE, as your field may reference DateTimeZone methods that do not exist on java.time.ZoneId.
+    Further sensei recipes are available to help migrate these invalid method names to java.time equivalents where possible.
   descriptionFile: descriptions/datetimezone.html
   tags: framework specific;java.time;Joda-Time;quality
 search:

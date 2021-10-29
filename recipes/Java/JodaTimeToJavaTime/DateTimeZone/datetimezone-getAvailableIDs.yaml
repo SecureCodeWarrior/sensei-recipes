@@ -6,6 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
+  comment: 'This recipe searches for the getAvailableIDs static method of DateTimeZone and provides a fix to rewrite it to the java.time equivalent: java.time.ZoneId.getAvailableZoneIds().'
   descriptionFile: descriptions/datetimezone.html
   tags: java.time;framework specific;Joda-Time;quality
 search:
