@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.LocalDateTime;
 import org.joda.time.ReadableInstant;
+import org.joda.time.tz.NameProvider;
 import org.joda.time.tz.Provider;
 
 import java.util.Locale;
@@ -25,17 +26,17 @@ public class DateTimeZoneExamples {
         int offsetMinutes = 30;
         int offsetMillis = 1234455;
 
-        org.joda.time.DateTimeZone forID = DateTimeZone.forID(zoneId);
-        org.joda.time.DateTimeZone forOffsetHours = DateTimeZone.forOffsetHours(offsetHours);
-        org.joda.time.DateTimeZone forOffsetHoursMinutes = DateTimeZone.forOffsetHoursMinutes(offsetHours, offsetMinutes);
-        org.joda.time.DateTimeZone forOffsetMillis = DateTimeZone.forOffsetMillis(offsetMillis);
-        org.joda.time.DateTimeZone forTimeZone = DateTimeZone.forTimeZone(timeZone);
+        DateTimeZone forID = DateTimeZone.forID(zoneId);
+        DateTimeZone forOffsetHours = DateTimeZone.forOffsetHours(offsetHours);
+        DateTimeZone forOffsetHoursMinutes = DateTimeZone.forOffsetHoursMinutes(offsetHours, offsetMinutes);
+        DateTimeZone forOffsetMillis = DateTimeZone.forOffsetMillis(offsetMillis);
+        DateTimeZone forTimeZone = DateTimeZone.forTimeZone(timeZone);
         java.util.Set<String> getAvailableIDs = DateTimeZone.getAvailableIDs();
 
         // Not sure if these have equivalents
-        org.joda.time.tz.NameProvider nameProvider = DateTimeZone.getNameProvider();
+        NameProvider nameProvider = DateTimeZone.getNameProvider();
         DateTimeZone.setNameProvider(nameProvider);
-        org.joda.time.tz.Provider provider = DateTimeZone.getProvider();
+        Provider provider = DateTimeZone.getProvider();
         DateTimeZone.setProvider(provider);
 
         org.joda.time.DateTimeZone getDefault = DateTimeZone.getDefault();
