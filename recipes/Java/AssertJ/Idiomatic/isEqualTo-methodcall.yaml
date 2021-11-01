@@ -1,0 +1,35 @@
+id: scw:assertj:idiomatic:isEqualTo-expression
+version: 10
+metadata:
+  name: Use isEqualTo instead of equals
+  shortDescription: Use isEqualTo instead of equals
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          is:
+            methodcall:
+              args:
+                1:
+                  label: "y"
+              name: equals
+              "on":
+                reference:
+                  label: x
+    followedBy:
+      methodcall:
+        name: isTrue
+        label: isTrueMethodCall
+    name: assertThat
+    type: org.assertj.core.api.Assertions
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - rewrite:
+      to: assertThat({{{ qualifier.arguments.0.qualifier }}}).isEqualTo({{{ qualifier.arguments.0.arguments }}})
+      target: followByElement

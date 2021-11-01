@@ -1,0 +1,44 @@
+id: scw:assertj:idiomatic:isEqualTo-operator
+version: 10
+metadata:
+  name: Use isEqualTo instead of ==
+  shortDescription: Use isEqualTo instead of ==
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          is:
+            comparison:
+              first:
+                expression:
+                  label: x
+              operator: ==
+              second:
+                expression:
+                  label: "y"
+    name: assertThat
+    anyOf:
+    - followedBy:
+        methodcall:
+          followedBy:
+            methodcall:
+              name: isTrue
+              label: isTrueMethodCall
+          name:
+            matches: (as|describedAs)
+    - followedBy:
+        methodcall:
+          name: isTrue
+          label: isTrueMethodCall
+    type: org.assertj.core.api.Assertions
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - rewrite:
+      to: assertThat({{{ qualifier.arguments.0.leftOperand }}}).isEqualTo({{{ qualifier.arguments.0.rightOperand }}})
+      target: followByElement
