@@ -21,50 +21,66 @@ class UnidiomaticAssertJ {
 
         assertThat(collection.size()).isEqualTo(1); // to assertThat(collection).hasSize(1)
         assertThat(collection.size()).as("hasSize 1").isEqualTo(1); // to assertThat(collection).as("hasSize 1").hasSize(1)
-        assertThat(collection.size()).describedAs("hasSize 1").isEqualTo(1); // to assertThat(collection).as("hasSize 1").hasSize(1)
+        assertThat(collection.size()).describedAs("hasSize 1").isEqualTo(1); // to assertThat(collection).describedAs("hasSize 1").hasSize(1)
 
         assertThat(collection.size()).isEqualTo(0); // to assertThat(collection).isEmpty()
         assertThat(collection.size()).as("isEmpty").isEqualTo(0); // to assertThat(collection).as("isEmpty").isEmpty()
+        assertThat(collection.size()).describedAs("isEmpty").isEqualTo(0); // to assertThat(collection).describedAs("isEmpty").isEmpty()
 
         assertThat(collection1.size()).isEqualTo(collection2.size()); // to assertThat(collection1).hasSameSizeAs(collection2)
         assertThat(collection1.size()).as("hasSameSizeAs").isEqualTo(collection2.size()); // to assertThat(collection1).as("hasSameSizeAs").hasSameSizeAs(collection2)
+        assertThat(collection1.size()).describedAs("hasSameSizeAs").isEqualTo(collection2.size()); // to assertThat(collection1).as("hasSameSizeAs").hasSameSizeAs(collection2)
 
-        // assertThat(variable).as("").isEqualTo("something"); // to assertThat(variable).isEqualTo(something)
-        // Maybe: having a quickfix that drops assertion description (not just because the message is empty)
-
+        assertThat(variable).as("").isEqualTo("something"); // to assertThat(variable).isEqualTo(something)
+        assertThat(variable).describedAs("").isEqualTo("something"); // to assertThat(variable).isEqualTo(something)
 
         assertThat(variable).isEqualTo(null); // to assertThat(variable).isNull()
         assertThat(variable).as("description").isEqualTo(null); // to assertThat(variable).as("description").isNull()
+        assertThat(variable).describedAs("description").isEqualTo(null); // to assertThat(variable).describedAs("description").isNull()
 
         assertThat(variable).isNotEqualTo(null); // to assertThat(collection).isNotNull()
-        assertThat(variable).as("description").isNotEqualTo(null); // to assertThat(collection).isNotNull()
+        assertThat(variable).as("description").isNotEqualTo(null); // to assertThat(collection).as("description").isNotNull()
+        assertThat(variable).describedAs("description").isNotEqualTo(null); // to assertThat(collection).describedAs("description").isNotNull()
 
         assertThat(a).isEqualTo(true); // to assertThat(a).isTrue()
+        assertThat(a).as("description").isEqualTo(true); // to assertThat(a).as("message").isTrue()
+        assertThat(a).describedAs("description").isEqualTo(true); // to assertThat(a).describedAs("message").isTrue()
 
         assertThat(a).isEqualTo(false); // to assertThat(a).isFalse()
+        assertThat(a).as("description").isEqualTo(false); // to assertThat(a).as("description").isFalse()
+        assertThat(a).describedAs("description").isEqualTo(false); // to assertThat(a).describedAs("description").isFalse()
 
         assertThat(x == y).isTrue(); // to assertThat(x).isEqualTo(y) ?
         assertThat(x == y).as("description").isTrue(); // to assertThat(x).as("description").isEqualTo(y) ?
+        assertThat(x == y).describedAs("description").isTrue(); // to assertThat(x).describedAs("description").isEqualTo(y) ?
         assertThat(x.equals(y)).isTrue(); // to assertThat(x).isEqualTo(y) ?
         assertThat(x.equals(y)).as("description").isTrue(); // to assertThat(x).as("description").isEqualTo(y) ?
+        assertThat(x.equals(y)).describedAs("description").isTrue(); // to assertThat(x).describedAs("description").isEqualTo(y) ?
 
         assertThat(x == y).isFalse(); // to assertThat(x).isNotEqualTo(y) ?
         assertThat(x == y).as("description").isFalse(); // to assertThat(x).as("description").isNotEqualTo(y) ?
+        assertThat(x == y).describedAs("description").isFalse(); // to assertThat(x).describedAs("description").isNotEqualTo(y) ?
         assertThat(x.equals(y)).isFalse(); // to assertThat(x).isNotEqualTo(y) ?
         assertThat(x.equals(y)).as("description").isFalse(); // to assertThat(x).as("description").isNotEqualTo(y) ?
+        assertThat(x.equals(y)).describedAs("description").isFalse(); // to assertThat(x).describedAs("description").isNotEqualTo(y) ?
 
         assertThat(x != y).isTrue(); // to assertThat(x).isNotEqualTo(y) ?
         assertThat(x != y).as("description").isTrue(); // to assertThat(x).as("description").isNotEqualTo(y) ?
+        assertThat(x != y).describedAs("description").isTrue(); // to assertThat(x).describedAs("description").isNotEqualTo(y) ?
         assertThat(!x.equals(y)).isTrue(); // to assertThat(x).isNotEqualTo(y) ?
         assertThat(!x.equals(y)).as("description").isTrue(); // to assertThat(x).as("description").isNotEqualTo(y) ?
+        assertThat(!x.equals(y)).describedAs("description").isTrue(); // to assertThat(x).describedAs("description").isNotEqualTo(y) ?
 
         assertThat(x != y).isFalse(); // to assertThat(x).isEqualTo(y) ?
         assertThat(x != y).as("description").isFalse(); // to assertThat(x).as("description").isEqualTo(y) ?
+        assertThat(x != y).describedAs("description").isFalse(); // to assertThat(x).describedAs("description").isEqualTo(y) ?
         assertThat(!x.equals(y)).isFalse(); // to assertThat(x).isEqualTo(y) ?
         assertThat(!x.equals(y)).as("description").isFalse(); // to assertThat(x).as("description").isEqualTo(y) ?
+        assertThat(!x.equals(y)).describedAs("description").isFalse(); // to assertThat(x).describedAs("description").isEqualTo(y) ?
 
         assertThat(string.contains("abc")).isTrue(); // to assertThat(string).contains("abc")
         assertThat(string.contains("abc")).as("description").isTrue(); // to assertThat(string).as("description").contains("abc")
+        assertThat(string.contains("abc")).describedAs("description").isTrue(); // to assertThat(string).describedAs("description").contains("abc")
 
     }
 

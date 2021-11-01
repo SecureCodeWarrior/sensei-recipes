@@ -1,0 +1,36 @@
+id: scw:assertj:idiomatic:collection-isEmpty
+version: 10
+metadata:
+  name: Use isEmpty for checking empty Collection
+  shortDescription: Use isEmpty for checking empty Collection
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          integer: 0
+    argCount: 1
+    name: hasSize
+    "on":
+      methodcall:
+        anyOf:
+        - name:
+            matches: as|describedAs
+          "on":
+            methodcall:
+              name: assertThat
+              type: org.assertj.core.api.Assertions
+        - name: assertThat
+          type: org.assertj.core.api.Assertions
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - changeName:
+      name: isEmpty
+  - modifyArguments:
+      remove:
+      - 1
