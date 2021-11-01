@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import java.security.SecureRandom;
 import java.util.List;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 import static org.assertj.core.api.Assertions.*;
 
 
@@ -43,10 +45,14 @@ class UnidiomaticAssertJ {
         assertThat(variable).describedAs("description").isNotEqualTo(null); // to assertThat(collection).describedAs("description").isNotNull()
 
         assertThat(a).isEqualTo(true); // to assertThat(a).isTrue()
+        assertThat(a).isEqualTo(TRUE); // to assertThat(a).isTrue()
+        assertThat(a).isEqualTo(Boolean.TRUE); // to assertThat(a).isTrue()
         assertThat(a).as("description").isEqualTo(true); // to assertThat(a).as("message").isTrue()
         assertThat(a).describedAs("description").isEqualTo(true); // to assertThat(a).describedAs("message").isTrue()
 
         assertThat(a).isEqualTo(false); // to assertThat(a).isFalse()
+        assertThat(a).isEqualTo(FALSE); // to assertThat(a).isFalse()
+        assertThat(a).isEqualTo(Boolean.FALSE); // to assertThat(a).isFalse()
         assertThat(a).as("description").isEqualTo(false); // to assertThat(a).as("description").isFalse()
         assertThat(a).describedAs("description").isEqualTo(false); // to assertThat(a).describedAs("description").isFalse()
 

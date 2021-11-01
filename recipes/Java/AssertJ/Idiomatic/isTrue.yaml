@@ -11,9 +11,15 @@ search:
   methodcall:
     args:
       1:
-        value:
-          stringified: "true"
-          label: trueArg
+        anyOf:
+        - type: java.lang.Boolean
+          value:
+            anyOf:
+            - stringified: Boolean.TRUE
+            - stringified: "TRUE"
+        - type: boolean
+          value:
+            stringified: "true"
     name: isEqualTo
     "on":
       methodcall:
@@ -31,5 +37,6 @@ availableFixes:
   actions:
   - changeName:
       name: isTrue
-  - remove:
-      target: label:trueArg
+  - modifyArguments:
+      remove:
+      - 1
