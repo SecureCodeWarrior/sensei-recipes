@@ -1,0 +1,22 @@
+id: scw:java.time:style:use-month-constant-may
+version: 10
+metadata:
+  name: Use Month.MAY instead of 5
+  shortDescription: Use Month.MAY instead of 5
+  level: info
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      2:
+        value:
+          integer: 5
+    name: of
+    type: java.time.LocalDate
+availableFixes:
+- name: Use Month.MAY instead of 5
+  actions:
+  - modifyArguments:
+      rewrite:
+        2: java.time.Month.MAY

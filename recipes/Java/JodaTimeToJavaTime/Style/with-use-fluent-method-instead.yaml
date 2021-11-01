@@ -1,0 +1,30 @@
+id: scw:java.time:style:use-withUnit-insteadof-with
+version: 10
+metadata:
+  name: Use fluent with<Unit>(int) method instead of generic with(ChronoUnit, long)
+  shortDescription: Use fluent with<Unit>(int) method instead of generic with(ChronoUnit, long)
+  level: info
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          is:
+            reference:
+              anyOf:
+              - name: DAY_OF_MONTH
+              - name: DAY_OF_YEAR
+              - name: MONTH_OF_YEAR
+              - name: YEAR
+    argCount: 2
+    name: with
+availableFixes:
+- name: Rewrite using with<Unit>(int) instead of with(<Unit, long)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.{{{ methodName }}}{{#upperCaseFirst}}{{#lowerCase}}{{{ arguments.0.identifier }}}{{/lowerCase}}{{/upperCaseFirst}}({{{ arguments.1 }}})'
+  - modifyArguments:
+      remove:
+      - 1

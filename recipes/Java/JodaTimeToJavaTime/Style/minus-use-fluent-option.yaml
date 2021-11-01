@@ -1,0 +1,39 @@
+id: scw:java.time:style:use-minusplusUnit-insteadof-minusplus
+version: 10
+metadata:
+  name: Use with<Unit> instead of with(long, ChronoUnit.<Unit>)
+  shortDescription: Use with<Unit> instead of with(long, ChronoUnit.<Unit>)
+  level: info
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+        - type: int
+        - type: java.lang.Integer
+      2:
+        type: java.time.temporal.ChronoUnit
+        value:
+          is:
+            reference:
+              anyOf:
+              - name: DAYS
+              - name: MONTHS
+              - name: WEEKS
+              - name: YEARS
+    argCount: 2
+    anyOf:
+    - name: minus
+    - name: plus
+availableFixes:
+- name: Rewrite to {{{ methodName }}}<Unittype>(long)
+  actions:
+  - modifyArguments:
+      remove:
+      - 2
+  - rewrite:
+      to: '{{{ qualifier }}}.{{{ methodName }}}{{#upperCaseFirst}}{{#lowerCase}}{{{ arguments.1.identifier }}}{{/lowerCase}}{{/upperCaseFirst}}({{{ arguments.0 }}})'

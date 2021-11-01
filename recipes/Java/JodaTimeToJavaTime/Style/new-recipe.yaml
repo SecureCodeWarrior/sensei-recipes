@@ -1,0 +1,28 @@
+id: new_recipeoeueo
+version: 10
+metadata:
+  name: Use TemporalAdjusters.lastDayOfMonth()
+  shortDescription: Use TemporalAdjusters.lastDayOfMonth() it looks nicer
+  level: info
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          integer: 1
+    name: withDayOfMonth
+    "on":
+      methodcall:
+        args:
+          1:
+            value:
+              integer: 1
+        name: plusMonths
+availableFixes:
+- name: Use TemporalAdjusters.lastDayOfMonth()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier.qualifier }}}.with(java.time.temporal.TemporalAdjusters.firstDayOfNextMonth())'
+      target: self
