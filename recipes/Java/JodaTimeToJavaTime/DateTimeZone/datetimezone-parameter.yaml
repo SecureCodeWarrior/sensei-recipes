@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetimezone_parameter
+version: 10
+metadata:
+  name: Migrate DateTimeZone parameter to java.time
+  shortDescription: Migrate DateTimeZone parameter to java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: "This recipe searches for parameters defined as org.joda.time.DateTimeZone and provides a fix to convert them to a java.time.ZoneId.\n\nThis may introduce further problem markers in the IDE, as the parameter may reference DateTimeZone methods that do not exist on java.time.ZoneId.\nFurther sensei recipes are available to help migrate these invalid method names to java.time equivalents where possible. "
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  parameter:
+    type: org.joda.time.DateTimeZone
+availableFixes:
+- name: Migrate DateTimeZone parameter to ZoneId
+  actions:
+  - changeType:
+      type: java.time.ZoneId

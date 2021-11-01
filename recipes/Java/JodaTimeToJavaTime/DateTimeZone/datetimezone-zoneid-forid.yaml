@@ -1,0 +1,36 @@
+id: scw:java.time:Joda-Time:Convert_DateTimeZone_to_ZoneId
+version: 10
+metadata:
+  name: Convert DateTimeZone to ZoneId
+  shortDescription: Convert DateTimeZone to ZoneId
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    This recipe searches for a static factory method of DateTimeZone and provides a fix to rewrite it to the java.time.ZoneId equivalent.
+    If the return value is used as a variable assignment, the recipe will modify the type to java.time.ZoneID.
+
+    This may introduce further problem markers in your IDE, as you variable may reference DateTimeZone methods that do not exist on java.time.ZoneId.
+    Further sensei recipes are available to help migrate these invalid method names to java.time equivalents.
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.lang.String
+    name: forID
+    type: org.joda.time.DateTimeZone
+availableFixes:
+- name: Convert DateTimeZone to ZoneId
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.ZoneId
+  - rewrite:
+      to: java.time.ZoneId.of({{{ arguments }}})
+- name: Convert DateTimeZone to ZoneOffset
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.ZoneOffset
+  - rewrite:
+      to: java.time.ZoneOffset.of({{{ arguments }}})

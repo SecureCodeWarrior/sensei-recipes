@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:Convert_DateTimeZone.UTC_to_java.time
+version: 10
+metadata:
+  name: Convert DateTimeZone.UTC to java.time.ZoneOffset.UTC
+  shortDescription: Convert DateTimeZone.UTC to java.time.ZoneOffset.UTC
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    This recipe searches for a reference to the static field UTC of DateTimeZone and provides a fix to rewrite it to the java.time.ZoneId equivalent.
+
+    This may introduce further problem markers in the IDE, as the usage of this reference, may then use DateTimeZone methods that do not exist on java.time.ZoneId.
+    Further sensei recipes are available to help migrate these invalid method names to java.time equivalents where possible.
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  expression:
+    type: org.joda.time.DateTimeZone
+    referenceTo:
+      name: UTC
+availableFixes:
+- name: Convert To java.time.ZoneOffset.UTC
+  actions:
+  - rewrite:
+      to: java.time.ZoneOffset.UTC
+      target: self

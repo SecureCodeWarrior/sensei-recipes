@@ -1,0 +1,36 @@
+id: scw:java.time:Joda-Time:DateTimeZone_forOffsetMillis
+version: 10
+metadata:
+  name: Convert DateTimeZone.forOffsetMillis to java.time.ZoneOffset
+  shortDescription: Convert DateTimeZone.forOffsetMillis to java.time.ZoneOffset
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    This recipe searches for an org.joda.time.DateTimeZone static factory method and provides a fix to rewrite it to the java.time.ZoneId equivalent.
+    If the return value is used as a variable assignment, the recipe will modify the type to java.time.ZoneID.
+
+    This may introduce further problem markers in the IDE, as your variable may reference DateTimeZone methods that do not exist on java.time.ZoneId.
+    Further sensei recipes are available to help migrate these invalid method names to java.time equivalents where possible.
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: int
+    name: forOffsetMillis
+    type: org.joda.time.DateTimeZone
+availableFixes:
+- name: 'Convert to ZoneOffset.ofTotalSeconds Java 9+ (Note: Loss of precision)'
+  actions:
+  - rewrite:
+      to: java.time.ZoneOffset.ofTotalSeconds((int)java.time.Duration.ofMillis({{{ arguments }}}).toSeconds())
+  - modifyAssignedVariable:
+      type: java.time.ZoneOffset
+- name: 'Convert to ZoneOffset.ofTotalSeconds Java 8 (Note: Loss of precision)'
+  actions:
+  - rewrite:
+      to: java.time.ZoneOffset.ofTotalSeconds((int)java.time.Duration.ofMillis({{{ arguments }}}).getSeconds())
+  - modifyAssignedVariable:
+      type: java.time.ZoneOffset

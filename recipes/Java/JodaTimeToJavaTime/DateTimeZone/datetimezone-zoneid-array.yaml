@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:Convert_DateTimeZone_to_ZoneId-array
+version: 10
+metadata:
+  name: Convert DateTimeZone[] to ZoneId[]
+  shortDescription: Convert DateTimeZone[] to ZoneId[]
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    This recipe searches for a field that is declared as a DateTimeZone array and provides a fix to rewrite it to a java.time.ZoneId array.
+
+    This may introduce further problem markers in the IDE, as your field may reference DateTimeZone methods that do not exist on java.time.ZoneId.
+    Further sensei recipes are available to help migrate these invalid method names to java.time equivalents where possible.
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  field:
+    type: org.joda.time.DateTimeZone[]
+availableFixes:
+- name: Change Arrays of DateTimeZone to ZoneId
+  actions:
+  - rewrite:
+      to: '{{{ modifierList }}} java.time.ZoneId[] {{{ qualifier }}};'
+      target: self

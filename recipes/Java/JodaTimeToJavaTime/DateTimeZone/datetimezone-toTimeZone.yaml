@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:datetimezone-toTimeZone
+version: 10
+metadata:
+  name: Convert toTimeZone to TimeZone.getTimeZone(ZoneId)
+  shortDescription: Convert toTimeZone to TimeZone.getTimeZone(ZoneId)
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    This recipe is designed to match on broken code, the method that is being searched for does not actually exist on the type.
+
+    After migrating an org.joda.time.DateTimeZone instance to a java.time.ZoneId, subsequent calls may be made to methods that existed for DateTimeZone, but no longer exist for ZoneId.
+    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
+  descriptionFile: descriptions/datetimezone.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: toTimeZone
+    type: java.time.ZoneId
+availableFixes:
+- name: Rewrite as TimeZone.getTimeZone(ZoneId)
+  actions:
+  - rewrite:
+      to: java.util.TimeZone.getTimeZone({{{ qualifier }}})
