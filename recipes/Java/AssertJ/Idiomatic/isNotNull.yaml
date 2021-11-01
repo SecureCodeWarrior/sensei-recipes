@@ -1,0 +1,42 @@
+id: scw:assertj:idiomatic:isNotNull
+version: 10
+metadata:
+  name: Use isNotNull rather than isNotEqualTo(null)
+  shortDescription: Use isNotNull rather than isNotEqualTo(null)
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    name: assertThat
+    anyOf:
+    - followedBy:
+        methodcall:
+          args:
+            1:
+              value:
+                stringified: "null"
+          name: isNotEqualTo
+          label: isNotEqualToMethodCall
+    - followedBy:
+        methodcall:
+          followedBy:
+            methodcall:
+              args:
+                1:
+                  value:
+                    stringified: "null"
+              name: isNotEqualTo
+              label: isNotEqualToMethodCall
+          name:
+            matches: (as|describedAs)
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - findAndReplace:
+      replacements:
+      - from: isNotEqualTo(null)
+        to: isNotNull()
+        regex: false
+      target: label:isNotEqualToMethodCall
