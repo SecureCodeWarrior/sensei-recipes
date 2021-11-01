@@ -9,17 +9,42 @@ metadata:
   tags: AssertJ
 search:
   methodcall:
-    args:
-      1:
-        type: String
     argCount: 3
     name: assertEquals
     anyOf:
-      - type: org.junit.Assert
-      - type: junit.framework.TestCase
-      - type: junit.framework.Assert
+    - args:
+        1:
+          type: String
+      type: org.junit.Assert
+    - args:
+        1:
+          type: String
+      type: junit.framework.TestCase
+    - args:
+        1:
+          type: String
+      type: junit.framework.Assert
+    - args:
+        3:
+          type: String
+      type: org.junit.jupiter.api.Assertions
 availableFixes:
-  - name: Change to assertThat(actual).as(message).isEqualTo(expected)
-    actions:
-      - rewrite:
-          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.2 }}}).as({{{ arguments.0 }}}).isEqualTo({{{ arguments.1 }}})
+- doStaticImports: true
+  name: Change to assertThat(actual).as(message).isEqualTo(expected)
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              type: org.junit.jupiter.api.Assertions
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.2 }}}).isEqualTo({{{ arguments.0 }}})
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              type:
+                not: org.junit.jupiter.api.Assertions
+                checkInheritance: true
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.2 }}}).as({{{ arguments.0 }}}).isEqualTo({{{ arguments.1 }}})

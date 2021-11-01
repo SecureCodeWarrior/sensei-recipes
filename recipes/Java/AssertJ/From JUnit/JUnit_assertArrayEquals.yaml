@@ -12,10 +12,11 @@ search:
     argCount: 2
     name: assertArrayEquals
     anyOf:
-      - type: org.junit.Assert
-      - type: org.junit.jupiter.api.Assertions
+    - type: org.junit.Assert
+    - type: org.junit.jupiter.api.Assertions
 availableFixes:
-  - name: Change to assertThat(actualArray).isEqualTo(expectedArray)
-    actions:
-      - rewrite:
-          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).isEqualTo({{{ arguments.0 }}})
+- doStaticImports: true
+  name: Change to assertThat(actualArray).isEqualTo(expectedArray)
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).isEqualTo({{{ arguments.0 }}})
