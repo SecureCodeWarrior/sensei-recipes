@@ -1,0 +1,23 @@
+id: scw:java.time:Joda-Time:datetimezone-default-tz-data-path
+version: 10
+metadata:
+  name: TimeZone Configuration in java.time is provided by java.time.zone.ZoneRulesProvider
+  shortDescription: TimeZone Configuration in java.time is provided by java.time.zone.ZoneRulesProvider
+  level: info
+  language: java
+  enabled: true
+  comment: |-
+    org.joda.time.DateTimeZone provides this static field to show the default classpath for the compiled timezone data files.
+
+    There is no real equivalent to this in java.time, however the ZoneRulesProvider is the closest thing in relation to a mechanism that supplies time zone rules data.
+    This recipe is here for information to the developer and provides a quick way to access the ZoneRulesProvider javadoc.
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  reference:
+    name: DEFAULT_TZ_DATA_PATH
+availableFixes:
+- name: Open javadoc for java.time.zone.ZoneRulesProvider
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.oracle.com/javase/8/docs/api/java/time/zone/ZoneRulesProvider.html
