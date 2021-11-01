@@ -39,9 +39,9 @@ class UnidiomaticAssertJ {
         assertThat(variable).isNotEqualTo(null); // to assertThat(collection).isNotNull()
         assertThat(variable).as("description").isNotEqualTo(null); // to assertThat(collection).isNotNull()
 
-        assertThat(a).isEqualTo(true); // to assertThat(x).isTrue()
+        assertThat(a).isEqualTo(true); // to assertThat(a).isTrue()
 
-        assertThat(a).isEqualTo(false); // to assertThat(x).isFalse()
+        assertThat(a).isEqualTo(false); // to assertThat(a).isFalse()
 
         assertThat(x == y).isTrue(); // to assertThat(x).isEqualTo(y) ?
 

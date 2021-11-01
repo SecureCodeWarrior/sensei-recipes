@@ -1,0 +1,35 @@
+id: scw:assertj:idiomatic:isFalse
+version: 10
+metadata:
+  name: Use isFalse rather than isEqualTo(false)
+  shortDescription: Use isFalse rather than isEqualTo(false)
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          stringified: "false"
+          label: falseArg
+    name: isEqualTo
+    "on":
+      methodcall:
+        anyOf:
+        - name:
+            matches: (as|describedAs)
+          "on":
+            methodcall:
+              name: assertThat
+              type: org.assertj.core.api.Assertions
+        - name: assertThat
+          type: org.assertj.core.api.Assertions
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - changeName:
+      name: isFalse
+  - remove:
+      target: label:falseArg
