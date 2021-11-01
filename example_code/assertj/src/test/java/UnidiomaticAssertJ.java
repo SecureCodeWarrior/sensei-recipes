@@ -44,18 +44,27 @@ class UnidiomaticAssertJ {
         assertThat(a).isEqualTo(false); // to assertThat(a).isFalse()
 
         assertThat(x == y).isTrue(); // to assertThat(x).isEqualTo(y) ?
+        assertThat(x == y).as("description").isTrue(); // to assertThat(x).as("description").isEqualTo(y) ?
+        assertThat(x.equals(y)).isTrue(); // to assertThat(x).isEqualTo(y) ?
+        assertThat(x.equals(y)).as("description").isTrue(); // to assertThat(x).as("description").isEqualTo(y) ?
 
         assertThat(x == y).isFalse(); // to assertThat(x).isNotEqualTo(y) ?
+        assertThat(x == y).as("description").isFalse(); // to assertThat(x).as("description").isNotEqualTo(y) ?
+        assertThat(x.equals(y)).isFalse(); // to assertThat(x).isNotEqualTo(y) ?
+        assertThat(x.equals(y)).as("description").isFalse(); // to assertThat(x).as("description").isNotEqualTo(y) ?
 
         assertThat(x != y).isTrue(); // to assertThat(x).isNotEqualTo(y) ?
+        assertThat(x != y).as("description").isTrue(); // to assertThat(x).as("description").isNotEqualTo(y) ?
+        assertThat(!x.equals(y)).isTrue(); // to assertThat(x).isNotEqualTo(y) ?
+        assertThat(!x.equals(y)).as("description").isTrue(); // to assertThat(x).as("description").isNotEqualTo(y) ?
 
         assertThat(x != y).isFalse(); // to assertThat(x).isEqualTo(y) ?
-
-        assertThat(x.equals(y)).isTrue(); // to assertThat(x).isEqualTo(y) ?
-
-        assertThat(x.equals(y)).isFalse(); // to assertThat(x).isNotEqualTo(y) ?
+        assertThat(x != y).as("description").isFalse(); // to assertThat(x).as("description").isEqualTo(y) ?
+        assertThat(!x.equals(y)).isFalse(); // to assertThat(x).isEqualTo(y) ?
+        assertThat(!x.equals(y)).as("description").isFalse(); // to assertThat(x).as("description").isEqualTo(y) ?
 
         assertThat(string.contains("abc")).isTrue(); // to assertThat(string).contains("abc")
+        assertThat(string.contains("abc")).as("description").isTrue(); // to assertThat(string).as("description").contains("abc")
 
     }
 
