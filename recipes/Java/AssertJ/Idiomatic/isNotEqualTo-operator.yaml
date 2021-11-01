@@ -1,0 +1,27 @@
+id: scw:assertj:idiomatic:isNotEqualTo-operator
+version: 10
+metadata:
+  name: Use isNotEqualTo instead of !=
+  shortDescription: Use isNotEqualTo instead of !=
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    name: isTrue
+    "on":
+      methodcall:
+        args:
+          1:
+            type: boolean
+            value:
+              is:
+                comparison:
+                  operator: '!='
+        name: assertThat
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - rewrite:
+      to: assertThat({{{ qualifier.arguments.0.leftOperand }}}).isNotEqualTo({{{ qualifier.arguments.0.rightOperand }}})
