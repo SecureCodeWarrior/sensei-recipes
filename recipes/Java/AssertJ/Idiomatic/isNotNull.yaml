@@ -9,34 +9,27 @@ metadata:
   tags: AssertJ;framework specific;quality
 search:
   methodcall:
-    name: assertThat
-    anyOf:
-    - followedBy:
-        methodcall:
-          args:
-            1:
-              value:
-                stringified: "null"
-          name: isNotEqualTo
-          label: isNotEqualToMethodCall
-    - followedBy:
-        methodcall:
-          followedBy:
-            methodcall:
-              args:
-                1:
-                  value:
-                    stringified: "null"
-              name: isNotEqualTo
-              label: isNotEqualToMethodCall
-          name:
+    args:
+      1:
+        value:
+          stringified: "null"
+          label: nullArg
+    name: isNotEqualTo
+    "on":
+      methodcall:
+        anyOf:
+        - name:
             matches: (as|describedAs)
+          "on":
+            methodcall:
+              name: assertThat
+              type: org.assertj.core.api.Assertions
+        - name: assertThat
+          type: org.assertj.core.api.Assertions
 availableFixes:
 - name: Use idiomatic assertion
   actions:
-  - findAndReplace:
-      replacements:
-      - from: isNotEqualTo(null)
-        to: isNotNull()
-        regex: false
-      target: label:isNotEqualToMethodCall
+  - changeName:
+      name: isNotNull
+  - remove:
+      target: label:nullArg
