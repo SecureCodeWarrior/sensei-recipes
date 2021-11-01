@@ -9,17 +9,36 @@ metadata:
   tags: AssertJ
 search:
   methodcall:
-    args:
-      1:
-        type: String
     argCount: 2
     name: assertNull
     anyOf:
+    - args:
+        1:
+          type: String
+      anyOf:
       - type: org.junit.Assert
       - type: junit.framework.TestCase
       - type: junit.framework.Assert
+    - args:
+        2:
+          type: String
+      type: org.junit.jupiter.api.Assertions
 availableFixes:
-  - name: Change to assertThat(actual).as(message).isNull()
-    actions:
-      - rewrite:
-          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.0 }}}).isNull()
+- doStaticImports: true
+  name: Change to assertThat(actual).as(message).isNull()
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              not:
+                type: org.junit.jupiter.api.Assertions
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.0 }}}).isNull()
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              type: org.junit.jupiter.api.Assertions
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).as({{{ arguments.1 }}}).isNull()

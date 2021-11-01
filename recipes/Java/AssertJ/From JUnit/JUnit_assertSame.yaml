@@ -12,12 +12,13 @@ search:
     argCount: 2
     name: assertSame
     anyOf:
-      - type: org.junit.Assert
-      - type: junit.framework.TestCase
-      - type: junit.framework.Assert
-      - type: org.junit.jupiter.api.Assertions
+    - type: org.junit.Assert
+    - type: junit.framework.TestCase
+    - type: junit.framework.Assert
+    - type: org.junit.jupiter.api.Assertions
 availableFixes:
-  - name: Change to assertThat(actual).isSameAs(expected)
-    actions:
-      - rewrite:
-          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).isSameAs({{{ arguments.0 }}})
+- doStaticImports: true
+  name: Change to assertThat(actual).isSameAs(expected)
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).isSameAs({{{ arguments.0 }}})

@@ -12,17 +12,18 @@ search:
     args:
       1:
         anyOf:
-          - type: java.lang.Boolean
-          - type: boolean
+        - type: java.lang.Boolean
+        - type: boolean
     argCount: 1
     name: assertFalse
     anyOf:
-      - type: org.junit.Assert
-      - type: junit.framework.TestCase
-      - type: junit.framework.Assert
-      - type: org.junit.jupiter.api.Assertions
+    - type: org.junit.Assert
+    - type: junit.framework.TestCase
+    - type: junit.framework.Assert
+    - type: org.junit.jupiter.api.Assertions
 availableFixes:
-  - name: Change to assertThat(actual).isFalse()
-    actions:
-      - rewrite:
-          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isFalse()
+- doStaticImports: true
+  name: Change to assertThat(actual).isFalse()
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isFalse()
