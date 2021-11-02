@@ -1,0 +1,35 @@
+id: scw:assertj:idiomatic:isNotNull
+version: 10
+metadata:
+  name: Use isNotNull rather than isNotEqualTo(null)
+  shortDescription: Use isNotNull rather than isNotEqualTo(null)
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          stringified: "null"
+          label: nullArg
+    name: isNotEqualTo
+    "on":
+      methodcall:
+        anyOf:
+        - name:
+            matches: (as|describedAs)
+          "on":
+            methodcall:
+              name: assertThat
+              type: org.assertj.core.api.Assertions
+        - name: assertThat
+          type: org.assertj.core.api.Assertions
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - changeName:
+      name: isNotNull
+  - remove:
+      target: label:nullArg
