@@ -9,44 +9,58 @@ metadata:
   tags: AssertJ;framework specific;quality
 search:
   methodcall:
-    args:
-      1:
-        value:
-          is:
-            comparison:
-              operator: ==
-    name: assertThat
+    name: isTrue
     anyOf:
-    - followedBy:
+    - "on":
         methodcall:
-          followedBy:
-            methodcall:
-              name: isTrue
-              label: isTrueMethodCallIndirect
+          args:
+            1:
+              value:
+                is:
+                  comparison:
+                    operator: ==
+          name: assertThat
+          label: assertThatMethodCallDirect
+    - "on":
+        methodcall:
           name:
             matches: as|describedAs
-    - followedBy:
-        methodcall:
-          name: isTrue
-          label: isTrueMethodCallDirect
-    type: org.assertj.core.api.Assertions
+          "on":
+            methodcall:
+              args:
+                1:
+                  value:
+                    is:
+                      comparison:
+                        operator: ==
+              name: assertThat
+              label: assertThatMethodCallIndirect
 availableFixes:
 - name: Use idiomatic assertion
   actions:
   - modifyArguments:
       rewrite:
         1: '{{{ leftOperand }}}'
+      target: label:assertThatMethodCallDirect
   - modifyArguments:
+      rewrite:
+        1: '{{{ leftOperand }}}'
+      target: label:assertThatMethodCallIndirect
+  - modifyArguments:
+      applyIf:
+        label:
+          is:
+            methodcall: {}
+          labelName: assertThatMethodCallDirect
       insert:
         1: '{{{ qualifier.arguments.0.rightOperand }}}'
-      target: label:isTrueMethodCallDirect
   - modifyArguments:
+      applyIf:
+        label:
+          is:
+            methodcall: {}
+          labelName: assertThatMethodCallIndirect
       insert:
         1: '{{{ qualifier.qualifier.arguments.0.rightOperand }}}'
-      target: label:isTrueMethodCallIndirect
   - changeName:
       name: isEqualTo
-      target: label:isTrueMethodCallDirect
-  - changeName:
-      name: isEqualTo
-      target: label:isTrueMethodCallIndirect
