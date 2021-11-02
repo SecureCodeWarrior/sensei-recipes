@@ -35,6 +35,7 @@ search:
                     is:
                       methodcall:
                         argCount: 1
+                        name: equals
               name: assertThat
               label: assertThatMethodCallIndirect
               type: org.assertj.core.api.Assertions
