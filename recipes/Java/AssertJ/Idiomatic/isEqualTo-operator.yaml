@@ -15,12 +15,14 @@ search:
         methodcall:
           args:
             1:
+              type: boolean
               value:
                 is:
                   comparison:
                     operator: ==
           name: assertThat
           label: assertThatMethodCallDirect
+          type: org.assertj.core.api.Assertions
     - "on":
         methodcall:
           name:
@@ -29,12 +31,14 @@ search:
             methodcall:
               args:
                 1:
+                  type: boolean
                   value:
                     is:
                       comparison:
                         operator: ==
               name: assertThat
               label: assertThatMethodCallIndirect
+              type: org.assertj.core.api.Assertions
 availableFixes:
 - name: Use idiomatic assertion
   actions:
