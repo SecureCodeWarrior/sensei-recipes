@@ -14,13 +14,7 @@ search:
         value:
           is:
             comparison:
-              first:
-                expression:
-                  label: x
               operator: ==
-              second:
-                expression:
-                  label: "y"
     name: assertThat
     anyOf:
     - followedBy:
@@ -28,17 +22,31 @@ search:
           followedBy:
             methodcall:
               name: isTrue
-              label: isTrueMethodCall
+              label: isTrueMethodCallIndirect
           name:
-            matches: (as|describedAs)
+            matches: as|describedAs
     - followedBy:
         methodcall:
           name: isTrue
-          label: isTrueMethodCall
+          label: isTrueMethodCallDirect
     type: org.assertj.core.api.Assertions
 availableFixes:
 - name: Use idiomatic assertion
   actions:
-  - rewrite:
-      to: assertThat({{{ qualifier.arguments.0.leftOperand }}}).isEqualTo({{{ qualifier.arguments.0.rightOperand }}})
-      target: followByElement
+  - modifyArguments:
+      rewrite:
+        1: '{{{ leftOperand }}}'
+  - modifyArguments:
+      insert:
+        1: '{{{ qualifier.arguments.0.rightOperand }}}'
+      target: label:isTrueMethodCallDirect
+  - modifyArguments:
+      insert:
+        1: '{{{ qualifier.qualifier.arguments.0.rightOperand }}}'
+      target: label:isTrueMethodCallIndirect
+  - changeName:
+      name: isEqualTo
+      target: label:isTrueMethodCallDirect
+  - changeName:
+      name: isEqualTo
+      target: label:isTrueMethodCallIndirect
