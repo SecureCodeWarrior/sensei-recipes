@@ -1,0 +1,13 @@
+<html>
+<body>
+<h1>Migrate arguments to java.time equivalents first</h1>
+<p>In order to migrate this method call, any arguments of the following types must be migrated to their java.time equivalent:
+<ul>
+<li>org.joda.time.DateTimeZone</li>
+<li>org.joda.time.Chronology</li>
+<li>org.joda.time.format.DateTimeFormatter</li>
+</ul>
+</p>
+<p>After migrating these arguments, the Instance creation migration recipe should then become active.</p>
+</body>
+</html

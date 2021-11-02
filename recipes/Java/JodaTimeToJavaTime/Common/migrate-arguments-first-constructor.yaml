@@ -1,0 +1,23 @@
+id: scw:java.time:Joda-Time:migrate-arguments-constructor
+version: 10
+metadata:
+  name: Migrate arguments to java.time before migrating this Instance Creation
+  shortDescription: Migrate arguments to java.time before migrating this Instance Creation
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: descriptions/migrate_arguments_first.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      any:
+        anyOf:
+        - type: org.joda.time.DateTimeZone
+        - type: org.joda.time.Chronology
+        - type: org.joda.time.format.DateTimeFormatter
+    anyOf:
+    - type: org.joda.time.DateTime
+    - type: org.joda.time.LocalDateTime
+    - type: org.joda.time.LocalDate
+availableFixes: []

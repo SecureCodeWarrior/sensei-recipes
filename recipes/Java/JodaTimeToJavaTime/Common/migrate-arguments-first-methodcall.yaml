@@ -1,0 +1,28 @@
+id: scw:java.time:Joda-Time:common:migrate-arguments-first-methodcall
+version: 10
+metadata:
+  name: Migrate arguments to their java.time equivalents before migrating this method call
+  shortDescription: Migrate arguments to their java.time equivalents before migrating this method call
+  level: info
+  language: java
+  enabled: true
+  descriptionFile: descriptions/migrate_arguments_first.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      any:
+        anyOf:
+        - type: org.joda.time.DateTimeZone
+        - type: org.joda.time.Chronology
+        - type: org.joda.time.format.DateTimeFormatter
+    allOf:
+    - anyOf:
+      - type: org.joda.time.LocalDate
+      - type: org.joda.time.LocalDateTime
+      - type: org.joda.time.DateTime
+      - type: org.joda.time.LocalTime
+    - anyOf:
+      - name: now
+      - name: parse
+availableFixes: []
