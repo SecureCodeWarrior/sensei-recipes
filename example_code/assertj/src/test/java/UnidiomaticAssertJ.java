@@ -21,17 +21,25 @@ class UnidiomaticAssertJ {
         Object y = getInteger();
         var string = getString();
 
-        assertThat(collection.size()).isEqualTo(1); // to assertThat(collection).hasSize(1)
-        assertThat(collection.size()).as("hasSize 1").isEqualTo(1); // to assertThat(collection).as("hasSize 1").hasSize(1)
-        assertThat(collection.size()).describedAs("hasSize 1").isEqualTo(1); // to assertThat(collection).describedAs("hasSize 1").hasSize(1)
+        assertThat(collection1.size()).isEqualTo(collection2.size()); // to assertThat(collection1).hasSameSizeAs(collection2)
+        assertThat(collection1.size()).as("hasSameSizeAs").isEqualTo(collection2.size()); // to assertThat(collection1).as("hasSameSizeAs").hasSameSizeAs(collection2)
+        assertThat(collection1.size()).describedAs("hasSameSizeAs").isEqualTo(collection2.size()); // to assertThat(collection1).as("hasSameSizeAs").hasSameSizeAs(collection2)
 
         assertThat(collection.size()).isEqualTo(0); // to assertThat(collection).isEmpty()
         assertThat(collection.size()).as("isEmpty").isEqualTo(0); // to assertThat(collection).as("isEmpty").isEmpty()
         assertThat(collection.size()).describedAs("isEmpty").isEqualTo(0); // to assertThat(collection).describedAs("isEmpty").isEmpty()
 
-        assertThat(collection1.size()).isEqualTo(collection2.size()); // to assertThat(collection1).hasSameSizeAs(collection2)
-        assertThat(collection1.size()).as("hasSameSizeAs").isEqualTo(collection2.size()); // to assertThat(collection1).as("hasSameSizeAs").hasSameSizeAs(collection2)
-        assertThat(collection1.size()).describedAs("hasSameSizeAs").isEqualTo(collection2.size()); // to assertThat(collection1).as("hasSameSizeAs").hasSameSizeAs(collection2)
+        assertThat(collection.size()).isEqualTo(1); // to assertThat(collection).hasSize(1)
+        assertThat(collection.size()).as("hasSize 1").isEqualTo(1); // to assertThat(collection).as("hasSize 1").hasSize(1)
+        assertThat(collection.size()).describedAs("hasSize 1").isEqualTo(1); // to assertThat(collection).describedAs("hasSize 1").hasSize(1)
+
+        assertThat(collection1).hasSize(collection2.size()); // to assertThat(collection1).hasSameSizeAs(collection2)
+        assertThat(collection1).as("hasSameSizeAs").hasSize(collection2.size()); // to assertThat(collection1).as("hasSameSizeAs").hasSameSizeAs(collection2)
+        assertThat(collection1).describedAs("hasSameSizeAs").hasSize(collection2.size()); // to assertThat(collection1).as("hasSameSizeAs").hasSameSizeAs(collection2)
+
+        assertThat(collection).hasSize(0); // to assertThat(collection).isEmpty()
+        assertThat(collection).as("isEmpty").hasSize(0); // to assertThat(collection).as("isEmpty").isEmpty()
+        assertThat(collection).describedAs("isEmpty").hasSize(0); // to assertThat(collection).describedAs("isEmpty").isEmpty()
 
         assertThat(variable).as("").isEqualTo("something"); // to assertThat(variable).isEqualTo(something)
         assertThat(variable).describedAs("").isEqualTo("something"); // to assertThat(variable).isEqualTo(something)
