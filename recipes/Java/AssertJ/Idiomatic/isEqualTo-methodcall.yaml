@@ -9,27 +9,61 @@ metadata:
   tags: AssertJ;framework specific;quality
 search:
   methodcall:
-    args:
-      1:
-        value:
-          is:
+    name: isTrue
+    anyOf:
+    - "on":
+        methodcall:
+          args:
+            1:
+              value:
+                is:
+                  methodcall:
+                    argCount: 1
+                    name: equals
+          name: assertThat
+          label: assertThatMethodCallDirect
+          type: org.assertj.core.api.Assertions
+    - "on":
+        methodcall:
+          name:
+            matches: as|describedAs
+          "on":
             methodcall:
               args:
                 1:
-                  label: "y"
-              name: equals
-              "on":
-                reference:
-                  label: x
-    followedBy:
-      methodcall:
-        name: isTrue
-        label: isTrueMethodCall
-    name: assertThat
-    type: org.assertj.core.api.Assertions
+                  value:
+                    is:
+                      methodcall:
+                        argCount: 1
+              name: assertThat
+              label: assertThatMethodCallIndirect
+              type: org.assertj.core.api.Assertions
 availableFixes:
 - name: Use idiomatic assertion
   actions:
-  - rewrite:
-      to: assertThat({{{ qualifier.arguments.0.qualifier }}}).isEqualTo({{{ qualifier.arguments.0.arguments }}})
-      target: followByElement
+  - modifyArguments:
+      rewrite:
+        1: '{{{ qualifier }}}'
+      target: label:assertThatMethodCallDirect
+  - modifyArguments:
+      rewrite:
+        1: '{{{ qualifier }}}'
+      target: label:assertThatMethodCallIndirect
+  - modifyArguments:
+      applyIf:
+        label:
+          is:
+            methodcall: {}
+          labelName: assertThatMethodCallDirect
+      insert:
+        1: '{{{ qualifier.arguments.0.arguments }}}'
+  - modifyArguments:
+      applyIf:
+        label:
+          is:
+            methodcall: {}
+          labelName: assertThatMethodCallIndirect
+      insert:
+        1: '{{{ qualifier.qualifier.arguments.0.arguments }}}'
+  - changeName:
+      name: isEqualTo
