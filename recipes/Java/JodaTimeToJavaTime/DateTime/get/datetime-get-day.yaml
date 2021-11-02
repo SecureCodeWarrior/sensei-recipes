@@ -6,12 +6,12 @@ metadata:
   level: warning
   language: java
   enabled: true
-  descriptionFile: descriptions/datetime.html
+  descriptionFile: Java/JodaTimeToJavaTime/DateTime/descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
     name: getDayOfWeek
-    type: org.joda.time.base.AbstractDateTime
+    type: org.joda.time.base.AbstractDateTimeu
 availableFixes:
 - name: Rewrite using java.time GetValue
   actions:

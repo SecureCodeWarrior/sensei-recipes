@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:common-withEra
+version: 10
+metadata:
+  name: 'Convert withEra to java.time equivalent: with(ChronoField.ERA, newValue)'
+  shortDescription: 'Convert withEra to java.time equivalent: with(ChronoField.ERA, newValue)'
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: withEra
+    anyOf:
+    - type: java.time.LocalDate
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite to java.time equivalent with(java.time.temporal.ChronoField.ERA, {{{ arguments.0 }}})
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.with(java.time.temporal.ChronoField.ERA, {{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: '{{{ qualifier.type }}}'

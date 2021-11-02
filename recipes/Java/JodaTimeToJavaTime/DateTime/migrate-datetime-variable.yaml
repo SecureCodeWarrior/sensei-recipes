@@ -1,0 +1,16 @@
+id: scw:java.time:Joda-Time:datetime-localvariable
+version: 10
+metadata:
+  name: Migrate local DateTime variable to java.time equivalent
+  shortDescription: Migrate local DateTime variable to java.time equivalent
+  level: info
+  language: java
+  enabled: true
+search:
+  localVariable:
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Migrate local variable to ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime {{{ qualifier }}} = {{{ assignedExpression }}};

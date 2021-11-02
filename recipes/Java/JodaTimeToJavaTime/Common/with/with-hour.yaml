@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  descriptionFile: descriptions/datetime.html
+  descriptionFile: Java/JodaTimeToJavaTime/DateTime/descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
@@ -18,7 +18,7 @@ search:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite using java.time
+- name: 'Rewrite to java.time equivalent: withHour'
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.withHour({{{ arguments.0 }}})'

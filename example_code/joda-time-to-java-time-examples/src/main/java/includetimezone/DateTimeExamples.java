@@ -28,17 +28,17 @@ public class DateTimeExamples {
         DateTime fromChronology = new DateTime(chronology);
         DateTime fromDateTimeZone = new DateTime(dateTimeZone);
 
-        DateTime fromParts = new DateTime(2021, 1, 15,12,30);
-        DateTime fromPartsChronology = new DateTime(2021, 1, 15,12,30, chronology);
-        DateTime fromPartsDateTimeZone = new DateTime(2021, 1, 15,12,30, dateTimeZone);
+        DateTime fromParts = new DateTime(2021, 1, 15, 12, 30);
+        DateTime fromPartsChronology = new DateTime(2021, 1, 15, 12, 30, chronology);
+        DateTime fromPartsDateTimeZone = new DateTime(2021, 1, 15, 12, 30, dateTimeZone);
 
-        DateTime fromPartsWithSeconds = new DateTime(2021, 1, 15,12,30,45);
-        DateTime fromPartsChronologyWithSeconds = new DateTime(2021, 1, 15,12,30,45, chronology);
-        DateTime fromPartsDateTimeZoneWithSeconds = new DateTime(2021, 1, 15,12,30,45, dateTimeZone);
+        DateTime fromPartsWithSeconds = new DateTime(2021, 1, 15, 12, 30, 45);
+        DateTime fromPartsChronologyWithSeconds = new DateTime(2021, 1, 15, 12, 30, 45, chronology);
+        DateTime fromPartsDateTimeZoneWithSeconds = new DateTime(2021, 1, 15, 12, 30, 45, dateTimeZone);
 
-        DateTime fromPartsWithMillis = new DateTime(2021, 1, 15,12,30,45, 123456789);
-        DateTime fromPartsChronologyWithMillis = new DateTime(2021, 1, 15,12,30,45, 123456789, chronology);
-        DateTime fromPartsDateTimeZoneWithMillis = new DateTime(2021, 1, 15,12,30,45, 123456789, dateTimeZone);
+        DateTime fromPartsWithMillis = new DateTime(2021, 1, 15, 12, 30, 45, 123456789);
+        DateTime fromPartsChronologyWithMillis = new DateTime(2021, 1, 15, 12, 30, 45, 123456789, chronology);
+        DateTime fromPartsDateTimeZoneWithMillis = new DateTime(2021, 1, 15, 12, 30, 45, 123456789, dateTimeZone);
 
         DateTime fromInstant = new DateTime(longInstant);
         DateTime fromInstantChronology = new DateTime(longInstant, chronology);
@@ -84,20 +84,10 @@ public class DateTimeExamples {
     public void methods(DateTime dateTime) {
 
         // These variables are used as arguments in the methods below
-        ReadableDuration readableDuration = null;
-        ReadablePeriod readablePeriod = null;
-        ReadablePartial readablePartial = null;
-        ReadableInstant readableInstant = null;
-        Object objectArg = null;
-        Locale localeArg = Locale.getDefault();
-        DateTimeZone dateTimeZone = DateTimeZone.UTC;
-        Chronology chronology = BuddhistChronology.getInstance();
         DateTimeFieldType datetimefieldtypeArg = DateTimeFieldType.monthOfYear();
-        DateTimeField datetimefieldArg = null;
-        DateTimeFormatter datetimeformatterArg = DateTimeFormat.fullDate();
 
         // Property accessors
-        DateTime.Property property = dateTime.property(DateTimeFieldType.dayOfMonth());
+        DateTime.Property property = dateTime.property(datetimefieldtypeArg);
         DateTime.Property propCenturyOfEra = dateTime.centuryOfEra();
         DateTime.Property propDayOfMonth = dateTime.dayOfMonth();
         DateTime.Property propDayOfWeek = dateTime.dayOfWeek();
@@ -116,6 +106,13 @@ public class DateTimeExamples {
         DateTime.Property propYear = dateTime.year();
         DateTime.Property propYearOfCentury = dateTime.yearOfCentury();
         DateTime.Property propYearOfEra = dateTime.yearOfEra();
+    }
+
+    public void getMethods(DateTime dateTime) {
+
+        // These variables are used as arguments in the methods below
+        DateTimeFieldType datetimefieldtypeArg = DateTimeFieldType.monthOfYear();
+        DateTimeField datetimefieldArg = null;
 
         // Get methods
         org.joda.time.Chronology getChronology = dateTime.getChronology();
@@ -141,6 +138,13 @@ public class DateTimeExamples {
         int getDayOfMonth = dateTime.getDayOfMonth();
         DateTimeZone getZone = dateTime.getZone();
         int getDateTimeField = dateTime.get(datetimefieldArg);
+    }
+
+    public void minusMethods(DateTime dateTime) {
+
+        // These variables are used as arguments in the methods below
+        ReadableDuration readableDuration = null;
+        ReadablePeriod readablePeriod = null;
 
         // Minus Methods
         DateTime dateTimeMinusLong = dateTime.minus(123L);
@@ -155,6 +159,13 @@ public class DateTimeExamples {
         DateTime dateTimeMinusSeconds = dateTime.minusSeconds(45);
         DateTime dateTimeMinusMillis = dateTime.minusMillis(500);
 
+    }
+
+    public void plusMethods(DateTime dateTime) {
+        // These variables are used as arguments in the methods below
+        ReadableDuration readableDuration = null;
+        ReadablePeriod readablePeriod = null;
+
         // Plus Methods
         DateTime dateTimePlusLong = dateTime.plus(123L);
         DateTime dateTimePlusReadableDuration = dateTime.plus(readableDuration);
@@ -167,6 +178,14 @@ public class DateTimeExamples {
         DateTime dateTimePlusSeconds = dateTime.plusSeconds(45);
         DateTime dateTimePlusWeeks = dateTime.plusWeeks(5);
         DateTime dateTimePlusYears = dateTime.plusYears(2);
+    }
+
+    public void toMethods(DateTime dateTime) {
+        // These variables are used as arguments in the methods below
+        Locale localeArg = Locale.getDefault();
+        DateTimeZone dateTimeZone = DateTimeZone.UTC;
+        Chronology chronology = BuddhistChronology.getInstance();
+        DateTimeFormatter datetimeformatterArg = DateTimeFormat.fullDate();
 
         // to methods
         DateTime toDateTime = dateTime.toDateTime();
@@ -191,14 +210,31 @@ public class DateTimeExamples {
 
         // toString methods
         java.lang.String toString = dateTime.toString("pattern");
-        java.lang.String toString2 = dateTime.toString("pattern",localeArg);
+        java.lang.String toString2 = dateTime.toString("pattern", localeArg);
         java.lang.String toString3 = dateTime.toString(datetimeformatterArg);
+    }
+
+    public void withMethods(DateTime dateTime) {
+        // These variables are used as arguments in the methods below
+        ReadableDuration readableDuration = null;
+        ReadablePeriod readablePeriod = null;
+        ReadablePartial readablePartial = null;
+        ReadableInstant readableInstant = null;
+        Object objectArg = null;
+        Locale localeArg = Locale.getDefault();
+        DateTimeZone dateTimeZone = DateTimeZone.UTC;
+        Chronology chronology = BuddhistChronology.getInstance();
+        DateTimeFieldType datetimefieldtypeArg = DateTimeFieldType.monthOfYear();
+        DateTimeField datetimefieldArg = null;
+        DateTimeFormatter datetimeformatterArg = DateTimeFormat.fullDate();
+        LocalDate localDate = LocalDate.now();
+        LocalTime localTime = LocalTime.now();
 
         // with
         DateTime withDateLocalDate = dateTime.withDate(localDate);
-        DateTime withDateParts = dateTime.withDate(2020,2,35);
+        DateTime withDateParts = dateTime.withDate(2020, 2, 35);
 
-        DateTime withTime = dateTime.withTime(6,7,8,123);
+        DateTime withTime = dateTime.withTime(6, 7, 8, 123);
         DateTime withTimeLocalTime = dateTime.withTime(localTime);
         DateTime withTimeAtStartOfDay = dateTime.withTimeAtStartOfDay();
 
@@ -222,11 +258,11 @@ public class DateTimeExamples {
         DateTime withYearOfEra = dateTime.withYearOfEra(56);
 
         DateTime withDurationAdded = dateTime.withDurationAdded(23L, 3);
-        DateTime withDurationAddedRd = dateTime.withDurationAdded(readableDuration,5);
+        DateTime withDurationAddedRd = dateTime.withDurationAdded(readableDuration, 5);
         DateTime withPeriodAdded = dateTime.withPeriodAdded(readablePeriod, 5);
 
-        DateTime withField = dateTime.withField(DateTimeFieldType.dayOfMonth(),5);
-        DateTime withFieldAdded = dateTime.withFieldAdded(DurationFieldType.hours(),5);
+        DateTime withField = dateTime.withField(DateTimeFieldType.dayOfMonth(), 5);
+        DateTime withFieldAdded = dateTime.withFieldAdded(DurationFieldType.hours(), 5);
         DateTime withFields = dateTime.withFields(readablePartial);
 
         DateTime withEarlierOffsetAtOverlap = dateTime.withEarlierOffsetAtOverlap();
@@ -236,6 +272,13 @@ public class DateTimeExamples {
 
         DateTime withZone = dateTime.withZone(dateTimeZone);
         DateTime withZoneRetainFields = dateTime.withZoneRetainFields(dateTimeZone);
+    }
+
+    public void isMethods(DateTime dateTime) {
+
+        // These variables are used as arguments in the methods below
+        ReadableInstant readableInstant = null;
+        DateTimeFieldType datetimefieldtypeArg = DateTimeFieldType.monthOfYear();
 
         // is methods
         boolean isAfter1 = dateTime.isAfter(readableInstant);
@@ -249,9 +292,16 @@ public class DateTimeExamples {
         boolean isEqualNow = dateTime.isEqualNow();
         boolean isSupported = dateTime.isSupported(datetimefieldtypeArg);
 
+    }
+
+    public void compareMethods(DateTime dateTime) {
+
+        // These variables are used as arguments in the methods below
+        ReadableInstant readableInstant = null;
+
         // Compare to
-        int compareTo1 = dateTime.compareTo(objectArg);
         int compareTo2 = dateTime.compareTo(readableInstant);
+
 
     }
 

@@ -104,19 +104,8 @@ public class LocalDateTimeExamples {
         Locale localeArg = Locale.JAPAN;
         
         Chronology getChronology = testLocalDateTime.getChronology();
-        DateTime toDateTime = testLocalDateTime.toDateTime(datetimezoneArg);
-        DateTime toDateTime1 = testLocalDateTime.toDateTime();
-        LocalDate toLocalDate = testLocalDateTime.toLocalDate();
-        LocalTime toLocalTime = testLocalDateTime.toLocalTime();
-        java.util.Date toDate = testLocalDateTime.toDate(timezoneArg);
-        java.util.Date toDate1 = testLocalDateTime.toDate();
-        LocalDateTime withDate = testLocalDateTime.withDate(intArg,intArg,intArg);
-        LocalDateTime withTime = testLocalDateTime.withTime(intArg,intArg,intArg,intArg);
-        LocalDateTime withFields = testLocalDateTime.withFields(readablepartialArg);
-        LocalDateTime withField = testLocalDateTime.withField(datetimefieldtypeArg,intArg);
-        LocalDateTime withFieldAdded = testLocalDateTime.withFieldAdded(durationfieldtypeArg,intArg);
-        LocalDateTime withDurationAdded = testLocalDateTime.withDurationAdded(readabledurationArg,intArg);
-        LocalDateTime withPeriodAdded = testLocalDateTime.withPeriodAdded(readableperiodArg,intArg);
+
+        // 'plus' methods
         LocalDateTime plus = testLocalDateTime.plus(readableperiodArg);
         LocalDateTime plus1 = testLocalDateTime.plus(readabledurationArg);
         LocalDateTime plusYears = testLocalDateTime.plusYears(intArg);
@@ -127,6 +116,8 @@ public class LocalDateTimeExamples {
         LocalDateTime plusMinutes = testLocalDateTime.plusMinutes(intArg);
         LocalDateTime plusSeconds = testLocalDateTime.plusSeconds(intArg);
         LocalDateTime plusMillis = testLocalDateTime.plusMillis(intArg);
+
+        // 'minus' methods
         LocalDateTime minus = testLocalDateTime.minus(readableperiodArg);
         LocalDateTime minus1 = testLocalDateTime.minus(readabledurationArg);
         LocalDateTime minusYears = testLocalDateTime.minusYears(intArg);
@@ -137,7 +128,8 @@ public class LocalDateTimeExamples {
         LocalDateTime minusMinutes = testLocalDateTime.minusMinutes(intArg);
         LocalDateTime minusSeconds = testLocalDateTime.minusSeconds(intArg);
         LocalDateTime minusMillis = testLocalDateTime.minusMillis(intArg);
-        LocalDateTime.Property property = testLocalDateTime.property(datetimefieldtypeArg);
+
+        // 'get' methods
         int getEra = testLocalDateTime.getEra();
         int getCenturyOfEra = testLocalDateTime.getCenturyOfEra();
         int getYearOfEra = testLocalDateTime.getYearOfEra();
@@ -152,6 +144,8 @@ public class LocalDateTimeExamples {
         int getSecondOfMinute = testLocalDateTime.getSecondOfMinute();
         int getMillisOfSecond = testLocalDateTime.getMillisOfSecond();
         int getMillisOfDay = testLocalDateTime.getMillisOfDay();
+
+        // 'with' methods
         LocalDateTime withEra = testLocalDateTime.withEra(intArg);
         LocalDateTime withCenturyOfEra = testLocalDateTime.withCenturyOfEra(intArg);
         LocalDateTime withYearOfEra = testLocalDateTime.withYearOfEra(intArg);
@@ -168,6 +162,17 @@ public class LocalDateTimeExamples {
         LocalDateTime withSecondOfMinute = testLocalDateTime.withSecondOfMinute(intArg);
         LocalDateTime withMillisOfSecond = testLocalDateTime.withMillisOfSecond(intArg);
         LocalDateTime withMillisOfDay = testLocalDateTime.withMillisOfDay(intArg);
+
+        LocalDateTime withDate = testLocalDateTime.withDate(intArg,intArg,intArg);
+        LocalDateTime withTime = testLocalDateTime.withTime(intArg,intArg,intArg,intArg);
+        LocalDateTime withFields = testLocalDateTime.withFields(readablepartialArg);
+        LocalDateTime withField = testLocalDateTime.withField(datetimefieldtypeArg,intArg);
+        LocalDateTime withFieldAdded = testLocalDateTime.withFieldAdded(durationfieldtypeArg,intArg);
+        LocalDateTime withDurationAdded = testLocalDateTime.withDurationAdded(readabledurationArg,intArg);
+        LocalDateTime withPeriodAdded = testLocalDateTime.withPeriodAdded(readableperiodArg,intArg);
+
+
+        // 'property' methods
         LocalDateTime.Property era = testLocalDateTime.era();
         LocalDateTime.Property centuryOfEra = testLocalDateTime.centuryOfEra();
         LocalDateTime.Property yearOfCentury = testLocalDateTime.yearOfCentury();
@@ -183,6 +188,17 @@ public class LocalDateTimeExamples {
         LocalDateTime.Property secondOfMinute = testLocalDateTime.secondOfMinute();
         LocalDateTime.Property millisOfSecond = testLocalDateTime.millisOfSecond();
         LocalDateTime.Property millisOfDay = testLocalDateTime.millisOfDay();
+        LocalDateTime.Property property = testLocalDateTime.property(datetimefieldtypeArg);
+
+        // 'to' methods
+        DateTime toDateTime = testLocalDateTime.toDateTime(datetimezoneArg);
+        DateTime toDateTime1 = testLocalDateTime.toDateTime();
+        LocalDate toLocalDate = testLocalDateTime.toLocalDate();
+        LocalTime toLocalTime = testLocalDateTime.toLocalTime();
+        java.util.Date toDate = testLocalDateTime.toDate(timezoneArg);
+        java.util.Date toDate1 = testLocalDateTime.toDate();
+
+
         int get = testLocalDateTime.get(datetimefieldtypeArg);
         boolean equals = testLocalDateTime.equals(objectArg);
         java.lang.String toString = testLocalDateTime.toString(stringArg);

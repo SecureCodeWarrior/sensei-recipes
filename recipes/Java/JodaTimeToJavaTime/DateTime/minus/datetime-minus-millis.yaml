@@ -1,12 +1,12 @@
-id: scw:java.time:Joda-Time:datetime-plus-millis
+id: scw:java.time:Joda-Time:datetime-minus-millis
 version: 10
 metadata:
-  name: Convert DateTime plus millis to java.time
-  shortDescription: Convert DateTime plus millis to java.time
+  name: Convert DateTime minus millis to java.time
+  shortDescription: Convert DateTime minus millis to java.time
   level: warning
   language: java
   enabled: true
-  descriptionFile: descriptions/datetime.html
+  descriptionFile: Java/JodaTimeToJavaTime/DateTime/descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
@@ -14,7 +14,7 @@ search:
       1:
         type: int
     argCount: 1
-    name: plusMillis
+    name: minusMillis
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime

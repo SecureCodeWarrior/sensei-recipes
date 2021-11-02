@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:common-withWeekYear
+version: 10
+metadata:
+  name: Change withWeekyear to java.time equivalent with(IsoFields.WEEK_BASED_YEAR, newValue)
+  shortDescription: Change withWeekyear to java.time equivalent with(IsoFields.WEEK_BASED_YEAR, newValue)
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: withWeekyear
+    anyOf:
+    - type: java.time.LocalDate
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: 'Change to java.time equivalent: with(IsoFields.WEEK_BASED_YEAR, newValue)'
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.with(java.time.temporal.IsoFields.WEEK_BASED_YEAR, {{{ arguments }}})'
+  - modifyAssignedVariable:
+      type: '{{{ qualifier.type }}}'

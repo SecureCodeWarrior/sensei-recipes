@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:remove-toDateTime-methodcall
+version: 10
+metadata:
+  name: Remove obsolete toDateTime method call
+  shortDescription: Remove obsolete toDateTime method call
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: toDateTime
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Remove unnecessary toDateTime method call
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}'

@@ -1,12 +1,12 @@
-id: scw:java.time:Joda-Time:datetime-with-month
+id: scw:java.time:Joda-Time:common-with-monthOfYear
 version: 10
 metadata:
-  name: Convert DateTime.withMonthOfYear to java.time
-  shortDescription: Convert DateTime.withMonthOfYear to java.time
+  name: Convert withMonthOfYear method call to java.time equivalent withMonth
+  shortDescription: Convert withMonthOfYear method call to java.time equivalent withMonth
   level: warning
   language: java
   enabled: true
-  descriptionFile: descriptions/datetime.html
+  descriptionFile: Java/JodaTimeToJavaTime/DateTime/descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
@@ -18,7 +18,7 @@ search:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite using java.time
+- name: 'Rewrite to java.time equivalent: withMonth'
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.withMonth({{{ arguments.0 }}})'

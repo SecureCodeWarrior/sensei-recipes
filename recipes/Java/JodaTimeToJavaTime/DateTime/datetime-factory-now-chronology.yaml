@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:datetime-now-chronology
+version: 10
+metadata:
+  name: Converting DateTime.now(chronology) to java.time
+  shortDescription: Converting DateTime.now(chronology) to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.time.chrono.Chronology
+    argCount: 1
+    name: now
+    returnType: org.joda.time.DateTime
+availableFixes:
+- name: Rewrite using chronology.zonedDateTime(instant, zoneid)
+  actions:
+  - rewrite:
+      to: '{{{ arguments.0 }}}.zonedDateTime(java.time.Instant.now(), java.time.ZoneId.systemDefault())'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:centuryOfEra-not-supported
+version: 10
+metadata:
+  name: Century of Era is not supported in java.time
+  shortDescription: Century of Era is not supported in java.time
+  level: info
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    allOf:
+    - anyOf:
+      - name: centuryOfEra
+      - name: getCenturyOfEra
+      - name: withCenturyOfEra
+    - anyOf:
+      - type: org.joda.time.LocalDate
+      - type: org.joda.time.LocalDateTime
+      - type: org.joda.time.DateTime
+      - type: java.time.LocalDate
+      - type: java.time.LocalDateTime
+      - type: java.time.ZonedDateTime
+      - type: java.time.OffsetDateTime
+availableFixes: []

@@ -1,12 +1,12 @@
-id: scw:java.time:Joda-Time:datetime-plus
+id: scw:java.time:Joda-Time:datetime-minus
 version: 10
 metadata:
-  name: Convert DateTime plus to java.time
-  shortDescription: Convert DateTime plus to java.time
+  name: Convert minus(long) method call to java.time equivalent
+  shortDescription: Convert minus(long) method call to java.time equivalent
   level: warning
   language: java
   enabled: true
-  descriptionFile: descriptions/datetime.html
+  descriptionFile: Java/JodaTimeToJavaTime/DateTime/descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
@@ -14,12 +14,12 @@ search:
       1:
         type: long
     argCount: 1
-    name: plus
+    name: minus
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite using java.time
+- name: 'Rewrite to java.time equivalent: minus(value, ChronoUnit.MILLIS)'
   actions:
   - rewrite:
       to: '{{{ expressionElement }}}({{{ arguments.0 }}}, java.time.temporal.ChronoUnit.MILLIS)'

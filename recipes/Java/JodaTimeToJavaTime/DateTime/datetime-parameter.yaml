@@ -12,11 +12,11 @@ search:
   parameter:
     type: org.joda.time.DateTime
 availableFixes:
-- name: Convert parameter to ZonedDateTime
+- name: Migrate parameter to java.time.ZonedDateTime
   actions:
   - changeType:
       type: java.time.ZonedDateTime
-- name: Change parameter to OffsetDateTime
+- name: Migrate parameter to java.time.OffsetDateTime
   actions:
   - changeType:
       type: java.time.OffsetDateTime
