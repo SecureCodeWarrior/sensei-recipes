@@ -1,0 +1,67 @@
+id: scw:assertj:idiomatic:isNotEqualTo-not-expression
+version: 10
+metadata:
+  name: Use isNotEqualTo instead of !equals isTrue (NOT WORKING)
+  shortDescription: Use isNotEqualTo instead of !equals isTrue (NOT WORKING)
+  level: warning
+  language: java
+  enabled: false
+  tags: ""
+search:
+  methodcall:
+    name: isTrue
+    anyOf:
+    - "on":
+        methodcall:
+          args:
+            1:
+              value:
+                is:
+                  expression: {}
+          name: assertThat
+          label: assertThatMethodCallDirect
+          type: org.assertj.core.api.Assertions
+    - "on":
+        methodcall:
+          name:
+            matches: as|describedAs
+          "on":
+            methodcall:
+              args:
+                1:
+                  value:
+                    is:
+                      methodcall:
+                        argCount: 1
+              name: assertThat
+              label: assertThatMethodCallIndirect
+              type: org.assertj.core.api.Assertions
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: '{{{ qualifier }}}'
+      target: label:assertThatMethodCallDirect
+  - modifyArguments:
+      rewrite:
+        1: '{{{ qualifier }}}'
+      target: label:assertThatMethodCallIndirect
+  - modifyArguments:
+      applyIf:
+        label:
+          is:
+            methodcall: {}
+          labelName: assertThatMethodCallDirect
+      insert:
+        1: '{{{ qualifier.arguments.0.arguments }}}'
+  - modifyArguments:
+      applyIf:
+        label:
+          is:
+            methodcall: {}
+          labelName: assertThatMethodCallIndirect
+      insert:
+        1: '{{{ qualifier.qualifier.arguments.0.arguments }}}'
+  - changeName:
+      name: isNotEqualTo

@@ -1,8 +1,8 @@
-id: scw:assertj:idiomatic:isEqualTo-expression
+id: scw:assertj:idiomatic:isEqualTo-operator-true
 version: 10
 metadata:
-  name: Use isEqualTo instead of equals
-  shortDescription: Use isEqualTo instead of equals
+  name: Use isEqualTo instead of == isTrue
+  shortDescription: Use isEqualTo instead of == isTrue
   level: warning
   language: java
   enabled: true
@@ -15,11 +15,11 @@ search:
         methodcall:
           args:
             1:
+              type: boolean
               value:
                 is:
-                  methodcall:
-                    argCount: 1
-                    name: equals
+                  comparison:
+                    operator: ==
           name: assertThat
           label: assertThatMethodCallDirect
           type: org.assertj.core.api.Assertions
@@ -31,10 +31,11 @@ search:
             methodcall:
               args:
                 1:
+                  type: boolean
                   value:
                     is:
-                      methodcall:
-                        argCount: 1
+                      comparison:
+                        operator: ==
               name: assertThat
               label: assertThatMethodCallIndirect
               type: org.assertj.core.api.Assertions
@@ -43,11 +44,11 @@ availableFixes:
   actions:
   - modifyArguments:
       rewrite:
-        1: '{{{ qualifier }}}'
+        1: '{{{ leftOperand }}}'
       target: label:assertThatMethodCallDirect
   - modifyArguments:
       rewrite:
-        1: '{{{ qualifier }}}'
+        1: '{{{ leftOperand }}}'
       target: label:assertThatMethodCallIndirect
   - modifyArguments:
       applyIf:
@@ -56,7 +57,7 @@ availableFixes:
             methodcall: {}
           labelName: assertThatMethodCallDirect
       insert:
-        1: '{{{ qualifier.arguments.0.arguments }}}'
+        1: '{{{ qualifier.arguments.0.rightOperand }}}'
   - modifyArguments:
       applyIf:
         label:
@@ -64,6 +65,6 @@ availableFixes:
             methodcall: {}
           labelName: assertThatMethodCallIndirect
       insert:
-        1: '{{{ qualifier.qualifier.arguments.0.arguments }}}'
+        1: '{{{ qualifier.qualifier.arguments.0.rightOperand }}}'
   - changeName:
       name: isEqualTo
