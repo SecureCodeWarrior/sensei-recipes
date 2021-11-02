@@ -6,6 +6,7 @@ import org.joda.time.chrono.ISOChronology;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import java.util.Locale;
 import java.util.Optional;
 
 public class DateTimeExamples {
@@ -14,6 +15,7 @@ public class DateTimeExamples {
 
     public void constructors() {
 
+        // The following are arguments used in the Constructors below
         Chronology chronology = BuddhistChronology.getInstance();
         long longInstant = System.currentTimeMillis();
         Object instantObject = new java.util.Date();
@@ -55,14 +57,17 @@ public class DateTimeExamples {
 
     public void factoryMethods() {
 
+        // These variables are used in the factory methods below
         Chronology chronology = ISOChronology.getInstance();
         DateTimeZone dateTimeZone = DateTimeZone.UTC;
         DateTimeFormatter dtf = DateTimeFormat.fullDate();
 
+        // now factory methods
         DateTime dtnow = DateTime.now();
         DateTime dtNowChronology = DateTime.now(chronology);
         DateTime dtNowDateTimeZone = DateTime.now(dateTimeZone);
 
+        // parse factory methods
         DateTime dtParsed = DateTime.parse("somedate");
         DateTime dtParsedFormatter = DateTime.parse("somedate", dtf);
 
@@ -76,17 +81,23 @@ public class DateTimeExamples {
         return Optional.ofNullable(dateTimeField);
     }
 
-    public void methods() {
+    public void methods(DateTime dateTime) {
 
-        //
+        // These variables are used as arguments in the methods below
         ReadableDuration readableDuration = null;
         ReadablePeriod readablePeriod = null;
         ReadablePartial readablePartial = null;
+        ReadableInstant readableInstant = null;
+        Object objectArg = null;
+        Locale localeArg = Locale.getDefault();
         DateTimeZone dateTimeZone = DateTimeZone.UTC;
         Chronology chronology = BuddhistChronology.getInstance();
+        DateTimeFieldType datetimefieldtypeArg = DateTimeFieldType.monthOfYear();
+        DateTimeField datetimefieldArg = null;
+        DateTimeFormatter datetimeformatterArg = DateTimeFormat.fullDate();
 
-        DateTime dateTime = DateTime.now();
-
+        // Property accessors
+        DateTime.Property property = dateTime.property(DateTimeFieldType.dayOfMonth());
         DateTime.Property propCenturyOfEra = dateTime.centuryOfEra();
         DateTime.Property propDayOfMonth = dateTime.dayOfMonth();
         DateTime.Property propDayOfWeek = dateTime.dayOfWeek();
@@ -106,20 +117,45 @@ public class DateTimeExamples {
         DateTime.Property propYearOfCentury = dateTime.yearOfCentury();
         DateTime.Property propYearOfEra = dateTime.yearOfEra();
 
-        DateTime.Property property = dateTime.property(DateTimeFieldType.dayOfMonth());
+        // Get methods
+        org.joda.time.Chronology getChronology = dateTime.getChronology();
+        long getMillis = dateTime.getMillis();
+        int getMillisOfDay = dateTime.getMillisOfDay();
+        int getMonthOfYear = dateTime.getMonthOfYear();
+        int getHourOfDay = dateTime.getHourOfDay();
+        int getMinuteOfHour = dateTime.getMinuteOfHour();
+        int getSecondOfMinute = dateTime.getSecondOfMinute();
+        int getMillisOfSecond = dateTime.getMillisOfSecond();
+        int getDayOfWeek = dateTime.getDayOfWeek();
+        int getDayOfYear = dateTime.getDayOfYear();
+        int getWeekOfWeekyear = dateTime.getWeekOfWeekyear();
+        int getWeekyear = dateTime.getWeekyear();
+        int getYearOfEra = dateTime.getYearOfEra();
+        int getYearOfCentury = dateTime.getYearOfCentury();
+        int getCenturyOfEra = dateTime.getCenturyOfEra();
+        int getEra = dateTime.getEra();
+        int getSecondOfDay = dateTime.getSecondOfDay();
+        int getMinuteOfDay = dateTime.getMinuteOfDay();
+        int get = dateTime.get(datetimefieldtypeArg);
+        int getYear = dateTime.getYear();
+        int getDayOfMonth = dateTime.getDayOfMonth();
+        DateTimeZone getZone = dateTime.getZone();
+        int getDateTimeField = dateTime.get(datetimefieldArg);
 
+        // Minus Methods
         DateTime dateTimeMinusLong = dateTime.minus(123L);
         DateTime dateTimeMinusReadableDuration = dateTime.minus(readableDuration);
         DateTime dateTimeMinusReadablePeriod = dateTime.minus(readablePeriod);
+        DateTime dateTimeMinusYears = dateTime.minusYears(2);
+        DateTime dateTimeMinusMonths = dateTime.minusMonths(5);
+        DateTime dateTimeMinusWeeks = dateTime.minusWeeks(5);
         DateTime dateTimeMinusDays = dateTime.minusDays(5);
         DateTime dateTimeMinusHours = dateTime.minusHours(5);
-        DateTime dateTimeMinusMillis = dateTime.minusMillis(500);
         DateTime dateTimeMinusMinutes = dateTime.minusMinutes(560);
-        DateTime dateTimeMinusMonths = dateTime.minusMonths(5);
         DateTime dateTimeMinusSeconds = dateTime.minusSeconds(45);
-        DateTime dateTimeMinusWeeks = dateTime.minusWeeks(5);
-        DateTime dateTimeMinusYears = dateTime.minusYears(2);
+        DateTime dateTimeMinusMillis = dateTime.minusMillis(500);
 
+        // Plus Methods
         DateTime dateTimePlusLong = dateTime.plus(123L);
         DateTime dateTimePlusReadableDuration = dateTime.plus(readableDuration);
         DateTime dateTimePlusReadablePeriod = dateTime.plus(readablePeriod);
@@ -132,6 +168,8 @@ public class DateTimeExamples {
         DateTime dateTimePlusWeeks = dateTime.plusWeeks(5);
         DateTime dateTimePlusYears = dateTime.plusYears(2);
 
+        // to methods
+        DateTime toDateTime = dateTime.toDateTime();
         DateMidnight dateMidnight = dateTime.toDateMidnight();
         DateTime dateTimeFromChronology = dateTime.toDateTime(chronology);
         DateTime dateTimeFromDateTimeZone = dateTime.toDateTime(dateTimeZone);
@@ -141,46 +179,79 @@ public class DateTimeExamples {
         LocalTime localTime = dateTime.toLocalTime();
         TimeOfDay timeOfDay = dateTime.toTimeOfDay();
         YearMonthDay yearMonthDay = dateTime.toYearMonthDay();
+        java.util.Calendar toCalendar = dateTime.toCalendar(localeArg);
+        java.util.GregorianCalendar toGregorianCalendar = dateTime.toGregorianCalendar();
+        java.util.Date toDate = dateTime.toDate();
+        org.joda.time.Instant toInstant = dateTime.toInstant();
+
+        MutableDateTime toMutableDateTime1 = dateTime.toMutableDateTime(chronology);
+        MutableDateTime toMutableDateTime2 = dateTime.toMutableDateTime();
+        MutableDateTime toMutableDateTime3 = dateTime.toMutableDateTime(dateTimeZone);
+        MutableDateTime toMutableDateTimeISO = dateTime.toMutableDateTimeISO();
+
+        // toString methods
+        java.lang.String toString = dateTime.toString("pattern");
+        java.lang.String toString2 = dateTime.toString("pattern",localeArg);
+        java.lang.String toString3 = dateTime.toString(datetimeformatterArg);
 
         // with
-        DateTime withCenturyOfEra = dateTime.withCenturyOfEra(5);
-        DateTime withChronology = dateTime.withChronology(chronology);
-        DateTime withDateParts = dateTime.withDate(2020,2,35);
         DateTime withDateLocalDate = dateTime.withDate(localDate);
+        DateTime withDateParts = dateTime.withDate(2020,2,35);
+
+        DateTime withTime = dateTime.withTime(6,7,8,123);
+        DateTime withTimeLocalTime = dateTime.withTime(localTime);
+        DateTime withTimeAtStartOfDay = dateTime.withTimeAtStartOfDay();
+
+        DateTime withCenturyOfEra = dateTime.withCenturyOfEra(5);
         DateTime withDayOfMonth = dateTime.withDayOfMonth(5);
         DateTime withDayOfWeek = dateTime.withDayOfWeek(5);
         DateTime withDayOfYear = dateTime.withDayOfYear(6);
-        DateTime withDurationAdded = dateTime.withDurationAdded(23L, 3);
-        DateTime withDurationAddedRd = dateTime.withDurationAdded(readableDuration,5);
-        DateTime withEarlierOffsetAtOverlap = dateTime.withEarlierOffsetAtOverlap();
         DateTime withEra = dateTime.withEra(5);
-        DateTime withField = dateTime.withField(DateTimeFieldType.dayOfMonth(),5);
-        DateTime withFieldAdded = dateTime.withFieldAdded(DurationFieldType.hours(),5);
-        DateTime withFields = dateTime.withFields(readablePartial);
         DateTime withHourOfDay = dateTime.withHourOfDay(5);
-        DateTime withLaterOffsetAtOverlap = dateTime.withLaterOffsetAtOverlap();
-        DateTime withMillis = dateTime.withMillis(123);
+        DateTime withMillisInt = dateTime.withMillis(123);
+        DateTime withMillisLong = dateTime.withMillis(123L);
         DateTime withMillisOfDay = dateTime.withMillisOfDay(1234);
         DateTime withMillisOfSecond = dateTime.withMillisOfSecond(531);
         DateTime withMinuteOfHour = dateTime.withMinuteOfHour(30);
         DateTime withMonthOfYear = dateTime.withMonthOfYear(2);
-        DateTime withPeriodAdded = dateTime.withPeriodAdded(readablePeriod, 5);
         DateTime withSecondOfMinute = dateTime.withSecondOfMinute(50);
-        DateTime withTime = dateTime.withTime(6,7,8,123);
-        DateTime withTimeLocalTime = dateTime.withTime(localTime);
-        DateTime withTimeAtStartOfDay = dateTime.withTimeAtStartOfDay();
         DateTime withWeekOfWeekYear = dateTime.withWeekOfWeekyear(5);
         DateTime withWeekyear = dateTime.withWeekyear(6);
         DateTime withYear = dateTime.withYear(1236);
         DateTime withYearOfCentury = dateTime.withYearOfCentury(56);
         DateTime withYearOfEra = dateTime.withYearOfEra(56);
+
+        DateTime withDurationAdded = dateTime.withDurationAdded(23L, 3);
+        DateTime withDurationAddedRd = dateTime.withDurationAdded(readableDuration,5);
+        DateTime withPeriodAdded = dateTime.withPeriodAdded(readablePeriod, 5);
+
+        DateTime withField = dateTime.withField(DateTimeFieldType.dayOfMonth(),5);
+        DateTime withFieldAdded = dateTime.withFieldAdded(DurationFieldType.hours(),5);
+        DateTime withFields = dateTime.withFields(readablePartial);
+
+        DateTime withEarlierOffsetAtOverlap = dateTime.withEarlierOffsetAtOverlap();
+        DateTime withLaterOffsetAtOverlap = dateTime.withLaterOffsetAtOverlap();
+
+        DateTime withChronology = dateTime.withChronology(chronology);
+
         DateTime withZone = dateTime.withZone(dateTimeZone);
         DateTime withZoneRetainFields = dateTime.withZoneRetainFields(dateTimeZone);
 
+        // is methods
+        boolean isAfter1 = dateTime.isAfter(readableInstant);
+        boolean isAfter2 = dateTime.isAfter(123456L);
+        boolean isBefore1 = dateTime.isBefore(123456L);
+        boolean isBefore2 = dateTime.isBefore(readableInstant);
+        boolean isEqual1 = dateTime.isEqual(readableInstant);
+        boolean isEqual2 = dateTime.isEqual(123456L);
+        boolean isAfterNow = dateTime.isAfterNow();
+        boolean isBeforeNow = dateTime.isBeforeNow();
+        boolean isEqualNow = dateTime.isEqualNow();
+        boolean isSupported = dateTime.isSupported(datetimefieldtypeArg);
 
-
-
-
+        // Compare to
+        int compareTo1 = dateTime.compareTo(objectArg);
+        int compareTo2 = dateTime.compareTo(readableInstant);
 
     }
 
