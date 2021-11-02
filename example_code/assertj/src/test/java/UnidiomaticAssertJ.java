@@ -77,12 +77,13 @@ class UnidiomaticAssertJ {
         assertThat(!x.equals(y)).as("description").isTrue(); // to assertThat(x).as("description").isNotEqualTo(y) ?
         assertThat(!x.equals(y)).describedAs("description").isTrue(); // to assertThat(x).describedAs("description").isNotEqualTo(y) ?
 
-        assertThat(x != y).isFalse(); // to assertThat(x).isEqualTo(y) ?
-        assertThat(x != y).as("description").isFalse(); // to assertThat(x).as("description").isEqualTo(y) ?
-        assertThat(x != y).describedAs("description").isFalse(); // to assertThat(x).describedAs("description").isEqualTo(y) ?
-        assertThat(!x.equals(y)).isFalse(); // to assertThat(x).isEqualTo(y) ?
-        assertThat(!x.equals(y)).as("description").isFalse(); // to assertThat(x).as("description").isEqualTo(y) ?
-        assertThat(!x.equals(y)).describedAs("description").isFalse(); // to assertThat(x).describedAs("description").isEqualTo(y) ?
+        // I think these are a bit too convoluted to worry about for now:
+//        assertThat(x != y).isFalse(); // to assertThat(x).isEqualTo(y) ?
+//        assertThat(x != y).as("description").isFalse(); // to assertThat(x).as("description").isEqualTo(y) ?
+//        assertThat(x != y).describedAs("description").isFalse(); // to assertThat(x).describedAs("description").isEqualTo(y) ?
+//        assertThat(!x.equals(y)).isFalse(); // to assertThat(x).isEqualTo(y) ?
+//        assertThat(!x.equals(y)).as("description").isFalse(); // to assertThat(x).as("description").isEqualTo(y) ?
+//        assertThat(!x.equals(y)).describedAs("description").isFalse(); // to assertThat(x).describedAs("description").isEqualTo(y) ?
 
         assertThat(string.contains("abc")).isTrue(); // to assertThat(string).contains("abc")
         assertThat(string.contains("abc")).as("description").isTrue(); // to assertThat(string).as("description").contains("abc")
