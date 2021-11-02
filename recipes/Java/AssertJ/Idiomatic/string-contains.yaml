@@ -1,11 +1,12 @@
-id: New_Recipe
+id: scw:assertj:idiomatic:string-contains
 version: 10
 metadata:
-  name: New Recipe
-  shortDescription: This text will be shown as a tooltip when code violates this recipe
+  name: Use contains instead of contains isTrue
+  shortDescription: Use contains instead of contains isTrue
   level: warning
   language: java
   enabled: true
+  tags: AssertJ;framework specific;quality
 search:
   methodcall:
     args:
@@ -20,13 +21,13 @@ search:
     - followedBy:
         methodcall:
           name: isTrue
-          label: isTrueCall
+          label: isTrueCallDirect
     - followedBy:
         methodcall:
           followedBy:
             methodcall:
               name: isTrue
-              label: isTrueCall
+              label: isTrueCallIndirect
           name:
             matches: as|describedAs
 availableFixes:
@@ -36,8 +37,15 @@ availableFixes:
       to: assertThat({{{ arguments.0.qualifier }}})
   - changeName:
       name: contains
-      target: label:isTrueCall
+      target: label:isTrueCallDirect
+  - changeName:
+      name: contains
+      target: label:isTrueCallIndirect
   - modifyArguments:
       insert:
-        1: TODO
-      target: label:isTrueCall
+        1: '{{{ qualifier.arguments.0.arguments.0 }}}'
+      target: label:isTrueCallDirect
+  - modifyArguments:
+      insert:
+        1: '{{{ qualifier.qualifier.arguments.0.arguments.0 }}}'
+      target: label:isTrueCallIndirect
