@@ -9,9 +9,6 @@ metadata:
   tags: java.time;framework specific;Joda-Time;quality
 search:
   reference:
-    not:
-      in:
-        assignment: {}
     name: org.joda.time.Period.ZERO
 availableFixes:
 - name: Convert to java.time.Period.ZERO
