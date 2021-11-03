@@ -1,8 +1,8 @@
-id: scw:java.time:Joda-Time:datetime-plus-millis
+id: scw:java.time:Joda-Time:plusMillis
 version: 10
 metadata:
-  name: Convert DateTime plus millis to java.time
-  shortDescription: Convert DateTime plus millis to java.time
+  name: Convert plusMillis to java.time equivalent
+  shortDescription: Convert plusMillis to java.time equivalent
   level: warning
   language: java
   enabled: true
@@ -18,10 +18,11 @@ search:
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
+    - type: java.time.LocalDateTime
 availableFixes:
-- name: 'Rewrite to java.time equivalent: minus(value, ChronoUnit.MILLIS)'
+- name: 'Rewrite to java.time equivalent: plus(value, ChronoUnit.MILLIS)'
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.minus({{{ arguments.0 }}}, java.time.temporal.ChronoUnit.MILLIS)'
+      to: '{{{ qualifier }}}.plus({{{ arguments.0 }}}, java.time.temporal.ChronoUnit.MILLIS)'
   - modifyAssignedVariable:
       type: '{{{ qualifier.type }}}'
