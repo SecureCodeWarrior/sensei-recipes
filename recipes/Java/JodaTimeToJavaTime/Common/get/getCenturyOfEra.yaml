@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:getCenturyOfEra
+version: 10
+metadata:
+  name: Rewrite getCenturyOfEra to java.time equivalent
+  shortDescription: Rewrite getCenturyOfEra to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/getCenturyOfEra.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: getCenturyOfEra
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite to Math.abs(year / 100)
+  actions:
+  - rewrite:
+      to: java.lang.Math.abs({{{ qualifier }}}.getYear() / 100)

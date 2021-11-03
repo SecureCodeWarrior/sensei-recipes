@@ -162,14 +162,15 @@ public class DateTimeExamples {
     }
 
     public void plusMethods(DateTime dateTime) {
+
         // These variables are used as arguments in the methods below
-        ReadableDuration readableDuration = null;
-        ReadablePeriod readablePeriod = null;
+        Duration duration = Duration.ZERO;
+        Period period = Period.ZERO;
 
         // Plus Methods
         DateTime dateTimePlusLong = dateTime.plus(123L);
-        DateTime dateTimePlusReadableDuration = dateTime.plus(readableDuration);
-        DateTime dateTimePlusReadablePeriod = dateTime.plus(readablePeriod);
+        DateTime dateTimePlusReadableDuration = dateTime.plus(duration);
+        DateTime dateTimePlusReadablePeriod = dateTime.plus(period);
         DateTime dateTimePlusDays = dateTime.plusDays(5);
         DateTime dateTimePlusHours = dateTime.plusHours(5);
         DateTime dateTimePlusMillis = dateTime.plusMillis(500);

@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:getChronology
+version: 10
+metadata:
+  name: Rewrite getChronology to IsoChronology.getInstance();
+  shortDescription: Rewrite getChronology to IsoChronology.getInstance();
+  level: warning
+  language: java
+  enabled: true
+  comment: "In java.time, all of the standard date time classes belong to the IsoChronology.\nIt is strongly recommended to do all date time operations in IsoChronology and only use Custom Chronologies for display purposes "
+  descriptionFile: descriptions/getChronology.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: getChronology
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite to IsoChronology.INSTANCE
+  actions:
+  - rewrite:
+      to: java.time.chrono.IsoChronology.INSTANCE
+  - modifyAssignedVariable:
+      type: java.time.chrono.Chronology

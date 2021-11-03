@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-gethour
 version: 10
 metadata:
-  name: Convert DateTime getHourOfDay to java.time
-  shortDescription: Convert DateTime getHourOfDay to java.time
+  name: Rewrite getHourOfDay to getHour
+  shortDescription: Rewrite getHourOfDay to getHour
   level: warning
   language: java
   enabled: true
@@ -13,7 +13,6 @@ search:
     with:
       anyOf:
       - name: getHourOfDay
-      - name: hourOfDay
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime

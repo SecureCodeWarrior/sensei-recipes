@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:getYearOfCentury
+version: 10
+metadata:
+  name: Rewrite getYearOfCentury to java.time equivalent
+  shortDescription: Rewrite getYearOfCentury to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  comment: "In this chronology, centuries and year of century are zero based. For all years, the century is determined by dropping the last two digits of the year, ignoring sign. \nThe year of century is the value of the last two year digits."
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: getYearOfCentury
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite to Math.abs(getYear() % 100)
+  actions:
+  - rewrite:
+      to: java.lang.Math.abs({{{ qualifier }}}.getYear() % 100)

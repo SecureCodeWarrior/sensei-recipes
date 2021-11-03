@@ -1,0 +1,10 @@
+<html>
+<body>
+<h1>getChronology is no longer supported on Date/Time objects</h1>
+<p>java.time has taken a significantly different approach to using Chronology</p>
+<p>It is strongly recommended to perform as much processing as possible using IsoChronology</p>
+<p>As such, the following java.time classes all are tied directly to IsoChronology.</p>
+<p>This is significantly different to Joda-Time, in which a Chronology could be directly set on a Date Time object</p>
+<p>This recipe reflects the fact that conceptually if you were to call getChronology on a java.time Date/Time object, it would always return IsoChronology</p>
+</body>
+</html>

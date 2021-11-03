@@ -1,8 +1,8 @@
-id: scw:java.time:Joda-Time:datetime-getday
+id: scw:java.time:Joda-Time:datetime-getdayofweek
 version: 10
 metadata:
-  name: Convert DateTime getDayOfWeek to java.time
-  shortDescription: Convert DateTime getDayOfWeek to java.time
+  name: Rewrite getDayOfWeek to java.time
+  shortDescription: Rewrite getDayOfWeek to java.time
   level: warning
   language: java
   enabled: true
@@ -11,9 +11,11 @@ metadata:
 search:
   methodcall:
     name: getDayOfWeek
-    type: org.joda.time.base.AbstractDateTimeu
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite using java.time GetValue
+- name: Rewrite using java.time getDayOfWeek().getValue()
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.{{{ methodName }}}().getValue()'

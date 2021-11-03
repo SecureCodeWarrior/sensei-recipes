@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-getminute
 version: 10
 metadata:
-  name: Convert DateTime getMinuteOfHour to Java Time
-  shortDescription: Convert DateTime getMinuteOfHour to Java Time
+  name: Rewrite getMinuteOfHour to getMinute
+  shortDescription: Rewrite getMinuteOfHour to getMinute
   level: warning
   language: java
   enabled: true
@@ -13,7 +13,6 @@ search:
     with:
       anyOf:
       - name: getMinuteOfHour
-      - name: minuteOfHour
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime

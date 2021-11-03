@@ -1,8 +1,8 @@
-id: scw:java.time:Joda-Time:datetime-getsecond
+id: scw:java.time:Joda-Time:datetime-getsecondofminute
 version: 10
 metadata:
-  name: Convert DateTime getSecondOfMinute to java.time
-  shortDescription: Convert DateTime getSecondOfMinute to java.time
+  name: Rewrite getSecondOfMinute to getSecond
+  shortDescription: Rewrite getSecondOfMinute to getSecond
   level: warning
   language: java
   enabled: true
@@ -13,7 +13,6 @@ search:
     with:
       anyOf:
       - name: getSecondOfMinute
-      - name: secondOfMinute
     name: getSecondOfMinute
     anyOf:
     - type: java.time.ZonedDateTime

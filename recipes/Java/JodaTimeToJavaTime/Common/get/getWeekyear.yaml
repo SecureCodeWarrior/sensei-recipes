@@ -1,8 +1,8 @@
-id: scw:java.time:Joda-Time:datetime-weekofweekyear
+id: scw:java.time:Joda-Time:datetime-weekyear
 version: 10
 metadata:
-  name: Copy of Convert DateTime getWeekofweekyear to java.time
-  shortDescription: Convert DateTime getWeekyear to java.time
+  name: Rewrite getWeekyear to java.time equivalent
+  shortDescription: Rewrite getWeekyear to java.time equivalent
   level: warning
   language: java
   enabled: true
@@ -11,7 +11,7 @@ metadata:
 search:
   methodcall:
     argCount: 0
-    name: getWeekOfWeekyear
+    name: getWeekyear
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
@@ -19,4 +19,4 @@ availableFixes:
 - name: 'Rewrite using java.time Get '
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.get(java.time.temporal.WeekFields.of(java.util.Locale.getDefault()).weekOfWeekBasedYear())'
+      to: '{{{ qualifier }}}.get(java.time.temporal.WeekFields.of(java.util.Locale.getDefault()).weekOfYear())'

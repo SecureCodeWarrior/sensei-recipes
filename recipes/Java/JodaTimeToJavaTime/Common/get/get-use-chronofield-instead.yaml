@@ -1,0 +1,27 @@
+id: scw:java.time:Joda-Time:getSomeDateTimeField
+version: 10
+metadata:
+  name: Rewrite get<DateTimeField> method to get(ChronoField.DATE_TIME_FIELD)
+  shortDescription: Rewrite get<DateTimeField> method to get(ChronoField.DATE_TIME_FIELD)
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/getChronoField.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    allOf:
+    - anyOf:
+      - name: getEra
+      - name: getMinuteOfDay
+      - name: getSecondOfDay
+      - name: getYearOfEra
+      - name: getMillisOfSecond
+      - name: getMillisOfDay
+    - anyOf:
+      - type: java.time.ZonedDateTime
+availableFixes:
+- name: Rewrite to get(ChronoField.{DATE_TIME_FIELD})
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.get(java.time.temporal.ChronoField.{{#upperCase}}{{#camelToUnderscoreCase}}{{#sed}}s/Millis/Milli/,{{#sed}}s/get//,{{{ methodName }}}{{/sed}}{{/sed}}{{/camelToUnderscoreCase}}{{/upperCase}})'
