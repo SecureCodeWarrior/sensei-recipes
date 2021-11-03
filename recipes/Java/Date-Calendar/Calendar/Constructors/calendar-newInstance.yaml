@@ -1,0 +1,40 @@
+id: scw:calendar:new-instance
+version: 10
+metadata:
+  name: Migrate newInstance Calendar to java.time
+  shortDescription: Migrate newInstance Calendar to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    argCount: 0
+    name: getInstance
+    type: java.util.Calendar
+availableFixes:
+- name: Migrate to java.time.LocalDate
+  actions:
+  - rewrite:
+      to: java.time.LocalDate.now()
+  - modifyAssignedVariable:
+      type: java.time.LocalDate
+- name: Migrate to java.time.LocalDateTime
+  actions:
+  - rewrite:
+      to: java.time.LocalDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.LocalDateTime
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

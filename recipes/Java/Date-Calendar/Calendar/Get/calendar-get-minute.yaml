@@ -1,0 +1,26 @@
+id: scw:calendar:get-minute
+version: 10
+metadata:
+  name: Migrate Calendar get Minute
+  shortDescription: Migrate Calendar get Minute
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        referenceTo:
+          name: java.util.Calendar.MINUTE
+    name: get
+    anyOf:
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Change to getMinute
+  actions:
+  - rewrite:
+      to: '{{{ qualifier.name }}}.getMinute()'

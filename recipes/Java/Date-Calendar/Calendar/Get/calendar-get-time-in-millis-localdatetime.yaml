@@ -1,0 +1,20 @@
+id: scw:calendar:get-time-in-millis-localdatetime
+version: 10
+metadata:
+  name: Convert getTimeInMillis to Instant toEpochMilli
+  shortDescription: Convert getTimeInMillis to Instant toEpochMilli
+  level: warning
+  language: java
+  enabled: true
+  comment: 'Be aware this recipe uses a system default timezone (ZoneId.systemDefault()). '
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    name: getTimeInMillis
+    type: java.time.LocalDateTime
+availableFixes:
+- name: Rewrite using toInstant().toEpochMilli()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()'

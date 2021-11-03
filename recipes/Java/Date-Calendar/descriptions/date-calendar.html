@@ -1,0 +1,37 @@
+<html>
+<body>
+<p id="abstract">Migrate from java.util.Date and java.util.Calendar to Java Time</p>
+<br>
+<p>Prior to the Java SE 8 release, the Java date and time mechanism was provided by the java.util.Date, java.util.Calendar, and java.util.TimeZone classes, as well as their subclasses, such as java.util.GregorianCalendar. </p>
+<p>These classes had several drawbacks, including:</p>
+<ul>
+    <li>The Calendar class was not type safe.</li>
+    <li>Because the classes were mutable, they could not be used in multithreaded applications.</li>
+    <li>Bugs in application code were common due to the unusual numbering of months and the lack of type safety.</li>
+</ul>
+<p>Perhaps you have legacy code that uses the java.util date and time classes and you would like to take advantage of the java.time functionality with minimal changes to your code.</p>
+<br>
+<p>Examples</p>
+<b>Before</b>
+<pre>
+    Calendar calendar = new GregorianCalendar(2020, 05, 10, 10, 30);
+    calendar.add(Calendar.YEAR, 1);
+</pre>
+<b>After</b>
+<pre>
+    LocalDateTime calendar = LocalDateTime.of(2020, 05, 10, 10, 30);
+    calendar.plusYears(1);
+</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://docs.oracle.com/javase/tutorial/datetime/iso/legacy.html">Legacy Date-Time Code</a></li>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html">LocalDate (Java Platform SE 8 )</a></li>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html">LocalDateTime (Java Platform SE 8 )</a></li>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html">ZonedDateTime (Java Platform SE 8 )</a></li>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html">OffsetDateTime (Java Platform SE 8 )</a></li>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html">ZoneId (Java Platform SE 8 )</a></li>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant (Java Platform SE 8 )</a></li>
+</ul>
+</body>
+</html>

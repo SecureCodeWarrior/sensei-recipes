@@ -1,0 +1,24 @@
+id: scw:timezone:zoneid-default
+version: 10
+metadata:
+  name: TimeZone to ZoneId default
+  shortDescription: TimeZone to ZoneId default
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Date;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.lang.String
+    name: getTimeZone
+    type: java.util.TimeZone
+availableFixes:
+- name: Migrate to java.time.ZoneId
+  actions:
+  - rewrite:
+      to: java.time.ZoneId.of({{{ arguments.0 }}})
+  - modifyAssignedVariable:
+      type: java.time.ZoneId

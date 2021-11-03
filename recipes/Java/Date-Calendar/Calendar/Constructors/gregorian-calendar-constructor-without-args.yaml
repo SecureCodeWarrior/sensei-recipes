@@ -1,0 +1,39 @@
+id: scw:gregorian-calendar:constructor
+version: 10
+metadata:
+  name: Migrate new GregorianCalendar to java.time
+  shortDescription: Migrate new GregorianCalendar to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  instanceCreation:
+    argCount: 0
+    type: java.util.GregorianCalendar
+availableFixes:
+- name: Migrate to java.time.LocalDate
+  actions:
+  - rewrite:
+      to: java.time.LocalDate.now()
+  - modifyAssignedVariable:
+      type: java.time.LocalDate
+- name: Migrate to java.time.LocalDateTime
+  actions:
+  - rewrite:
+      to: java.time.LocalDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.LocalDateTime
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

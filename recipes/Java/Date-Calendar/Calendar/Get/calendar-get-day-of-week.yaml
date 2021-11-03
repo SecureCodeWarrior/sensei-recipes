@@ -1,0 +1,28 @@
+id: scw:calendar:get-day-of-week
+version: 10
+metadata:
+  name: Migrate Calendar get Day of Week
+  shortDescription: Migrate Calendar get Day of Week
+  level: warning
+  language: java
+  enabled: true
+  comment: This recipe will replace get(java.util.Calendar.DAY_OF_WEEK) to get(java.time.temporal.ChronoField.DAY_OF_WEEK). Be aware that java.util.Calendar.DAY_OF_WEEK has Sunday as first day of week, in the other side java.time.temporal.ChronoField.DAY_OF_WEEK has Monday as first day of week and this recipe adds 1 into result to keep code working. It's up to user to refactor this later.
+  descriptionFile: Java/Date-Calendar/descriptions/get-day-of-week.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        referenceTo:
+          name: java.util.Calendar.DAY_OF_WEEK
+    name: get
+    anyOf:
+    - type: java.time.LocalDate
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Change to get(ChronoField.DAY_OF_WEEK)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier.name }}}.get(java.time.temporal.ChronoField.DAY_OF_WEEK) + 1'

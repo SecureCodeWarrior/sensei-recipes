@@ -1,0 +1,28 @@
+id: scw:calendar:set-second
+version: 10
+metadata:
+  name: Migrate Calendar set() to java.time with()
+  shortDescription: Migrate Calendar set() to java.time with()
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        referenceTo:
+          name: java.util.Calendar.SECOND
+      2:
+        type: int
+    name: set
+    anyOf:
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time withSecond
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}} = {{{ qualifier }}}.withSecond({{{ arguments.1 }}})'

@@ -1,0 +1,21 @@
+id: scw:gregorian-calendar:constructor-3-parameters
+version: 10
+metadata:
+  name: Migrate GregorianCalendar to java.time
+  shortDescription: Migrate GregorianCalendar to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  instanceCreation:
+    argCount: 3
+    type: java.util.GregorianCalendar
+availableFixes:
+- name: Migrate to java.time.LocalDate
+  actions:
+  - rewrite:
+      to: java.time.LocalDate.of({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.LocalDate

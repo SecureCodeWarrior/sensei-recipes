@@ -1,0 +1,27 @@
+id: scw:calendar:get-time
+version: 10
+metadata:
+  name: Convert getTime to java.time Equivalent
+  shortDescription: Convert getTime to java.time Equivalent
+  level: warning
+  language: java
+  enabled: true
+  comment: "This recipe is designed to match on broken code during a migration from java.util.Date or java.util.Calendar to java.time.\n\nThis recipe provides 2 fixes, one is designed to return a java.util.Date, and the other to return a long. \nThis is because depending on whether this object was migrated from Calendar or Date, it would have previously returned different types."
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    argCount: 0
+    name: getTime
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite to Date.from(instant)
+  actions:
+  - rewrite:
+      to: java.util.Date.from({{{ qualifier }}}.toInstant())
+- name: Rewrite to toEpochMillis (long)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.toInstant().toEpochMilli()'

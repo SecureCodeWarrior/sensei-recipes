@@ -1,0 +1,26 @@
+id: scw:calendar:get-second
+version: 10
+metadata:
+  name: Migrate Calendar get Second
+  shortDescription: Migrate Calendar get Second
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        referenceTo:
+          name: java.util.Calendar.SECOND
+    name: get
+    anyOf:
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Change to getSecond
+  actions:
+  - rewrite:
+      to: '{{{ qualifier.name }}}.getSecond()'

@@ -71,3 +71,4 @@ cookbooks: # List of cookbooks
     description: Standardisation on java.time (JSR-310) including migrations from other time frameworks.
     includedTags: [java.time]
     excludedTags: []
+    featured: true

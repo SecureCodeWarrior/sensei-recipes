@@ -1,0 +1,45 @@
+id: scw:date:contructor
+version: 10
+metadata:
+  name: Replace new Date() with java.time
+  shortDescription: Replace new Date() with java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: 'Be aware this recipe uses a system default timezone (ZoneId.systemDefault()). '
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Date;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: Long
+    argCount: 1
+    type: java.util.Date
+availableFixes:
+- name: Rewrite using LocalDate
+  actions:
+  - rewrite:
+      to: java.time.Instant.ofEpochMilli({{{ arguments.0 }}}).atZone(java.time.ZoneId.systemDefault()).toLocalDate()
+  - modifyAssignedVariable:
+      type: java.time.LocalDate
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+  - rewrite:
+      to: java.time.Instant.ofEpochMilli({{{ arguments.0 }}}).atZone(java.time.ZoneId.systemDefault())
+- name: Migrate to java.time.LocalDateTime
+  actions:
+  - rewrite:
+      to: java.time.LocalDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), java.time.ZoneId.systemDefault())
+  - modifyAssignedVariable:
+      type: java.time.LocalDateTime
+- name: Migrate to java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), java.time.ZoneId.systemDefault())
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime
