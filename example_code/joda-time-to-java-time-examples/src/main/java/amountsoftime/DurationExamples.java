@@ -36,7 +36,13 @@ public class DurationExamples {
     }
 
     public void staticFields() {
+
+
+        // Used as assigment
         org.joda.time.Duration myZERO = Duration.ZERO;
+
+        // Used as argument
+        int compare = myZERO.compareTo(Duration.ZERO);
 
     }
 

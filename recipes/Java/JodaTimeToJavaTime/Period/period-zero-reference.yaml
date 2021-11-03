@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:period-zero-reference
+version: 10
+metadata:
+  name: Convert Period.ZERO reference to java.time.Period.ZERO
+  shortDescription: Convert Period.ZERO reference to java.time.Period.ZERO
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  reference:
+    not:
+      in:
+        assignment: {}
+    name: org.joda.time.Period.ZERO
+availableFixes:
+- name: Convert to java.time.Period.ZERO
+  actions:
+  - rewrite:
+      to: java.time.Period.ZERO
+      target: self

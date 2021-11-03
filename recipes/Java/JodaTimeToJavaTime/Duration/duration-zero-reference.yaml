@@ -1,0 +1,17 @@
+id: scw:java.time:Joda-Time:duration-zero-reference
+version: 10
+metadata:
+  name: Convert org.joda.time.Duration.ZERO to java.time.Duration.ZERO
+  shortDescription: Convert org.joda.time.Duration.ZERO to java.time.Duration.ZERO
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  reference:
+    name: org.joda.time.Duration.ZERO
+availableFixes:
+- name: Convert to java.time.Duration.ZERO
+  actions:
+  - rewrite:
+      to: java.time.Duration.ZERO
