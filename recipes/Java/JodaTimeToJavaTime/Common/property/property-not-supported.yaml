@@ -1,0 +1,22 @@
+id: 'scw:java.time:Joda-Time:'
+version: 10
+metadata:
+  name: 'Joda-Time property method is no longer supported in java.time '
+  shortDescription: 'Joda-Time property method is no longer supported in java.time '
+  level: info
+  language: java
+  enabled: true
+  comment: |-
+    This recipe is designed to match on both Joda-Time classes, and broken code after a Joda-Time instance has been converted, and is still attempting to use the property accessor method.
+
+    Joda-Time allowed some extra functionality on Date time objects through relevent 'Property' accessors. This is no longer supported in java.time.
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 1
+    name: property
+    anyOf:
+    - type: org.joda.time.DateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes: []

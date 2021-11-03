@@ -1,0 +1,41 @@
+id: scw:java.time:Joda-Time:property-accessors-not-supported
+version: 10
+metadata:
+  name: 'Joda-Time ''Property'' helpers are no longer supported in java.time '
+  shortDescription: 'Joda-Time ''Property'' helpers are no longer supported in java.time '
+  level: info
+  language: java
+  enabled: true
+  comment: |-
+    This recipe is designed to match on both Joda-Time classes, and broken code after a Joda-Time instance has been converted, and is still attempting to use the property accessor method.
+
+    Joda-Time allowed some extra functionality on Date time objects through relevent 'Property' accessors. This is no longer supported in java.time.
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    allOf:
+    - anyOf:
+      - name: centuryOfEra
+      - name: dayOfMonth
+      - name: dayOfWeek
+      - name: dayOfYear
+      - name: era
+      - name: hourOfDay
+      - name: millisOfDay
+      - name: millisOfSecond
+      - name: minuteOfDay
+      - name: minuteOfHour
+      - name: monthOfYear
+      - name: secondOfDay
+      - name: secondOfMinute
+      - name: weekOfWeekyear
+      - name: weekyear
+      - name: year
+      - name: yearOfCentury
+      - name: yearOfEra
+    - anyOf:
+      - type: org.joda.time.DateTime
+      - type: java.time.ZonedDateTime
+      - type: java.time.OffsetDateTime
+    argCount: 0
+availableFixes: []
