@@ -14,3 +14,7 @@ availableFixes:
   actions:
   - rewrite:
       to: java.time.ZonedDateTime {{{ qualifier }}} = {{{ assignedExpression }}};
+- name: Migrate local variable to OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime {{{ qualifier }}} = {{{ assignedExpression }}};
