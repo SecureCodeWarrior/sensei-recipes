@@ -18,8 +18,9 @@ search:
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
+    - type: java.time.LocalDateTime
 availableFixes:
-- name: Rewrite using java.time
+- name: Rewrite to minus(value, ChronoUnit.MILLIS)
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.minus({{{ arguments.0 }}}, java.time.temporal.ChronoUnit.MILLIS)'
