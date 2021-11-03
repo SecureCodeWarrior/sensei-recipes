@@ -1,0 +1,20 @@
+id: scw:java.time:Joda-Time:datetimezone-getid
+version: 10
+metadata:
+  name: Convert DateTimeZone getID to getId
+  shortDescription: Convert DateTimeZone getID to getId
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: getID
+    anyOf:
+    - type: java.time.ZoneId
+    - type: java.time.ZoneOffset
+availableFixes:
+- name: Rewrite to getId()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getId()'
