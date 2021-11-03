@@ -1,0 +1,17 @@
+id: scw:java.time:Joda-Time:datetimefield-local-variable
+version: 10
+metadata:
+  name: Migrate DateTimeField local variable to java.time
+  shortDescription: Migrate DateTimeField local variable to java.time
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  localVariable:
+    type: org.joda.time.DateTimeField
+availableFixes:
+- name: Migrate to java.time.temporal.ChronoField
+  actions:
+  - rewrite:
+      to: java.time.temporal.ChronoField {{{ qualifier }}} = {{{ assignedExpression }}};
