@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:DateTime-withZone-ZonedDateTime
+version: 10
+metadata:
+  name: Migrate DateTime withZone to withZoneSameInstant
+  shortDescription: Migrate DateTime withZone to withZoneSameInstant
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: withZone
+    type: java.time.ZonedDateTime
+availableFixes:
+- name: Rewrite to withZoneSameInstant
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withZoneSameInstant({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

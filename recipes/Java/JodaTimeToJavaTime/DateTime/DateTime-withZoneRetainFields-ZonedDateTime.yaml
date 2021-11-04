@@ -1,8 +1,8 @@
-id: scw:java.time:Joda-Time:datetime-withzone
+id: scw:java.time:Joda-Time:DateTime-withZoneRetainFields-ZonedDateTime
 version: 10
 metadata:
-  name: Convert DateTime withZone to java.time
-  shortDescription: Convert DateTime withZone to java.time
+  name: Migrate DateTime withZoneRetainFields to java.time equivalent
+  shortDescription: Migrate DateTime withZoneRetainFields to java.time equivalent
   level: warning
   language: java
   enabled: true
@@ -10,12 +10,10 @@ metadata:
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
-    anyOf:
-    - name: withZone
-    - name: withZoneRetainFields
+    name: withZoneRetainFields
     type: java.time.ZonedDateTime
 availableFixes:
-- name: Rewrite using java.time ZonedDateTime
+- name: Rewrite to withZoneSameLocal
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.withZoneSameLocal({{{ arguments.0 }}})'

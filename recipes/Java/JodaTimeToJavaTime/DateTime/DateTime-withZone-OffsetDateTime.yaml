@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:DateTime-withZone-OffsetDateTime
+version: 10
+metadata:
+  name: Migrate DateTime withZone to atZoneSameInstant
+  shortDescription: Migrate DateTime withZone to atZoneSameInstant
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: withZone
+    type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite to atZoneSameInstant
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.atZoneSameInstant({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
