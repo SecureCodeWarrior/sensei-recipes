@@ -1,0 +1,23 @@
+id: scw:java.time:Joda-Time:datetime-toMutableDateTime-Chronology
+version: 10
+metadata:
+  name: Convert MutableDateTime to java.time equivalent
+  shortDescription: Convert MutableDateTime to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.time.chrono.Chronology
+    argCount: 1
+    name: toMutableDateTime
+availableFixes:
+- name: Rewrite to ChronoZonedDateTime
+  actions:
+  - rewrite:
+      to: '{{{ arguments.0 }}}.zonedDateTime({{{ qualifier }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

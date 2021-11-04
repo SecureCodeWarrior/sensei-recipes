@@ -1,0 +1,19 @@
+id: scw:java.time:Joda-Time:datetime-getGregorianCalendar
+version: 10
+metadata:
+  name: Rewrite getGregorianCalendar to GregorianCalendar.from(ZonedDateTime)
+  shortDescription: Rewrite getGregorianCalendar to GregorianCalendar.from(ZonedDateTime)
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: toGregorianCalendar
+    anyOf:
+    - type: java.time.ZonedDateTime
+availableFixes:
+- name: Rewrite to GregorianCalendar.from(zonedDateTime)
+  actions:
+  - rewrite:
+      to: java.util.GregorianCalendar.from({{{ qualifier }}})

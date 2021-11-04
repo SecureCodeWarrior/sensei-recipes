@@ -9,13 +9,18 @@ metadata:
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:
+    allOf:
+    - anyOf:
+      - name: toDateTime
+      - name: toDateTimeISO
+    - anyOf:
+      - type: java.time.ZonedDateTime
+      - type: java.time.OffsetDateTime
     argCount: 0
-    name: toDateTime
-    anyOf:
-    - type: java.time.ZonedDateTime
-    - type: java.time.OffsetDateTime
 availableFixes:
 - name: Remove unnecessary toDateTime method call
   actions:
   - rewrite:
       to: '{{{ qualifier }}}'
+  - modifyAssignedVariable:
+      type: '{{{ qualifier.type }}}'

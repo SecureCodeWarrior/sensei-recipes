@@ -1,0 +1,30 @@
+id: scw:java.time:Joda-Time:DateTime-toMutableDateTime
+version: 10
+metadata:
+  name: Remove conversion to MutableDateTime as it is not included in java.time
+  shortDescription: Remove conversion to MutableDateTime as it is not included in java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    MutableDateTime has not been included in java.time, all java.time objects are immutable.
+
+    As such this recipe simply removes the call to 'toMutableDateTime' as our only option for migration is to switch to immutable objects.
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    allOf:
+    - anyOf:
+      - type: java.time.ZonedDateTime
+      - type: java.time.OffsetDateTime
+    - anyOf:
+      - name: toMutableDateTime
+      - name: toMutableDateTimeISO
+    argCount: 0
+availableFixes:
+- name: Remove toMutableDateTime method call
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime

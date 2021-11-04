@@ -1,0 +1,20 @@
+id: scw:java.time:Joda-Time:datetime-todate
+version: 10
+metadata:
+  name: Rewrite toDate to Date.from(toInstant)
+  shortDescription: Rewrite toDate to Date.from(toInstant)
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: toDate
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite to Date.from(Instant)
+  actions:
+  - rewrite:
+      to: java.util.Date.from({{{ qualifier }}}.toInstant())

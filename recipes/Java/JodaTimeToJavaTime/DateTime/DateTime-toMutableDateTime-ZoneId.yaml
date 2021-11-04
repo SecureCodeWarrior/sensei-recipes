@@ -1,0 +1,26 @@
+id: scw:java.time.Joda-Time:DateTime-toMutableDateTime-ZoneId
+version: 10
+metadata:
+  name: 'Remove toMutableDateTime method call: MutableDateTime is not included in java.time'
+  shortDescription: 'Remove toMutableDateTime method call: MutableDateTime is not included in java.time'
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.time.ZoneId
+    argCount: 1
+    name: toMutableDateTime
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Convert toMutableDateTime to atZoneSameInstant
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withZoneSameInstant({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
