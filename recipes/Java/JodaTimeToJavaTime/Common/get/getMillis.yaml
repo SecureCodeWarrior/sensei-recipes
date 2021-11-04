@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   comment: "This recipe is designed to match on broken code. \n\nThe getMillis() method from Joda-time was used to get the 'Epoch Millis'. In java.time this is now done by converting this datetime to an instant, and then using toEpochMilli"
-  descriptionFile: Java/JodaTimeToJavaTime/DateTime/descriptions/datetime.html
+  descriptionFile: DateTime/descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:

@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  descriptionFile: Java/JodaTimeToJavaTime/Period/descriptions/period.html
+  descriptionFile: Period/descriptions/period.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:

@@ -6,7 +6,7 @@ metadata:
   level: error
   language: java
   enabled: true
-  descriptionFile: Java/JodaTimeToJavaTime/LocalDate/descriptions/localdate.html
+  descriptionFile: LocalDate/descriptions/localdate.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:

@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  descriptionFile: Java/JodaTimeToJavaTime/DurationFieldType/descriptions/durationfieldtype.html
+  descriptionFile: DurationFieldType/descriptions/durationfieldtype.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:

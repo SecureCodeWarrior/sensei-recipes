@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  descriptionFile: Java/JodaTimeToJavaTime/DateTimeField/descriptions/datetimefield.html
+  descriptionFile: DateTimeField/descriptions/datetimefield.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
