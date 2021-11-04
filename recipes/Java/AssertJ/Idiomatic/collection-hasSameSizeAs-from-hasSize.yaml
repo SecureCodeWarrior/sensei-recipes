@@ -1,0 +1,75 @@
+id: scw:assertj:idiomatic:collection-hasSameSizeAs-from-hasSize
+version: 10
+metadata:
+  name: Use hasSameSizeAs for comparing to another collection's size
+  shortDescription: Use hasSameSizeAs for comparing to another collection's size
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        type:
+          reference:
+            matches: Collection<.*>
+          checkInheritance: true
+    name: assertThat
+    anyOf:
+    - followedBy:
+        methodcall:
+          args:
+            1:
+              value:
+                is:
+                  methodcall:
+                    name: size
+                    label: sizeMethodCall
+                    type:
+                      reference:
+                        matches: Collection<.*>
+                      checkInheritance: true
+          name: hasSize
+          label: hasSizeMethodCall
+          type:
+            reference:
+              matches: org.assertj.core.api.AbstractIterableAssert<.*>
+            checkInheritance: true
+    - followedBy:
+        methodcall:
+          followedBy:
+            methodcall:
+              args:
+                1:
+                  value:
+                    is:
+                      methodcall:
+                        name: size
+                        label: sizeMethodCall
+                        type:
+                          reference:
+                            matches: Collection<.*>
+                          checkInheritance: true
+              name: hasSize
+              label: hasSizeMethodCall
+              type:
+                reference:
+                  matches: org.assertj.core.api.AbstractIterableAssert<.*>
+                checkInheritance: true
+          name:
+            matches: (as|describedAs)
+          type:
+            reference:
+              matches: org.assertj.core.api.AbstractIterableAssert<.*>
+            checkInheritance: true
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - changeName:
+      name: hasSameSizeAs
+      target: label:hasSizeMethodCall
+  - modifyArguments:
+      rewrite:
+        1: '{{{ qualifier }}}'
+      target: label:hasSizeMethodCall

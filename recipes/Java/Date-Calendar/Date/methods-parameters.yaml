@@ -1,0 +1,30 @@
+id: scw:date:parameter
+version: 10
+metadata:
+  name: Migrate Date methods parameters to java.time
+  shortDescription: Migrate Date methods parameters to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Date;quality
+search:
+  parameter:
+    type: java.util.Date
+availableFixes:
+- name: Change parameter to java.time.LocalDate
+  actions:
+  - changeType:
+      type: java.time.LocalDate
+- name: Change parameter to java.time.ZonedDateTime
+  actions:
+  - changeType:
+      type: java.time.ZonedDateTime
+- name: Change parameter to java.time.OffsetDateTime
+  actions:
+  - changeType:
+      type: java.time.OffsetDateTime
+- name: Change parameter to java.time.LocalDateTime
+  actions:
+  - changeType:
+      type: java.time.LocalDateTime

@@ -1,0 +1,24 @@
+id: scw:date:is-after
+version: 10
+metadata:
+  name: Migrate Date after to isAfter
+  shortDescription: Migrate Date after to isAfter
+  level: warning
+  language: java
+  enabled: true
+  comment: "This recipe is designed to match on broken code, the method that is being searched for does not actually exist on the type.\n\nWhen migrating 'after' to the java.time equivalent, the type must first be migrated to a java.time\nThis recipe then searches for the java.time variables, and finishes the migration by converting it to the \nequivalent java.time isAfter method."
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Date;quality
+search:
+  methodcall:
+    name: after
+    anyOf:
+    - type: java.time.LocalDateTime
+    - type: java.time.LocalDate
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Change to isAfter
+  actions:
+  - rewrite:
+      to: '{{{ qualifier.name }}}.isAfter({{{ arguments.0.name }}})'

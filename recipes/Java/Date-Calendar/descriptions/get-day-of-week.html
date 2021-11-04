@@ -1,0 +1,18 @@
+<html>
+<body>
+<p id="abstract">Migrate from java.util.Date and java.util.Calendar get(java.util.Calendar.DAY_OF_WEEK) to java.time get(java.time.temporal.ChronoField.DAY_OF_WEEK)</p>
+<br>
+<p>This recipe will replace get(java.util.Calendar.DAY_OF_WEEK) to get(java.time.temporal.ChronoField.DAY_OF_WEEK). Be aware that java.util.Calendar.DAY_OF_WEEK has Sunday as first day of week, in the other side java.time.temporal.ChronoField.DAY_OF_WEEK has Monday as first day of week.</p>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/tutorial/datetime/iso/legacy.html">Legacy Date-Time Code</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html">LocalDate (Java Platform SE 8 )</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html">LocalDateTime (Java Platform SE 8 )</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html">ZonedDateTime (Java Platform SE 8 )</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html">OffsetDateTime (Java Platform SE 8 )</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html">ZoneId (Java Platform SE 8 )</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant (Java Platform SE 8 )</a></li>
+</ul>
+</body>
+</html>

@@ -17,11 +17,19 @@
     ZoneOffset forOffsetHours = ZoneOffset.ofHours(offsetHours);
 </pre>
 <br>
+<p>Note: the recipes for getName and getShortName do not map exactly to the ZoneId.getName method, this is deliberate.
+    The Joda-Time getName and getShortName methods will return different names depending on whether the long
+    argument(which represents an instant in time) is in daylight savings time or not.<br>
+    In java.time, the ZoneId getName method does not respect daylight savings time changes.
+    In order to follow this original behaviour, we need to create a ZonedDateTime and format it using a
+    DateTimeFormatter, this is what the recipes have been designed to do.</p>
+<br>
 <b>References</b>
 <ul>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
     <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html">ZoneId (Java Platform SE 8 )</a></li>
     <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneOffset.html">ZoneOffset (Java Platform SE 8 )</a></li>
-    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+    <li><a href="https://www.joda.org/joda-time/apidocs/org/joda/time/DateTimeZone.html">DateTimeZone (Joda-Time)</a></li>
 </ul>
 </body>
 </html>

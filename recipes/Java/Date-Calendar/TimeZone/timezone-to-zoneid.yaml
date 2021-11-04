@@ -1,0 +1,22 @@
+id: scw:timezone:zoneid
+version: 10
+metadata:
+  name: TimeZone to ZoneId
+  shortDescription: TimeZone to ZoneId
+  level: warning
+  language: java
+  enabled: true
+  comment: 'Be aware this recipe uses a system default timezone (ZoneId.systemDefault()). '
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;quality
+search:
+  methodcall:
+    name: getDefault
+    type: java.util.TimeZone
+availableFixes:
+- name: Migrate to java.time.ZoneId
+  actions:
+  - rewrite:
+      to: java.time.ZoneId.systemDefault()
+  - modifyAssignedVariable:
+      type: java.time.ZoneId

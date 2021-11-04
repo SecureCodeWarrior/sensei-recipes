@@ -1,0 +1,34 @@
+id: scw:calendar:new-instance-zoneid
+version: 10
+metadata:
+  name: Migrate newInstance Calendar to java.time with ZoneId
+  shortDescription: Migrate newInstance Calendar to java.time with ZoneId
+  level: warning
+  language: java
+  enabled: true
+  comment: "This recipe is designed to match on broken code, the constructor that is being searched for does not actually exist on the type.\n\nWhen migrating 'new Calendar(TimeZone) ' to the java.time equivalent, the TimeZone argument must first be migrated to a java.time.ZoneId.\nThis recipe then searches for the non-existent 'new Calendar(ZoneId)' constructor, and finishes the migration by converting it to the \nequivalent java.time factory method, which will accept the ZoneId argument.\n"
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - type: java.time.ZoneId
+        - type: java.util.TimeZone
+    argCount: 1
+    name: getInstance
+    type: java.util.Calendar
+availableFixes:
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.now({{{ arguments.0 }}})
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.now({{{ arguments.0 }}})
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

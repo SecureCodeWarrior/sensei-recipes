@@ -1,0 +1,25 @@
+id: scw:simple-date-format:return-type
+version: 10
+metadata:
+  name: Migrate SimpleDateFormat to java.time DateTimeFormatter
+  shortDescription: Migrate SimpleDateFormat to java.time DateTimeFormatter
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: String
+      2:
+        type: java.util.Locale
+    type: java.text.SimpleDateFormat
+availableFixes:
+- name: Rewrite using java.time DateTimeFormatter
+  actions:
+  - rewrite:
+      to: java.time.format.DateTimeFormatter.ofPattern({{{ arguments.0 }}}, {{{ arguments.1 }}})
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatter

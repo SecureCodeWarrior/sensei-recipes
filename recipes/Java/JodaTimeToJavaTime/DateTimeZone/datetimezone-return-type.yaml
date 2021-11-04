@@ -6,6 +6,11 @@ metadata:
   level: warning
   language: java; kotlin
   enabled: true
+  comment: |-
+    This recipe Searches for method return types defined as org.joda.time.DateTimeZone and provides a fix to convert them to java.time.ZoneId.
+
+    This may introduce further problem markers in the IDE, as usages of this method may further reference DateTimeZone methods that do not exist on java.time.ZoneId.
+    Further sensei recipes are available to help migrate these invalid method names to java.time equivalents where possible.
   descriptionFile: descriptions/datetimezone.html
   tags: framework specific;java.time;Joda-Time;quality
 search:

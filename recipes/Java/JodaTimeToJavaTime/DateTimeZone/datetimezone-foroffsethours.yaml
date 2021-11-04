@@ -1,0 +1,30 @@
+id: scw:java.time:Joda-Time:DateTimeZone_forOffsetHours
+version: 10
+metadata:
+  name: Convert DateTimeZone.forOffsetHours to java.time.ZoneOffset
+  shortDescription: Convert DateTimeZone.forOffsetHours to java.time.ZoneOffset
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    This recipe searches for an org.joda.time.DateTimeZone static factory method and provides a fix to rewrite it to the java.time.ZoneId equivalent.
+    If the return value is used as a variable assignment, the recipe will modify the type to java.time.ZoneID.
+
+    This may introduce further problem markers in the IDE, as your variable may reference DateTimeZone methods that do not exist on java.time.ZoneId.
+    Further sensei recipes are available to help migrate these invalid method names to java.time equivalents where possible.
+  descriptionFile: descriptions/datetimezone.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: int
+    name: forOffsetHours
+    type: org.joda.time.DateTimeZone
+availableFixes:
+- name: Convert to ZoneOffset.ofHours
+  actions:
+  - rewrite:
+      to: java.time.ZoneOffset.ofHours({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.ZoneOffset

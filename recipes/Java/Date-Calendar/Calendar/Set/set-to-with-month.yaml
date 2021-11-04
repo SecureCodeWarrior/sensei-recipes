@@ -1,0 +1,30 @@
+id: scw:calendar:set-month
+version: 10
+metadata:
+  name: Migrate Calendar set() to java.time with()
+  shortDescription: Migrate Calendar set() to java.time with()
+  level: warning
+  language: java
+  enabled: true
+  comment: We have different results from java.util.Calendar.MONTH and java.time Month. While Calendar Lib is 0-based (Jan = 0), java.time has Jan index equals 1. Be aware that this recipe adds 1 in argument to keep code working. It's up to user to refactor this later.
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        referenceTo:
+          name: java.util.Calendar.MONTH
+      2:
+        type: int
+    name: set
+    anyOf:
+    - type: java.time.LocalDate
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time withMonth
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}} = {{{ qualifier }}}.withMonth({{{ arguments.1 }}} + 1)'

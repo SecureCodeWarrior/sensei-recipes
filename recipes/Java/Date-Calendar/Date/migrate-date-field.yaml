@@ -1,0 +1,30 @@
+id: scw:date:field
+version: 10
+metadata:
+  name: Migrate Date field to java.time
+  shortDescription: Migrate Date field to java.time
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Date;quality
+search:
+  field:
+    type: java.util.Date
+availableFixes:
+- name: Change Date field to java.time.LocalDate
+  actions:
+  - changeType:
+      type: java.time.LocalDate
+- name: Change Date field to java.time.LocalDateTime
+  actions:
+  - changeType:
+      type: java.time.LocalDateTime
+- name: Change Date field to java.time.ZonedDateTime
+  actions:
+  - changeType:
+      type: java.time.ZonedDateTime
+- name: Change Date field to java.time.OffsetDateTime
+  actions:
+  - changeType:
+      type: java.time.OffsetDateTime

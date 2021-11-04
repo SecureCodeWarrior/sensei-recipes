@@ -1,0 +1,27 @@
+id: scw:calendar:get-day-of-month
+version: 10
+metadata:
+  name: Migrate Calendar get Day of Month
+  shortDescription: Migrate Calendar get Day of Month
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    args:
+      1:
+        referenceTo:
+          name: java.util.Calendar.DAY_OF_MONTH
+    name: get
+    anyOf:
+    - type: java.time.LocalDate
+    - type: java.time.LocalDateTime
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Change to getDayOfMonth
+  actions:
+  - rewrite:
+      to: '{{{ qualifier.name }}}.getDayOfMonth()'

@@ -1,14 +1,52 @@
-Joda to Java Time Recipes
+# Joda to Java Time Recipes
 
-This set of recipes is designed to help migrate from Joda Time to Java Time
+The examples in this module are used to demonstrate the Joda-Time to java.time migration recipes that are available in 
+the **Standardisation on java.time JSR-310** cookbook available via Sensei Hub.
 
-see the Joda Blog post - [Coverting from Joda-Time to Java-time][1]
+## Feedback / Corrections / Recipe Suggestions
 
-and also elastic search's notes on [migrating to java-time][2] 
+We have done our best effort to ensure these recipes are accurate transformations from Joda-Time to java.time.
+However, if you notice something obviously wrong with one of our recipes please reach out and create an issue on the
+[Sensei-Recipes github issues page][5]
 
-Also this excellent article [Intuitive, Robust Date and Time Handling, Finally Comes to Java][3] by Stephen Colebourne
+Recipe suggestions and improvements are also welcome!
 
-Within the above article is this useful explanation of the method prefixes used within the api, and their corresponding
+## How to use these recipes?
+
+Unfortunately, the recipes are not powerful enough to migrate your code in one fell swoop. 
+They must be used in a step-by-step fashion. This means, after using a recipe quickfix, your code may be in a 
+'broken' state, and you will need to use further recipes to finish the migration.
+
+1. Find the places in your code where Joda-Time classes are instantiated, for example:
+   1. Assigned to a local variable
+   2. Assigned to a field
+   3. Declared as a method parameter
+   4. Declared as a method return type
+2. Use a Sensei quickfix to migrate to the corresponding java.time class
+3. After applying the quickfix, there may be new problem markers which show further migrations are needed.
+   Check any new problem markers to see further migrations available. If you have a use-case that hasn't been covered
+   then please reach out using the github isses page.
+
+In some cases, you may need to migrate certain classes before others if they are use as arguments in constructors and 
+methods.
+For example, org.joda.time.DateTimeZone, Chronology, DateTimeField
+
+## Migration Limitations
+
+Whilst these recipes are designed to assist in many common use-cases of Joda-Time, it is still recommended that you gain
+a full understanding of the new api and its differences from Joda-Time. 
+
+### Recommended Reading
+
+* [Javadoc for JSR-310][6]
+* [Threeten Project Page][3]
+  * Includes [links to various articles videos][4] 
+* From Stephen Colebourne:
+  * [Intuitive, Robust Date and Time Handling, Finally Comes to Java][2]
+  * [Converting from Joda-Time to Java-time][1]
+
+The following table was extracted from one of the [Intuitive, Robust Date and Time Handling, Finally Comes to Java][2] 
+article. This is useful explanation of the method prefixes used within the api, and their corresponding
 description:
 
 | Prefix    | Description
@@ -27,6 +65,9 @@ description:
 | format    | Provides the ability to format this date-time object.
 
 
-[1]: https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html
-[2]: https://www.elastic.co/guide/en/elasticsearch/reference/7.x/migrate-to-java-time.html
-[3]: https://www.infoq.com/articles/java.time
+[1]: https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html 
+[2]: https://www.infoq.com/articles/java.time
+[3]: https://www.threeten.org
+[4]: https://www.threeten.org/links.html
+[5]: https://github.com/SecureCodeWarrior/sensei-recipes/issues
+[6]: https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html

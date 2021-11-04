@@ -1,0 +1,21 @@
+id: scw:calendar:get-time-in-millis
+version: 10
+metadata:
+  name: Convert getTimeInMillis to Instant toEpochMilli
+  shortDescription: Convert getTimeInMillis to Instant toEpochMilli
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: Java/Date-Calendar/descriptions/date-calendar.html
+  tags: java.time;java.util.Calendar;quality
+search:
+  methodcall:
+    name: getTimeInMillis
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using toInstant().toEpochMilli()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.toInstant().toEpochMilli()'
