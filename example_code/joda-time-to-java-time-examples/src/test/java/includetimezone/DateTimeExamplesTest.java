@@ -2,13 +2,18 @@ package includetimezone;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
+import org.joda.time.MutableDateTime;
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DateTimeExamplesTest {
@@ -35,6 +40,43 @@ public class DateTimeExamplesTest {
 
         assertEquals(jodaDateTimeMillis, javaDateTimeMillis);
 
+
+    }
+
+    @Test
+    public void test_toMutableDateTime_ZoneID() {
+
+        /*
+         This test is to demonstrate that the Joda-Time method:
+            toDateTime(DateTimeZone)
+         Is equivalent to the java.time method:
+            withZoneSameInstant(ZoneId)
+         */
+
+
+        DateTimeZone maldives = DateTimeZone.forID("Indian/Maldives");
+        ZoneId maldivesZoneId = ZoneId.of("Indian/Maldives");
+
+        DateTime dateTimeHere = DateTime.now();
+
+        DateTime dateTimeMaldives = dateTimeHere.toDateTime(maldives);
+        MutableDateTime mutableDateTimeMaldives = dateTimeHere.toMutableDateTime(maldives);
+
+        long originalLong = dateTimeHere.getMillis();
+        long maldivesLong = dateTimeMaldives.getMillis();
+        long maldivesMutableLong = mutableDateTimeMaldives.getMillis();
+
+        assertThat(maldivesLong).isEqualTo(originalLong);
+        assertThat(maldivesMutableLong).isEqualTo(originalLong);
+
+        // Test Equivalent Functionality in java.time
+        java.time.ZonedDateTime zdt = Instant.ofEpochMilli(originalLong).atZone(ZoneId.systemDefault());
+        java.time.ZonedDateTime zdtMaldives = zdt.withZoneSameInstant(maldivesZoneId);
+
+        long zdtLong = zdt.toInstant().toEpochMilli();
+        long zdtLongMaldives = zdtMaldives.toInstant().toEpochMilli();
+
+        assertThat(zdtLongMaldives).isEqualTo(zdtLong);
 
     }
 
