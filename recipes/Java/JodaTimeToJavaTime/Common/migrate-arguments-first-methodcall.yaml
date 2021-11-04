@@ -22,7 +22,10 @@ search:
       - type: org.joda.time.LocalDateTime
       - type: org.joda.time.DateTime
       - type: org.joda.time.LocalTime
+      - type: java.time.ZonedDateTime
+      - type: java.time.OffsetDateTime
     - anyOf:
       - name: now
       - name: parse
+      - name: toMutableDateTime
 availableFixes: []
