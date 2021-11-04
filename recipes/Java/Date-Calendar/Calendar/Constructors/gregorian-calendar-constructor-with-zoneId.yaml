@@ -1,8 +1,8 @@
 id: scw:gregorian-calendar:constructor-timezone
 version: 10
 metadata:
-  name: Migrate new GregorianCalendar to java.time
-  shortDescription: Migrate new GregorianCalendar to java.time
+  name: Migrate new GregorianCalendar(Timezone) to java.time
+  shortDescription: Migrate new GregorianCalendar(Timezone) to java.time
   level: warning
   language: java
   enabled: true

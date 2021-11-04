@@ -1,8 +1,8 @@
 id: scw:calendar:set-second
 version: 10
 metadata:
-  name: Migrate Calendar set() to java.time with()
-  shortDescription: Migrate Calendar set() to java.time with()
+  name: Migrate Calendar set() to java.time with() - Seconds
+  shortDescription: Migrate Calendar set() to java.time with() - Seconds
   level: warning
   language: java
   enabled: true

@@ -1,8 +1,8 @@
 id: scw:calendar:set-millisecond
 version: 10
 metadata:
-  name: Migrate Calendar set() to java.time with()
-  shortDescription: Migrate Calendar set() to java.time with()
+  name: Migrate Calendar set() to java.time with() - Millisecond
+  shortDescription: Migrate Calendar set() to java.time with() - Millisecond
   level: warning
   language: java
   enabled: true

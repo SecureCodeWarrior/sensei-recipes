@@ -1,8 +1,8 @@
 id: scw:calendar:get-time-in-millis-localdatetime
 version: 10
 metadata:
-  name: Convert getTimeInMillis to Instant toEpochMilli
-  shortDescription: Convert getTimeInMillis to Instant toEpochMilli
+  name: Convert LocalDateTime getTimeInMillis to Instant toEpochMilli
+  shortDescription: Convert LocalDateTime getTimeInMillis to Instant toEpochMilli
   level: warning
   language: java
   enabled: true

@@ -1,8 +1,8 @@
 id: scw:calendar:plus-months
 version: 10
 metadata:
-  name: Migrate add method to java.time plus method
-  shortDescription: Migrate add method to java.time plus method
+  name: Migrate add method to java.time plus method - Months
+  shortDescription: Migrate add method to java.time plus method - Months
   level: warning
   language: java
   enabled: true

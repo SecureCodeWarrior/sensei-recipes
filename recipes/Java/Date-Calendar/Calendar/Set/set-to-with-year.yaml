@@ -1,8 +1,8 @@
 id: scw:calendar:set-year
 version: 10
 metadata:
-  name: Migrate Calendar set() to java.time with()
-  shortDescription: Migrate Calendar set() to java.time with()
+  name: Migrate Calendar set() to java.time with() - Years
+  shortDescription: Migrate Calendar set() to java.time with() - Years
   level: warning
   language: java
   enabled: true

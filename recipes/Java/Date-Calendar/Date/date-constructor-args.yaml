@@ -1,8 +1,8 @@
 id: scw:date:contructor
 version: 10
 metadata:
-  name: Replace new Date() with java.time
-  shortDescription: Replace new Date() with java.time
+  name: Replace new Date(Long) with java.time
+  shortDescription: Replace new Date(Long) with java.time
   level: warning
   language: java
   enabled: true

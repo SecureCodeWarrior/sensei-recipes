@@ -1,8 +1,8 @@
 id: scw:calendar:set-hour-of-day
 version: 10
 metadata:
-  name: Migrate Calendar set() to java.time with()
-  shortDescription: Migrate Calendar set() to java.time with()
+  name: Migrate Calendar set() to java.time with() - Hours of day
+  shortDescription: Migrate Calendar set() to java.time with() - Hours of day
   level: warning
   language: java
   enabled: true
