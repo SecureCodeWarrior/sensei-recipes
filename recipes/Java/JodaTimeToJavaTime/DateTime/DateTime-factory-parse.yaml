@@ -17,15 +17,15 @@ search:
     name: parse
     type: org.joda.time.DateTime
 availableFixes:
-- name: Rewrite using java.time OffsetDateTime
-  actions:
-  - rewrite:
-      to: java.time.OffsetDateTime.parse({{{ arguments.0 }}})
-  - modifyAssignedVariable:
-      type: java.time.OffsetDateTime
-- name: Rewrite using java.time ZonedDateTime
+- name: Migrate to java.time ZonedDateTime
   actions:
   - rewrite:
       to: java.time.ZonedDateTime.parse({{{ arguments.0 }}})
   - modifyAssignedVariable:
       type: java.time.ZonedDateTime
+- name: Migrate to java.time OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.parse({{{ arguments.0 }}})
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

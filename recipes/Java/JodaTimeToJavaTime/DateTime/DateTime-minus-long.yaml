@@ -19,7 +19,7 @@ search:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: 'Rewrite to java.time equivalent: minus(value, ChronoUnit.MILLIS)'
+- name: 'Rewrite minus(long) to java.time equivalent: minus(value, ChronoUnit.MILLIS)'
   actions:
   - rewrite:
       to: '{{{ expressionElement }}}({{{ arguments.0 }}}, java.time.temporal.ChronoUnit.MILLIS)'

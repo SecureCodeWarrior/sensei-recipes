@@ -18,7 +18,7 @@ search:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: Convert toMutableDateTime to atZoneSameInstant
+- name: Convert toMutableDateTime to withZoneSameInstant
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.withZoneSameInstant({{{ arguments.0 }}})'

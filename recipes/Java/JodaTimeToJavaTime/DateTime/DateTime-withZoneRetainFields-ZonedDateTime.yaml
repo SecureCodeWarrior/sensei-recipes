@@ -13,7 +13,7 @@ search:
     name: withZoneRetainFields
     type: java.time.ZonedDateTime
 availableFixes:
-- name: Rewrite to withZoneSameLocal
+- name: 'Rewrite withZoneRetainFields to java.time equivalent: withZoneSameLocal'
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.withZoneSameLocal({{{ arguments.0 }}})'

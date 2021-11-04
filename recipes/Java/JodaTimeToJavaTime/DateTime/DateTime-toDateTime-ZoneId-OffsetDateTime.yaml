@@ -17,7 +17,7 @@ search:
     name: toDateTime
     type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite using java.time OffsetDateTime
+- name: 'Rewrite to java.time equivalent: atZoneSameInstant(ZoneId)'
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.atZoneSameInstant({{{ arguments.0 }}})'

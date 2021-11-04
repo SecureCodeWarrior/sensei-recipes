@@ -15,13 +15,13 @@ search:
         type: java.time.ZoneId
     type: org.joda.time.DateTime
 availableFixes:
-- name: Convert to ZonedDateTime
+- name: Migrate to java.time.ZonedDateTime
   actions:
   - rewrite:
       to: java.time.ZonedDateTime.now({{{ arguments.0 }}})
   - modifyAssignedVariable:
       type: java.time.ZonedDateTime
-- name: Convert to OffsetDateTime
+- name: Migrate to java.time.OffsetDateTime
   actions:
   - rewrite:
       to: java.time.OffsetDateTime.now({{{ arguments.0 }}})

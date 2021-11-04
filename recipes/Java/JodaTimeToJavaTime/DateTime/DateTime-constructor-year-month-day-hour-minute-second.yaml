@@ -26,7 +26,7 @@ search:
     argCount: 6
     type: org.joda.time.DateTime
 availableFixes:
-- name: Replace to java.time ZonedDateTime
+- name: Migrate to java.time.ZonedDateTime
   actions:
   - rewrite:
       to: java.time.ZonedDateTime.of({{{ arguments.0 }}}, {{{ arguments.1 }}}, {{{ arguments.2 }}}, {{{ arguments.3 }}}, {{{ arguments.4 }}},{{{ arguments.5 }}}, 0, java.time.ZoneId.systemDefault())

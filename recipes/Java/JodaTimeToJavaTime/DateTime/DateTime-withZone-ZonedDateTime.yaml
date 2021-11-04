@@ -13,7 +13,7 @@ search:
     name: withZone
     type: java.time.ZonedDateTime
 availableFixes:
-- name: Rewrite to withZoneSameInstant
+- name: 'Rewrite withZone to java.time equivalent: withZoneSameInstant'
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.withZoneSameInstant({{{ arguments.0 }}})'

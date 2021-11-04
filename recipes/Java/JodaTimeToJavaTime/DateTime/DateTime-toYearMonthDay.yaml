@@ -15,7 +15,7 @@ search:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite method call to toLocalDate()
+- name: Rewrite method call to java.time equivalent toLocalDate()
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.toLocalDate()'

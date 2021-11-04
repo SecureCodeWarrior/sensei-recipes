@@ -16,15 +16,15 @@ search:
     argCount: 1
     type: org.joda.time.DateTime
 availableFixes:
-- name: Replace to java.time OffsetDateTime
-  actions:
-  - rewrite:
-      to: java.time.OffsetDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), java.time.ZoneId.systemDefault())
-  - modifyAssignedVariable:
-      type: java.time.OffsetDateTime
-- name: Replace to java.time ZonedDateTime
+- name: Migrate to java.time ZonedDateTime
   actions:
   - rewrite:
       to: java.time.ZonedDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), java.time.ZoneId.systemDefault())
   - modifyAssignedVariable:
       type: java.time.ZonedDateTime
+- name: Migrate to java.time OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), java.time.ZoneId.systemDefault())
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

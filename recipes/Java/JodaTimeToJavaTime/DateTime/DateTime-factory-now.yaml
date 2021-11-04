@@ -14,15 +14,15 @@ search:
     name: now
     type: org.joda.time.DateTime
 availableFixes:
-- name: Rewrite using java.time OffsetDateTime
-  actions:
-  - rewrite:
-      to: java.time.OffsetDateTime.now()
-  - modifyAssignedVariable:
-      type: java.time.OffsetDateTime
-- name: Rewrite using java.time ZonedDateTime
+- name: Migrate to java.time ZonedDateTime
   actions:
   - rewrite:
       to: java.time.ZonedDateTime.now()
   - modifyAssignedVariable:
       type: java.time.ZonedDateTime
+- name: Migrate to java.time OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.now()
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

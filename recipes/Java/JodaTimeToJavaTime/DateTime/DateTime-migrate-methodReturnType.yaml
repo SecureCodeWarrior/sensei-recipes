@@ -12,11 +12,11 @@ search:
   method:
     returnType: org.joda.time.DateTime
 availableFixes:
-- name: change return type to java.time.ZonedDateTime
+- name: Migrate return type to java.time.ZonedDateTime
   actions:
   - changeType:
       type: java.time.ZonedDateTime
-- name: change return type to java.time.OffsetDateTime
+- name: Migrate return type to java.time.OffsetDateTime
   actions:
   - changeType:
       type: java.time.OffsetDateTime
