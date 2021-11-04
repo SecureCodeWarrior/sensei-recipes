@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-atstartofday
 version: 10
 metadata:
-  name: Convert DateTime toDateMidnight to atStartOfDay
-  shortDescription: Convert DateTime toDateMidnight to atStartOfDay
+  name: Rewrite DateTime toDateMidnight() to java.time equivalent
+  shortDescription: Rewrite DateTime toDateMidnight() to java.time equivalent
   level: warning
   language: java
   enabled: true

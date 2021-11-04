@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-constructor-date
 version: 10
 metadata:
-  name: Convert new DateTime(date) to java.time
-  shortDescription: Convert new DateTime(date) to java.time
+  name: Migrate new DateTime(date) to java.time equivalent
+  shortDescription: Migrate new DateTime(date) to java.time equivalent
   level: warning
   language: java
   enabled: true

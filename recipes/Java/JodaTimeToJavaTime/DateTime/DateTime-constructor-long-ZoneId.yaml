@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-constructor-long-zoneid
 version: 10
 metadata:
-  name: Convert new DateTime(long, zoneid) to java.time
-  shortDescription: Convert new DateTime(long, zoneid) to java.time
+  name: Migrate new DateTime(long, zoneid) to java.time.ZonedDateTime or java.time.OffsetDateTime
+  shortDescription: Migrate new DateTime(long, zoneid) to java.time.ZonedDateTime or java.time.OffsetDateTime
   level: warning
   language: java
   enabled: true

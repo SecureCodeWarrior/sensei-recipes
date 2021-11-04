@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-plus
 version: 10
 metadata:
-  name: Convert DateTime plus to java.time
-  shortDescription: Convert DateTime plus to java.time
+  name: Rewrite DateTime plus(long) to java.time equivalent
+  shortDescription: Rewrite DateTime plus(long) to java.time equivalent
   level: warning
   language: java
   enabled: true

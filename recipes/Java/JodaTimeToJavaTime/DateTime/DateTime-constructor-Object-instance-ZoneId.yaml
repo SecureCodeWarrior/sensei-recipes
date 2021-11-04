@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-constructor-object-zoneid
 version: 10
 metadata:
-  name: Convert new DateTime(Object, ZoneId) to java.time
-  shortDescription: Convert new DateTime(Object, ZoneId) to java.time
+  name: Convert new DateTime(Object, ZoneId) to java.time.ZonedDateTime or java.time.OffsetDateTime
+  shortDescription: Convert new DateTime(Object, ZoneId) to java.time.ZonedDateTime or java.time.OffsetDateTime
   level: warning
   language: java
   enabled: true

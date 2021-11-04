@@ -1,11 +1,16 @@
-id: scw:java.time:Joda-Time:datetime-constructor
+id: scw:java.time:Joda-Time:datetime-constructor-empty
 version: 10
 metadata:
-  name: Convert new DateTime() to java.time
-  shortDescription: Convert new DateTime() to java.time
+  name: Migrate new DateTime() to java.time.ZonedDateTime or java.time.OffsetDateTime
+  shortDescription: Migrate new DateTime() to java.time.ZonedDateTime or java.time.OffsetDateTime
   level: warning
   language: java
   enabled: true
+  comment: |-
+    This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
+
+    After migrating this instance creation, further Sensei recipes are available to help migrate subsequent method calls and usages.
+    There may be some cases where a Sensei recipe is not available to help migrate specific use-cases.
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
@@ -13,13 +18,13 @@ search:
     argCount: 0
     type: org.joda.time.DateTime
 availableFixes:
-- name: Convert to ZonedDateTime.now
+- name: Migrate to java.time.ZonedDateTime.now()
   actions:
   - modifyAssignedVariable:
       type: java.time.ZonedDateTime
   - rewrite:
       to: java.time.ZonedDateTime.now()
-- name: Convert to OffsetDateTime
+- name: Migrate to java.time.OffsetDateTime.now()
   actions:
   - modifyAssignedVariable:
       type: java.time.OffsetDateTime

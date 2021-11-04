@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-toTimeOfDay
 version: 10
 metadata:
-  name: Convert toTimeOfDay to toLocalTime
-  shortDescription: Convert toTimeOfDay to toLocalTime
+  name: Rewrite toTimeOfDay() to toLocalTime()
+  shortDescription: Rewrite toTimeOfDay() to toLocalTime()
   level: warning
   language: java
   enabled: true

@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-localvariable
 version: 10
 metadata:
-  name: Migrate local DateTime variable to java.time equivalent
-  shortDescription: Migrate local DateTime variable to java.time equivalent
+  name: Migrate DateTime local variable to java.time.ZonedDateTime or java.time.OffsetDateTime
+  shortDescription: Migrate DateTime local variable to java.time.ZonedDateTime or java.time.OffsetDateTime
   level: info
   language: java
   enabled: true

@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-todate
 version: 10
 metadata:
-  name: Rewrite toDate to Date.from(toInstant)
-  shortDescription: Rewrite toDate to Date.from(toInstant)
+  name: Rewrite toDate() to java.time equivalent
+  shortDescription: Rewrite toDate() to java.time equivalent
   level: warning
   language: java
   enabled: true

@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-factory-now-timezone
 version: 10
 metadata:
-  name: Converting DateTime.now(zoneId) to java.time
-  shortDescription: Converting DateTime.now(zoneId) to java.time
+  name: Migrate DateTime.now(zoneId) to java.time.ZonedDateTime or java.time.OffsetDateTime
+  shortDescription: Migrate DateTime.now(zoneId) to java.time.ZonedDateTime or java.time.OffsetDateTime
   level: warning
   language: java
   enabled: true

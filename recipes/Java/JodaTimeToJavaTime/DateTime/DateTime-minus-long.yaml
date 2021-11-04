@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-minus
 version: 10
 metadata:
-  name: Convert minus(long) method call to java.time equivalent
-  shortDescription: Convert minus(long) method call to java.time equivalent
+  name: Rewrite minus(long) method call to java.time equivalent
+  shortDescription: Rewrite minus(long) method call to java.time equivalent
   level: warning
   language: java
   enabled: true

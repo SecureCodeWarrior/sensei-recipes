@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:convert-toYearMonthDay
 version: 10
 metadata:
-  name: Convert toYearMonthDay to toLocalDate
-  shortDescription: Convert toYearMonthDay to toLocalDate
+  name: Rewrite toYearMonthDay() to toLocalDate()
+  shortDescription: Rewrite toYearMonthDay() to toLocalDate()
   level: warning
   language: java
   enabled: true

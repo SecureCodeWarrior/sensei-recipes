@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetime-constructor-chronology
 version: 10
 metadata:
-  name: NO ACTION Impossible to convert new DateTime(chronology) to java.time
-  shortDescription: NO ACTION Impossible to convert new DateTime(chronology) to java.time
+  name: Convert new DateTime(chronology) to java.time equivalent
+  shortDescription: Convert new DateTime(chronology) to java.time equivalent
   level: warning
   language: java
   enabled: true
