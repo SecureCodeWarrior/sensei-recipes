@@ -48,10 +48,8 @@ public class DateTimeZoneExamples {
 
     }
 
-    public void instanceMethods() {
-
-        DateTimeZone testDateTimeZone = DateTimeZone.getDefault();
-
+    public void instanceMethods(DateTimeZone testDateTimeZone) {
+        
         long longArg = 0L;
         Locale localeArg = Locale.getDefault();
         boolean booleanArg = false;
