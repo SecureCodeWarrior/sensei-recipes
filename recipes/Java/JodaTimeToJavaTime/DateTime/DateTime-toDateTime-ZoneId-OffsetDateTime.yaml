@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:convert-datetime-toDate-zoneid-offset
 version: 10
 metadata:
-  name: Convert DateTime toDate with ZoneId
-  shortDescription: Convert DateTime toDate with ZoneId
+  name: Rewrite DateTime toDateTime(DateTimeZone) to java.time equivalent
+  shortDescription: Rewrite DateTime toDateTime(DateTimeZone) to java.time equivalent
   level: warning
   language: java
   enabled: true
@@ -20,6 +20,6 @@ availableFixes:
 - name: Rewrite using java.time OffsetDateTime
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.atZoneSimilarLocal({{{ arguments.0 }}})'
+      to: '{{{ qualifier }}}.atZoneSameInstant({{{ arguments.0 }}})'
   - modifyAssignedVariable:
       type: java.time.OffsetDateTime

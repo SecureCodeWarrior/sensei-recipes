@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:convert-datetime-toDate-zoneid-zoned
 version: 10
 metadata:
-  name: Convert DateTime toDate with ZoneId
-  shortDescription: Convert DateTime toDate with ZoneId
+  name: Rewrite DateTime toDate(DateTimeZone) to java.time equivalent
+  shortDescription: Rewrite DateTime toDate(DateTimeZone) to java.time equivalent
   level: warning
   language: java
   enabled: true
@@ -20,6 +20,6 @@ availableFixes:
 - name: Rewrite using java.time ZonedDateTime
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.withZoneSameLocal({{{ arguments.0 }}})'
+      to: '{{{ qualifier }}}.withZoneSameInstant({{{ arguments.0 }}})'
   - modifyAssignedVariable:
       type: java.time.ZonedDateTime

@@ -41,40 +41,55 @@ public class DateTimeExamplesTest {
 
     }
 
-    @Test
-    public void test_toMutableDateTime_ZoneID() {
-
-        /*
-         This test is to demonstrate that the Joda-Time method:
+    /*
+        This test is to demonstrate that the Joda-Time method:
             toDateTime(DateTimeZone)
-         Is equivalent to the java.time method:
-            withZoneSameInstant(ZoneId)
-         */
+            toMutableDateTime(DateTimeZone) with obvious side effects
+        Is equivalent to the java.time methods:
+            ZonedDateTime  withZoneSameInstant(ZoneId)
+            OffsetDateTime atZoneSameInstant(ZoneId)
+    */
+    @Test
+    public void test_toDateTime_ZoneID() {
 
 
         DateTimeZone maldives = DateTimeZone.forID("Indian/Maldives");
         ZoneId maldivesZoneId = ZoneId.of("Indian/Maldives");
 
         DateTime dateTimeHere = DateTime.now();
+        long originalLong = dateTimeHere.getMillis();
 
         DateTime dateTimeMaldives = dateTimeHere.toDateTime(maldives);
-        MutableDateTime mutableDateTimeMaldives = dateTimeHere.toMutableDateTime(maldives);
-
-        long originalLong = dateTimeHere.getMillis();
-        long maldivesLong = dateTimeMaldives.getMillis();
-        long maldivesMutableLong = mutableDateTimeMaldives.getMillis();
-
-        assertThat(maldivesLong).isEqualTo(originalLong);
-        assertThat(maldivesMutableLong).isEqualTo(originalLong);
 
         // Test Equivalent Functionality in java.time
+        MutableDateTime mutableDateTimeMaldives = dateTimeHere.toMutableDateTime(maldives);
         java.time.ZonedDateTime zdt = Instant.ofEpochMilli(originalLong).atZone(ZoneId.systemDefault());
+        java.time.OffsetDateTime odt = zdt.toOffsetDateTime();
         java.time.ZonedDateTime zdtMaldives = zdt.withZoneSameInstant(maldivesZoneId);
+        java.time.ZonedDateTime odtMaldives = odt.atZoneSameInstant(maldivesZoneId);
 
         long zdtLong = zdt.toInstant().toEpochMilli();
+        long mutableLongMaldives = mutableDateTimeMaldives.getMillis();
         long zdtLongMaldives = zdtMaldives.toInstant().toEpochMilli();
+        long odtLongMaldives = odtMaldives.toInstant().toEpochMilli();
 
-        assertThat(zdtLongMaldives).isEqualTo(zdtLong);
+        // All Represent the same instant
+        assertThat(zdtLongMaldives).isEqualTo(zdtLong).isEqualTo(odtLongMaldives).isEqualTo(originalLong).isEqualTo(mutableLongMaldives);
+
+        // Default Zone all have the same hour
+        assertThat(dateTimeHere.getHourOfDay())
+                .isEqualTo(zdt.getHour())
+                .isEqualTo(odt.getHour());
+
+        // Maldives Zone all have the same hour
+        assertThat(dateTimeMaldives.getHourOfDay())
+                .isEqualTo(zdtMaldives.getHour())
+                .isEqualTo(mutableDateTimeMaldives.getHourOfDay())
+                .isEqualTo(odtMaldives.getHour());
+
+        // Hour is different here and maldives
+        assertThat(dateTimeHere.getHourOfDay()).isNotEqualTo(dateTimeMaldives.getHourOfDay());
+
 
     }
 
