@@ -14,7 +14,6 @@ search:
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
-    - type: java.time.LocalDateTime
 availableFixes:
 - name: Rewrite method call to toLocalDate()
   actions:
