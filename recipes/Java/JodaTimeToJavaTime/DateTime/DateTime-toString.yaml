@@ -1,0 +1,21 @@
+id: scw:java.time:Joda-Time:DateTime-toString
+version: 10
+metadata:
+  name: 'CAUTION: DateTime toString() format has changed from Joda-Time to java.time'
+  shortDescription: 'CAUTION: DateTime toString() format has changed from Joda-Time to java.time'
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/toString.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: toString
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: 'To Preserve exact format as Joda-Time: rewrite to .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)'
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.format(java.time.format.DateTimeFormatter.ofPattern("uuuu-MM-dd''T''HH:mm:ss.SSSXXX"))'

@@ -1,0 +1,14 @@
+<html>
+<body>
+
+<h1>toString default format has changed</h1>
+<p>If you are using toString for display purposes, this will not be a problem. 
+However if you are using toString to write to log files, databases etc. where the format is expected to be the same, you will need to migrate this toString() call to a format() call instead</p>
+<p>
+Joda-Time uses the following format in toString for DateTime</p>
+yyyy-MM-ddTHH:mm:ss.SSSZZ
+
+<p>java.time has a different behaviour, and will output the ZoneID if it is different to the offset.</p>
+
+</body>
+</html>
