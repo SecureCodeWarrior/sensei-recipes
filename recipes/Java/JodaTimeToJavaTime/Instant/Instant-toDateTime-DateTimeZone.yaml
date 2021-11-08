@@ -1,0 +1,32 @@
+id: scw:java.time:Joda-Time:Instant-toDateTime
+version: 10
+metadata:
+  name: Migrate toDateTime to java.time equivalent
+  shortDescription: Migrate toDateTime to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - type: org.joda.time.DateTimeZone
+        - type: java.time.ZoneId
+    argCount: 1
+    name: toDateTime
+    type: java.time.Instant
+availableFixes:
+- name: Migrate to atZone()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.atZone({{{ arguments }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to atOffset
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.atZone({{{ arguments }}})'
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

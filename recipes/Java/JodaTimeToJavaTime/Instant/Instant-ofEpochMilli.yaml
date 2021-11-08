@@ -1,0 +1,20 @@
+id: scw:java.time:Joda-Time:Instant-toEpochMilli
+version: 10
+metadata:
+  name: Migrate Joda-Time Instant to java.time.Instant
+  shortDescription: Migrate Joda-Time Instant to java.time.Instant
+  level: warning
+  language: java
+  enabled: true
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: ofEpochMilli
+    type: org.joda.time.Instant
+availableFixes:
+- name: Migrate to java.time.Instant
+  actions:
+  - rewrite:
+      to: java.time.Instant.ofEpochMilli({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.Instant
