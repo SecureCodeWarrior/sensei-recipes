@@ -218,4 +218,57 @@ public class DateTimeExamplesTest {
 
     }
 
+    @Test
+    public void test_datetime_toString() {
+
+        ZonedDateTime now = ZonedDateTime.now();
+
+        test_datetime_toString(now);
+
+        //String pattern = "uuuu-MM-dd'T'HH:mm:ss.SSSX"
+        test_datetime_toString(now.withNano(0));
+        test_datetime_toString(now.withNano(10));
+        test_datetime_toString(now.withNano(100));
+        test_datetime_toString(now.withNano(1000));
+        test_datetime_toString(now.withNano(10000));
+        test_datetime_toString(now.withNano(100000));
+        test_datetime_toString(now.withNano(1000000));
+        test_datetime_toString(now.withNano(10000000));
+        test_datetime_toString(now.withNano(900000000));
+        test_datetime_toString(now.withNano(987654321));
+        test_datetime_toString(now.withNano(123456789));
+        test_datetime_toString(now.withSecond(0));
+        test_datetime_toString(now.withMinute(0).withSecond(0));
+
+    }
+
+    private void test_datetime_toString(ZonedDateTime zonedDateTime) {
+
+        long instant = zonedDateTime.toInstant().toEpochMilli();
+
+        ZoneId.getAvailableZoneIds()
+                .stream().filter(z -> !z.startsWith("System"))
+                .forEach(zoneId -> {
+
+            DateTimeZone dateTimeZone = DateTimeZone.forID(zoneId);
+
+            // Create a Joda-Time DateTime at this instant in the specified Zone
+            DateTime dt = org.joda.time.Instant.ofEpochMilli(instant).toDateTime(dateTimeZone);
+            // Create a java.time ZonedDateTime at this instant in the specified Zone
+            ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.ofEpochMilli(instant), ZoneId.of(zoneId));
+            OffsetDateTime odt = zdt.toOffsetDateTime();
+
+            System.out.println(zoneId);
+
+            //assertThat(zdt.toOffsetDateTime().toString()).isEqualTo(dt.toString());
+            assertThat(zdt.format(DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSXXX"))).isEqualTo(dt.toString());
+            //assertThat(zdt.toString()).isNotEqualTo(dt.toString());
+
+            String examplesMethod = DateTimeExamples.toString(instant, zoneId);
+            assertThat(examplesMethod).isEqualTo(dt.toString());
+
+        });
+
+    }
+
 }
