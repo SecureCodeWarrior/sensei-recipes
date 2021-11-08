@@ -306,5 +306,20 @@ public class DateTimeExamples {
 
     }
 
+    public static String toString(long instant, String zoneId) {
+
+        // Step 1: Migrate the DateTimeZone to java.time.ZoneId
+        DateTimeZone dateTimeZone = DateTimeZone.forID(zoneId);
+
+        // Step 2: Migrate Instant to java.time.Instant
+        // Step 3: Migrate toDateTime to java.time.ZonedDateTime
+        DateTime dt = Instant.ofEpochMilli(instant).toDateTime(dateTimeZone);
+
+        // Step 4: Migrate toString() to java.time equivalent
+        return dt.toString();
+
+        // Step 5: run DateTimeExamplesTest test_DateTime_toString
+
+    }
 
 }
