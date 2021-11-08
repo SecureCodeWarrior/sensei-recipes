@@ -1,19 +1,45 @@
 package formatting;
 
 import formatting.DateTimeFormatterExamples;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.FormatStyle;
 import java.util.Date;
 import java.util.TimeZone;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DateTimeFormatFormatTest {
 
     java.time.ZonedDateTime zdt = ZonedDateTime.of(2021, 10, 8, 16, 21, 45, 123456, ZoneId.systemDefault());
+
+    @Test
+    public void testdates() {
+
+        test_fullDate_is_equivalent(zdt.toInstant().toEpochMilli());
+
+    }
+
+
+    @Test
+    public void test_fullDate_is_equivalent(long testinstant) {
+
+        DateTimeFormatter joda = DateTimeFormat.fullDate();
+        java.time.format.DateTimeFormatter javaFormatter = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+
+        String jodaResult = joda.print(testinstant);
+        String javaResult = javaFormatter.format(ZonedDateTime.ofInstant(Instant.ofEpochMilli(testinstant), ZoneId.systemDefault()));
+
+        assertThat(jodaResult).isEqualTo(javaResult);
+
+    }
+
 
     @Test
     public void format_fullDate() {
