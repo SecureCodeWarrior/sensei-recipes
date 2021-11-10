@@ -1,0 +1,48 @@
+id: scw:java.time:Joda-Time:DateTime-constructor-long-DateTimeZone
+version: 10
+metadata:
+  name: Migrate new DateTime(long, DateTimeZone) to java.time
+  shortDescription: Migrate new DateTime(long, DateTimeZone) to java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    Searches for an instance creation of org.joda.time.DateTime and provides fixes to migrate to a java.time equivalent.
+
+    This recipe is designed to match on broken code. The constructor originally accepts an org.joda.time.DateTimeZone argument, however this argument
+    should first be migrated to java.time.ZoneId using the DateTimeZone migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
+
+    This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
+    After migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.
+    Further Sensei recipes are available to help resolve many of these invalid usages.
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+        - type: int
+        - type: java.lang.Integer
+      2:
+        anyOf:
+        - type: java.time.ZoneId
+        - type: org.joda.time.DateTimeZone
+    argCount: 2
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Migrate to java.time ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), {{{ arguments.1 }}})
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.0 }}}), {{{ arguments.1 }}})
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

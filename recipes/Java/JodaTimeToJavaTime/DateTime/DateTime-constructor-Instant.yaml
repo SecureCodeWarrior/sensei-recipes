@@ -1,0 +1,33 @@
+id: scw:java.time:Joda-Time:DateTime-constructor-Instant
+version: 10
+metadata:
+  name: Migrate new DateTime(java.time.Instant) to java.time
+  shortDescription: Migrate new DateTime(java.time.Instant) to java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: "This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.\nThe Instant argument provided to this constructor will be required to be migrated to complete this migration. \nThis can be done before or after the migration of this constructor. This recipe detects both types for argument 1 to allow this behaviour.\n\nThis recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.\n\nAfter migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.\nFurther Sensei recipes are available to help resolve many of these invalid usages.\n"
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        anyOf:
+        - type: java.time.Instant
+        - type: org.joda.time.Instant
+    argCount: 1
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.ofInstant({{{ arguments.0 }}},java.time.ZoneId.of("UTC"))
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.ofInstant({{{ arguments.0 }}},java.time.ZoneOffset.UTC)
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime
