@@ -6,11 +6,7 @@ import org.joda.time.chrono.ISOChronology;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.temporal.ChronoField;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -89,7 +85,7 @@ public class DateTimeExamples {
         DateTime fromSqlDate = new DateTime(sqlDate);
         DateTime fromJavaDate = new DateTime(javaDate);
         DateTime fromObjectLong = new DateTime(Long.valueOf(123));
-        DateTime fromObjectNull = new DateTime((Object)null);
+        DateTime fromObjectNull = new DateTime((Object) null);
 
         // These ReadableInstant constructors should show an information only recipe 'Migrate the argument to
         // java.time first'
@@ -103,8 +99,6 @@ public class DateTimeExamples {
         DateTime fromObjectReadableInstantZonedDateTime = new DateTime(java.time.ZonedDateTime.now());
         DateTime fromObjectReadableInstantOffsetDateTime = new DateTime(java.time.OffsetDateTime.now());
         DateTime fromObjectReadableInstantMigratedInstant = new DateTime(java.time.Instant.now());
-
-
 
     }
 
@@ -363,6 +357,7 @@ public class DateTimeExamples {
 
         DateTime withZone = dateTime.withZone(dateTimeZone);
         DateTime withZoneRetainFields = dateTime.withZoneRetainFields(dateTimeZone);
+
     }
 
     public void isMethods(DateTime dateTime) {
@@ -393,8 +388,6 @@ public class DateTimeExamples {
         // Compare to
         int compareTo2 = dateTime.compareTo(readableInstant);
 
-
     }
-
 
 }
