@@ -739,14 +739,9 @@ public class DateTimeConstructorsTest {
     }
 
     @Test
-    public void offset() {
-        DateTime time = DateTime.now();
 
-        System.out.println(time.getZone().getOffset(time.getMillis()));
 
-        OffsetDateTime offsetDateTime = OffsetDateTime.now();
 
-        System.out.println(offsetDateTime.getOffset().getTotalSeconds());
 
     }
 
