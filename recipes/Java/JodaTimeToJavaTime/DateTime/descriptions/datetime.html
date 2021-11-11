@@ -1,0 +1,27 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DateTime to Java Time</p>
+<br>
+<p>Joda-Time DateTime migrates to java.time ZonedDateTime or OffsetDateTime.</p>
+<p>ZonedDateTime is the same concept, date and time with time-zone.</p>
+<p>OffsetDateTime is a new concept, date and time with offset from UTC.</p>
+<br>
+<b>Before</b>
+<pre>
+    DateTime dateTime = new DateTime();
+    int monthOfYear = dateTime.getMonthOfYear();
+</pre>
+<b>After</b>
+<pre>
+    ZonedDateTime dateTime = ZonedDateTime.now();
+    int monthOfYear = dateTime.getMonthValue();
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html">ZonedDateTime (Java Platform SE 8 )</a></li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html">OffsetDateTime (Java Platform SE 8 )</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

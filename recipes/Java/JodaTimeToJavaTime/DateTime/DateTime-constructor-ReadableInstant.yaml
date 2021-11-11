@@ -1,0 +1,25 @@
+id: scw:java.time:Joda-Time:DateTime-constructor-ReadableInstant
+version: 10
+metadata:
+  name: Constructor argument (ReadableInstant) needs to be migrated to java.time before Constructor Migration can occur
+  shortDescription: Constructor argument (ReadableInstant) needs to be migrated to java.time before Constructor Migration can occur
+  level: info
+  language: java
+  enabled: true
+  comment: |
+    Searches for an instance creation of org.joda.time.DateTime which uses a ReadableInstant as an argument to the constructor.
+
+    This recipe is an information only recipe, to guide the user to migrate the ReadableInstant to a java.time equivalent first.
+    After migrating the ReadableInstant argument, this recipe will no longer match, and new recipes that provide the migration fixes will be able to match, depending on which java.time class the ReadableInstant was migrated to (ZonedDateTime, OffsetDateTime or Instant).
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        type: org.joda.time.ReadableInstant
+    anyOf:
+    - argCount: 1
+    - argCount: 2
+    type: org.joda.time.DateTime
+availableFixes: []

@@ -1,0 +1,35 @@
+id: scw:java.time:Joda-Time:DateTime-constructor-Object
+version: 10
+metadata:
+  name: Constructor argument (Object) needs to be migrated to java.time before Constructor Migration can occur
+  shortDescription: Constructor argument (Object) needs to be migrated to java.time before Constructor Migration can occur
+  level: info
+  language: java
+  enabled: true
+  comment: |
+    Joda-Time provided a new DateTime(Object, DateTimeZone) constructor, which would accept any type of Object.
+    Within the constructor, it would look up a list of converters to assist in converting this object to a DateTime.
+    Additionally the converter list was configurable, so you could indeed write your own converter which might convert an object from your own problem domain into a DateTime.
+
+    In java.time, this converter mechanism no longer exists.
+    The equivalent method ZonedDateTime.from(TemporalAccessor temporal) expects the object to implement the TemporalAccessor.
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        not:
+          anyOf:
+          - type: long
+          - type: java.lang.Long
+          - type: int
+          - type: java.lang.Integer
+          - type: java.util.Calendar
+          - type: java.util.Date
+          - type: java.lang.String
+          - type: java.time.temporal.TemporalAccessor
+          - type: org.joda.time.ReadableInstant
+    argCount: 1
+    type: org.joda.time.DateTime
+availableFixes: []

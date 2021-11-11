@@ -1,0 +1,42 @@
+id: scw:java.time:Joda-Time:DateTime-constructor-TemporalAccessor-DateTimeZone
+version: 10
+metadata:
+  name: Migrate new DateTime(java.time.TemporalAccessor, DateTimeZone) to java.time
+  shortDescription: Migrate new DateTime(java.time.TemporalAccessor, DateTimeZone) to java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+
+    In Joda-Time the DateTime class has a constructor which simply accepts an Object, and during construction the class would figure out what type of object it was and construct the DateTime appropriately.
+    One of the classes that can be detected is ReadableInstant. When migrating a new DateTime(ReadableInstant) call, you must first migrate the Joda-Time ReadableInstant argument to the java.time equivalent.
+
+    This recipe explicitly excludes java.time.Instant, even though a java.time.Instant implements the java.time.temporal.TemporalAccessor interface. The reason for this is that java.time.Instant cannot be used with the ZonedDateTime.from(TemporalAccessor) and OffsetDateTime.from(TemporalAccessor) factory methods. A DateTimeException will be thrown when an Instant is passed to these methods, because the time zone or offset cannot be determined from the Instant. For this reason, there are separate migration recipes for Instant which migrate to ZonedDateTime.ofInstant(Instant, ZoneId) and OffsetDateTime.ofInstant(Instant, ZoneId) instead.
+
+    This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
+
+    After migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.
+    Further Sensei recipes are available to help resolve many of these invalid usages.
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    args:
+      1:
+        not:
+          type: java.time.Instant
+        type: java.time.temporal.TemporalAccessor
+      2:
+        anyOf:
+        - type: java.time.ZoneId
+        - type: org.joda.time.DateTimeZone
+    argCount: 2
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.from({{{ arguments.0 }}}).withZoneSameInstant({{{ arguments.1 }}})
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
