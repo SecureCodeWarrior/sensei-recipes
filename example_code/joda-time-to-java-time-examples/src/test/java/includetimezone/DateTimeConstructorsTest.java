@@ -16,6 +16,7 @@ import java.util.Date;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.within;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DateTimeConstructorsTest {
 
@@ -739,9 +740,20 @@ public class DateTimeConstructorsTest {
     }
 
     @Test
+    public void Instant_cannot_be_used_in_ZonedDateTime_from() {
 
+        Instant instant = Instant.now();
 
+        assertThrows(DateTimeException.class, () -> ZonedDateTime.from(instant));
 
+    }
+
+    @Test
+    public void Instant_cannot_be_used_in_OffsetDateTime_from() {
+
+        Instant instant = Instant.now();
+
+        assertThrows(DateTimeException.class, () -> OffsetDateTime.from(instant));
 
     }
 

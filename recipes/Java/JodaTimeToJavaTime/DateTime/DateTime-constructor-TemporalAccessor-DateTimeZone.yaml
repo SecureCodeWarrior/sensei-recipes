@@ -12,6 +12,8 @@ metadata:
     In Joda-Time the DateTime class has a constructor which simply accepts an Object, and during construction the class would figure out what type of object it was and construct the DateTime appropriately.
     One of the classes that can be detected is ReadableInstant. When migrating a new DateTime(ReadableInstant) call, you must first migrate the Joda-Time ReadableInstant argument to the java.time equivalent.
 
+    This recipe explicitly excludes java.time.Instant, even though a java.time.Instant implements the java.time.temporal.TemporalAccessor interface. The reason for this is that java.time.Instant cannot be used with the ZonedDateTime.from(TemporalAccessor) and OffsetDateTime.from(TemporalAccessor) factory methods. A DateTimeException will be thrown when an Instant is passed to these methods, because the time zone or offset cannot be determined from the Instant. For this reason, there are separate migration recipes for Instant which migrate to ZonedDateTime.ofInstant(Instant, ZoneId) and OffsetDateTime.ofInstant(Instant, ZoneId) instead.
+
     This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
 
     After migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.

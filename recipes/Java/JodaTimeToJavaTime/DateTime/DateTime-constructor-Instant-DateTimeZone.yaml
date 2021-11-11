@@ -12,6 +12,8 @@ metadata:
     The Instant and DateTimeZone arguments provided to this constructor will be required to be migrated to complete this migration.
     This can be done before or after the migration of this constructor. This recipe detects both Joda-Time and java.time types for each argument 1 to allow this behaviour.
 
+    Additionally, the reason there are separate migration recipes for Instant and TemporalAccessor, is that even though java.time.Instant implements the java.time.temporal.TemporalAccessor interface, it cannot be used in ZonedDateTime.from(TemporalAccessor) or OffsetDateTime.from(TemporalAccessor) because a DateTimeException will be thrown, complaining it cannot determine the time zone.
+
     This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
 
     After migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.
