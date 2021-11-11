@@ -12,12 +12,13 @@ search:
     argCount: 1
     name: assertNotNull
     anyOf:
-      - type: org.junit.Assert
-      - type: junit.framework.TestCase
-      - type: junit.framework.Assert
-      - type: org.junit.jupiter.api.Assertions
+    - type: org.junit.Assert
+    - type: junit.framework.TestCase
+    - type: junit.framework.Assert
+    - type: org.junit.jupiter.api.Assertions
 availableFixes:
-  - name: Change to assertThat(actual).isNotNull()
-    actions:
-      - rewrite:
-          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isNotNull()
+- doStaticImports: true
+  name: Change to assertThat(actual).isNotNull()
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isNotNull()

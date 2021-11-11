@@ -6,6 +6,7 @@ import org.joda.time.chrono.ISOChronology;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -21,24 +22,37 @@ public class DateTimeExamples {
         Object instantObject = new java.util.Date();
         java.sql.Date sqlDate = java.sql.Date.valueOf("2020-02-20");
         java.util.Date javaDate = new java.util.Date();
+        Calendar calendar = Calendar.getInstance();
         DateTimeZone dateTimeZone = DateTimeZone.getDefault();
+        DateMidnight dateMidnight = DateMidnight.now();
+        DateTime dateTime = DateTime.now();
+        Instant instant = Instant.now();
+        MutableDateTime mutableDateTime = MutableDateTime.now();
 
         DateTime noargs = new DateTime();
 
         DateTime fromChronology = new DateTime(chronology);
         DateTime fromDateTimeZone = new DateTime(dateTimeZone);
 
-        DateTime fromParts = new DateTime(2021, 1, 15, 12, 30);
-        DateTime fromPartsChronology = new DateTime(2021, 1, 15, 12, 30, chronology);
-        DateTime fromPartsDateTimeZone = new DateTime(2021, 1, 15, 12, 30, dateTimeZone);
+        int year = 2021;
+        int month = 1;
+        int day = 15;
+        int hour = 12;
+        int minute = 34;
+        int second = 56;
+        int millis = 789;
 
-        DateTime fromPartsWithSeconds = new DateTime(2021, 1, 15, 12, 30, 45);
-        DateTime fromPartsChronologyWithSeconds = new DateTime(2021, 1, 15, 12, 30, 45, chronology);
-        DateTime fromPartsDateTimeZoneWithSeconds = new DateTime(2021, 1, 15, 12, 30, 45, dateTimeZone);
+        DateTime fromParts = new DateTime(year, month, day, hour, minute);
+        DateTime fromPartsChronology = new DateTime(year, month, day, hour, minute, chronology);
+        DateTime fromPartsDateTimeZone = new DateTime(year, month, day, hour, minute, dateTimeZone);
 
-        DateTime fromPartsWithMillis = new DateTime(2021, 1, 15, 12, 30, 45, 123456789);
-        DateTime fromPartsChronologyWithMillis = new DateTime(2021, 1, 15, 12, 30, 45, 123456789, chronology);
-        DateTime fromPartsDateTimeZoneWithMillis = new DateTime(2021, 1, 15, 12, 30, 45, 123456789, dateTimeZone);
+        DateTime fromPartsWithSeconds = new DateTime(year, month, day, hour, minute, second);
+        DateTime fromPartsChronologyWithSeconds = new DateTime(year, month, day, hour, minute, second, chronology);
+        DateTime fromPartsDateTimeZoneWithSeconds = new DateTime(year, month, day, hour, minute, second, dateTimeZone);
+
+        DateTime fromPartsWithMillis = new DateTime(year, month, day, hour, minute, second, millis);
+        DateTime fromPartsChronologyWithMillis = new DateTime(year, month, day, hour, minute, second, millis, chronology);
+        DateTime fromPartsDateTimeZoneWithMillis = new DateTime(year, month, day, hour, minute, second, millis, dateTimeZone);
 
         DateTime fromInstant = new DateTime(longInstant);
         DateTime fromInstantChronology = new DateTime(longInstant, chronology);
@@ -48,10 +62,79 @@ public class DateTimeExamples {
         DateTime fromObjectChronology = new DateTime(instantObject, chronology);
         DateTime fromObjectDateTimeZone = new DateTime(instantObject, dateTimeZone);
 
-        // Sql and Java Date examples
+    }
+
+    public void constructorsObject() {
+
+        java.sql.Date sqlDate = java.sql.Date.valueOf("2020-02-20");
+        java.util.Date javaDate = new java.util.Date();
+        Calendar calendar = Calendar.getInstance();
+        DateMidnight dateMidnight = DateMidnight.now();
+        DateTime dateTime = DateTime.now();
+        Instant instant = Instant.now();
+        MutableDateTime mutableDateTime = MutableDateTime.now();
+        Object unknownObject = "whatever";
+
+        // The following should have an information only recipe stating migration cannot occur until
+        // the object is converted to something compatible
+        DateTime fromUnknownObject = new DateTime(unknownObject);
+
+        // The Following are all different migration cases for new DateTime(Object)
+        DateTime fromObjectString = new DateTime("string");
+        DateTime fromObjectCalendar = new DateTime(calendar);
         DateTime fromSqlDate = new DateTime(sqlDate);
         DateTime fromJavaDate = new DateTime(javaDate);
+        DateTime fromObjectLong = new DateTime(Long.valueOf(123));
+        DateTime fromObjectNull = new DateTime((Object) null);
 
+        // These ReadableInstant constructors should show an information only recipe 'Migrate the argument to
+        // java.time first'
+        DateTime fromObjectReadableInstantDateMidnight = new DateTime(mutableDateTime);
+        DateTime fromObjectReadableInstantDateTime = new DateTime(dateTime);
+        DateTime fromObjectReadableInstantInstant = new DateTime(instant);
+        DateTime fromObjectReadableInstantMutableDateTime = new DateTime(mutableDateTime);
+
+        // These Show the Readable Instant Constructors after migrating the arguments, and the migration fixes
+        // should be available
+        DateTime fromObjectReadableInstantZonedDateTime = new DateTime(java.time.ZonedDateTime.now());
+        DateTime fromObjectReadableInstantOffsetDateTime = new DateTime(java.time.OffsetDateTime.now());
+        DateTime fromObjectReadableInstantMigratedInstant = new DateTime(java.time.Instant.now());
+
+    }
+
+    public void constructorsObjectDateTimeZone(DateTimeZone dateTimeZone) {
+
+        java.sql.Date sqlDate = java.sql.Date.valueOf("2020-02-20");
+        java.util.Date javaDate = new java.util.Date();
+        Calendar calendar = Calendar.getInstance();
+        DateMidnight dateMidnight = DateMidnight.now();
+        DateTime dateTime = DateTime.now();
+        Instant instant = Instant.now();
+        MutableDateTime mutableDateTime = MutableDateTime.now();
+        Object unknownObject = "whatever";
+
+        // The following should have an information only recipe stating migration cannot occur until
+        // the object is converted to something compatible
+        DateTime fromUnknownObject = new DateTime(unknownObject, dateTimeZone);
+
+        // The Following are all different migration cases for new DateTime(Object, DateTimeZone)
+        DateTime fromObjectString = new DateTime("string", dateTimeZone);
+        DateTime fromObjectCalendar = new DateTime(calendar, dateTimeZone);
+        DateTime fromJavaDate = new DateTime(javaDate, dateTimeZone);
+        DateTime fromObjectLong = new DateTime(Long.valueOf(123), dateTimeZone);
+
+        // These ReadableInstant constructors should show an information only recipe 'Migrate the argument to
+        // java.time first'
+        DateTime fromObjectReadableInstantDateMidnight = new DateTime(mutableDateTime, dateTimeZone);
+        DateTime fromObjectReadableInstantDateTime = new DateTime(dateTime, dateTimeZone);
+        DateTime fromObjectReadableInstantInstant = new DateTime(instant, dateTimeZone);
+        DateTime fromObjectReadableInstantMutableDateTime = new DateTime(mutableDateTime, dateTimeZone);
+
+        // These Show the Readable Instant Constructors after migrating the arguments, and the migration fixes
+        // should be available
+        DateTime fromObjectReadableInstantZonedDateTime = new DateTime(java.time.ZonedDateTime.now(), dateTimeZone);
+        DateTime fromObjectReadableInstantOffsetDateTime = new DateTime(java.time.OffsetDateTime.now(), dateTimeZone);
+        DateTime fromObjectReadableInstantMigratedInstant = new DateTime(java.time.Instant.now(), dateTimeZone);
 
     }
 
@@ -210,9 +293,10 @@ public class DateTimeExamples {
         MutableDateTime toMutableDateTimeISO = dateTime.toMutableDateTimeISO();
 
         // toString methods
-        java.lang.String toString = dateTime.toString("pattern");
-        java.lang.String toString2 = dateTime.toString("pattern", localeArg);
-        java.lang.String toString3 = dateTime.toString(datetimeformatterArg);
+        String toString1 = dateTime.toString();
+        String toString2 = dateTime.toString("pattern");
+        String toString3 = dateTime.toString("pattern", localeArg);
+        String toString4 = dateTime.toString(datetimeformatterArg);
     }
 
     public void withMethods(DateTime dateTime) {
@@ -273,6 +357,7 @@ public class DateTimeExamples {
 
         DateTime withZone = dateTime.withZone(dateTimeZone);
         DateTime withZoneRetainFields = dateTime.withZoneRetainFields(dateTimeZone);
+
     }
 
     public void isMethods(DateTime dateTime) {
@@ -302,7 +387,6 @@ public class DateTimeExamples {
 
         // Compare to
         int compareTo2 = dateTime.compareTo(readableInstant);
-
 
     }
 

@@ -1,8 +1,8 @@
 id: scw:calendar:set-minute
 version: 10
 metadata:
-  name: Migrate Calendar set() to java.time with()
-  shortDescription: Migrate Calendar set() to java.time with()
+  name: Migrate Calendar set() to java.time with() - Minutes
+  shortDescription: Migrate Calendar set() to java.time with() - Minutes
   level: warning
   language: java
   enabled: true

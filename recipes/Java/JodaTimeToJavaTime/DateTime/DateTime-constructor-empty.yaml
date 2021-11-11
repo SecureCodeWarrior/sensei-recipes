@@ -1,16 +1,18 @@
-id: scw:java.time:Joda-Time:datetime-constructor-empty
+id: scw:java.time:Joda-Time:DateTime-constructor-empty
 version: 10
 metadata:
-  name: Migrate new DateTime() to java.time.ZonedDateTime or java.time.OffsetDateTime
-  shortDescription: Migrate new DateTime() to java.time.ZonedDateTime or java.time.OffsetDateTime
+  name: Migrate new DateTime() to java.time
+  shortDescription: Migrate new DateTime() to java.time
   level: warning
   language: java
   enabled: true
-  comment: |-
+  comment: |
+    Searches for an instance creation of org.joda.time.DateTime and provides fixes to migrate to a java.time equivalent.
+
     This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
 
-    After migrating this instance creation, further Sensei recipes are available to help migrate subsequent method calls and usages.
-    There may be some cases where a Sensei recipe is not available to help migrate specific use-cases.
+    After migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.
+    Further Sensei recipes are available to help resolve many of these invalid usages.
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
@@ -18,15 +20,15 @@ search:
     argCount: 0
     type: org.joda.time.DateTime
 availableFixes:
-- name: Migrate to java.time.ZonedDateTime.now()
-  actions:
-  - modifyAssignedVariable:
-      type: java.time.ZonedDateTime
-  - rewrite:
-      to: java.time.ZonedDateTime.now()
-- name: Migrate to java.time.OffsetDateTime.now()
-  actions:
-  - modifyAssignedVariable:
-      type: java.time.OffsetDateTime
-  - rewrite:
-      to: java.time.OffsetDateTime.now()
+  - name: Migrate to java.time.ZonedDateTime.now()
+    actions:
+      - modifyAssignedVariable:
+          type: java.time.ZonedDateTime
+      - rewrite:
+          to: java.time.ZonedDateTime.now()
+  - name: Migrate to java.time.OffsetDateTime.now()
+    actions:
+      - modifyAssignedVariable:
+          type: java.time.OffsetDateTime
+      - rewrite:
+          to: java.time.OffsetDateTime.now()

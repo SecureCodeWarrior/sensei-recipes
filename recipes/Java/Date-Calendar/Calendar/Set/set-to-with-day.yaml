@@ -1,8 +1,8 @@
 id: scw:calendar:set-day
 version: 10
 metadata:
-  name: Migrate Calendar set() to java.time with()
-  shortDescription: Migrate Calendar set() to java.time with()
+  name: Migrate Calendar set() to java.time with() - Days
+  shortDescription: Migrate Calendar set() to java.time with() - Days
   level: warning
   language: java
   enabled: true

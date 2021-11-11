@@ -9,17 +9,36 @@ metadata:
   tags: AssertJ
 search:
   methodcall:
-    args:
-      1:
-        type: String
     argCount: 3
     name: assertSame
     anyOf:
+    - args:
+        1:
+          type: String
+      anyOf:
       - type: org.junit.Assert
       - type: junit.framework.TestCase
       - type: junit.framework.Assert
+    - args:
+        3:
+          type: String
+      type: org.junit.jupiter.api.Assertions
 availableFixes:
-  - name: Change to assertThat(actual).as(message).isSameAs(expected)
-    actions:
-      - rewrite:
-          to: org.assertj.core.api.Assertions.assertThat({{{ arguments.2 }}}).as({{{ arguments.0 }}}).isSameAs({{{ arguments.1 }}})
+- doStaticImports: true
+  name: Change to assertThat(actual).as(message).isSameAs(expected)
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              not:
+                type: org.junit.jupiter.api.Assertions
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.2 }}}).as({{{ arguments.0 }}}).isSameAs({{{ arguments.1 }}})
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              type: org.junit.jupiter.api.Assertions
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.2 }}}).isSameAs({{{ arguments.0 }}})

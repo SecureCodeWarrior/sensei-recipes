@@ -1,8 +1,8 @@
 id: scw:calendar:plus-hours
 version: 10
 metadata:
-  name: Migrate add method to java.time plus method
-  shortDescription: Migrate add method to java.time plus method
+  name: Migrate add method to java.time plus method - Hours
+  shortDescription: Migrate add method to java.time plus method - Hours
   level: warning
   language: java
   enabled: true

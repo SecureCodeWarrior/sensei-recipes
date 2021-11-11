@@ -1,8 +1,8 @@
-id: scw:java.time:Joda-Time:DateTime-constructor-Date
+id: scw:java.time:Joda-Time:Datetime-constructor-Calendar
 version: 10
 metadata:
-  name: Migrate new DateTime(Date) to java.time
-  shortDescription: Migrate new DateTime(Date) to java.time
+  name: Migrate new DateTime(Calendar) to java.time
+  shortDescription: Migrate new DateTime(Calendar) to java.time
   level: warning
   language: java
   enabled: true
@@ -19,19 +19,19 @@ search:
   instanceCreation:
     args:
       1:
-        type: java.util.Date
+        type: java.util.Calendar
     argCount: 1
     type: org.joda.time.DateTime
 availableFixes:
-  - name: Migrate to java.time ZonedDateTime
-    actions:
-      - rewrite:
-          to: java.time.ZonedDateTime.ofInstant({{{ arguments.0 }}}.toInstant(), java.time.ZoneId.systemDefault())
-      - modifyAssignedVariable:
-          type: java.time.ZonedDateTime
-  - name: Migrate to java.time OffsetDateTime
-    actions:
-      - rewrite:
-          to: java.time.OffsetDateTime.ofInstant({{{ arguments.0 }}}.toInstant(), java.time.ZoneId.systemDefault())
-      - modifyAssignedVariable:
-          type: java.time.OffsetDateTime
+- name: Migrate to java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.ofInstant({{{ arguments.0 }}}.toInstant(), java.time.ZoneId.systemDefault())
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Migrate to java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.ofInstant({{{ arguments.0 }}}.toInstant(), java.time.ZoneId.systemDefault())
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

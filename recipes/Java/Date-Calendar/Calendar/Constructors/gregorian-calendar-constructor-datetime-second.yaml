@@ -1,8 +1,8 @@
 id: scw:gregorian-calendar:constructor-6-parameters
 version: 10
 metadata:
-  name: Migrate GregorianCalendar to java.time
-  shortDescription: Migrate GregorianCalendar to java.time
+  name: Migrate GregorianCalendar (year, month, day, hour, minute, second) to java.time
+  shortDescription: Migrate GregorianCalendar (year, month, day, hour, minute, second) to java.time
   level: warning
   language: java
   enabled: true
