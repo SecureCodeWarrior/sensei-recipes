@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetimeformat-forPattern
+version: 10
+metadata:
+  name: Convert Joda-Time DateTimeFormat.forPattern to java.time.format.DateTimeFormatter.ofPattern
+  shortDescription: Convert Joda-Time DateTimeFormat.forPattern to java.time.format.DateTimeFormatter.ofPattern
+  level: warning
+  language: java
+  enabled: true
+  comment: Searches for org.joda.time.format.DateTimeFormat.forPattern method call and provides fixes to migrate to a java.time equivalent.
+  descriptionFile: descriptions/datetimeformat.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: forPattern
+    type: org.joda.time.format.DateTimeFormat
+availableFixes:
+- name: Convert to java.time.format.DateTimeFormatter
+  actions:
+  - rewrite:
+      to: java.time.format.DateTimeFormatter.ofPattern({{{ arguments }}})
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatter

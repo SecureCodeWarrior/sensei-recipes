@@ -1,0 +1,24 @@
+id: scw:java.time:Joda-Time:datetimeformatter-withoffsetparsed
+version: 10
+metadata:
+  name: Convert withOffsetParsed() to DateTimeFormatter.ISO_TIME
+  shortDescription: Convert withOffsetParsed() to DateTimeFormatter.ISO_TIME
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    Searches for a withOffsetParsed method called and provides fixes to migrate to a java.time equivalent.
+
+    This recipe is designed to match on broken code. This method originally was called by org.joda.time.format.DateTimeFormatter type, however this object type should first be migrated to java.time.format.DateTimeFormatter using the other migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
+  descriptionFile: descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: withOffsetParsed
+    type: org.joda.time.format.DateTimeFormatter
+availableFixes:
+- name: Rewrite using java.time DateTimeFormatter.ISO_TIME
+  actions:
+  - rewrite:
+      to: java.time.format.DateTimeFormatter.ISO_TIME

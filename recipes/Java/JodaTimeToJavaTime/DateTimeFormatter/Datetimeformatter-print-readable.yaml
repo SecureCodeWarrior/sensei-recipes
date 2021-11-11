@@ -1,0 +1,33 @@
+id: scw:java.time:Joda-Time:datetimeformatter-print-readable
+version: 10
+metadata:
+  name: Convert print() to format()
+  shortDescription: Convert print() to format()
+  level: error
+  language: java
+  enabled: true
+  comment: |-
+    Searches for a print method called and provides fixes to migrate to a java.time equivalent.
+
+    This recipe is designed to match on broken code. This method originally was called by org.joda.time.format.DateTimeFormatter type, however this object type should first be migrated to java.time.format.DateTimeFormatter using the other migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
+
+    Double check your DateTime type is compatible with your desired output format.
+  descriptionFile: descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - type: org.joda.time.ReadablePartial
+        - type: org.joda.time.ReadableInstant
+        - type: java.time.temporal.TemporalAccessor
+    argCount: 1
+    name: print
+    type: java.time.format.DateTimeFormatter
+availableFixes:
+- name: Rewrite to .format(TemporalAccessor)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.format({{{ arguments }}})'

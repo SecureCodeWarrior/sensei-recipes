@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:datetimeformatter-withzoneutc
+version: 10
+metadata:
+  name: Convert DateTimeFormatter withZoneUTC to java.time equivalent
+  shortDescription: Convert DateTimeFormatter withZoneUTC to java.time equivalent
+  level: error
+  language: java
+  enabled: true
+  comment: |-
+    Searches for a withZoneUTC method called and provides fixes to migrate to a java.time equivalent.
+
+    This recipe is designed to match on broken code. This method originally was called by org.joda.time.format.DateTimeFormatter type, however this object type should first be migrated to java.time.format.DateTimeFormatter using the other migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
+  descriptionFile: DateTimeFormatter/descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: withZoneUTC
+    type: java.time.format.DateTimeFormatter
+availableFixes:
+- name: Rewrite to withZone(ZoneId.of("UTC"))
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withZone(java.time.ZoneId.of("UTC"))'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatter

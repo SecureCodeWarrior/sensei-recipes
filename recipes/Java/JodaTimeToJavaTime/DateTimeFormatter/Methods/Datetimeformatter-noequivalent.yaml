@@ -1,0 +1,43 @@
+id: scw:java.time:Joda-Time:datetimeformatter-noequivalent
+version: 10
+metadata:
+  name: DateTimeFormatter has no equivalent method in java.time
+  shortDescription: DateTimeFormatter has no equivalent method in java.time
+  level: marked_information
+  language: java
+  enabled: true
+  comment: |-
+    There are some methods from org.joda.time.format.DateTimeFormatter that there is no equivalent mehtod in java.time.
+    Methods such:
+    - getPivotYear
+    - getDefaultYear
+    - getParser
+    - getPrinter
+    - isParser
+    - isPrinter
+    - withPivotYear
+    - isOffsetParsed
+    - withDefaultYear
+    - withOffsetParsed
+  descriptionFile: DateTimeFormatter/descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: getPivotYear
+    - name: getDefaultYear
+    - name: getParser
+    - name: getPrinter
+    - name: isParser
+    - name: isPrinter
+    - name: withPivotYear
+    - name: isOffsetParsed
+    - name: withDefaultYear
+    - name: withOffsetParsed
+    type: java.time.format.DateTimeFormatter
+availableFixes:
+- name: View DateTimeFormatter javadoc
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
