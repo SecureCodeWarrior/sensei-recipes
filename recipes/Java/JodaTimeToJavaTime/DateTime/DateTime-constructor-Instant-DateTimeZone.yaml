@@ -6,7 +6,16 @@ metadata:
   level: warning
   language: java
   enabled: true
-  comment: "This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.\n\nThe Instant and DateTimeZone arguments provided to this constructor will be required to be migrated to complete this migration. \nThis can be done before or after the migration of this constructor. This recipe detects both Joda-Time and java.time types for each argument 1 to allow this behaviour.\n\nThis recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.\n\nAfter migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.\nFurther Sensei recipes are available to help resolve many of these invalid usages.\n"
+  comment: |
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+
+    The Instant and DateTimeZone arguments provided to this constructor will be required to be migrated to complete this migration.
+    This can be done before or after the migration of this constructor. This recipe detects both Joda-Time and java.time types for each argument 1 to allow this behaviour.
+
+    This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
+
+    After migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.
+    Further Sensei recipes are available to help resolve many of these invalid usages.
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
