@@ -7,12 +7,10 @@ metadata:
   language: java
   enabled: true
   comment: |
-    Searches for an instance creation of org.joda.time.DateTime and provides fixes to migrate to a java.time equivalent.
+    Searches for an instance creation of org.joda.time.DateTime which uses a ReadableInstant as an argument to the constructor.
 
-    This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
-
-    After migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.
-    Further Sensei recipes are available to help resolve many of these invalid usages.
+    This recipe is an information only recipe, to guide the user to migrate the ReadableInstant to a java.time equivalent first.
+    After migrating the ReadableInstant argument, this recipe will no longer match, and new recipes that provide the migration fixes will be able to match, depending on which java.time class the ReadableInstant was migrated to (ZonedDateTime, OffsetDateTime or Instant).
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
