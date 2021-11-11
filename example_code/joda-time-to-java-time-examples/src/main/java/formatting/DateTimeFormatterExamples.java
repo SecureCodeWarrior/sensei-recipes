@@ -7,6 +7,12 @@ import org.joda.time.format.*;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.*;
+import java.time.format.FormatStyle;
+import java.time.temporal.ChronoField;
 import java.util.Locale;
 
 public class DateTimeFormatterExamples {
@@ -123,7 +129,7 @@ public class DateTimeFormatterExamples {
     }
 
     public static String formatFullTime(long millis) {
-        DateTimeFormatter dtf = DateTimeFormat.fullTime();
+        DateTimeFormatter dtf = ISODateTimeFormat.time();
         return dtf.print(millis);
     }
 
@@ -183,63 +189,73 @@ public class DateTimeFormatterExamples {
     // Standard Parsing
 
     public static long parseFullDate(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.fullDate();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+        return java.time.LocalDate.parse(string,dtf).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static long parseFullDateTime(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.fullDateTime();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
+        return ZonedDateTime.parse(string,dtf).withZoneSameLocal(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static long parseFullTime(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.fullTime();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedTime(FormatStyle.FULL);
+        return LocalTime.parse(string,dtf).getLong(ChronoField.MILLI_OF_DAY);
     }
 
     public static long parseLongDate(String string) {
-        DateTimeFormatter dtfLongDate = DateTimeFormat.longDate();
-        return dtfLongDate.parseMillis(string);
+        java.time.format.DateTimeFormatter dtfLongDate = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+        return java.time.LocalDate.parse(string,dtfLongDate).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static long parseLongDateTime(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.longDateTime();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);
+        return java.time.LocalDate.parse(string,dtf).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static long parseLongTime(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.longTime();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedTime(FormatStyle.LONG);
+        return java.time.LocalTime.parse(string,dtf).getLong(ChronoField.MILLI_OF_DAY);
     }
 
     public static long parseMediumDate(String string) {
-        DateTimeFormatter dtfMediumDate = DateTimeFormat.mediumDate();
-        return dtfMediumDate.parseMillis(string);
+        java.time.format.DateTimeFormatter dtfMediumDate = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+        return java.time.LocalDate.parse(string,dtfMediumDate).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static long parseMediumDateTime(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.mediumDateTime();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        return java.time.LocalDateTime.parse(string,dtf).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static long parseMediumTime(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.mediumTime();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
+        return java.time.LocalTime.parse(string,dtf).getLong(ChronoField.MILLI_OF_DAY);
     }
 
     public static long parseShortDate(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.shortDate();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        return LocalDate.parse(string,dtf).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static long parseShortDateTime(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.shortDateTime();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+        return LocalDateTime.parse(string,dtf).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static long parseShortTime(String string) {
-        DateTimeFormatter dtf = DateTimeFormat.shortTime();
-        return dtf.parseMillis(string);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
+        return java.time.LocalTime.parse(string,dtf).getLong(ChronoField.MILLI_OF_DAY);
+    }
+
+    public static ZonedDateTime parseDateTime(String string) {
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
+        return ZonedDateTime.parse(string,dtf);
+    }
+
+    public static java.time.LocalDate parseLocalDate(String string) {
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+        return java.time.LocalDate.parse(string,dtf);
     }
 
 }

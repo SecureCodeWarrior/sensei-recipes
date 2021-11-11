@@ -2,10 +2,11 @@ id: scw:java.time:Joda-Time:datetime-format-fullTime
 version: 10
 metadata:
   name: Convert Joda-Time DateTimeFormat.fullTime()
-  shortDescription: ""
+  shortDescription: Convert Joda-Time DateTimeFormat.fullTime()
   level: warning
   language: java
   enabled: true
+  comment: Searches for org.joda.time.format.DateTimeFormat.fullTime method call and provides fixes to migrate to a java.time equivalent.
   descriptionFile: descriptions/datetimeformat.html
   tags: framework specific;java.time;Joda-Time;quality
 search:

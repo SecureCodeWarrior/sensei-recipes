@@ -6,6 +6,19 @@ metadata:
   level: marked_information
   language: java
   enabled: true
+  comment: |-
+    There are some methods from org.joda.time.format.DateTimeFormatter that there is no equivalent mehtod in java.time.
+    Methods such:
+    - getPivotYear
+    - getDefaultYear
+    - getParser
+    - getPrinter
+    - isParser
+    - isPrinter
+    - withPivotYear
+    - isOffsetParsed
+    - withDefaultYear
+    - withOffsetParsed
   descriptionFile: DateTimeFormatter/descriptions/datetimeformatter.html
   tags: framework specific;java.time;Joda-Time;quality
 search:

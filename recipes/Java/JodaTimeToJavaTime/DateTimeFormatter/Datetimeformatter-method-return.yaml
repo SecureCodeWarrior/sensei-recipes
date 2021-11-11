@@ -6,6 +6,12 @@ metadata:
   level: warning
   language: java; kotlin
   enabled: true
+  comment: |-
+    Searches for a method return type of org.joda.time.format.DateTimeFormatter and provides fixes to migrate to a java.time equivalent.
+    This recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
+
+    After migrating this instance creation to the java.time equivalent, subsequent method calls and usages of the instance may become invalid.
+    Further Sensei recipes are available to help resolve many of these invalid usages.
   descriptionFile: descriptions/datetimeformatter.html
   tags: framework specific;java.time;Joda-Time;quality
 search:

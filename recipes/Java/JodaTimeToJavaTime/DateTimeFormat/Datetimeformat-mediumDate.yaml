@@ -2,10 +2,11 @@ id: scw:java.time:Joda-Time:datetime-format-mediumDate
 version: 10
 metadata:
   name: Convert Joda-Time DateTimeFormat.mediumDate()
-  shortDescription: ""
+  shortDescription: Convert Joda-Time DateTimeFormat.mediumDate()
   level: warning
   language: java
   enabled: true
+  comment: Searches for org.joda.time.format.DateTimeFormat.mediumDate method call and provides fixes to migrate to a java.time equivalent.
   descriptionFile: descriptions/datetimeformat.html
   tags: framework specific;java.time;Joda-Time;quality
 search:

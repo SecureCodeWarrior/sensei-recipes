@@ -6,6 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
+  comment: Searches for org.joda.time.format.DateTimeFormat.forPattern method call and provides fixes to migrate to a java.time equivalent.
   descriptionFile: descriptions/datetimeformat.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
