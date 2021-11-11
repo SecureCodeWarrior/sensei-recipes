@@ -3,10 +3,10 @@ package includetimezone;
 import org.joda.time.*;
 import org.junit.jupiter.api.Test;
 
-import java.time.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAccessor;
@@ -15,7 +15,6 @@ import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.within;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DateTimeConstructorsTest {
@@ -136,7 +135,7 @@ public class DateTimeConstructorsTest {
         int minute = 34;
 
         DateTime dateTime = new DateTime(year, month, day, hour, minute);
-        ZonedDateTime zonedDateTime = ZonedDateTime.of(year, month, day, hour, minute,0, 0, ZoneId.systemDefault());
+        ZonedDateTime zonedDateTime = ZonedDateTime.of(year, month, day, hour, minute, 0, 0, ZoneId.systemDefault());
 
         assertSameInstant(dateTime, zonedDateTime.toInstant());
         assertSameZoneId(dateTime, zonedDateTime);
