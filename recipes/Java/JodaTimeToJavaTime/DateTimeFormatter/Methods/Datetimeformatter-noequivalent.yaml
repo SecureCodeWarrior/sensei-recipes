@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   comment: |-
-    There are some methods from org.joda.time.format.DateTimeFormatter that there is no equivalent mehtod in java.time.
+    There are some methods from org.joda.time.format.DateTimeFormatter that have no equivalent in java.time.
     Methods such:
     - getPivotYear
     - getDefaultYear
