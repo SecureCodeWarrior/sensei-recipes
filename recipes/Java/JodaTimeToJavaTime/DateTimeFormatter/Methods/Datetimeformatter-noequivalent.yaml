@@ -19,7 +19,7 @@ metadata:
     - isOffsetParsed
     - withDefaultYear
     - withOffsetParsed
-  descriptionFile: DateTimeFormatter/descriptions/datetimeformatter.html
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeFormatter/descriptions/datetimeformatter.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:

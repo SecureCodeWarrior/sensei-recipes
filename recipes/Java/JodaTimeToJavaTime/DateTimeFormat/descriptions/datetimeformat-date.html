@@ -1,0 +1,51 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DateTimeFormat to Java Time</p>
+<br>
+<p>Joda-Time DateTimeFormat and ISODateTimeFormat migrate to java.time DateTimeFormatter.</p>
+<p>Joda-time and java.time use same concept for DateTimeFormatters</p>
+<p>There are 4 predefined types of date, they are:</p>
+<ul>
+    <li>Full</li>
+    <li>Long</li>
+    <li>Medium</li>
+    <li>Short</li>
+</ul>
+<br>
+<p>For parsing, all 4 methods have equivalents in java.time.</p>
+<p>Be aware if you are using the correct pattern for this formatter.</p>
+<p>E.g. Using a datetime formatter to try parse date only.</p>
+<br>
+<p>Examples</p>
+<br>
+<p>Format</p>
+<b>Before</b>
+<pre>
+    DateTimeFormatter joda = DateTimeFormat.fullDate();
+    String jodaResult = joda.print(long);
+</pre>
+<b>After</b>
+<pre>
+    java.time.format.DateTimeFormatter javaFormatter = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+    String javaResult = javaFormatter.format(ZonedDateTime.ofInstant(Instant.ofEpochMilli(long), ZoneId.systemDefault()));
+</pre>
+<br>
+<p>Parse</p>
+<b>Before</b>
+<pre>
+    DateTimeFormatter jodaDtf = DateTimeFormat.fullDate();
+    long jodaResult = jodaDtf.parseMillis(expectedString);
+</pre>
+<b>After</b>
+<pre>
+    java.time.format.DateTimeFormatter javaDtf = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+    long javaResult =  java.time.LocalDate.parse(expectedString, javaDtf).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html">DateTimeFormatter (Java Platform SE 8 )</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>

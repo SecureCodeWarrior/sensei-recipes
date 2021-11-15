@@ -1,0 +1,23 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DateTimeFormatter to Java Time</p>
+<br>
+<p>Joda-Time DateTimeFormatter migrates to java.time DateTimeFormatter.</p>
+<p>It's a same concept, an immutable formatter</p>
+<br>
+<b>Before</b>
+<pre>
+    DateTimeFormatter dtf = DateTimeFormat.fullDate();
+</pre>
+<b>After</b>
+<pre>
+    java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+</pre>
+<br>
+<b>References</b>
+<ul>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html">DateTimeFormatter (Java Platform SE 8 )</a></li>
+  <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>
