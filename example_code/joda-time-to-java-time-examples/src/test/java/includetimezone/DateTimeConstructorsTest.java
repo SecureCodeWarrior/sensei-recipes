@@ -3,7 +3,6 @@ package includetimezone;
 import org.joda.time.*;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.*;
@@ -14,8 +13,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.within;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static util.JodaTimeToJavaTimeTestUtil.*;
 
 public class DateTimeConstructorsTest {
 
@@ -695,48 +694,11 @@ public class DateTimeConstructorsTest {
         DateTime dateTime = new DateTime(readableInstant);
         OffsetDateTime offsetDateTime = OffsetDateTime.from(temporalAccessor);
 
-        // Assert they are the same instant and ZoneId
-        assertSameInstant(dateTime, offsetDateTime.toInstant());
-        assertSameOffset(dateTime, offsetDateTime);
-
+        // Assert they are the same instant and Offset
+        assertSameInstantAndOffset(dateTime, offsetDateTime);
 
     }
 
-    private void assertSameInstant(DateTime dateTime, java.time.Instant instant) {
-
-        // Both should represent the same instant
-        assertThat(dateTime.getMillis()).isEqualTo(instant.toEpochMilli());
-
-    }
-
-    /*
-        Used when we are testing .now(), just check our objects represent an instant within a second of each other
-        Possibly could use AOP to modify clock behaviour. There is a now(Clock clock) method
-        however we are specifically testing the other method signatures of now()
-     */
-    private void assertCloseToInstant(DateTime dateTime, java.time.Instant instant) {
-
-        // Both should represent almost the same instant
-        assertThat(dateTime.getMillis()).isCloseTo(instant.toEpochMilli(), within(1000L));
-
-    }
-
-    private void assertSameZoneId(DateTime dateTime, ZonedDateTime zonedDateTime) {
-
-        // Both should be in the same Zone
-        assertThat(dateTime.getZone().getID()).isEqualTo(zonedDateTime.getZone().getId());
-
-    }
-
-    private void assertSameOffset(DateTime dateTime, OffsetDateTime offsetDateTime) {
-
-        // Offsets should be the same. Use Joda Duration to compare
-        Duration jodaOffset = Duration.ofMillis(dateTime.getZone().getOffset(dateTime));
-        Duration javaOffset = Duration.ofSeconds(offsetDateTime.getOffset().getTotalSeconds());
-
-        assertThat(jodaOffset).isEqualTo(javaOffset);
-
-    }
 
     @Test
     public void Instant_cannot_be_used_in_ZonedDateTime_from() {
