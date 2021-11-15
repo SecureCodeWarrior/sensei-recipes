@@ -14,12 +14,12 @@ import java.time.format.FormatStyle;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DateTimeFormatFormatTest {
+class DateTimeFormatFormatTest {
 
-    java.time.ZonedDateTime zdt = ZonedDateTime.of(2021, 10, 8, 16, 21, 45, 123456, ZoneId.systemDefault());
+    java.time.ZonedDateTime zdt = ZonedDateTime.of(2021, 11, 15, 16, 21, 45, 123456, ZoneId.systemDefault());
 
     @Test
-    public void test_fullDate_is_equivalent() {
+    void test_fullDate_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.fullDate();
@@ -32,7 +32,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_fullDateTime_is_equivalent() {
+    void test_fullDateTime_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.fullDateTime();
@@ -45,7 +45,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_fullTime_is_equivalent() {
+    void test_fullTime_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.fullTime();
@@ -58,7 +58,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_longDateTime_is_equivalent() {
+    void test_longDateTime_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.longDateTime();
@@ -71,7 +71,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_longDate_is_equivalent() {
+    void test_longDate_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.longDate();
@@ -84,7 +84,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_longTime_is_equivalent() {
+    void test_longTime_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.longTime();
@@ -97,7 +97,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_mediumDate_is_equivalent() {
+    void test_mediumDate_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.mediumDate();
@@ -110,7 +110,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_mediumDateTime_is_equivalent() {
+    void test_mediumDateTime_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.mediumDateTime();
@@ -123,7 +123,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_mediumTime_is_equivalent() {
+    void test_mediumTime_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.mediumTime();
@@ -136,7 +136,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_shortDate_is_equivalent() {
+    void test_shortDate_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.shortDate();
@@ -149,7 +149,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_shortDateTime_is_equivalent() {
+    void test_shortDateTime_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.shortDateTime();
@@ -162,7 +162,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void test_shortTime_is_equivalent() {
+    void test_shortTime_is_equivalent() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.shortTime();
@@ -175,7 +175,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void testDateTimeFormatterTemporalAcessor() {
+    void testDateTimeFormatterTemporalAcessor() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTime dateTimeJoda = new DateTime(testinstant);
@@ -187,13 +187,11 @@ public class DateTimeFormatFormatTest {
         String jodaResult = joda.print(dateTimeJoda);
         String javaResult = javaFormatter.format(dateTimeJava);
 
-
         assertThat(jodaResult).isEqualTo(javaResult);
-
     }
 
     @Test
-    public void testDateTimeFormatterAppendableTemporal() throws IOException {
+    void testDateTimeFormatterAppendableTemporal() throws IOException {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         Appendable appendableArg = new StringWriter();
@@ -211,7 +209,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void testDateTimeFormatterAppendableLong() throws IOException {
+    void testDateTimeFormatterAppendableLong() throws IOException {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         Appendable appendableArg = new StringWriter();
@@ -226,7 +224,7 @@ public class DateTimeFormatFormatTest {
     }
 
     @Test
-    public void testDateTimeFormatterWithOffsetParsed() {
+    void testDateTimeFormatterWithOffsetParsed() {
         long testinstant = zdt.toInstant().toEpochMilli();
 
         DateTimeFormatter joda = DateTimeFormat.fullDateTime();
@@ -237,5 +235,4 @@ public class DateTimeFormatFormatTest {
 
         assertThat(jodaResult).isEqualTo(javaResult);
     }
-
 }
