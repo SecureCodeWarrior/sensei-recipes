@@ -12,6 +12,8 @@ search:
     anyOf:
     - type: org.joda.time.Duration
     - type: org.joda.time.Period
+    - type: org.joda.time.LocalDate
+    - type: org.joda.time.LocalDateTime
 availableFixes:
 - name: Migrate Joda-Time parameter to java.time Equivalent
   actions:

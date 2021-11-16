@@ -11,7 +11,9 @@ search:
   method:
     anyOf:
     - returnType: org.joda.time.Period
-    - returnType: ord.joda.time.Duration
+    - returnType: org.joda.time.Duration
+    - returnType: org.joda.time.LocalDate
+    - returnType: org.joda.time.LocalDateTime
 availableFixes:
 - name: Convert Joda-Time returnType to java.time equivalent
   actions:
