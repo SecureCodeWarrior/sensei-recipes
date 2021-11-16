@@ -1,0 +1,28 @@
+id: scw:java.time:Joda-Time:datetimeformatter-parseDateTime
+version: 10
+metadata:
+  name: Convert parseDateTime to java.time version
+  shortDescription: Convert parseDateTime to java.time version
+  level: error
+  language: java
+  enabled: true
+  comment: "Searches for a parseDateTime method called and provides fixes to migrate to a java.time equivalent.\n\nThis recipe is designed to match on broken code. This method originally was called by org.joda.time.format.DateTimeFormatter type, \nhowever this object type should first be migrated to java.time.format.DateTimeFormatter using the other migration recipes.\nThis recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.\nBe aware if you are using the correct pattern for this formatter."
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeFormat/descriptions/datetimeformat-datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: parseDateTime
+    type: java.time.format.DateTimeFormatter
+availableFixes:
+- name: Rewrite parseDateTime to ZonedDateTime.parse
+  actions:
+  - rewrite:
+      to: java.time.ZonedDateTime.parse({{{ arguments}}}, {{{ qualifier }}})
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Rewrite parseDateTime to OffsetDateTime.parse
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.parse({{{ arguments}}}, {{{ qualifier }}})
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

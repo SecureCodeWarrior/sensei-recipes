@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/example_code/SQL-examples/pom.xml" />
         <option value="$PROJECT_DIR$/example_code/yaml_examples/pom.xml" />
         <option value="$PROJECT_DIR$/example_code/java-date-example/pom.xml" />
+        <option value="$PROJECT_DIR$/example_code/joda-time-to-java-time-examples/pom.xml" />
       </list>
     </option>
   </component>

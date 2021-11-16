@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:datetimeformatter-printto-long
+version: 10
+metadata:
+  name: Convert printTo(appendable, long) to format(TemporalAccessor, Appendable)
+  shortDescription: Convert printTo to formatTo
+  level: error
+  language: java
+  enabled: true
+  comment: "Searches for a printTo method called and provides fixes to migrate to a java.time equivalent.\n\nThis recipe is designed to match on broken code. This method originally was called by org.joda.time.format.DateTimeFormatter type, \nhowever this object type should first be migrated to java.time.format.DateTimeFormatter using the other migration recipes.\nThis recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration."
+  descriptionFile: descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      2:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+    argCount: 2
+    name: printTo
+    type: java.time.format.DateTimeFormatter
+availableFixes:
+- name: rewrite to formatTo(TemporalAccessor, Appendable)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.formatTo(java.time.ZonedDateTime.ofInstant(java.time.Instant.ofEpochMilli({{{ arguments.1 }}}), java.time.ZoneId.systemDefault()), {{{ arguments.0 }}})'

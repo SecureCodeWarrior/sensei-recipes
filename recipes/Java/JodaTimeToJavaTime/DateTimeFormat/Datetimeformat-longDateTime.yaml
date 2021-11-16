@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetime-format-longDateTime
+version: 10
+metadata:
+  name: Convert Joda-Time DateTimeFormat.longDateTime()
+  shortDescription: Convert Joda-Time DateTimeFormat.longDateTime()
+  level: warning
+  language: java
+  enabled: true
+  comment: Searches for org.joda.time.format.DateTimeFormat.longDateTime method call and provides fixes to migrate to a java.time equivalent.
+  descriptionFile: descriptions/datetimeformat-datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: longDateTime
+    type: org.joda.time.format.DateTimeFormat
+availableFixes:
+- name: Convert to java.time DateTimeFormatter
+  actions:
+  - rewrite:
+      to: java.time.format.DateTimeFormatter.ofLocalizedDateTime(java.time.format.FormatStyle.LONG)
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatter

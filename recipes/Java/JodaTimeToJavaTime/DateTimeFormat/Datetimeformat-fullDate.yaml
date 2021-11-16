@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetime-format-fullDate
+version: 10
+metadata:
+  name: Convert Joda-Time DateTimeFormat.fullDate()
+  shortDescription: Convert Joda-Time DateTimeFormat.fullDate()
+  level: warning
+  language: java
+  enabled: true
+  comment: Searches for org.joda.time.format.DateTimeFormat.fullDate method call and provides fixes to migrate to a java.time equivalent.
+  descriptionFile: descriptions/datetimeformat-date.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: fullDate
+    type: org.joda.time.format.DateTimeFormat
+availableFixes:
+- name: Convert to java.time DateTimeFormatter
+  actions:
+  - rewrite:
+      to: java.time.format.DateTimeFormatter.ofLocalizedDate(java.time.format.FormatStyle.FULL)
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatter

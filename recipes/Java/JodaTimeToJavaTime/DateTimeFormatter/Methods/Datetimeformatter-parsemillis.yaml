@@ -1,0 +1,43 @@
+id: scw:java.time:Joda-Time:datetimeformatter-parsemillis
+version: 10
+metadata:
+  name: Convert parseMillis to java.time version
+  shortDescription: Convert parseMillis to java.time version
+  level: error
+  language: java
+  enabled: true
+  comment: |-
+    Searches for a parseMillis method called and provides fixes to migrate to a java.time equivalent.
+
+    Joda-Time provided a parseMillis() method on the DateTimeFormatter which would parse a string and convert it to the epochMillis.
+    If the string was missing information then Joda-Time would fill this information in with default values.
+    java.time is stricter and will not fill in missing information. So in order to obtain the epoch millis you must first parse to
+    an equivalent object which contains the same level of information as the string that is being parsed. This recipe contains separate fixes
+    depending on the range of values available in the input string to be parsed, you will need to determine this yourself to choose the appropriate fix.
+
+    This recipe is designed to match on broken code. This method originally was called by org.joda.time.format.DateTimeFormatter type,
+    however this object type should first be migrated to java.time.format.DateTimeFormatter using the other migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
+  descriptionFile: Java/JodaTimeToJavaTime/DateTimeFormatter/descriptions/datetimeformatter.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: parseMillis
+    type: java.time.format.DateTimeFormatter
+availableFixes:
+- name: Rewrite parseMillis to java.time equivalent - from OffsetDateTime input
+  actions:
+  - rewrite:
+      to: java.time.OffsetDateTime.parse({{{ arguments }}}, {{{ qualifier }}}).toInstant().toEpochMilli()
+- name: Rewrite parseMillis to java.time equivalent - from LocalDateTime input
+  actions:
+  - rewrite:
+      to: java.time.LocalDateTime.parse({{{ arguments }}}, {{{ qualifier }}}).atZone(java.time.ZoneOffset.UTC).toInstant().toEpochMilli()
+- name: Rewrite parseMillis to java.time equivalent - from LocalDate input
+  actions:
+  - rewrite:
+      to: java.time.LocalDate.parse({{{ arguments }}}, {{{ qualifier }}}).atStartOfDay(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli()
+- name: Rewrite parseMillis to java.time equivalent - from LocalTime input
+  actions:
+  - rewrite:
+      to: java.time.LocalTime.parse({{{ arguments }}}, {{{ qualifier }}}).getLong(java.time.temporal.ChronoField.MILLI_OF_DAY)
