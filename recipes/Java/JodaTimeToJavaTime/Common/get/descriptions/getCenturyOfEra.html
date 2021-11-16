@@ -2,7 +2,7 @@
 <body>
 <h1>getCenturyOfEra is no longer supported</h1>
 <p>The getCenturyOfEra method is no longer supported after migrating from Joda-Time to java.time</p>
-<p>This recipe will replace the getCenturyOfEra method call, with an equivalent calculation which is based on the logic of Joda-Time<p>
+<p>This recipe will replace the getCenturyOfEra method call, with an equivalent calculation which is based on the logic used in Joda-Time to calculate century of era.<p>
 <pre>
 java.lang.Math.abs(<year> / 100)
 </pre>

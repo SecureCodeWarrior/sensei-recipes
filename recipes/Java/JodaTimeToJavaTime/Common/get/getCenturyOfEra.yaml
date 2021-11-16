@@ -6,6 +6,14 @@ metadata:
   level: warning
   language: java
   enabled: true
+  comment: |-
+    Joda-Time provided a getCenturyOfEra() method to access the century of era value of a Date-related object.
+    This method is no longer provided in java.time, however you can calculate the equivalent result with a simple equation.
+    This recipe provides a fix to rewrite the getCenturyOfEra() method call to the equivalent equation.
+
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+    After an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.
+    This recipe is designed to match on one of those method calls and provide a fix.
   descriptionFile: descriptions/getCenturyOfEra.html
   tags: java.time;framework specific;Joda-Time;quality
 search:
@@ -14,6 +22,8 @@ search:
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
+    - type: java.time.LocalDateTime
+    - type: java.time.LocalDate
 availableFixes:
 - name: Rewrite to Math.abs(year / 100)
   actions:

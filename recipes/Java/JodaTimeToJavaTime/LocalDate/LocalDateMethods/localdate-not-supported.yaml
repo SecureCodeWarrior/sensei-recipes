@@ -12,7 +12,6 @@ search:
   methodcall:
     anyOf:
     - name: centuryOfEra
-    - name: getCenturyOfEra
     - name: yearOfCentury
     - name: yearOfEra
     - name: withYearOfEra

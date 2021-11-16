@@ -12,7 +12,6 @@ search:
     allOf:
     - anyOf:
       - name: centuryOfEra
-      - name: getCenturyOfEra
       - name: withCenturyOfEra
     - anyOf:
       - type: org.joda.time.LocalDate
