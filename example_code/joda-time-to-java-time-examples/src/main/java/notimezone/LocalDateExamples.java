@@ -65,9 +65,7 @@ public class LocalDateExamples {
 
     }
 
-    public void instanceMethods() {
-
-        LocalDate testLocalDate = LocalDate.now();
+    public LocalDate instanceMethods(LocalDate testLocalDate) {
 
         // Arguments used
         DateTimeZone datetimezoneArg = DateTimeZone.getDefault();
@@ -173,6 +171,8 @@ public class LocalDateExamples {
         DateTimeField[] getFields = testLocalDate.getFields();
         org.joda.time.DateTimeField getField = testLocalDate.getField(intArg);
         org.joda.time.DateTimeFieldType getFieldType = testLocalDate.getFieldType(intArg);
+
+        return testLocalDate;
 
     }
 

@@ -80,9 +80,7 @@ public class LocalDateTimeExamples {
 
     }
 
-    public void instanceMethods() {
-
-        LocalDateTime testLocalDateTime = LocalDateTime.now();
+    public LocalDateTime instanceMethods(LocalDateTime testLocalDateTime) {
 
         // Arguments used
         DateTimeZone datetimezoneArg = DateTimeZone.getDefault();
@@ -223,6 +221,8 @@ public class LocalDateTimeExamples {
         DateTimeField[] getFields = testLocalDateTime.getFields();
         DateTimeField getField = testLocalDateTime.getField(intArg);
         DateTimeFieldType getFieldType = testLocalDateTime.getFieldType(intArg);
+
+        return testLocalDateTime;
 
     }
 
