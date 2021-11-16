@@ -1,20 +1,34 @@
 id: scw:java.time:Joda-Time:datetimeformatter-withoffsetparsed
 version: 10
 metadata:
-  name: Convert withOffsetParsed() to DateTimeFormatter.ISO_TIME
-  shortDescription: Convert withOffsetParsed() to DateTimeFormatter.ISO_TIME
+  name: Remove obsolete withOffsetParsed() Method Call
+  shortDescription: Remove obsolete withOffsetParsed() Method Call
   level: warning
   language: java
   enabled: true
-  comment: "Searches for a withOffsetParsed method called and provides fixes to migrate to a java.time equivalent.\n\nThis recipe is designed to match on broken code. This method originally was called by org.joda.time.format.DateTimeFormatter type, \nhowever this object type should first be migrated to java.time.format.DateTimeFormatter using the other migration recipes.\nThis recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration."
+  comment: |
+    Searches for a withOffsetParsed method called and provides fixes to migrate to a java.time equivalent.
+
+    In Joda-Time an Override Zone could be set on a DateTimeFormatter, so that formatting and parsing would use this override Zone.
+    This override Zone could be cleared using the withOffsetParsed() method to guaranteed parsed objects would retain the offset mentioned in the string representation.
+
+    In java.time, a DateTimeFormatter can have a Zone set as the override zone using withZone(ZoneId),
+    however the parsing behaviour has changed so that if the Offset or Zone is present in the string representation it will retain this in the constructed object (ignoring the Override Zone).
+    Effectively this means that withOffsetParsed is always set.
+
+    This recipe is designed to match on broken code. This method originally was called by org.joda.time.format.DateTimeFormatter type,
+    however this object type should first be migrated to java.time.format.DateTimeFormatter using the other migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
   descriptionFile: descriptions/datetimeformatter.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
     name: withOffsetParsed
-    type: org.joda.time.format.DateTimeFormatter
+    type: java.time.format.DateTimeFormatter
 availableFixes:
-- name: Rewrite using java.time DateTimeFormatter.ISO_TIME
+- name: Remove withOffsetParsed() method call
   actions:
   - rewrite:
-      to: java.time.format.DateTimeFormatter.ISO_TIME
+      to: '{{{ qualifier }}}'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatter

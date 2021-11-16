@@ -223,16 +223,4 @@ class DateTimeFormatFormatTest {
         assertThat(appendableArg.toString()).isEqualTo(appendableArg2.toString());
     }
 
-    @Test
-    void testDateTimeFormatterWithOffsetParsed() {
-        long testinstant = zdt.toInstant().toEpochMilli();
-
-        DateTimeFormatter joda = DateTimeFormat.fullDateTime();
-        java.time.format.DateTimeFormatter javaFormatter = java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
-
-        String jodaResult = joda.withOffsetParsed().print(testinstant);
-        String javaResult = ZonedDateTime.ofInstant(Instant.ofEpochMilli(testinstant), ZoneId.systemDefault()).format(javaFormatter);
-
-        assertThat(jodaResult).isEqualTo(javaResult);
-    }
 }
