@@ -6,11 +6,14 @@ import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 import org.junit.jupiter.api.Test;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.FormatStyle;
+import java.time.temporal.ChronoField;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -141,19 +144,48 @@ class DateTimeFormatParseTest {
     }
 
     @Test
-    void parsemillis_with_zone_is_equivalent() {
-        String dateTime = "11/15/2021 08:00:00.000+1000";
-        String pattern = "MM/dd/yyyy HH:mm:ss.SSSZZ";
+    void parsemillis_is_equivalent() {
 
-        String outputPattern = "MM/dd/yyyy HH:mm:ss";
+        String date = "2021-12-21";
+        String time = "08:00:00";
+        String localDateTime = "2021-12-21T08:00:00.000";
+        String offsetDateTime = "2021-12-21T08:00:00+10:00";
 
-        DateTimeFormatter jodaDtf = DateTimeFormat.forPattern(pattern);
-        long jodaResult = jodaDtf.parseMillis(dateTime);
+        // Test Date Only
+        DateTimeFormatter jodaDateFormatter = ISODateTimeFormat.date();
+        java.time.format.DateTimeFormatter javaDateFormatter = java.time.format.DateTimeFormatter.ISO_DATE;
 
-        java.time.format.DateTimeFormatter javaDtf = java.time.format.DateTimeFormatter.ofPattern(pattern);
-        long javaResult = java.time.LocalDateTime.parse(dateTime, javaDtf).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        long jodaDateMillis = jodaDateFormatter.parseMillis(date);
+        long javaDateMillis = java.time.LocalDate.parse(date, javaDateFormatter).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
 
-        assertThat(jodaResult).isEqualTo(javaResult);
+        assertThat(javaDateMillis).isEqualTo(jodaDateMillis);
+
+        // Test Local Time Only
+        DateTimeFormatter jodaTimeFormatter = ISODateTimeFormat.localTimeParser();
+        java.time.format.DateTimeFormatter javaTimeFormatter = java.time.format.DateTimeFormatter.ISO_LOCAL_TIME;
+
+        long jodaTimeMillis = jodaTimeFormatter.parseMillis(time);
+        long javaTimeMillis = java.time.LocalTime.parse(time, javaTimeFormatter).getLong(ChronoField.MILLI_OF_DAY);
+
+        assertThat(javaTimeMillis).isEqualTo(jodaTimeMillis);
+
+        // Test Basic Date Time without Offset
+        DateTimeFormatter jodaLocalDateTimeFormatter = ISODateTimeFormat.localDateOptionalTimeParser();
+        java.time.format.DateTimeFormatter javaLocalDateTimeFormatter = java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+
+        long jodaLocalDateTimeMillis = jodaLocalDateTimeFormatter.parseMillis(localDateTime);
+        long javaLocalDateTimeMillis = java.time.LocalDateTime.parse(localDateTime, javaLocalDateTimeFormatter).atZone(ZoneOffset.UTC).toInstant().toEpochMilli();
+
+        assertThat(javaLocalDateTimeMillis).isEqualTo(jodaLocalDateTimeMillis);
+
+        // Test Date Time
+        DateTimeFormatter jodaOffsetDateTimeFormatter = ISODateTimeFormat.dateTimeNoMillis();
+        java.time.format.DateTimeFormatter javaOffsetDateTimeFormatter = java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+
+        long jodaOffsetDateTimeMillis = jodaOffsetDateTimeFormatter.parseMillis(offsetDateTime);
+        long javaOffsetDateTimeMillis = OffsetDateTime.parse(offsetDateTime, javaOffsetDateTimeFormatter).toInstant().toEpochMilli();
+
+        assertThat(javaOffsetDateTimeMillis).isEqualTo(javaOffsetDateTimeMillis);
 
     }
 
