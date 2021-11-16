@@ -191,6 +191,7 @@ class DateTimeFormatParseTest {
 
     @Test
     void parse_dateTimePattern_is_equivalent() {
+
         String dateTime = "11/15/2021 08:00:00.000+1000";
         String pattern = "MM/dd/yyyy HH:mm:ss.SSSZZ";
 
@@ -200,9 +201,11 @@ class DateTimeFormatParseTest {
         DateTime jodaDateTime = jodaDtf.parseDateTime(dateTime);
 
         java.time.format.DateTimeFormatter javaDtf = java.time.format.DateTimeFormatter.ofPattern(pattern);
-        OffsetDateTime javaDateTime = OffsetDateTime.parse(dateTime,javaDtf);
+        OffsetDateTime javaDateTime = OffsetDateTime.parse(dateTime, javaDtf);
 
-        assertThat(DateTimeFormat.forPattern(outputPattern).print(jodaDateTime)).isEqualTo(java.time.format.DateTimeFormatter.ofPattern(outputPattern).format(javaDateTime));
+        // Assert that we parsed to the same instant
+        assertThat(javaDateTime.toInstant().toEpochMilli()).isEqualTo(jodaDateTime.getMillis());
+
     }
 
 }
