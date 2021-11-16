@@ -20,6 +20,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-params:5.7.2" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.10.11" level="project" />
     <orderEntry type="library" name="Maven: org.threeten:threeten-extra:1.7.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.11.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.21.0" level="project" />
   </component>
 </module>

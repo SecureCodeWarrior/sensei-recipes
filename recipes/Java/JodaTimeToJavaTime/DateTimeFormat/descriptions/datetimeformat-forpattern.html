@@ -1,0 +1,199 @@
+<html lang="en">
+<body>
+<h2>Converting a Custom DateTime pattern from Joda-Time to java-time</h2>
+<p>The following terminology is used below to describe elements of a date time pattern:
+<ul>
+    <li><b>field</b> - 1 or more of the same character in a Date/Time Format pattern</li>
+    <li><b>width</b> - the number of characters in a field</li>
+</ul>
+</p>
+<h3>Changes to format characters</h3>
+<p>Some formatting characters have changed from Joda-Time to java.time
+<table>
+    <tr>
+        <th>Field Name</th>
+        <th>Joda-Time Character</th>
+        <th>java.time Character</th>
+    </tr>
+    <tr>
+        <td>Year of Era</td>
+        <td>Y</td>
+        <td>y</td>
+    </tr>
+    <tr>
+        <td>Week-based year</td>
+        <td>x</td>
+        <td>Y</td>
+    </tr>
+    <tr>
+        <td>year</td>
+        <td>y</td>
+        <td>u</td>
+    </tr>
+</table>
+</p>
+<h3>Maximum width in java.time</h3>
+<p>java.time is much stricter about the maximum width of a field. The Maximum width is listed below where
+    it is applicable. Joda-Time would safely handle blocks that were longer than the maximum width, whereas java.time
+    will throw an exception.
+<ul>
+    <li>
+        For number values, Joda-Time would simply pad the value using 0's. You can replicate this behaviour by adding a
+        literal field of Zeros in front of the maximum width.
+        For example if your pattern in Joda Time was DDDDD, and the new maximum width is 3, then a java.time pattern to
+        keep the same output
+        would be '00'DDD.
+    </li>
+    <li>
+        For text values, Joda-Time would choose the full form for any fields with width 4 or more. java.time is much
+        more specific. It will often have an additional version for width 5, and throw an exception for anything larger
+        than 5.
+    </li>
+</ul>
+<table>
+    <tr>
+        <th>Field Name</th>
+        <th>Joda Character</th>
+        <th>java.time Character</th>
+        <th>Maximum Width</th>
+    </tr>
+    <tr>
+        <td>Week of Week-based year</td>
+        <td>w</td>
+        <td>w</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>Day of Week (Number)</td>
+        <td>e</td>
+        <td>e</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Day of Year (Number)</td>
+        <td>D</td>
+        <td>D</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>Month of Year</td>
+        <td>M</td>
+        <td>M</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>day of Month</td>
+        <td>d</td>
+        <td>d</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Half-day of day</td>
+        <td>a</td>
+        <td>a</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>Hour of Half-day</td>
+        <td>K</td>
+        <td>K</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Clockhour of Half-day</td>
+        <td>h</td>
+        <td>h</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Hour of day (0-23)</td>
+        <td>H</td>
+        <td>H</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Clockhour of Day (1-24)</td>
+        <td>k</td>
+        <td>k</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Minute of Hour</td>
+        <td>m</td>
+        <td>m</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Second of Minute</td>
+        <td>s</td>
+        <td>s</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Time Zone</td>
+        <td>z</td>
+        <td>z</td>
+        <td>4</td>
+    </tr>
+</table>
+<h3>First Day of Week is now Locale Dependant</h3>
+<p>Joda-Time considered Monday to be the first day of the week, in accordance with the ISO8601 standard. java.time is
+    different in that the first day of the week is dependent on the locale.
+    This means the output of following fields will be different in java.time if your locale considers Sunday to be the
+    first day of the week</p>
+<p>If you need to ensure the output is the same as Joda-Time you will need to make sure your formatter uses a locale
+    that considers Monday to be the first day of the week.</p>
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Joda-Time Character</th>
+        <th>java.time character</th>
+    </tr>
+    <tr>
+        <td>Week-based year</td>
+        <td>x</td>
+        <td>y</td>
+    </tr>
+    <tr>
+        <td>Week of Week-based year</td>
+        <td>w</td>
+        <td>w</td>
+    </tr>
+    <tr>
+        <td>Day of week (Number)</td>
+        <td>e</td>
+        <td>e</td>
+    </tr>
+</table>
+<h3>Century of Era [C] no longer supported</h3>
+<p>Century Of Era is not supported in java.time. You will need to remove C fields from your pattern.</p>
+<h3>G - Era</h3>
+<p>In order to keep the same output as Joda-Time, Era field should be converted to a single width G.<br/>
+    Joda-Time only had 1 length for Era, so if you specified 'G' or 'GGGGGGGG' you would always get the same output.
+    In java.time, there are multiple forms e.g. AD, Anno Domini, A
+    If you want to match exactly the same output as you did in Joda-Time, you should convert all you G to single
+    width.
+</p>
+<h3>E - Day of Week Text</h3>
+<p>java.time has a new formatting option for EEEEE, which is different to EEEE. If you want to keep the same output as
+    your Joda-Time pattern, you should replace any
+    5 or more occurances to 4.
+</p>
+<h3>S - fraction of second</h3>
+<p>The measurement precision of fraction of a second has increased from milliseconds to nanoseconds.<br/>
+    If you were using a block of 4 or more [SSSS, SSSSS, ...], Joda would pad the 4th digit onwards with
+    0, due to the precision stopping at milliseconds. e.g. [1230, 12300, ...]
+    java.time will now output up to 9 digits of precision for fraction of a second due to it's enhanced precision to
+    nanoseconds. e.g. [1234, 12345, ....]
+</p>
+<h3>Z - time zone offset/id</h3>
+<p>In Joda-Time Time Zone Offset and Id were represented by the same character Z</p>
+<p>In java.time Time Zone Offset remains as Z, however Time Zone Id has a new character V.
+<ul>
+    <li>Z - Same</li>
+    <li>ZZ - Convert to ZZZZZ</li>
+    <li>ZZZ and wider - Convert to VV</li>
+</ul>
+</p>
+</body>
+</html>

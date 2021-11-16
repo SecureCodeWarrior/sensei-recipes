@@ -7,13 +7,12 @@ metadata:
   language: java
   enabled: true
   comment: Searches for org.joda.time.format.DateTimeFormat.longDateTime method call and provides fixes to migrate to a java.time equivalent.
-  descriptionFile: descriptions/datetimeformat.html
+  descriptionFile: descriptions/datetimeformat-datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
     name: longDateTime
     type: org.joda.time.format.DateTimeFormat
-scopes: {}
 availableFixes:
 - name: Convert to java.time DateTimeFormatter
   actions:

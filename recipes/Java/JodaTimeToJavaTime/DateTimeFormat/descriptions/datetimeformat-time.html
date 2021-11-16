@@ -1,0 +1,36 @@
+<html>
+<body>
+<p id="abstract">Migrate from org.joda.time.DateTimeFormat to Java Time</p>
+<br>
+<p>Joda-Time DateTimeFormat and ISODateTimeFormat migrate to java.time DateTimeFormatter.</p>
+<p>Joda-time and java.time use same concept for DateTimeFormatters</p>
+<p>There are 4 predefined types of time, they are:</p>
+<ul>
+    <li>Full</li>
+    <li>Long</li>
+    <li>Medium</li>
+    <li>Short</li>
+</ul>
+<br>
+<p>For parsing, none method has equivalent in java.time.</p>
+<br>
+<p>Examples</p>
+<br>
+<b>Before</b>
+<pre>
+    DateTimeFormatter joda = DateTimeFormat.fullTime();
+    String jodaResult = joda.print(long);
+</pre>
+<b>After</b>
+<pre>
+    java.time.format.DateTimeFormatter javaFormatter = java.time.format.DateTimeFormatter.ofLocalizedTime(FormatStyle.FULL);
+    String javaResult = javaFormatter.format(ZonedDateTime.ofInstant(Instant.ofEpochMilli(long), ZoneId.systemDefault()));
+</pre>
+<br>
+<b>References</b>
+<ul>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html">DateTimeFormatter (Java Platform SE 8 )</a></li>
+    <li><a href="https://blog.joda.org/2014/11/converting-from-joda-time-to-javatime.html">Converting from Joda-Time to java.time</a></li>
+</ul>
+</body>
+</html>
