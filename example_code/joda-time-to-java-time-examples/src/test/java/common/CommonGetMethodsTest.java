@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GetMethodsTest {
+class CommonGetMethodsTest {
 
     /*
         This method is used to assert that the fix provided in getCenturyOfEra.yaml
@@ -30,7 +30,7 @@ public class GetMethodsTest {
         Test the algorithm used by the getCenturyOfEra recipe over a 10,000 year period
      */
     @Test
-    public void getCenturyOfEra() {
+    void getCenturyOfEra() {
 
         IntStream.range(-11000, 11000).forEach(i -> test_CenturyOfEra_year(i));
 
@@ -40,16 +40,16 @@ public class GetMethodsTest {
         Test the algorithm used by the getYearOfCentury recipe over a 10,000 year period
      */
     @Test
-    public void getYearOfCentury() {
+    void getYearOfCentury() {
 
         IntStream.range(-11000, 11000).forEach(i -> test_yearOfCentury_year(i));
 
     }
 
     /*
-    * For a given year, tests that the Joda-Time method getCenturyOfEra() is equivalent to the algorithm used by
-    * the Common/get/getCenturyOfEra.yaml migration recipe
-    */
+     * For a given year, tests that the Joda-Time method getCenturyOfEra() is equivalent to the algorithm used by
+     * the Common/get/getCenturyOfEra.yaml migration recipe
+     */
     private void test_CenturyOfEra_year(int year) {
 
         // DateTime
@@ -87,6 +87,7 @@ public class GetMethodsTest {
 
 
     }
+
     private void test_yearOfCentury_year(int year) {
 
         DateTime dt = DateTime.now().withYear(year);
@@ -123,8 +124,8 @@ public class GetMethodsTest {
     @Test
     void renamed_methods() {
 
-        org.joda.time.LocalTime jodaLocalTime = new LocalTime(5,6,7);
-        java.time.LocalTime javaLocalTime = java.time.LocalTime.of(5,6,7);
+        org.joda.time.LocalTime jodaLocalTime = new LocalTime(5, 6, 7);
+        java.time.LocalTime javaLocalTime = java.time.LocalTime.of(5, 6, 7);
 
         assertThat(javaLocalTime.getHour()).isEqualTo(jodaLocalTime.getHourOfDay());
         assertThat(javaLocalTime.getMinute()).isEqualTo(jodaLocalTime.getMinuteOfHour());
