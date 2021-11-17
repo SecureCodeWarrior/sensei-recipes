@@ -25,7 +25,7 @@ search:
     - type: java.time.LocalDateTime
     - type: java.time.LocalDate
 availableFixes:
-- name: Rewrite to Math.abs(getYear() % 100)
+- name: Rewrite getYearOfCentury() to Math.abs(getYear() % 100)
   actions:
   - rewrite:
       to: java.lang.Math.abs({{{ qualifier }}}.getYear() % 100)

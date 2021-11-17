@@ -25,7 +25,7 @@ search:
     - type: java.time.LocalDateTime
     - type: java.time.LocalDate
 availableFixes:
-- name: Rewrite to Math.abs(year / 100)
+- name: Rewrite getCenturyOfEra() to Math.abs(year / 100)
   actions:
   - rewrite:
       to: java.lang.Math.abs({{{ qualifier }}}.getYear() / 100)
