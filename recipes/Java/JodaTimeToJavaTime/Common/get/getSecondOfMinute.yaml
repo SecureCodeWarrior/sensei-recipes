@@ -17,9 +17,6 @@ metadata:
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
-    with:
-      anyOf:
-      - name: getSecondOfMinute
     name: getSecondOfMinute
     anyOf:
     - type: java.time.ZonedDateTime

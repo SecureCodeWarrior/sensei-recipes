@@ -17,9 +17,7 @@ metadata:
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
-    with:
-      anyOf:
-      - name: getHourOfDay
+    name: getHourOfDay
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
