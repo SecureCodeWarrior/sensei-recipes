@@ -10,13 +10,13 @@ import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GetCenturyFieldsTest {
+public class GetMethodsTest {
 
     /*
         This method is used to assert that the fix provided in getCenturyOfEra.yaml
         will correctly determine the expected century of era
      */
-    private void test_centuryOfEra_algorithm(int expectedCenturyOfEra, int javaYear) {
+    private void assertExpectedCenturyOfEra(int expectedCenturyOfEra, int javaYear) {
 
         int centuryOfEra = Math.abs(javaYear / 100);
         assertThat(centuryOfEra).isEqualTo(expectedCenturyOfEra);
@@ -27,9 +27,9 @@ public class GetCenturyFieldsTest {
         Test the algorithm used by the getCenturyOfEra recipe over a 10,000 year period
      */
     @Test
-    public void testCenturyOfEra() {
+    public void getCenturyOfEra() {
 
-        IntStream.range(-11000, 11000).forEach(i -> test_centuryOfEra_algorithm(i));
+        IntStream.range(-11000, 11000).forEach(i -> test_CenturyOfEra_year(i));
 
     }
 
@@ -37,9 +37,9 @@ public class GetCenturyFieldsTest {
         Test the algorithm used by the getYearOfCentury recipe over a 10,000 year period
      */
     @Test
-    public void testYearOfCentury() {
+    public void getYearOfCentury() {
 
-        IntStream.range(-11000, 11000).forEach(i -> test_yearOfCentury_algorithm(i));
+        IntStream.range(-11000, 11000).forEach(i -> test_yearOfCentury_year(i));
 
     }
 
@@ -47,7 +47,7 @@ public class GetCenturyFieldsTest {
     * For a given year, tests that the Joda-Time method getCenturyOfEra() is equivalent to the algorithm used by
     * the Common/get/getCenturyOfEra.yaml migration recipe
     */
-    private void test_centuryOfEra_algorithm(int year) {
+    private void test_CenturyOfEra_year(int year) {
 
         // DateTime
         DateTime dt = DateTime.now().withYear(year);
@@ -55,19 +55,19 @@ public class GetCenturyFieldsTest {
         MutableDateTime mdt = MutableDateTime.now();
         mdt.setYear(year);
         ZonedDateTime zdt = ZonedDateTime.now().withYear(year);
-        test_centuryOfEra_algorithm(dt.getCenturyOfEra(), zdt.getYear());
-        test_centuryOfEra_algorithm(mdt.getCenturyOfEra(), zdt.getYear());
-        test_centuryOfEra_algorithm(dm.getCenturyOfEra(), zdt.getYear());
+        assertExpectedCenturyOfEra(dt.getCenturyOfEra(), zdt.getYear());
+        assertExpectedCenturyOfEra(mdt.getCenturyOfEra(), zdt.getYear());
+        assertExpectedCenturyOfEra(dm.getCenturyOfEra(), zdt.getYear());
 
         // Local Date
         org.joda.time.LocalDate jodaLocalDate = org.joda.time.LocalDate.now().withYear(year);
         java.time.LocalDate javaLocalDate = java.time.LocalDate.now().withYear(year);
-        test_centuryOfEra_algorithm(jodaLocalDate.getCenturyOfEra(), javaLocalDate.getYear());
+        assertExpectedCenturyOfEra(jodaLocalDate.getCenturyOfEra(), javaLocalDate.getYear());
 
         // Local Date Time
         org.joda.time.LocalDateTime jodaLocalDateTime = org.joda.time.LocalDateTime.now().withYear(year);
         java.time.LocalDateTime javaLocalDateTime = java.time.LocalDateTime.now().withYear(year);
-        test_centuryOfEra_algorithm(jodaLocalDate.getCenturyOfEra(), javaLocalDate.getYear());
+        assertExpectedCenturyOfEra(jodaLocalDate.getCenturyOfEra(), javaLocalDate.getYear());
 
 
     }
@@ -77,15 +77,19 @@ public class GetCenturyFieldsTest {
      * For a given year, tests that the Joda-Time method getYearOfCentury() is equivalent to the algorithm used by
      * the Common/get/getYearOfCentury.yaml migration recipe
      */
-    private void test_yearOfCentury_algorithm(int year) {
+    private void assertExpectedYearOfCentury(int expectedYearOfCentury, int year) {
+
+        int yearOfCentury = Math.abs(year % 100);
+        assertThat(yearOfCentury).isEqualTo(expectedYearOfCentury);
+
+
+    }
+    private void test_yearOfCentury_year(int year) {
 
         DateTime dt = DateTime.now().withYear(year);
         ZonedDateTime zdt = ZonedDateTime.now().withYear(year);
 
-        int yearOfCentury = dt.getYearOfCentury();
-        int zdtYearOfCentury = Math.abs(zdt.getYear() % 100);
-
-        assertThat(zdtYearOfCentury).isEqualTo(yearOfCentury);
+        assertExpectedYearOfCentury(dt.getYearOfCentury(), zdt.getYear());
 
     }
 
@@ -93,7 +97,7 @@ public class GetCenturyFieldsTest {
         This test supports the transformations used in Common/get/getChronoField.yaml
      */
     @Test
-    void get_use_chronoField() {
+    void getChronoField() {
 
         LocalDate jodaLocalDate = LocalDate.now();
         java.time.LocalDate javaLocalDate = java.time.LocalDate.now();

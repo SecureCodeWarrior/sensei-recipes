@@ -1,12 +1,20 @@
 id: scw:java.time:Joda-Time:getYearOfCentury
 version: 10
 metadata:
-  name: Rewrite getYearOfCentury to java.time equivalent
-  shortDescription: Rewrite getYearOfCentury to java.time equivalent
+  name: Rewrite getYearOfCentury() to java.time equivalent
+  shortDescription: Rewrite getYearOfCentury() to java.time equivalent
   level: warning
   language: java
   enabled: true
-  comment: "In this chronology, centuries and year of century are zero based. For all years, the century is determined by dropping the last two digits of the year, ignoring sign. \nThe year of century is the value of the last two year digits."
+  comment: |-
+    Joda-Time provided a getYearOfCentury() method to access the year-of-century value of a Date-related object.
+    This method is no longer provided in java.time, however you can calculate the equivalent result with a simple equation.
+    This recipe provides a fix to rewrite the getYearOfCentury() method call to the equivalent equation.
+
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+    After an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.
+    This recipe is designed to match on one of those method calls and provide a fix.
+  descriptionFile: descriptions/getYearOfCentury.html
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:
@@ -14,6 +22,8 @@ search:
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
+    - type: java.time.LocalDateTime
+    - type: java.time.LocalDate
 availableFixes:
 - name: Rewrite to Math.abs(getYear() % 100)
   actions:
