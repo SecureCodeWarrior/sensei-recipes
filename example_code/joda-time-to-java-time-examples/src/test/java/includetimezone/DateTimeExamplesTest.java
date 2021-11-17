@@ -272,4 +272,15 @@ public class DateTimeExamplesTest {
 
     }
 
+    @Test
+    void getMillis() {
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(java.time.Instant.ofEpochMilli(dateTime.getMillis()), ZoneId.systemDefault());
+
+        assertThat(zonedDateTime.toInstant().toEpochMilli()).isEqualTo(dateTime.getMillis());
+
+    }
+
+
 }

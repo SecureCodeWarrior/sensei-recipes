@@ -1,0 +1,23 @@
+id: scw:java.time:Joda-Time:DateTime-getMillis
+version: 10
+metadata:
+  name: Rewrite getMillis() to .toInstant().toEpochMilli()
+  shortDescription: Rewrite getMillis() to .toInstant().toEpochMilli()
+  level: warning
+  language: java
+  enabled: true
+  comment: "Joda-time DateTime provided a getMillis() method used to get the Milliseconds since Epoch.\nIn java.time this method is no longer available. \nTo achieve the same result you can first convert the ZonedDatetime or OffsetDateTime to an Instant, and then use the Instant's toEpochMilli() method.\n\nThis recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.\nAfter an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.\nThis recipe is designed to match on one of those method calls and provide a fix."
+  descriptionFile: descriptions/getMillis.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: getMillis
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite using java.time .toInstant().toEpochMilli()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.toInstant().toEpochMilli()'
