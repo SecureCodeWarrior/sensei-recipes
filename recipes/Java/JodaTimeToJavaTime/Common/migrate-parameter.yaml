@@ -14,6 +14,7 @@ search:
     - type: org.joda.time.Period
     - type: org.joda.time.LocalDate
     - type: org.joda.time.LocalDateTime
+    - type: org.joda.time.LocalTime
 availableFixes:
 - name: Migrate Joda-Time parameter to java.time Equivalent
   actions:
