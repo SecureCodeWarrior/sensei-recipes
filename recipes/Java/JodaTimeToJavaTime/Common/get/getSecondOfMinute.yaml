@@ -24,6 +24,8 @@ search:
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
+    - type: java.time.LocalDateTime
+    - type: java.time.LocalTime
 availableFixes:
 - name: Rewrite using java.time equivalent getSecond()
   actions:
