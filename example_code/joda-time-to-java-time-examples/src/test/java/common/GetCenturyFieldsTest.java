@@ -1,11 +1,11 @@
 package common;
 
-import org.joda.time.DateMidnight;
-import org.joda.time.DateTime;
-import org.joda.time.MutableDateTime;
+import org.joda.time.*;
 import org.junit.jupiter.api.Test;
 
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoField;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -88,5 +88,31 @@ public class GetCenturyFieldsTest {
         assertThat(zdtYearOfCentury).isEqualTo(yearOfCentury);
 
     }
+
+    /*
+        This test supports the transformations used in Common/get/getChronoField.yaml
+     */
+    @Test
+    void get_use_chronoField() {
+
+        LocalDate jodaLocalDate = LocalDate.now();
+        java.time.LocalDate javaLocalDate = java.time.LocalDate.now();
+
+        assertThat(javaLocalDate.get(ChronoField.ERA)).isEqualTo(jodaLocalDate.getEra());
+        assertThat(javaLocalDate.get(ChronoField.YEAR_OF_ERA)).isEqualTo(jodaLocalDate.getYearOfEra());
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(java.time.Instant.ofEpochMilli(dateTime.getMillis()), ZoneId.systemDefault());
+
+        assertThat(zonedDateTime.get(ChronoField.ERA)).isEqualTo(dateTime.getEra());
+        assertThat(zonedDateTime.get(ChronoField.YEAR_OF_ERA)).isEqualTo(dateTime.getYearOfEra());
+        assertThat(zonedDateTime.get(ChronoField.MINUTE_OF_DAY)).isEqualTo(dateTime.getMinuteOfDay());
+        assertThat(zonedDateTime.get(ChronoField.SECOND_OF_DAY)).isEqualTo(dateTime.getSecondOfDay());
+        assertThat(zonedDateTime.get(ChronoField.MILLI_OF_SECOND)).isEqualTo(dateTime.getMillisOfSecond());
+        assertThat(zonedDateTime.get(ChronoField.MILLI_OF_DAY)).isEqualTo(dateTime.getMillisOfDay());
+
+    }
+
+
 
 }
