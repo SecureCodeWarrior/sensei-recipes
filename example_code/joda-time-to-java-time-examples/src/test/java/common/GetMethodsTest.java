@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
+import java.time.temporal.IsoFields;
+import java.time.temporal.WeekFields;
+import java.util.Locale;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -129,5 +132,98 @@ public class GetMethodsTest {
 
     }
 
+    @Test
+    void getWeekOfWeekyear_ISO() {
+
+        DateTime dateTimeStart = DateTime.now().withMonthOfYear(12).withDayOfMonth(27);
+        ZonedDateTime zonedDateTimeStart = ZonedDateTime.now().withMonth(12).withDayOfMonth(27);
+
+        // Test for the next 50 years
+        for (int i = 0; i < 50; i++) {
+
+            DateTime testDateTime = dateTimeStart.plusYears(i);
+            ZonedDateTime testZonedDateTime = zonedDateTimeStart.plusYears(i);
+
+            // Check 14 days worth
+            for (int j = 0; j < 14; j++) {
+
+                assertThat(testZonedDateTime.plusDays(j).get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)).isEqualTo(testDateTime.plusDays(j).getWeekOfWeekyear());
+
+            }
+
+        }
+
+    }
+
+    @Test
+    void getWeekOfWeekYear_LocaleBased() {
+
+        DateTime dateTimeStart = DateTime.now().withYear(2021).withMonthOfYear(1).withDayOfMonth(1);
+        ZonedDateTime zonedDateTimeStart = ZonedDateTime.now().withYear(2021).withMonth(1).withDayOfMonth(1);
+
+        // Use a Locale that considers Sunday to be part of the week
+        Locale sundayFirstLocale = Locale.US;
+
+        int jodaWeek = dateTimeStart.getWeekOfWeekyear();
+        int isoWeek = zonedDateTimeStart.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
+
+        assertThat(isoWeek).isEqualTo(jodaWeek);
+
+        int sundayStartWeek = zonedDateTimeStart.get(WeekFields.SUNDAY_START.weekOfWeekBasedYear());
+        int localeWeek = zonedDateTimeStart.get(WeekFields.of(sundayFirstLocale).weekOfWeekBasedYear());
+
+        assertThat(sundayStartWeek).isNotEqualTo(jodaWeek);
+        assertThat(localeWeek).isNotEqualTo(jodaWeek);
+
+        assertThat(sundayStartWeek).isEqualTo(localeWeek);
+
+    }
+
+    @Test
+    void getWeekyear_ISO() {
+
+        DateTime dateTimeStart = DateTime.now().withMonthOfYear(12).withDayOfMonth(27);
+        ZonedDateTime zonedDateTimeStart = ZonedDateTime.now().withMonth(12).withDayOfMonth(27);
+
+        // Test for the next 50 years
+        for (int i = 0; i < 50; i++) {
+
+            DateTime testDateTime = dateTimeStart.plusYears(i);
+            ZonedDateTime testZonedDateTime = zonedDateTimeStart.plusYears(i);
+
+            // Check 14 days worth
+            for (int j = 0; j < 14; j++) {
+
+                assertThat(testZonedDateTime.plusDays(j).get(IsoFields.WEEK_BASED_YEAR)).isEqualTo(testDateTime.plusDays(j).getWeekyear());
+
+            }
+
+        }
+
+    }
+
+    @Test
+    void getWeekYear_LocaleBased() {
+
+        DateTime dateTimeStart = DateTime.now().withYear(2021).withMonthOfYear(1).withDayOfMonth(1);
+        ZonedDateTime zonedDateTimeStart = ZonedDateTime.now().withYear(2021).withMonth(1).withDayOfMonth(1);
+
+        // Use a Locale that considers Sunday to be part of the week
+        Locale sundayFirstLocale = Locale.US;
+
+        int jodaWeek = dateTimeStart.getWeekyear();
+        int isoWeek = zonedDateTimeStart.get(IsoFields.WEEK_BASED_YEAR);
+
+        assertThat(isoWeek).isEqualTo(jodaWeek);
+
+        int sundayStartWeek = zonedDateTimeStart.get(WeekFields.SUNDAY_START.weekBasedYear());
+        int localeWeek = zonedDateTimeStart.get(WeekFields.of(sundayFirstLocale).weekBasedYear());
+
+        assertThat(sundayStartWeek).isNotEqualTo(jodaWeek);
+        assertThat(localeWeek).isNotEqualTo(jodaWeek);
+
+        assertThat(sundayStartWeek).isEqualTo(localeWeek);
+
+    }
 
 }

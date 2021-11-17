@@ -1,8 +1,8 @@
-id: scw:java.time:Joda-Time:getweekofweekyear
+id: scw:java.time:Joda-Time:getWeekofWeekyear
 version: 10
 metadata:
-  name: Rewrite getWeekOfWeekyear to java.time equivalent
-  shortDescription: Rewrite getWeekOfWeekyear to java.time equivalent
+  name: Rewrite getWeekOfWeekyear() to java.time equivalent
+  shortDescription: Rewrite getWeekOfWeekyear() to java.time equivalent
   level: warning
   language: java
   enabled: true
@@ -15,8 +15,18 @@ search:
     anyOf:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
+    - type: java.time.LocalDateTime
+    - type: java.time.LocalDate
 availableFixes:
-- name: 'Rewrite using java.time Get '
+- name: Rewrite using ISO Weekyear (Same as Joda-Time)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.get(java.time.temporal.IsoFields.WEEK_OF_WEEK_BASED_YEAR)'
+- name: Rewrite using Locale-dependant Weekyear
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.get(java.time.temporal.WeekFields.of(java.util.Locale.getDefault()).weekOfWeekBasedYear())'
+- name: Rewrite using SundayStart Weekyear
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.get(java.time.temporal.WeekFields.SUNDAY_START.weekOfWeekBasedYear())'
