@@ -113,6 +113,17 @@ public class GetCenturyFieldsTest {
 
     }
 
+    @Test
+    void renamed_methods() {
+
+        org.joda.time.LocalTime jodaLocalTime = new LocalTime(5,6,7);
+        java.time.LocalTime javaLocalTime = java.time.LocalTime.of(5,6,7);
+
+        assertThat(javaLocalTime.getHour()).isEqualTo(jodaLocalTime.getHourOfDay());
+        assertThat(javaLocalTime.getMinute()).isEqualTo(jodaLocalTime.getMinuteOfHour());
+        assertThat(javaLocalTime.getSecond()).isEqualTo(jodaLocalTime.getSecondOfMinute());
+
+    }
 
 
 }

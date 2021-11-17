@@ -1,12 +1,19 @@
-id: scw:java.time:Joda-Time:datetime-getsecondofminute
+id: scw:java.time:Joda-Time:getSecondOfMinute
 version: 10
 metadata:
-  name: Rewrite getSecondOfMinute to getSecond
-  shortDescription: Rewrite getSecondOfMinute to getSecond
+  name: Rewrite getSecondOfMinute() to getSecond()
+  shortDescription: Rewrite getSecondOfMinute() to getSecond()
   level: warning
   language: java
   enabled: true
-  descriptionFile: DateTime/descriptions/datetime.html
+  comment: |-
+    The Joda-Time method getSecondOfMinute() is renamed to getSecond() in java.time.
+    This recipe provides a transformation to rewrite the method call to the new method name.
+
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+    After an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.
+    This recipe is designed to match on one of those method calls and provide a fix.
+  descriptionFile: descriptions/getMethodRenamed.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
@@ -18,7 +25,7 @@ search:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite using java.time getSecond
+- name: Rewrite using java.time equivalent getSecond()
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.getSecond()'
