@@ -1,0 +1,21 @@
+<html>
+<body>
+<h1>get<someField>() method is no longer supported</h1>
+<p>Joda-Time provided some convenience methods to access Date/Time fields using a <strong>get</strong> method</p>
+<p>java.time has a smaller set of these convenience methods, so the following are no longer available:
+<ul>
+<li>getEra</li>
+<li>getMillisOfDay</li>
+<li>getMillisOfSecond</li>
+<li>getMinuteOfDay</li>
+<li>getSecondOfDay</li>
+<li>getYearOfEra</li>
+</ul>
+</p>
+<p>There is an equivalent method of retreiving these field values, by using the get(TemporalField field) method. For example
+<pre>
+int milliOfDay = myDateTime.get(ChronoField.MILLI_OF_DAY)
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h3>getWeekyear() is no longer available</h3>
+<p>Joda-Time provided a convenience method to get the Week-Based year from a Date-related object.</p>
+<p>java.time has removed this convenience method. Additionally, there is new behaviour available surrounding week-based years.</p>
+<p>The calculation of Week-based years depends upon which day is considered to be the start of the week, and also how many days minimum should be in the first week of the year.</p>
+<p>Joda-Time getWeekyear() followed the ISO standard for these rules which considers Monday to be the start of the week.</p>
+<p>java.time allows you to use locale-dependant Week-Based Years. Some Locales (for example the US) consider Sunday to be the start of the week.</p>
+<p>This recipe provides 3 different fixes available depending on whether you want to migrate to the new behaviour:</p>
+<ul>
+  <li>ISO Week-based year (Same behaviour as Joda-Time)</li>
+  <li>Sunday-Start Week-based year</li>
+  <li>Locale-dependant Week-based year (using Default Locale)</li>
+</ul>
+</body>
+</html>

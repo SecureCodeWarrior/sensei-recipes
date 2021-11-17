@@ -1,0 +1,30 @@
+id: scw:java.time:Joda-Time:getMinuteOfHour
+version: 10
+metadata:
+  name: Rewrite getMinuteOfHour() to getMinute()
+  shortDescription: Rewrite getMinuteOfHour() to getMinute()
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    The Joda-Time method getMinuteOfHour() is renamed to getMinute() in java.time.
+    This recipe provides a transformation to rewrite the method call to the new method name.
+
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+    After an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.
+    This recipe is designed to match on one of those method calls and provide a fix.
+  descriptionFile: descriptions/getMethodRenamed.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: getMinuteOfHour
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+    - type: java.time.LocalDateTime
+    - type: java.time.LocalTime
+availableFixes:
+- name: Rewrite using java.time equivalent getMinute()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getMinute()'

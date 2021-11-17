@@ -1,0 +1,10 @@
+<html>
+<body>
+<h1>getMillis() is not available in java.time</h1>
+<p>Joda-Time provided a getMillis() method which returned the milliseconds since epoch.</p>
+<p>java.time does not provide this method however the same result can be achieved by converting to an Instant and using the Instant's toEpochMilli() method.</p>
+<pre>
+int epochMillis = zonedDateTime.toInstant().toEpochMilli();
+</pre>
+</body>
+</html
