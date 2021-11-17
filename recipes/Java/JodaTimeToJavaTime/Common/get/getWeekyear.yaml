@@ -6,7 +6,16 @@ metadata:
   level: warning
   language: java
   enabled: true
-  descriptionFile: DateTime/descriptions/datetime.html
+  comment: |-
+    Joda-Time provided getWeekyear() method which provided a value based on an ISO8601 Week-based year.
+    In java.time this method has been removed but the same value can still be accessed using the get(ChronoField) method.
+    Additionally java.time provides the ability to use a Week-based year based on Locale-specific rules.
+    This recipe provides fixes to transform from the previous method names to the new get(ChronoField) methods.
+
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+    After an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.
+    This recipe is designed to match on one of those method calls and provide a fix.
+  descriptionFile: descriptions/getWeekyear.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
