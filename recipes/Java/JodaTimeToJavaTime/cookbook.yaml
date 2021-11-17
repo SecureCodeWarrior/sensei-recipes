@@ -1,0 +1,3 @@
+id: scw:recipes:java.time:testing
+name: Standardization on java.time (For Testing)
+description: This cookbook config is used to for testing the recipes in Java/JodaTimeToJavaTime
