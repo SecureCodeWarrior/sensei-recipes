@@ -5,7 +5,7 @@ metadata:
   shortDescription: Migrate Joda-Time returnType to java.time Equivalent
   level: warning
   language: java; kotlin
-  enabled: true
+  enabled: false
   tags: java.time;framework specific;Joda-Time;quality
 search:
   method:
