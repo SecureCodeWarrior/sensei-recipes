@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-constructor
+version: 10
+metadata:
+  name: Convert DateTimeFormatterBuilder to java.time
+  shortDescription: Convert DateTimeFormatterBuilder to java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: "Searches for an instance creation of org.joda.time.DateTimeFormatterBuilder and provides fixes to migrate to a java.time equivalent.
+  \nThis recipe will cause broken code as part of an overall number of steps to perform a migration of Joda-Time to java.time.
+  \nAfter migrating this instance creation to the java.time equivalent,
+  \nsubsequent method calls and usages of the instance may become invalid.
+  \nFurther Sensei recipes are available to help resolve many of these invalid usages."
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  instanceCreation:
+    argCount: 0
+    type: org.joda.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Convert to java.time.format.DateTimeFormatterBuilder
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder
+  - rewrite:
+      to: new java.time.format.DateTimeFormatterBuilder()

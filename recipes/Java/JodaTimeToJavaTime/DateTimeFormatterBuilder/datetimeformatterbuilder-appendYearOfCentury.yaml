@@ -1,0 +1,26 @@
+id: scw:java.time:Java-Time:datetimeformatterbuilder-appendYearOfCentury
+version: 10
+metadata:
+  name: WARNING - java.time does not support Year of Century. Consider change to it.
+  shortDescription: WARNING - java.time does not support Year of Century. Consider change to it.
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    Searches for appendYearOfCentury method call.
+    YearOfCentury is not supported in java.time.
+    Please consider to change it.
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: int
+      2:
+        type: int
+    name: appendYearOfCentury
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: WARNING - java.time does not support Year of Century. Consider to change it.
+  actions: []

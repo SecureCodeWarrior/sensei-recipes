@@ -1,0 +1,32 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-obsolete-methods
+version: 10
+metadata:
+  name: DateTimeFormatterBuilder Joda-Time method is obsolete in java.time
+  shortDescription: DateTimeFormatterBuilder Joda-Time method is obsolete in java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    These methods are obsolete in java.time.
+    Please consider to change it.
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    anyOf:
+    - name: canBuildFormatter
+    - name: canBuildPrinter
+    - name: canBuildParser
+    - name: appendTwoDigitYear
+    - name: appendTwoDigitYear
+    - name: appendTwoDigitWeekyear
+    - name: appendTwoDigitWeekyear
+    - name: appendHalfdayOfDayText
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: 'Joda-Time Method is obsolete: open javadoc for java.time.format.DateTimeFormatterBuilder'
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatterBuilder.html
+      target: self
