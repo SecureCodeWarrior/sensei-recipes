@@ -20,5 +20,5 @@ search:
     - name: withWeekOfWeekyear
     - name: withWeekyear
     - name: withDayOfWeek
-    type: org.joda.time.LocalDate
+    type: java.time.LocalDate
 availableFixes: []
