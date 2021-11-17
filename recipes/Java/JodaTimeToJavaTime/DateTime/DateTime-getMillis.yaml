@@ -6,7 +6,14 @@ metadata:
   level: warning
   language: java
   enabled: true
-  comment: "Joda-time DateTime provided a getMillis() method used to get the Milliseconds since Epoch.\nIn java.time this method is no longer available. \nTo achieve the same result you can first convert the ZonedDatetime or OffsetDateTime to an Instant, and then use the Instant's toEpochMilli() method.\n\nThis recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.\nAfter an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.\nThis recipe is designed to match on one of those method calls and provide a fix."
+  comment: |
+    Joda-time DateTime provided a getMillis() method used to get the Milliseconds since Epoch.
+    In java.time this method is no longer available.
+    To achieve the same result you can first convert the ZonedDatetime or OffsetDateTime to an Instant, and then use the Instant's toEpochMilli() method.
+
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+    After an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.
+    This recipe is designed to match on one of those method calls and provide a fix.
   descriptionFile: descriptions/getMillis.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
