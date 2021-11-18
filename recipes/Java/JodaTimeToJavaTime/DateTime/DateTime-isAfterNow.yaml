@@ -1,8 +1,8 @@
-id: scw:java.time:Joda-Time:zoneddatetime-isafternow
+id: scw:java.time:Joda-Time:DateTime-isAfterNow
 version: 10
 metadata:
-  name: Convert ZonedDateTime isAfterNow to java.time equivalent
-  shortDescription: Convert ZonedDateTime isAfterNow to java.time equivalent
+  name: Convert isAfterNow to java.time equivalent
+  shortDescription: Convert isAfterNow to java.time equivalent
   level: warning
   language: java
   enabled: true
@@ -10,11 +10,12 @@ metadata:
   tags: framework specific;java.time;Joda-Time;quality
 search:
   methodcall:
+    name: isAfterNow
     anyOf:
-    - name: isAfterNow
-    type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+    - type: java.time.ZonedDateTime
 availableFixes:
-- name: Rewrite to isAfter(ZonedDateTime.now())
+- name: Rewrite to isAfter(<type>.now())
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.isAfter(java.time.ZonedDateTime.now())'
+      to: '{{{ qualifier }}}.isAfter({{{ qualifier.type }}}.now())'
