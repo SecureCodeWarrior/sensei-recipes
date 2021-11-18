@@ -5,7 +5,7 @@ metadata:
   shortDescription: Migrate DateTime local variable to java.time.ZonedDateTime or java.time.OffsetDateTime
   level: info
   language: java
-  enabled: true
+  enabled: false
 search:
   localVariable:
     type: org.joda.time.DateTime
