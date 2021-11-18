@@ -4,13 +4,18 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.MutableDateTime;
 import org.junit.jupiter.api.Test;
+import util.JodaTimeToJavaTimeTestUtil;
 
-import java.time.*;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.util.Random;
+import java.util.stream.LongStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -124,7 +129,7 @@ public class DateTimeExamplesTest {
             OffsetDateTime atZoneSameInstant(ZoneId)
     */
     @Test
-    public void test_withZone_equivalent() {
+    void withZone_DateTimeZone() {
 
         // Establish the instant will we test
         DateTime dateTime = DateTime.now();
@@ -172,7 +177,7 @@ public class DateTimeExamplesTest {
             OffsetDateTime: atZoneSimilarLocal(ZoneId)
     */
     @Test
-    public void test_withZoneRetainFields() {
+    void withZoneRetainFields_DateTimeZone() {
 
         // Establish the instant will we test
         DateTime dateTime = DateTime.now();
@@ -282,5 +287,86 @@ public class DateTimeExamplesTest {
 
     }
 
+    @Test
+    void isAfterNow() {
+
+        DateTime dateTime = DateTime.now().withTimeAtStartOfDay();
+
+        for (int i = 0; i < 24; i++) {
+
+            ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+            OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+            assertThat(zonedDateTime.isAfter(ZonedDateTime.now())).isEqualTo(dateTime.isAfterNow());
+            assertThat(offsetDateTime.isAfter(OffsetDateTime.now())).isEqualTo(dateTime.isAfterNow());
+
+        }
+
+    }
+
+    @Test
+    void isBeforeNow() {
+
+        DateTime dateTime = DateTime.now().withTimeAtStartOfDay();
+
+        for (int i = 0; i < 24; i++) {
+
+            ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+            OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+            assertThat(zonedDateTime.isBefore(ZonedDateTime.now())).isEqualTo(dateTime.isBeforeNow());
+            assertThat(offsetDateTime.isBefore(OffsetDateTime.now())).isEqualTo(dateTime.isBeforeNow());
+
+        }
+
+    }
+
+    private ZonedDateTime equivalentZonedDateTime(DateTime dateTime) {
+        ZoneId zoneId = ZoneId.of(dateTime.getZone().getID());
+        return ZonedDateTime.ofInstant(Instant.ofEpochMilli(dateTime.getMillis()), zoneId);
+    }
+
+    @Test
+    void minus_long() {
+
+        LongStream.range(-10000, 10000).forEach(l -> {
+
+            DateTime dateTime = DateTime.now();
+            DateTime dateTimeResult = dateTime.minus(l);
+
+            ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+            OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+            ZonedDateTime zonedDateTimeResult = zonedDateTime.minus(l, ChronoUnit.MILLIS);
+            OffsetDateTime offsetDateTimeResult = offsetDateTime.minus(l, ChronoUnit.MILLIS);
+
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateTimeResult, zonedDateTimeResult);
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(dateTimeResult, offsetDateTimeResult);
+
+        });
+
+    }
+
+    @Test
+    void plus_long() {
+
+        LongStream.range(-10000, 10000).forEach(l -> {
+
+            DateTime dateTime = DateTime.now();
+            DateTime dateTimeResult = dateTime.plus(l);
+
+            ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+            OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+            ZonedDateTime zonedDateTimeResult = zonedDateTime.plus(l, ChronoUnit.MILLIS);
+            OffsetDateTime offsetDateTimeResult = offsetDateTime.plus(l, ChronoUnit.MILLIS);
+
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateTimeResult, zonedDateTimeResult);
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(dateTimeResult, offsetDateTimeResult);
+
+
+        });
+
+    }
 
 }
