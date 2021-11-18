@@ -1,0 +1,10 @@
+<html>
+<body>
+<h1>getYearOfCentury() is not available in java.time</h1>
+<p>The getYearOfCentury() method is no longer supported after migrating from Joda-Time to java.time</p>
+<p>This recipe will replace the getYearOfCentury method call, with an equivalent calculation which is based on the logic used in Joda-Time to calculate year of century.<p>
+<pre>
+java.lang.Math.abs(<year> % 100)
+</pre>
+</body>
+</html>

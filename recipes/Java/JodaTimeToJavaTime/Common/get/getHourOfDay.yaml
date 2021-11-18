@@ -1,0 +1,30 @@
+id: scw:java.time:Joda-Time:getHourOfDay
+version: 10
+metadata:
+  name: Rewrite getHourOfDay() to getHour()
+  shortDescription: Rewrite getHourOfDay() to getHour()
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    The Joda-Time method getHourOfDay() is renamed to getHour() in java.time.
+    This recipe provides a transformation to rewrite the method call to the new method name.
+
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+    After an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.
+    This recipe is designed to match on one of those method calls and provide a fix.
+  descriptionFile: descriptions/getMethodRenamed.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    name: getHourOfDay
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+    - type: java.time.LocalTime
+    - type: java.time.LocalDateTime
+availableFixes:
+- name: Rewrite using java.time equivalent getHour()
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.getHour()'

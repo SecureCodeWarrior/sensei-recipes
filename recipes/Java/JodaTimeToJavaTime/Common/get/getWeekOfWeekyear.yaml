@@ -1,0 +1,41 @@
+id: scw:java.time:Joda-Time:getWeekofWeekyear
+version: 10
+metadata:
+  name: Rewrite getWeekOfWeekyear() to java.time equivalent
+  shortDescription: Rewrite getWeekOfWeekyear() to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    Joda-Time provided getWeekOfWeekyear() method which provided a value based on an ISO8601 Week-based year.
+    In java.time this method has been removed but the same value can still be accessed using the get(ChronoField) method.
+    Additionally java.time provides the ability to use a Week-based year based on Locale-specific rules.
+    This recipe provides fixes to transform from the previous method names to the new get(ChronoField) methods.
+
+    This recipe is designed to match on broken code as part of an overall migration from Joda-Time to java.time.
+    After an Joda-Time object has been migrated to a java.time equivalent, some subsequent method calls may become invalid as they are no longer provided by java.time.
+    This recipe is designed to match on one of those method calls and provide a fix.
+  descriptionFile: descriptions/getWeekOfWeekyear.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: getWeekOfWeekyear
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+    - type: java.time.LocalDateTime
+    - type: java.time.LocalDate
+availableFixes:
+- name: Rewrite using ISO Weekyear (Same as Joda-Time)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.get(java.time.temporal.IsoFields.WEEK_OF_WEEK_BASED_YEAR)'
+- name: Rewrite using Locale-dependant Weekyear
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.get(java.time.temporal.WeekFields.of(java.util.Locale.getDefault()).weekOfWeekBasedYear())'
+- name: Rewrite using SundayStart Weekyear
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.get(java.time.temporal.WeekFields.SUNDAY_START.weekOfWeekBasedYear())'
