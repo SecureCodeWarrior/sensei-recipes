@@ -28,4 +28,6 @@ search:
       - name: now
       - name: parse
       - name: toMutableDateTime
+      - name: withZone
+      - name: withZoneRetainFields
 availableFixes: []

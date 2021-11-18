@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:datetime-minus
+id: scw:java.time:Joda-Time:DateTime-minus-long
 version: 10
 metadata:
   name: Rewrite minus(long) method call to java.time equivalent
@@ -12,7 +12,11 @@ search:
   methodcall:
     args:
       1:
-        type: long
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+        - type: int
+        - type: java.lang.Integer
     argCount: 1
     name: minus
     anyOf:

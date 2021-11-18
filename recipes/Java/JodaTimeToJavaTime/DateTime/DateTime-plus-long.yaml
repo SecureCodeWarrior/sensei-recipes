@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:datetime-plus
+id: scw:java.time:Joda-Time:DateTime-plus-long
 version: 10
 metadata:
   name: Rewrite DateTime plus(long) to java.time equivalent
@@ -12,7 +12,11 @@ search:
   methodcall:
     args:
       1:
-        type: long
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+        - type: int
+        - type: java.lang.Integer
     argCount: 1
     name: plus
     anyOf:

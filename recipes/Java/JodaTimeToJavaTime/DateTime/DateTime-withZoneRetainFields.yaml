@@ -1,0 +1,56 @@
+id: scw:java.time:Joda-Time:DateTime-withZoneRetainFields-ZonedDateTime
+version: 10
+metadata:
+  name: Migrate DateTime withZoneRetainFields to java.time equivalent
+  shortDescription: Migrate DateTime withZoneRetainFields to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.time.ZoneId
+    name: withZoneRetainFields
+    anyOf:
+    - type: java.time.OffsetDateTime
+    - type: java.time.ZonedDateTime
+availableFixes:
+- name: 'Rewrite withZoneRetainFields to java.time equivalent: withZoneSameLocal'
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          type: java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withZoneSameLocal({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: 'Rewrite withZoneRetainFields to java.time equivalent: atZoneSimilarLocal'
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          type: java.time.OffsetDateTime
+  actions:
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+  - rewrite:
+      to: '{{{ qualifier }}}.atZoneSimilarLocal({{{ arguments.0 }}})'
+- name: Rewrite withZoneRetainFields to java.time equivalent withOffsetSameLocal
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          args:
+            1:
+              type: java.time.ZoneOffset
+          type: java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withOffsetSameLocal({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

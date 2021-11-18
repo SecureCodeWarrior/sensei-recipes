@@ -16,9 +16,20 @@ search:
     - type: java.time.ZonedDateTime
     - type: java.time.OffsetDateTime
 availableFixes:
-- name: Rewrite using java.time atStartOfDay
+- name: Rewrite using java.time atStartOfDay(ZoneId)
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.toLocalDate().atStartOfDay(java.time.ZoneId.systemDefault())'
+      to: '{{{ qualifier }}}.toLocalDate().atStartOfDay({{{ qualifier }}}.getZone())'
   - modifyAssignedVariable:
-      type: '{{{ qualifier.type }}}'
+      type: java.time.ZonedDateTime
+- name: Rewrite using java.time atStartOfDay().atOffset(ZoneOffset)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          type: java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.toLocalDate().atStartOfDay().atOffset({{{ qualifier }}}.getOffset())'
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

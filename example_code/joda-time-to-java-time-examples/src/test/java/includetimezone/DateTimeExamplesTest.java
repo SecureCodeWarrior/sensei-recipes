@@ -1,23 +1,23 @@
 package includetimezone;
 
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
-import org.joda.time.MutableDateTime;
+import org.joda.time.*;
 import org.junit.jupiter.api.Test;
 import util.JodaTimeToJavaTimeTestUtil;
 
+import java.time.*;
 import java.time.Instant;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.Random;
+import java.time.temporal.TemporalAdjusters;
+import java.util.*;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DateTimeExamplesTest {
@@ -225,7 +225,7 @@ public class DateTimeExamplesTest {
     }
 
     @Test
-    public void test_datetime_toString() {
+    public void dateTime_toString() {
 
         ZonedDateTime now = ZonedDateTime.now();
 
@@ -263,8 +263,6 @@ public class DateTimeExamplesTest {
             // Create a java.time ZonedDateTime at this instant in the specified Zone
             ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.ofEpochMilli(instant), ZoneId.of(zoneId));
             OffsetDateTime odt = zdt.toOffsetDateTime();
-
-            System.out.println(zoneId);
 
             //assertThat(zdt.toOffsetDateTime().toString()).isEqualTo(dt.toString());
             assertThat(zdt.format(DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSXXX"))).isEqualTo(dt.toString());
@@ -368,5 +366,179 @@ public class DateTimeExamplesTest {
         });
 
     }
+
+    @Test
+    void toDate() {
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+        OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+        Date date = dateTime.toDate();
+
+        Date zdtDate = Date.from(zonedDateTime.toInstant());
+        Date odtDate = Date.from(offsetDateTime.toInstant());
+
+        assertThat(zdtDate).isEqualTo(date);
+        assertThat(odtDate).isEqualTo(date);
+
+    }
+
+    @Test
+    void toDateMidnight() {
+
+        String testZone = "Asia/Tokyo";
+        ZoneId zoneId = ZoneId.of(testZone);
+        DateTime dateTime = DateTime.now().withZone(DateTimeZone.forID(testZone));
+        ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+        OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+        DateMidnight dateMidnight = dateTime.toDateMidnight();
+        ZonedDateTime zdt = zonedDateTime.toLocalDate().atStartOfDay(zonedDateTime.getZone());
+        OffsetDateTime odt = offsetDateTime.toLocalDate().atStartOfDay().atOffset(offsetDateTime.getOffset());
+
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateMidnight.toDateTime(), zdt);
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(dateMidnight.toDateTime(), odt);
+
+    }
+
+    @Test
+    void toDateTime_DateTimeZone() {
+
+        Set<String> zoneIds = new HashSet<>();
+
+        zoneIds.add("Asia/Tokyo");
+        zoneIds.add("Europe/Berlin");
+        zoneIds.add("Europe/Helsinki");
+        zoneIds.add("America/Denver");
+        zoneIds.add("Europe/Stockholm");
+        zoneIds.add("Europe/Lisbon");
+        zoneIds.add("Africa/Nairobi");
+        zoneIds.add("America/Rio_Branco");
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+        OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+        zoneIds.forEach(z -> {
+
+            ZoneId zoneId = ZoneId.of(z);
+            DateTimeZone dateTimeZone = DateTimeZone.forID(z);
+
+            DateTime dateTimeThere = dateTime.toDateTime(dateTimeZone);
+            MutableDateTime mutableDateTimeThere = dateTime.toMutableDateTime(dateTimeZone);
+
+            ZonedDateTime zonedDateTimeThere = zonedDateTime.withZoneSameInstant(zoneId);
+            ZonedDateTime zonedDateTimeThereFromOffsetDateTime = offsetDateTime.atZoneSameInstant(zoneId);
+
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateTimeThere, zonedDateTimeThere);
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateTimeThere, zonedDateTimeThereFromOffsetDateTime);
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(mutableDateTimeThere, zonedDateTimeThere);
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(mutableDateTimeThere, zonedDateTimeThereFromOffsetDateTime);
+
+        });
+
+        IntStream.range(-12,14).forEach(o -> {
+
+            DateTimeZone dateTimeZoneOffset = DateTimeZone.forOffsetHours(o);
+            ZoneOffset zoneOffset = ZoneOffset.ofHours(o);
+
+            DateTime dateTimeOffset = dateTime.toDateTime(dateTimeZoneOffset);
+            MutableDateTime mutableDateTimeOffset = dateTime.toMutableDateTime(dateTimeZoneOffset);
+            OffsetDateTime offsetDateTimeOffset = offsetDateTime.withOffsetSameInstant(zoneOffset);
+
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(dateTimeOffset, offsetDateTimeOffset);
+            JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(mutableDateTimeOffset, offsetDateTimeOffset);
+
+        });
+
+    }
+
+    @Test
+    void toDateTime() {
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+        OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateTime.toDateTime(), zonedDateTime);
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateTime.toDateTimeISO(), zonedDateTime);
+
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(dateTime.toDateTime(), offsetDateTime);
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(dateTime.toDateTimeISO(), offsetDateTime);
+
+    }
+
+    @Test
+    void toMutableDateTime() {
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+        OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateTime.toMutableDateTime(), zonedDateTime);
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndZoneId(dateTime.toMutableDateTimeISO(), zonedDateTime);
+
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(dateTime.toMutableDateTime(), offsetDateTime);
+        JodaTimeToJavaTimeTestUtil.assertSameInstantAndOffset(dateTime.toMutableDateTimeISO(), offsetDateTime);
+
+    }
+
+    @Test
+    void toGregorianCalendar() {
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+        OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+        GregorianCalendar gcDateTime = dateTime.toGregorianCalendar();
+        GregorianCalendar gcZonedDateTime = GregorianCalendar.from(zonedDateTime);
+        GregorianCalendar gcOffsetDateTime = GregorianCalendar.from(offsetDateTime.toZonedDateTime());
+
+        // Assert GregorianCalendar from zonedDateTime has same TimeZone and Millis
+        assertThat(gcZonedDateTime.getTimeZone()).isEqualTo(gcDateTime.getTimeZone());
+        assertThat(gcZonedDateTime.getTimeInMillis()).isEqualTo(gcDateTime.getTimeInMillis());
+
+        // Assert GregorianCalendar from offsetDateTime has same Offset and Millis
+        assertThat(gcOffsetDateTime.getTimeInMillis()).isEqualTo(gcDateTime.getTimeInMillis());
+        assertThat(gcOffsetDateTime.getTimeZone().getOffset(gcOffsetDateTime.getTimeInMillis())).isEqualTo(gcDateTime.getTimeZone().getOffset(gcDateTime.getTimeInMillis()));
+
+    }
+
+    @Test
+    void toTimeOfDay() {
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+        OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+        TimeOfDay timeOfDay = dateTime.toTimeOfDay();
+
+        LocalTime zdtLocalTime = zonedDateTime.toLocalTime();
+        LocalTime odtLocalTime = offsetDateTime.toLocalTime();
+
+        JodaTimeToJavaTimeTestUtil.assertSameLocalTime(timeOfDay, zdtLocalTime);
+        JodaTimeToJavaTimeTestUtil.assertSameLocalTime(timeOfDay, odtLocalTime);
+
+
+    }
+
+    @Test
+    void toYearMonthDay() {
+
+        DateTime dateTime = DateTime.now();
+        ZonedDateTime zonedDateTime = equivalentZonedDateTime(dateTime);
+        OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+
+        YearMonthDay yearMonthDay = dateTime.toYearMonthDay();
+
+        LocalDate zdtLocalDate = zonedDateTime.toLocalDate();
+        LocalDate odtLocalDate = offsetDateTime.toLocalDate();
+
+        JodaTimeToJavaTimeTestUtil.assertSameLocalDate(yearMonthDay, zdtLocalDate);
+        JodaTimeToJavaTimeTestUtil.assertSameLocalDate(yearMonthDay, odtLocalDate);
+
+    }
+
 
 }
