@@ -22,6 +22,6 @@ availableFixes:
 - name: Rewrite using appendZoneText
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.appendZoneText(TextStyle.SHORT, {{{ arguments }}})'
+      to: '{{{ qualifier }}}.appendZoneText(java.time.format.TextStyle.SHORT, {{{ arguments }}})'
   - modifyAssignedVariable:
       type: java.time.format.DateTimeFormatterBuilder

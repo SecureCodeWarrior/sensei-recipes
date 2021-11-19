@@ -1,8 +1,8 @@
 id: scw:java.time:Java-Time:datetimeformatterbuilder-append
 version: 10
 metadata:
-  name: WARNING - append accpets java.time.format.DateTimeFormatter as parameter. Consider to change it
-  shortDescription: WARNING - append accpets java.time.format.DateTimeFormatter as parameter. Consider to change it
+  name: Argument needs to be migrated to java.time.format.DateTimeFormatter
+  shortDescription: Argument needs to be migrated to java.time.format.DateTimeFormatter
   level: warning
   language: java
   enabled: true
@@ -20,5 +20,9 @@ search:
     name: append
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
-- name: WARNING - append accpets java.time.format.DateTimeFormatter as parameter. Consider to change it
-  actions: []
+- name: Open javadoc for append method
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatterBuilder.html#append-java.time.format.DateTimeFormatter-
+

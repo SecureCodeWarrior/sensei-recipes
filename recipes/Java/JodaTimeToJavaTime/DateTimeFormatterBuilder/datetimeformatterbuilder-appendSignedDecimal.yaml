@@ -22,6 +22,6 @@ availableFixes:
 - name: Rewrite appendSignedDecimal to appendValue
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.appendValue({{{ arguments }}}, java.time.format.SignStyle.ALWAYS)'
+      to: '{{{ qualifier }}}.parseLenient().appendValue({{{ arguments }}}, java.time.format.SignStyle.NORMAL).parseStrict()'
   - modifyAssignedVariable:
       type: java.time.format.DateTimeFormatterBuilder

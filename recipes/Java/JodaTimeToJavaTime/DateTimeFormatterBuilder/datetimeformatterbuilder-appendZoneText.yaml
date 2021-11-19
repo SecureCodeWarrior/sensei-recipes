@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendzonetext
 version: 10
 metadata:
-  name: WARNING - Second argument should be a  Set<ZoneId> instead of Map<String, org.joda.time.DateTimeZone>. Consider to change it.
-  shortDescription: WARNING - Second argument should be a  Set<ZoneId> instead of Map<String, org.joda.time.DateTimeZone>. Consider to change it.
+  name: Second argument should be a Set<ZoneId> instead of Map<String, org.joda.time.DateTimeZone>
+  shortDescription: Second argument should be a Set<ZoneId> instead of Map<String, org.joda.time.DateTimeZone>
   level: warning
   language: java
   enabled: true
@@ -19,7 +19,7 @@ search:
     name: appendZoneText
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
-- name: WARNING - Second argument should be a  Set<ZoneId> instead of Map<String, org.joda.time.DateTimeZone>. Consider to change it.
+- name: Open javadoc for appendZoneText method
   actions:
   - goto:
       type: URL

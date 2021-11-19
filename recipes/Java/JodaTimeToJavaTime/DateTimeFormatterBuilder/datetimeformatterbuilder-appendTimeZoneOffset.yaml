@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendZoneOrOffsetId
 version: 10
 metadata:
-  name: appendTimeZoneOffset is now appendZoneOrOffsetId
-  shortDescription: appendTimeZoneOffset is now appendZoneOrOffsetId
+  name: appendTimeZoneOffset is now appendOffsetId
+  shortDescription: appendTimeZoneOffset is now appendOffsetId
   level: warning
   language: java
   enabled: true
@@ -18,9 +18,9 @@ search:
     name: appendTimeZoneOffset
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
-- name: Rewrite to appendZoneOrOffsetId
+- name: Rewrite to appendOffsetId
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.appendZoneOrOffsetId()'
+      to: '{{{ qualifier }}}.appendOffsetId()'
   - modifyAssignedVariable:
       type: java.time.format.DateTimeFormatterBuilder

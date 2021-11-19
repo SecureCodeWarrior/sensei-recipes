@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendoptional
 version: 10
 metadata:
-  name: WARNING - Method appendOptional from java.time DateTimeFormatterBuilder accepts a java.time DateTimeFormatter as argument and not DateTimeParser. Please change it.
-  shortDescription: WARNING - Method appendOptional from java.time DateTimeFormatterBuilder accepts a java.time DateTimeFormatter as argument and not DateTimeParser. Please change it.
+  name: Argument needs to be migrated from DateTimeParser to java.time.format.DateTimeFormatter
+  shortDescription: Argument needs to be migrated from DateTimeParser to java.time.format.DateTimeFormatter
   level: warning
   language: java
   enabled: true
@@ -19,7 +19,7 @@ search:
     name: appendOptional
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
-- name: WARNING - Method appendOptional from java.time DateTimeFormatterBuilder accepts a java.time DateTimeFormatter as argument and not DateTimeParser. Please change it.
+- name: Open javadoc for appendOptional method
   actions:
   - goto:
       type: URL

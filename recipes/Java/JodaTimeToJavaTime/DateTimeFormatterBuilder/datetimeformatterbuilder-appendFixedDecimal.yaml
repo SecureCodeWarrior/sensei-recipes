@@ -16,6 +16,7 @@ metadata:
 search:
   methodcall:
     name: appendFixedDecimal
+    type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
 - name: Rewrite to appendValue(field, width)
   actions:

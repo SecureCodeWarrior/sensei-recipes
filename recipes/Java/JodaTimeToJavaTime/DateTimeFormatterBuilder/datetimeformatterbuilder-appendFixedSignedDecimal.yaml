@@ -17,6 +17,7 @@ search:
   methodcall:
     argCount: 2
     name: appendFixedSignedDecimal
+    type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
 - name: Rewrite to appendValue(field, width)
   actions:

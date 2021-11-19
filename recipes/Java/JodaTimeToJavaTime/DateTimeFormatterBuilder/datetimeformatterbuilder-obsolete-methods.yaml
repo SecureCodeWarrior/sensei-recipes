@@ -17,11 +17,6 @@ search:
     - name: canBuildFormatter
     - name: canBuildPrinter
     - name: canBuildParser
-    - name: appendTwoDigitYear
-    - name: appendTwoDigitYear
-    - name: appendTwoDigitWeekyear
-    - name: appendTwoDigitWeekyear
-    - name: appendHalfdayOfDayText
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
 - name: 'Joda-Time Method is obsolete: open javadoc for java.time.format.DateTimeFormatterBuilder'

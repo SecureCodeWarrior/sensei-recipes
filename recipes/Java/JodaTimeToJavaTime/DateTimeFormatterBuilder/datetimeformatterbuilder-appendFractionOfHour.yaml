@@ -15,11 +15,7 @@ metadata:
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:
-    args:
-      1:
-        type: int
-      2:
-        type: int
+    argCount: 2
     name: appendFractionOfHour
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:

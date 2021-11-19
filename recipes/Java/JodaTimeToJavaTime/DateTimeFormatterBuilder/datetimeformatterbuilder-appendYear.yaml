@@ -15,17 +15,13 @@ metadata:
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:
-    args:
-      1:
-        type: int
-      2:
-        type: int
+    argCount: 2
     name: appendYear
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
 - name: Rewrite using appendValue(TemporalField field, int width, int maxWidth, SignStyle signStyle)
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.appendValue(java.time.temporal.ChronoField.YEAR, {{{ arguments }}}, SignStyle.NEVER)'
+      to: '{{{ qualifier }}}.appendValue(java.time.temporal.ChronoField.YEAR, {{{ arguments }}}, java.time.format.SignStyle.NEVER)'
   - modifyAssignedVariable:
       type: java.time.format.DateTimeFormatterBuilder

@@ -15,17 +15,13 @@ metadata:
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:
-    args:
-      1:
-        type: int
-      2:
-        type: int
+    argCount: 2
     name: appendFractionOfSecond
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
 - name: Rewrite using appendFraction(TemporalField field, int minWidth, int maxWidth, boolean decimalPoint)
   actions:
   - rewrite:
-      to: '{{{ qualifier }}}.appendFraction(java.time.temporal.ChronoField.SECOND_OF_DAY, {{{ arguments }}}, false)'
+      to: '{{{ qualifier }}}.appendFraction(java.time.temporal.ChronoField.MILLI_OF_SECOND, {{{ arguments }}}, false)'
   - modifyAssignedVariable:
       type: java.time.format.DateTimeFormatterBuilder

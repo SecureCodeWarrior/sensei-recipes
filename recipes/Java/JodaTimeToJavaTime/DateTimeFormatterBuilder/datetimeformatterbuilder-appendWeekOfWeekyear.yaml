@@ -15,9 +15,7 @@ metadata:
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:
-    args:
-      1:
-        type: int
+    argCount: 1
     name: appendWeekOfWeekyear
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:

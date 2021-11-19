@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetimeformatterbuilder-clear
 version: 10
 metadata:
-  name: Rewrite clear usinng constructor
-  shortDescription: Rewrite clear usinng constructor
+  name: Rewrite clear() using re-instantiation
+  shortDescription: Rewrite clear() using re-instantiation
   level: warning
   language: java
   enabled: true
@@ -16,7 +16,7 @@ search:
     name: clear
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
-- name: Rewrite using constructor
+- name: Rewrite clear() using re-instantiation
   actions:
   - rewrite:
       to: '{{{ qualifier }}} = new java.time.format.DateTimeFormatterBuilder()'

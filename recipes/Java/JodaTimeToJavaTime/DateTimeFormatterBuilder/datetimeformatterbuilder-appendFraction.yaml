@@ -1,8 +1,8 @@
 id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendfraction
 version: 10
 metadata:
-  name: WARNING - Replace argument DateTimeFieldType to TemporalField
-  shortDescription: WARNING - Replace argument DateTimeFieldType to TemporalField
+  name: Argument needs to be migrated from DateTimeFieldType to TemporalField
+  shortDescription: Argument needs to be migrated from DateTimeFieldType to TemporalField
   level: warning
   language: java
   enabled: true
@@ -21,7 +21,7 @@ search:
     name: appendFraction
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
-- name: WARNING - Replace argument DateTimeFieldType to TemporalField
+- name: Open javadoc for java.time.format.DateTimeFormatterBuilder
   actions:
   - goto:
       type: URL

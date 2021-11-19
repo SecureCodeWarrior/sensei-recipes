@@ -3,18 +3,13 @@
 <p id="abstract">Migrate from org.joda.time.format.DateTimeFormatterBuilder to Java Time</p>
 <br>
 <p>Joda-Time DateTimeFormatterBuilder migrates to java.time DateTimeFormatterBuilder.</p>
-<p>It's a same concept, a builder of the formatter.</p>
+<p>It's the same concept, a builder of the formatter.</p>
 <p>Although, most of the methods have a different signature and some even have no equivalent in java.time</p>
 <p>Those methods have no equivalent:</p>
 <ul>
     <li>canBuildFormatter</li>
     <li>canBuildPrinter</li>
     <li>canBuildParser</li>
-    <li>appendTwoDigitYear</li>
-    <li>appendTwoDigitYear</li>
-    <li>appendTwoDigitWeekyear</li>
-    <li>appendTwoDigitWeekyear</li>
-    <li>appendHalfdayOfDayText</li>
 </ul>
 <br>
 <p>Find some examples below:</p>
