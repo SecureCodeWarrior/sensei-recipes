@@ -1,15 +1,16 @@
 id: scw:java.time:Java-Time:datetimeformatterbuilder-appendYearOfCentury
 version: 10
 metadata:
-  name: WARNING - java.time does not support Year of Century. Consider change to it.
-  shortDescription: WARNING - java.time does not support Year of Century. Consider change to it.
+  name: Rewrite appendYearOfCentury to appendPattern
+  shortDescription: Rewrite appendYearOfCentury to appendPattern
   level: warning
   language: java
   enabled: true
-  comment: |
-    Searches for appendYearOfCentury method call.
-    YearOfCentury is not supported in java.time.
-    Please consider to change it.
+  comment: |-
+    Searches for a append* method called and provides fixes to migrate to a java.time equivalent.
+    This recipe is designed to match on broken code. This method originally was called by joda DateTimeFormatterBuilder type,
+    however this object type should first be migrated to java.time.format.DateTimeFormatterBuilder using the other migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
   descriptionFile: descriptions/datetimeformatterbuilder.html
   tags: java.time;framework specific;Joda-Time;quality
 search:
@@ -18,5 +19,9 @@ search:
     name: appendYearOfCentury
     type: java.time.format.DateTimeFormatterBuilder
 availableFixes:
-- name: WARNING - java.time does not support Year of Century. Consider to change it.
-  actions: []
+- name: Rewrite using appendPattern("uu")
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.appendPattern("uu")'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder

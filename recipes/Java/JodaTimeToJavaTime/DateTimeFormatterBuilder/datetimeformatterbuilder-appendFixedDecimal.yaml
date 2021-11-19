@@ -4,7 +4,7 @@ metadata:
   name: Rewrite appendFixedDecimal to appendValue
   shortDescription: Rewrite appendFixedDecimal to appendValue
   level: warning
-  language: java; kotlin
+  language: java
   enabled: true
   comment: |
     Searches for a append* method called and provides fixes to migrate to a java.time equivalent.

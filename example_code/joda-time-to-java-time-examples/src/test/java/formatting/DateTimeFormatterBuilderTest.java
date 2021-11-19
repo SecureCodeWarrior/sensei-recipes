@@ -419,4 +419,21 @@ class DateTimeFormatterBuilderTest {
         assertThat(jodaFormatter.print(jodaDateTime)).isEqualTo(javaFormatter.format(javaDateTime));
     }
 
+    @Test
+    void test_appendYearOfCentury() {
+        DateTime jodaDateTime = new DateTime(1950, 1, 8, 10, 30, 20);
+        java.time.ZonedDateTime javaDateTime = java.time.ZonedDateTime.of(1950, 1, 8, 10, 30, 20, 0, ZoneId.systemDefault());
+
+        DateTimeFormatterBuilder jodaBuilder = new DateTimeFormatterBuilder();
+        java.time.format.DateTimeFormatterBuilder javaBuilder = new java.time.format.DateTimeFormatterBuilder();
+
+        jodaBuilder = jodaBuilder.appendYearOfCentury(1, 1);
+        javaBuilder = javaBuilder.appendPattern("uu");
+
+        DateTimeFormatter jodaFormatter = jodaBuilder.toFormatter();
+        java.time.format.DateTimeFormatter javaFormatter = javaBuilder.toFormatter();
+
+        assertThat(jodaFormatter.print(jodaDateTime)).isEqualTo(javaFormatter.format(javaDateTime));
+    }
+
 }
