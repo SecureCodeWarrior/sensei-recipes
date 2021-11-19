@@ -6,15 +6,15 @@
     <br>
     <b>Before</b>
 <pre>
-long a = 1024L;
-long b = 1024L;
+Long a = 1024L;
+Long b = 1024L;
 boolean areEqual = a == b;
 boolean differ = a != b;</pre>
     <br>
     <b>After</b>
 <pre>
-long a = 1024L;
-long b = 1024L;
+Long a = 1024L;
+Long b = 1024L;
 boolean areEqual = a<b>.equals(</b>b<b>)</b>;
 boolean differ = <b>!</b>a<b>.equals(</b>b<b>)</b>;</pre>
 <br>
