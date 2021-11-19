@@ -1,0 +1,24 @@
+id: scw:java.time:Java-Time:datetimeformatterbuilder-appendCenturyOfEra
+version: 10
+metadata:
+  name: Century of Era is not supported in java.time 
+  shortDescription: Century of Era is not supported in java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    Searches for appendCenturyOfEra method call.
+    CenturyOfEra is not supported in java.time.
+    Please consider to change it.
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: appendCenturyOfEra
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Open javadoc for java.time.format.DateTimeFormatterBuilder
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatterBuilder.html

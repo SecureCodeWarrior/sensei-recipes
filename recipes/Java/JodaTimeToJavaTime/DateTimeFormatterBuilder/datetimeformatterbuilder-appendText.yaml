@@ -1,0 +1,27 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendtext
+version: 10
+metadata:
+  name: Argument needs to be migrated from DateTimeFieldType to java.time.TemporalField
+  shortDescription: Argument needs to be migrated from DateTimeFieldType to java.time.TemporalField
+  level: warning
+  language: java
+  enabled: true
+  comment: "Searches for appendText method call from java.time.format.DateTimeFormatterBuilder with a wrong argument.
+  \nThis recipe will warn user that argument is incorrect and advice them to change it to the correct type.
+  \nThe correct type for this method is a java.time TemporalField."
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: org.joda.time.DateTimeFieldType
+    argCount: 1
+    name: appendText
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Open javadoc for appendText method
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatterBuilder.html#appendText-java.time.temporal.TemporalField-

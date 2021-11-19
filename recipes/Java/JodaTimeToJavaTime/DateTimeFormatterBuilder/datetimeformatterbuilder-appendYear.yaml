@@ -1,0 +1,27 @@
+id: scw:java.time:Java-Time:datetimeformatterbuilder-appendYear
+version: 10
+metadata:
+  name: Rewrite appendYear to appendValue
+  shortDescription: Rewrite appendYear to appendValue
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    Searches for a append* method called and provides fixes to migrate to a java.time equivalent.
+    This recipe is designed to match on broken code. This method originally was called by joda DateTimeFormatterBuilder type,
+    however this object type should first be migrated to java.time.format.DateTimeFormatterBuilder using the other migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 2
+    name: appendYear
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Rewrite using appendValue(TemporalField field, int width, int maxWidth, SignStyle signStyle)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.appendValue(java.time.temporal.ChronoField.YEAR, {{{ arguments }}}, java.time.format.SignStyle.NEVER)'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder

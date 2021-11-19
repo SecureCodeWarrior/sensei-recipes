@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendzonetext
+version: 10
+metadata:
+  name: Second argument should be a Set<ZoneId> instead of Map<String, org.joda.time.DateTimeZone>
+  shortDescription: Second argument should be a Set<ZoneId> instead of Map<String, org.joda.time.DateTimeZone>
+  level: warning
+  language: java
+  enabled: true
+  comment: "Searches for appendZoneText method call from java.time.format.DateTimeFormatterBuilder with a wrong argument.
+  \nThis recipe will warn user that argument is incorrect and advice them to change it to the correct type.
+  \nThe correct type for this method is a Set<ZoneId>."
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      2:
+        type: java.util.Map<java.lang.String,org.joda.time.DateTimeZone>
+    name: appendZoneText
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Open javadoc for appendZoneText method
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatterBuilder.html#appendZoneText-java.time.format.TextStyle-java.util.Set-

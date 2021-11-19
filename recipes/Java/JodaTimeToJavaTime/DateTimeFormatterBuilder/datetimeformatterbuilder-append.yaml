@@ -1,0 +1,28 @@
+id: scw:java.time:Java-Time:datetimeformatterbuilder-append
+version: 10
+metadata:
+  name: Argument needs to be migrated to java.time.format.DateTimeFormatter
+  shortDescription: Argument needs to be migrated to java.time.format.DateTimeFormatter
+  level: warning
+  language: java
+  enabled: true
+  comment: "Searches for append method call from java.time.format.DateTimeFormatterBuilder with a wrong argument.
+  \nThis recipe will warn user that argument is incorrect and advice them to change it to the correct type.
+  \nThe correct type for this method is java.time.format.DateTimeFormatter."
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        not:
+          type: java.time.format.DateTimeFormatter
+    name: append
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Open javadoc for append method
+  actions:
+  - goto:
+      type: URL
+      value: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatterBuilder.html#append-java.time.format.DateTimeFormatter-
+

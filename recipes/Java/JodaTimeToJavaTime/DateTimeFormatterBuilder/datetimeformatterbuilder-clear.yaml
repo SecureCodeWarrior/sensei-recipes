@@ -1,0 +1,22 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-clear
+version: 10
+metadata:
+  name: Rewrite clear() using re-instantiation
+  shortDescription: Rewrite clear() using re-instantiation
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    Method clear is not present in java.time.
+    Rewrite instantiating a new object.
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: clear
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Rewrite clear() using re-instantiation
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}} = new java.time.format.DateTimeFormatterBuilder()'

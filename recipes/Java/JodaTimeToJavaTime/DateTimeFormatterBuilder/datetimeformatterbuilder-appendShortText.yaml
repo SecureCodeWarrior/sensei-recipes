@@ -1,0 +1,26 @@
+id: scw:java.time:Joda-Time:datetimeformatterbuilder-appendshorttext
+version: 10
+metadata:
+  name: appendShortText is different in java.time
+  shortDescription: appendShortText is different in java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    Searches for a append* method called and provides fixes to migrate to a java.time equivalent.
+    This recipe is designed to match on broken code. This method originally was called by joda DateTimeFormatterBuilder type,
+    however this object type should first be migrated to java.time.format.DateTimeFormatterBuilder using the other migration recipes.
+    This recipe will then match on the broken code, and the fixes in this recipe will allow the completion of the migration.
+  descriptionFile: descriptions/datetimeformatterbuilder.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: appendShortText
+    type: java.time.format.DateTimeFormatterBuilder
+availableFixes:
+- name: Rewrite to appendText(field, TextStyle.SHORT)
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.appendText({{{ arguments }}}, java.time.format.TextStyle.SHORT)'
+  - modifyAssignedVariable:
+      type: java.time.format.DateTimeFormatterBuilder
