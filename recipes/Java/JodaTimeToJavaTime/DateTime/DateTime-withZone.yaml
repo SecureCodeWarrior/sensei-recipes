@@ -1,11 +1,18 @@
-id: scw:java.time:Joda-Time:DateTime-withZone-OffsetDateTime
+id: scw:java.time:Joda-Time:DateTime-withZone
 version: 10
 metadata:
-  name: Migrate DateTime withZone to atZoneSameInstant
-  shortDescription: Migrate DateTime withZone to atZoneSameInstant
+  name: Rewrite DateTime withZone to java.time equivalent
+  shortDescription: Rewrite DateTime withZone to java.time equivalent
   level: warning
   language: java
   enabled: true
+  comment: |
+    Joda-Time's DateTime class provided a withZone method to create a new DateTime object from an existing DateTime, using the same Instant but in a different Zone.
+    In java.time, the same behaviour is available however the method names are more specifically named, and slightly different depending on whether your are starting from a ZonedDateTime or OffsetDateTime object.
+
+    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
+    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
@@ -19,7 +26,7 @@ search:
     - type: java.time.OffsetDateTime
     - type: java.time.ZonedDateTime
 availableFixes:
-- name: Rewrite withZone to java.time equivalent atZoneSameInstant
+- name: 'Rewrite withZone to java.time equivalent: atZoneSameInstant'
   availableIf:
     markedElement:
       is:

@@ -1,11 +1,18 @@
 id: scw:java.time:Joda-Time:DateTime-isAfterNow
 version: 10
 metadata:
-  name: Convert isAfterNow to java.time equivalent
-  shortDescription: Convert isAfterNow to java.time equivalent
+  name: Rewrite isAfterNow to java.time equivalent
+  shortDescription: Rewrite isAfterNow to java.time equivalent
   level: warning
   language: java
   enabled: true
+  comment: |
+    Joda-Time's DateTime class provided an isAfterNow method to conveniently check if the datetime is before the current Instant in time.
+    This method is not available in java.time, but you can acheive the same result by using myZonedDateTime.isAfter(ZonedDateTime.now()) or myOffsetDateTime.isAfter(OffsetDateTime.now()).
+
+    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
+    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:

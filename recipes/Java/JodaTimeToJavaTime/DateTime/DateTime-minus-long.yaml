@@ -6,6 +6,13 @@ metadata:
   level: warning
   language: java
   enabled: true
+  comment: |
+    Joda-Time's DateTime class provided a minus(long) method to create a new DateTime object by subtracting milliseconds an existing DateTime object.
+    This method is not available in java.time, but you can acheive the same result by using minus(long, ChronoUnit.MILLIS)
+
+    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
+    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
