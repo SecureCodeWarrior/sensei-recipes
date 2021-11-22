@@ -17,6 +17,11 @@ search:
     - type: java.time.OffsetDateTime
 availableFixes:
 - name: Rewrite using java.time atStartOfDay(ZoneId)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          type: java.time.ZonedDateTime
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.toLocalDate().atStartOfDay({{{ qualifier }}}.getZone())'
