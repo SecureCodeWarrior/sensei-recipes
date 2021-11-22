@@ -10,6 +10,7 @@ metadata:
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:
+    argCount: 0
     name: toString
     anyOf:
     - type: java.time.ZonedDateTime
