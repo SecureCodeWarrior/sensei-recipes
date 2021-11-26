@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:remove-toDateTime-methodcall
+id: scw:java.time:Joda-Time:DateTime-toDateTime
 version: 10
 metadata:
   name: Remove obsolete toDateTime method call
@@ -6,6 +6,15 @@ metadata:
   level: warning
   language: java
   enabled: true
+  comment: |
+    Joda-Time's DateTime class provided a toDateTime() method which simply returned 'this'.
+    java.time does not have a toDateTime() method but we can provide an equivalent by simply removing the method call.
+    Additionally a toMutableDateTime() method was available which performed a similar operation, returning a MutableDateTime instead. Since MutableDateTime is not available in java.time, the closest migration is to switch to the immutable objects available in java.time. Any subsequent attempted mutable operations will need to be migrated separately after using this recipe.
+
+    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
+    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
+  descriptionFile: descriptions/datetime.html
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:
@@ -13,12 +22,13 @@ search:
     - anyOf:
       - name: toDateTime
       - name: toDateTimeISO
+      - name: toMutableDateTime
     - anyOf:
       - type: java.time.ZonedDateTime
       - type: java.time.OffsetDateTime
     argCount: 0
 availableFixes:
-- name: Remove unnecessary toDateTime method call
+- name: Remove obsolete toDateTime() method call
   actions:
   - rewrite:
       to: '{{{ qualifier }}}'

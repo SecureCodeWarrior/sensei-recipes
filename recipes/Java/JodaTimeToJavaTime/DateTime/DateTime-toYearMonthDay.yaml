@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:convert-toYearMonthDay
+id: scw:java.time:Joda-Time:DateTime-toYearMonthDay
 version: 10
 metadata:
   name: Rewrite toYearMonthDay() to toLocalDate()
@@ -6,6 +6,16 @@ metadata:
   level: warning
   language: java
   enabled: true
+  comment: |
+    Joda-Time originally included a 'YearMonthDay' class which has been deprecated in favour of LocalDate.
+    The DateTime class had a deprecated method toYearMonthDay() to create a YearMonthDay object from an existing DateTime.
+    This recipe is supplied to provide a migration in the case where the code-base is still using this deprecated method.
+    There is no YearMonthDay class in java.time, however the concept is represented by LocalDate, so we can use toLocalDate() to achieve the same result.
+
+    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
+    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
+  descriptionFile: descriptions/datetime.html
   tags: java.time;framework specific;Joda-Time;quality
 search:
   methodcall:

@@ -264,9 +264,10 @@ public class DateTimeExamplesTest {
             ZonedDateTime zdt = ZonedDateTime.ofInstant(Instant.ofEpochMilli(instant), ZoneId.of(zoneId));
             OffsetDateTime odt = zdt.toOffsetDateTime();
 
-            //assertThat(zdt.toOffsetDateTime().toString()).isEqualTo(dt.toString());
-            assertThat(zdt.format(DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSXXX"))).isEqualTo(dt.toString());
-            //assertThat(zdt.toString()).isNotEqualTo(dt.toString());
+            String pattern = "uuuu-MM-dd'T'HH:mm:ss.SSSXXX";
+
+            assertThat(zdt.format(DateTimeFormatter.ofPattern(pattern))).isEqualTo(dt.toString());
+            assertThat(odt.format(DateTimeFormatter.ofPattern(pattern))).isEqualTo(dt.toString());
 
             String examplesMethod = DateTimeExamples.toString(instant, zoneId);
             assertThat(examplesMethod).isEqualTo(dt.toString());
