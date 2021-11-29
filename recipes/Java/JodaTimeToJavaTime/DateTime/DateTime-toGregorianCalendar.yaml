@@ -1,0 +1,42 @@
+id: scw:java.time:Joda-Time:DateTime-toGregorianCalendar
+version: 10
+metadata:
+  name: Rewrite toGregorianCalendar to GregorianCalendar.from(ZonedDateTime)
+  shortDescription: Rewrite toGregorianCalendar to GregorianCalendar.from(ZonedDateTime)
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    Joda-Time's DateTime class provided a toGregorianCalendar() method to create a java.util.GregorianCalendar from an existing DateTime.
+    In java.time this method is not available, however you can use the .from(ZonedDateTime) method on java.util.GregorianCalendar to achieve the same result.
+
+    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
+    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
+  descriptionFile: descriptions/datetime.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    name: toGregorianCalendar
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: Rewrite to GregorianCalendar.from(zonedDateTime)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          type: java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: java.util.GregorianCalendar.from({{{ qualifier }}})
+- name: Rewrite to GregorianCalendar.from(zonedDateTime)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          type: java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: java.util.GregorianCalendar.from({{{ qualifier }}}.toZonedDateTime())
