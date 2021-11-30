@@ -68,7 +68,7 @@ public class JodaTimeToJavaTimeTestUtil {
 
     }
 
-    public static void assertSameLocalDate(LocalDate jodaLocalDate, java.time.LocalDate javaLocalDate) {
+    public static void assertSameLocalDate(org.joda.time.LocalDate jodaLocalDate, java.time.LocalDate javaLocalDate) {
 
         assertThat(javaLocalDate.getYear()).isEqualTo(jodaLocalDate.getYear());
         assertThat(javaLocalDate.getMonthValue()).isEqualTo(jodaLocalDate.getMonthOfYear());
