@@ -7,14 +7,22 @@ metadata:
   language: java
   enabled: true
   comment: |-
-    Joda-Time's DateTime class provided a toDateMidnight() method to create a DateMidnight object from an existing DateTime.
-    The concept of DateMidnight was deprecated within Joda-Time, along with the toDateMidnight() method too.
-    This recipe is supplied to provide a migration in the case where the code-base is still using this deprecated method.
-    There is no DateMidnight class in java.time, however the concept of DateMidnight was consider to be the same as the 'start of Day', so we can provide an equivalent to construct a ZonedDateTime/OffsetDateTime at the start of the day.
+    Joda-Time's DateTime class provided a toDateMidnight() method to create a
+    DateMidnight object from an existing DateTime. The concept of DateMidnight was
+    deprecated within Joda-Time, along with the toDateMidnight() method too.
+    This recipe is supplied to provide a migration in the case where the code-base
+    is still using this deprecated method. There is no DateMidnight class in
+    java.time, however the concept of DateMidnight was consider to be the same as
+    the 'start of Day'. We can provide an equivalent to construct a ZonedDateTime
+    or OffsetDateTime at the start of the day.
 
-    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
-    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
-    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
+    This recipe is designed to match on broken code as part of an overall Joda-Time
+    to java.time migration. The method that is being searched for does not actually
+    exist on ZoneDateTime/OffsetDateTime. After migrating a DateTime instance to a
+    ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that
+    existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an
+    equivalent rewrite that will work for java.time.
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:

@@ -7,14 +7,26 @@ metadata:
   language: java
   enabled: true
   comment: |
-    Joda-Time's DateTime class provided a toDateTime(DateTimeZone) and toMutableDateTime(DateTimeZone) methods to create a new DateTime based upon the same instant as the existing DateTime, but in a different TimeZone.
-    In java.time this method is different depending on whether you are using ZonedDateTime or OffsetDateTime. Additionally in OffsetDateTime, you have an additional option if your ZoneId is actually a ZoneOffset. This recipe provides fixes to rewrite the toDateTime(DateTimeZone) methodcall to the new methods.
-    The DateTimeZone argument must first be migrated to ZoneId or ZoneOffset before this recipe will match.
-    MutableDateTime is not supported in java.time, so the closest equivalent for toMutableDateTime(DateTimeZone) is to use the same fixes for toDateTime(DateTimeZone). Any further attempted mutable operations will need to be migrated separately after using this recipe.
+    Joda-Time's DateTime class provided a toDateTime(DateTimeZone) and
+    toMutableDateTime(DateTimeZone) methods to create a new DateTime based upon the
+    same instant as the existing DateTime, but in a different TimeZone.
+    In java.time this method is different depending on whether you are using
+    ZonedDateTime or OffsetDateTime. Additionally in OffsetDateTime, you have an
+    additional option if your ZoneId is actually a ZoneOffset.
+    This recipe provides fixes to rewrite the toDateTime(DateTimeZone) methodcall to
+    the new methods. The DateTimeZone argument must first be migrated to ZoneId or
+    ZoneOffset before this recipe will match. MutableDateTime is not supported in
+    java.time, so the closest equivalent for toMutableDateTime(DateTimeZone) is to
+    use the same fixes for toDateTime(DateTimeZone). Any further attempted mutable
+    operations will need to be migrated separately after using this recipe.
 
-    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
-    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
-    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
+    This recipe is designed to match on broken code as part of an overall Joda-Time
+    to java.time migration. The method that is being searched for does not actually
+    exist on ZoneDateTime/OffsetDateTime. After migrating a DateTime instance to a
+    ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that
+    existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an
+    equivalent rewrite that will work for java.time.
   descriptionFile: descriptions/datetime.html
   tags: framework specific;java.time;Joda-Time;quality
 search:
