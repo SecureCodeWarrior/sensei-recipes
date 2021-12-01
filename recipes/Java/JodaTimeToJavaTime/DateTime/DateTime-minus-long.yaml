@@ -1,0 +1,38 @@
+id: scw:java.time:Joda-Time:DateTime-minus-long
+version: 10
+metadata:
+  name: Rewrite minus(long) method call to java.time equivalent
+  shortDescription: Rewrite minus(long) method call to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    Joda-Time's DateTime class provided a minus(long) method to create a new DateTime object by subtracting milliseconds from an existing DateTime object.
+    This method is not available in java.time, but you can acheive the same result by using minus(long, ChronoUnit.MILLIS)
+
+    This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
+    After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an equivalent rewrite that will work for java.time.
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        anyOf:
+        - type: long
+        - type: java.lang.Long
+        - type: int
+        - type: java.lang.Integer
+    argCount: 1
+    name: minus
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: 'Rewrite minus(long) to java.time equivalent: minus(value, ChronoUnit.MILLIS)'
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.minus({{{ arguments.0 }}}, java.time.temporal.ChronoUnit.MILLIS)'
+  - modifyAssignedVariable:
+      type: '{{{ qualifier.type }}}'

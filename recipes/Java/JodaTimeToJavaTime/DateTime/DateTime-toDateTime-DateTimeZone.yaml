@@ -1,0 +1,81 @@
+id: scw:java.time:Joda-Time:Datetime-toDateTime-DateTimeZone
+version: 10
+metadata:
+  name: Rewrite toDateTime(DateTimeZone) to java.time equivalent
+  shortDescription: Rewrite toDateTime(DateTimeZone) to java.time equivalent
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    Joda-Time's DateTime class provided a toDateTime(DateTimeZone) and
+    toMutableDateTime(DateTimeZone) methods to create a new DateTime based upon the
+    same instant as the existing DateTime, but in a different TimeZone.
+    In java.time this method is different depending on whether you are using
+    ZonedDateTime or OffsetDateTime. Additionally in OffsetDateTime, you have an
+    additional option if your ZoneId is actually a ZoneOffset.
+    This recipe provides fixes to rewrite the toDateTime(DateTimeZone) methodcall to
+    the new methods. The DateTimeZone argument must first be migrated to ZoneId or
+    ZoneOffset before this recipe will match. MutableDateTime is not supported in
+    java.time, so the closest equivalent for toMutableDateTime(DateTimeZone) is to
+    use the same fixes for toDateTime(DateTimeZone). Any further attempted mutable
+    operations will need to be migrated separately after using this recipe.
+
+    This recipe is designed to match on broken code as part of an overall Joda-Time
+    to java.time migration. The method that is being searched for does not actually
+    exist on ZoneDateTime/OffsetDateTime. After migrating a DateTime instance to a
+    ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that
+    existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
+    This recipe matches on the methodname that no longer exists, and suggests an
+    equivalent rewrite that will work for java.time.
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  methodcall:
+    args:
+      1:
+        type: java.time.ZoneId
+    allOf:
+    - anyOf:
+      - name: toDateTime
+      - name: toMutableDateTime
+    - anyOf:
+      - type: java.time.OffsetDateTime
+      - type: java.time.ZonedDateTime
+    argCount: 1
+availableFixes:
+- name: 'Rewrite to java.time equivalent: atZoneSameInstant(ZoneId)'
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          type: java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.atZoneSameInstant({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Rewrite to java.time equivalent withZoneSameInstant(ZoneId)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          type: java.time.ZonedDateTime
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withZoneSameInstant({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.ZonedDateTime
+- name: Rewrite to java.time equivalent withOffsetSameInstant(ZoneOffset)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          args:
+            1:
+              type: java.time.ZoneOffset
+          type: java.time.OffsetDateTime
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.withOffsetSameInstant({{{ arguments.0 }}})'
+  - modifyAssignedVariable:
+      type: java.time.OffsetDateTime

@@ -1,0 +1,27 @@
+id: scw:java.time:Joda-Time:DateTime-toString
+version: 10
+metadata:
+  name: DateTime toString() format has changed from Joda-Time to java.time
+  shortDescription: DateTime toString() format has changed from Joda-Time to java.time
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    In Joda-Time the DateTime toString() method produced a consistent output format. After migrating to java.time the output is slightly different for both ZonedDateTime and OffsetDateTime.
+    If the output is being used in any sort of data exchange, then it is possible to maintain the same format as previously used in java.time.
+    This recipe is provided to highlight this difference, and provide a fix to rewrite the toString() call so that it will produce the same output as before.
+    If the new java.time toString() output format is acceptable, then this recipe should be disabled so that it will no longer highlight this difference.
+  descriptionFile: descriptions/toString.html
+  tags: java.time;framework specific;Joda-Time;quality
+search:
+  methodcall:
+    argCount: 0
+    name: toString
+    anyOf:
+    - type: java.time.ZonedDateTime
+    - type: java.time.OffsetDateTime
+availableFixes:
+- name: 'To preserve exact format as Joda-Time: rewrite to .format(DateTimeFormatter.ofPattern("uuuu-MM-dd''T''HH:mm:ss.SSSXXX"))'
+  actions:
+  - rewrite:
+      to: '{{{ qualifier }}}.format(java.time.format.DateTimeFormatter.ofPattern("uuuu-MM-dd''T''HH:mm:ss.SSSXXX"))'

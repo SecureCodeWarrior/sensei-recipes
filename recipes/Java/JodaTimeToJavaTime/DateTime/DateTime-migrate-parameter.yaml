@@ -1,0 +1,28 @@
+id: scw:java.time:Joda-Time:DateTime-migrate-parameter
+version: 10
+metadata:
+  name: Migrate DateTime parameter to java.time.ZonedDateTime or java.time.OffsetDateTime
+  shortDescription: Migrate DateTime parameter to java.time.ZonedDateTime or java.time.OffsetDateTime
+  level: warning
+  language: java
+  enabled: true
+  comment: |
+    This recipe looks for parameters that are defined as org.joda.time.DateTime and provides fixes to migrate these to java.time ZonedDateTime and OffsetDateTime.
+    This is intended to be used as part of an overall migration from Joda-Time to java.time.
+
+    After migrating these parameters to a java.time equivalent, subsequent method calls and usages of the parameter may become invalid.
+    Further Sensei recipes are available to help resolve many of these invalid usages.
+  descriptionFile: descriptions/datetime.html
+  tags: framework specific;java.time;Joda-Time;quality
+search:
+  parameter:
+    type: org.joda.time.DateTime
+availableFixes:
+- name: Migrate parameter to java.time.ZonedDateTime
+  actions:
+  - changeType:
+      type: java.time.ZonedDateTime
+- name: Migrate parameter to java.time.OffsetDateTime
+  actions:
+  - changeType:
+      type: java.time.OffsetDateTime
