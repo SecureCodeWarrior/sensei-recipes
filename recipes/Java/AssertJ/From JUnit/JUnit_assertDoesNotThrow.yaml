@@ -1,0 +1,61 @@
+id: scw:assertj:junit-assert-does-not-throw
+version: 10
+metadata:
+  name: Use AssertJ "not thrown" assertions
+  shortDescription: Use AssertJ "not thrown" assertions
+  level: warning
+  language: java
+  enabled: true
+  comment: |-
+    Limitations:
+    1. Assertions which use a ThrowingSupplier lambda returning a fixed value may not compile after migration. If you encounter this, it is probably safe to delete the whole assertion, since fixed values don't throw anything.
+    2. ThrowingSupplier lambdas which are explicitly cast to ThrowingSupplier may not compile after migration. If you encounter this, just delete the cast.
+  tags: AssertJ
+search:
+  methodcall:
+    argCount:
+      lessThanOrEquals: 2
+      greaterThanOrEquals: 1
+    name: assertDoesNotThrow
+    type:
+      reference:
+        matches: org\.junit\.jupiter\.api\.Assertions
+      checkInheritance: true
+availableFixes:
+- doStaticImports: true
+  name: 'Use AssertJ: assertThatNoException().isThrownBy(code)'
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 1
+      to: org.assertj.core.api.Assertions.assertThatNoException().isThrownBy({{{ arguments.0 }}})
+      target: self
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 2
+      to: org.assertj.core.api.Assertions.assertThatNoException().as({{{ arguments.1 }}}).isThrownBy({{{ arguments.0 }}})
+- doStaticImports: true
+  name: 'Use AssertJ: assertThatCode(code).doesNotThrowAnyException()'
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 1
+      to: org.assertj.core.api.Assertions.assertThatCode({{{ arguments.0 }}}).doesNotThrowAnyException()
+      target: self
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 2
+      to: org.assertj.core.api.Assertions.assertThatCode({{{ arguments.0 }}}).as({{{ arguments.1 }}}).doesNotThrowAnyException()
+      target: self
