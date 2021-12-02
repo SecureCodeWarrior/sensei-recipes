@@ -1,0 +1,84 @@
+id: scw:assertj:junit-assert-throws
+version: 10
+metadata:
+  name: Use AssertJ ThrowingCallable assertions
+  shortDescription: Use AssertJ ThrowingCallable assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ
+search:
+  methodcall:
+    args:
+      1:
+        type:
+          reference:
+            matches: java\.lang\.Class<.*>
+          checkInheritance: true
+    argCount:
+      lessThanOrEquals: 3
+      greaterThanOrEquals: 2
+    name: assertThrows
+    type:
+      reference:
+        matches: org\.junit\.Assert|org\.junit\.jupiter\.api\.Assertions
+      checkInheritance: true
+availableFixes:
+- doStaticImports: true
+  name: 'Use AssertJ: assertThatThrownBy(code).isInstanceOf(throwableClass) [NOT RECOMMENDED]'
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 2
+      to: org.assertj.core.api.Assertions.assertThatThrownBy({{{ arguments.1 }}}).isInstanceOf({{{ arguments.0 }}})
+      target: self
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 3
+      to: |-
+        // Warning: message is not used if code doesn't throw - try assertThatCode
+        org.assertj.core.api.Assertions.assertThatThrownBy({{{ arguments.1 }}}).as({{{ arguments.2 }}}).isInstanceOf({{{ arguments.0 }}})
+- doStaticImports: true
+  name: 'Use AssertJ: assertThatCode(code).isInstanceOf(throwableClass)'
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 2
+      to: org.assertj.core.api.Assertions.assertThatCode({{{ arguments.1 }}}).isInstanceOf({{{ arguments.0 }}})
+      target: self
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 3
+      to: org.assertj.core.api.Assertions.assertThatCode({{{ arguments.1 }}}).as({{{ arguments.2 }}}).isInstanceOf({{{ arguments.0 }}})
+      target: self
+- doStaticImports: true
+  name: 'Use AssertJ: assertThatExceptionOfType(throwableClass).isThrownBy(code)'
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 2
+      to: org.assertj.core.api.Assertions.assertThatExceptionOfType({{{ arguments.0 }}}).isThrownBy({{{ arguments.1 }}})
+      target: self
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 3
+      to: org.assertj.core.api.Assertions.assertThatExceptionOfType({{{ arguments.0 }}}).as({{{ arguments.2 }}}).isThrownBy({{{ arguments.1 }}})
+      target: self

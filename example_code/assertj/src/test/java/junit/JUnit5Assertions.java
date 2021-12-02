@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
+
+@SuppressWarnings("JUnit5AssertionsConverter")
 public class JUnit5Assertions {
 
     private final Object notNull = new Object();
@@ -118,4 +121,93 @@ public class JUnit5Assertions {
         Assert.assertNotSame("message", a, b);
         Assertions.assertNotSame(a, b, "message");
     }
+
+    @Test
+    void assertThrows() {
+        // Note: each of the JUnit methods has overloads to support fail messages, either as String or as Supplier<String>.
+        // Our migrations should handle both cases, even if they aren't listed here.
+
+        // JUnit assertions like these:
+        Assert.assertThrows(Exception.class, () -> {
+            throw new Exception();
+        });
+        Assertions.assertThrows(Exception.class, () -> {
+            throw new Exception();
+        });
+
+        // should change to either this:
+        assertThatThrownBy(() -> {
+            throw new Exception();
+        }).isInstanceOf(Exception.class);
+
+        // or this:
+        assertThatExceptionOfType(Exception.class)
+                .isThrownBy(() -> {
+                    throw new Exception();
+                });
+
+        // or this:
+        assertThatCode(() -> {
+            throw new Exception();
+        }).isInstanceOf(Exception.class);
+
+
+        // JUnit 4 assertions like these:
+        Assert.assertThrows("message", Exception.class, () -> {
+            throw new Exception();
+        });
+        // Or JUnit 5 assertions like these:
+        Assertions.assertThrows(Exception.class, () -> {
+            throw new Exception();
+        }, "message");
+
+        // should change to either this:
+        assertThatCode(() -> {
+            throw new Exception();
+        })
+                .as("message")
+                .isInstanceOf(Exception.class);
+
+        // or this:
+        assertThatExceptionOfType(Exception.class)
+                .as("message")
+                .isThrownBy(() -> {
+                    throw new Exception();
+                });
+
+        // But this is slightly wrong: message is not used if nothing is thrown
+        assertThatThrownBy(() -> {
+            throw new Exception();
+        })
+                .as("message")
+                .isInstanceOf(Exception.class);
+
+
+        // JUnit assertions like this:
+        Assertions.assertThrows(Exception.class, () -> {
+            throw new Exception();
+        }, () -> "message");
+
+        // should change to either this:
+        assertThatCode(() -> {
+            throw new Exception();
+        })
+                .as(() -> "message")
+                .isInstanceOf(Exception.class);
+
+        // or this:
+        assertThatExceptionOfType(Exception.class)
+                .as(() -> "message")
+                .isThrownBy(() -> {
+                    throw new Exception();
+                });
+        // But this is slightly wrong: message is not used if nothing is thrown
+        assertThatThrownBy(() -> {
+            throw new Exception();
+        })
+                .as(() -> "message")
+                .isInstanceOf(Exception.class);
+
+    }
+
 }
