@@ -1,0 +1,33 @@
+id: scw:assertj:idiomatic:assertThatSpecificException
+version: 10
+metadata:
+  name: Use assertThat(Specific)Exception
+  shortDescription: Use assertThat(Specific)Exception
+  level: warning
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          stringified:
+            anyOf:
+            - is: IllegalArgumentException.class
+            - is: IllegalStateException.class
+            - is: IOException.class
+            - is: NullPointerException.class
+    argCount: 1
+    name: assertThatExceptionOfType
+    type: org.assertj.core.api.Assertions
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - findAndReplace:
+      replacements:
+      - from: assertThatExceptionOfType(
+        to: assertThat
+        regex: false
+      - from: .class)
+        to: ()
+        regex: false
