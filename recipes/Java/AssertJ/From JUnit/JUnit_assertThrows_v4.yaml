@@ -6,6 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
+  comment: 'NB: assertThatThrownBy(code).as(description).isInstanceOf(throwableClass) is not offered as a migration because it can''t use the description if no exception is thrown by the code.'
   tags: AssertJ
 search:
   methodcall:
@@ -24,13 +25,6 @@ search:
         matches: org\.junit\.Assert
       checkInheritance: true
 availableFixes:
-- doStaticImports: true
-  name: 'Use AssertJ: assertThatThrownBy(code).isInstanceOf(throwableClass) [NOT RECOMMENDED]'
-  actions:
-  - rewrite:
-      to: |-
-        // Warning: message is not used if code doesn't throw - try assertThatCode
-        org.assertj.core.api.Assertions.assertThatThrownBy({{{ arguments.2 }}}).as({{{ arguments.0 }}}).isInstanceOf({{{ arguments.1 }}})
 - doStaticImports: true
   name: 'Use AssertJ: assertThatCode(code).isInstanceOf(throwableClass)'
   actions:
