@@ -1,0 +1,21 @@
+id: scw:assertj:idiomatic:assertThatCodeWithDescription
+version: 10
+metadata:
+  name: Use assertThatCode to ensure description is always used
+  shortDescription: Use assertThatCode to ensure description is always used
+  level: error
+  language: java
+  enabled: true
+search:
+  methodcall:
+    followedBy:
+      methodcall:
+        name: as
+    argCount: 1
+    name: assertThatThrownBy
+    type: org.assertj.core.api.Assertions
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - changeName:
+      name: assertThatCode

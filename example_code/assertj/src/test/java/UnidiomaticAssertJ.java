@@ -115,6 +115,16 @@ class UnidiomaticAssertJ {
 
     }
 
+    @Test
+    public void migrateToAssertThatCode() {
+        var myDescription = "";
+
+        assertThatThrownBy(this::getInteger).as(myDescription).isInstanceOf(RuntimeException.class);
+
+        // should migrate to:
+        assertThatCode(this::getInteger).as(myDescription).isInstanceOf(RuntimeException.class);
+    }
+
     private Integer getInteger() {
         return new SecureRandom().nextInt();
     }
