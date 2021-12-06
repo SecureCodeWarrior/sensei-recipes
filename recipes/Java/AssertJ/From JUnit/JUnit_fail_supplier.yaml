@@ -1,0 +1,21 @@
+id: scw:assertj:junit-fail-supplier
+version: 10
+metadata:
+  name: Use AssertJ's fail() (Supplier ref -> invocation)
+  shortDescription: Use AssertJ's fail() (Supplier ref -> invocation)
+  level: warning
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        type: java.util.function.Supplier<java.lang.String>
+    name: fail
+    type: org.junit.jupiter.api.Assertions
+availableFixes:
+- doStaticImports: true
+  name: Use AssertJ's fail() - invoke get() on Supplier
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.fail({{{ arguments.0 }}}.get())

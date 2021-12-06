@@ -1,0 +1,46 @@
+id: scw:assertj:junit-fail
+version: 10
+metadata:
+  name: Use AssertJ's fail()
+  shortDescription: Use AssertJ's fail()
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ
+search:
+  methodcall:
+    with:
+      anyOf:
+      - argCount: 0
+      - args:
+          1:
+            type: String
+        argCount: 1
+    argCount:
+      lessThanOrEquals: 2
+    name: fail
+    anyOf:
+    - type: org.junit.Assert
+    - type: junit.framework.TestCase
+    - type: junit.framework.Assert
+    - type: org.junit.jupiter.api.Assertions
+availableFixes:
+- doStaticImports: true
+  name: Use AssertJ's fail()
+  actions:
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 0
+      to: org.assertj.core.api.Assertions.fail("")
+      target: self
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              argCount: 1
+      to: org.assertj.core.api.Assertions.fail({{{ arguments.0 }}})
+      target: self

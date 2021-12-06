@@ -1,0 +1,21 @@
+id: scw:assertj:junit-fail-methodref
+version: 10
+metadata:
+  name: Use AssertJ's fail() (method ref -> invocation)
+  shortDescription: Use AssertJ's fail() (method ref -> invocation)
+  level: warning
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        type: <method reference>
+    name: fail
+    type: org.junit.jupiter.api.Assertions
+availableFixes:
+- doStaticImports: true
+  name: Use AssertJ's fail() - invoke referenced method
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.fail({{{ arguments.0.qualifier }}}.{{{ arguments.0.identifier }}}())

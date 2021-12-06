@@ -1,0 +1,44 @@
+id: scw:assertj:junit-fail-exception
+version: 10
+metadata:
+  name: Use AssertJ's fail() (with cause exception)
+  shortDescription: Use AssertJ's fail() (with cause exception)
+  level: warning
+  language: java
+  enabled: true
+search:
+  methodcall:
+    name: fail
+    anyOf:
+    - args:
+        1:
+          type: java.lang.Throwable
+      argCount: 1
+    - args:
+        1:
+          type: java.lang.String
+        2:
+          type: java.lang.Throwable
+      argCount: 2
+    type: org.junit.jupiter.api.Assertions
+availableFixes:
+- doStaticImports: true
+  name: Use AssertJ's fail() with empty message
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 1
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.fail("", {{{ arguments }}})
+- doStaticImports: true
+  name: Use AssertJ's fail()
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.fail({{{ arguments }}})
