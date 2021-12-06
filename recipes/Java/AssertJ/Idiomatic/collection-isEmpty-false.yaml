@@ -1,0 +1,46 @@
+id: scw:assertj:idiomatic:collection-isEmpty-false
+version: 10
+metadata:
+  name: Use isNotEmpty for checking non-empty Collection
+  shortDescription: Use isNotEmpty for checking non-empty Collection
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          is:
+            methodcall:
+              name: isEmpty
+              type:
+                reference:
+                  matches: Collection<.*>
+                checkInheritance: true
+    argCount: 1
+    name: assertThat
+    anyOf:
+    - followedBy:
+        methodcall:
+          argCount: 0
+          name: isFalse
+          label: isFalseMethodCall
+    - followedBy:
+        methodcall:
+          followedBy:
+            methodcall:
+              argCount: 0
+              name: isFalse
+              label: isFalseMethodCall
+          name:
+            matches: (as|describedAs)
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - rewrite:
+      to: assertThat({{{ arguments.0.qualifier }}})
+  - changeName:
+      name: isNotEmpty
+      target: label:isFalseMethodCall

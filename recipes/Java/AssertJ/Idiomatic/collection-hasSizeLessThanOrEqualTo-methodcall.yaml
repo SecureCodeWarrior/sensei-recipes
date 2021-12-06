@@ -1,0 +1,52 @@
+id: scw:assertj:idiomatic:collection-hasSizeLessThanOrEqualTo-methodcall
+version: 10
+metadata:
+  name: Use hasSizeLessThanOrEqualTo for size comparison of collection
+  shortDescription: Use hasSizeLessThanOrEqualTo for size comparison of collection
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        value:
+          is:
+            methodcall:
+              name: size
+              label: sizeMethodCall
+              type:
+                reference:
+                  matches: Collection<.*>
+                checkInheritance: true
+    name: assertThat
+    anyOf:
+    - followedBy:
+        methodcall:
+          name: isLessThanOrEqualTo
+          label: isLessThanOrEqualToMethodCall
+          type:
+            reference:
+              matches: org.assertj.core.api.AbstractIntegerAssert<.*>
+            checkInheritance: true
+    - followedBy:
+        methodcall:
+          followedBy:
+            methodcall:
+              name: isLessThanOrEqualTo
+              label: isLessThanOrEqualToMethodCall
+          name:
+            matches: (as|describedAs)
+          type:
+            reference:
+              matches: org.assertj.core.api.AbstractIntegerAssert<.*>
+            checkInheritance: true
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - rewrite:
+      to: assertThat({{{ arguments.0.qualifier }}})
+  - changeName:
+      name: hasSizeLessThanOrEqualTo
+      target: label:isLessThanOrEqualToMethodCall

@@ -1,0 +1,60 @@
+id: scw:assertj:idiomatic:collection-hasSizeGreaterThanOrEqualToOne
+version: 10
+metadata:
+  name: Use isNotEmpty for checking for collection with no elements
+  shortDescription: Use isNotEmpty for checking for collection with no elements
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    args:
+      1:
+        type:
+          reference:
+            matches: Collection<.*>
+          checkInheritance: true
+    argCount: 1
+    name: assertThat
+    anyOf:
+    - followedBy:
+        methodcall:
+          args:
+            1:
+              value:
+                integer: 1
+          argCount: 1
+          name: hasSizeGreaterThanOrEqualTo
+          label: hasSizeGreaterThanOrEqualToMethodCall
+          type:
+            reference:
+              matches: org.assertj.core.api.AbstractIterableAssert<.*>
+            checkInheritance: true
+    - followedBy:
+        methodcall:
+          followedBy:
+            methodcall:
+              args:
+                1:
+                  value:
+                    integer: 1
+              argCount: 1
+              name: hasSizeGreaterThanOrEqualTo
+              label: hasSizeGreaterThanOrEqualToMethodCall
+              type:
+                reference:
+                  matches: org.assertj.core.api.AbstractIterableAssert<.*>
+                checkInheritance: true
+          name:
+            matches: (as|describedAs)
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - changeName:
+      name: isNotEmpty
+      target: label:hasSizeGreaterThanOrEqualToMethodCall
+  - modifyArguments:
+      remove:
+      - 1
+      target: label:hasSizeGreaterThanOrEqualToMethodCall

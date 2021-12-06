@@ -1,0 +1,83 @@
+id: scw:assertj:idiomatic:collection-hasSizeLessThan-operator
+version: 10
+metadata:
+  name: Use hasSizeLessThan for size comparison of collection
+  shortDescription: Use hasSizeLessThan for size comparison of collection
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    argCount: 0
+    name: isTrue
+    anyOf:
+    - "on":
+        methodcall:
+          args:
+            1:
+              value:
+                is:
+                  comparison:
+                    first:
+                      methodcall:
+                        name: size
+                        type:
+                          reference:
+                            matches: Collection<.*>
+                          checkInheritance: true
+                    operator: <
+          argCount: 1
+          name: assertThat
+          label: assertThatMethodCallDirect
+    - "on":
+        methodcall:
+          name:
+            matches: (as|describedAs)
+          "on":
+            methodcall:
+              args:
+                1:
+                  value:
+                    is:
+                      comparison:
+                        first:
+                          methodcall:
+                            name: size
+                            type:
+                              reference:
+                                matches: Collection<.*>
+                              checkInheritance: true
+                        operator: <
+              argCount: 1
+              name: assertThat
+              label: assertThatMethodCallIndirect
+availableFixes:
+- name: Use idiomatic assertion
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: '{{{ leftOperand.qualifier }}}'
+      target: label:assertThatMethodCallDirect
+  - modifyArguments:
+      rewrite:
+        1: '{{{ leftOperand.qualifier }}}'
+      target: label:assertThatMethodCallIndirect
+  - modifyArguments:
+      applyIf:
+        label:
+          is:
+            methodcall: {}
+          labelName: assertThatMethodCallDirect
+      insert:
+        1: '{{{qualifier.arguments.0.rightOperand}}}'
+  - modifyArguments:
+      applyIf:
+        label:
+          is:
+            methodcall: {}
+          labelName: assertThatMethodCallIndirect
+      insert:
+        1: '{{{ qualifier.qualifier.arguments.0.rightOperand }}}'
+  - changeName:
+      name: hasSizeLessThan
