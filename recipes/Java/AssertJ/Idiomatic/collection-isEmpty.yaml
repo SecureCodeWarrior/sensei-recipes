@@ -22,9 +22,23 @@ search:
             matches: as|describedAs
           "on":
             methodcall:
+              args:
+                1:
+                  type:
+                    reference:
+                      matches: Collection<.*>
+                    checkInheritance: true
+              argCount: 1
               name: assertThat
               type: org.assertj.core.api.Assertions
-        - name: assertThat
+        - args:
+            1:
+              type:
+                reference:
+                  matches: Collection<.*>
+                checkInheritance: true
+          argCount: 1
+          name: assertThat
           type: org.assertj.core.api.Assertions
 availableFixes:
 - name: Use idiomatic assertion

@@ -7,7 +7,7 @@ import java.util.List;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 @SuppressWarnings("ConstantConditions")
@@ -31,6 +31,10 @@ class UnidiomaticAssertJ {
         assertThat(collection.size()).as("isEmpty").isEqualTo(0); // to assertThat(collection).as("isEmpty").isEmpty()
         assertThat(collection.size()).describedAs("isEmpty").isEqualTo(0); // to assertThat(collection).describedAs("isEmpty").isEmpty()
 
+        assertThat(collection.size()).isNotEqualTo(0); // to assertThat(collection).isNotEmpty()
+        assertThat(collection.size()).as("collectionSize").isNotEqualTo(0); // to assertThat(collection).as("collectionSize").isNotEmpty()
+        assertThat(collection.size()).describedAs("collectionSize").isNotEqualTo(0); // to assertThat(collection).describedAs("collectionSize").isNotEmpty()
+
         assertThat(collection.size()).isEqualTo(1); // to assertThat(collection).hasSize(1)
         assertThat(collection.size()).as("hasSize 1").isEqualTo(1); // to assertThat(collection).as("hasSize 1").hasSize(1)
         assertThat(collection.size()).describedAs("hasSize 1").isEqualTo(1); // to assertThat(collection).describedAs("hasSize 1").hasSize(1)
@@ -42,6 +46,62 @@ class UnidiomaticAssertJ {
         assertThat(collection).hasSize(0); // to assertThat(collection).isEmpty()
         assertThat(collection).as("isEmpty").hasSize(0); // to assertThat(collection).as("isEmpty").isEmpty()
         assertThat(collection).describedAs("isEmpty").hasSize(0); // to assertThat(collection).describedAs("isEmpty").isEmpty()
+
+        assertThat(collection.isEmpty()).isTrue(); // to assertThat(collection).isEmpty()
+        assertThat(collection.isEmpty()).as("isEmpty-true").isTrue(); // to assertThat(collection).as("isEmpty-true").isEmpty()
+        assertThat(collection.isEmpty()).describedAs("isEmpty-true").isTrue(); // to assertThat(collection).describedAs("isEmpty-true").isEmpty()
+
+        assertThat(collection.isEmpty()).isFalse(); // to assertThat(collection).isNotEmpty()
+        assertThat(collection.isEmpty()).as("isEmpty-false").isFalse(); // to assertThat(collection).as("isEmpty-false").isNotEmpty()
+        assertThat(collection.isEmpty()).describedAs("isEmpty-false").isFalse(); // to assertThat(collection).as("isEmpty-false").isNotEmpty()
+
+        assertThat(collection.size() > 7).isTrue(); // to assertThat(collection).hasSizeGreaterThan(7)
+        assertThat(collection.size() > 7).as("collectionSize > 7").isTrue(); // to assertThat(collection).as("collectionSize > 7").hasSizeGreaterThan(7)
+        assertThat(collection.size() > 7).describedAs("collectionSize > 7").isTrue(); // to assertThat(collection).describedAs("collectionSize > 7").hasSizeGreaterThan(7)
+
+        assertThat(collection.size() < 7).isTrue(); // to assertThat(collection).hasSizeLessThan(7)
+        assertThat(collection.size() < 7).as("collectionSize < 7").isTrue(); // to assertThat(collection).as("collectionSize > 7").hasSizeLessThan(7)
+        assertThat(collection.size() < 7).describedAs("collectionSize < 7").isTrue(); // to assertThat(collection).describedAs("collectionSize > 7").hasSizeLessThan(7)
+
+        assertThat(collection.size() <= 7).isTrue(); // to assertThat(collection).hasSizeLessThanOrEqualTo(7)
+        assertThat(collection.size() <= 7).as("collectionSize > 7").isTrue(); // to assertThat(collection).as("collectionSize > 7").hasSizeLessThanOrEqualTo(7)
+        assertThat(collection.size() <= 7).describedAs("collectionSize > 7").isTrue(); // to assertThat(collection).describedAs("collectionSize > 7").hasSizeLessThanOrEqualTo(7)
+
+        assertThat(collection.size() >= 7).isTrue(); // to assertThat(collection).hasSizeGreaterThanOrEqualTo(7)
+        assertThat(collection.size() >= 7).as("collectionSize > 7").isTrue(); // to assertThat(collection).as("collectionSize > 7").hasSizeGreaterThanOrEqualTo(7)
+        assertThat(collection.size() >= 7).describedAs("collectionSize > 7").isTrue(); // to assertThat(collection).describedAs("collectionSize > 7").hasSizeGreaterThanOrEqualTo(7)
+
+        assertThat(collection.size()).isGreaterThan(7); // to assertThat(collection).hasSizeGreaterThan(7)
+        assertThat(collection.size()).as("message").isGreaterThan(7); // to assertThat(collection).as("message").hasSizeGreaterThan(7)
+        assertThat(collection.size()).describedAs("message").isGreaterThan(7); // to assertThat(collection).describedAs("message").hasSizeGreaterThan(7)
+
+        assertThat(collection.size()).isGreaterThanOrEqualTo(7); // to assertThat(collection).hasSizeGreaterThanOrEqualTo(7)
+        assertThat(collection.size()).as("message").isGreaterThanOrEqualTo(7); // to assertThat(collection).as("message").hasSizeGreaterThanOrEqualTo(7)
+        assertThat(collection.size()).describedAs("message").isGreaterThanOrEqualTo(7); // to assertThat(collection).describedAs("message").hasSizeGreaterThanOrEqualTo(7)
+
+        assertThat(collection.size()).isLessThan(7); // to assertThat(collection).hasSizeLessThan(7)
+        assertThat(collection.size()).as("message").isLessThan(7); // to assertThat(collection).as("message").hasSizeLessThan(7)
+        assertThat(collection.size()).describedAs("message").isLessThan(7); // to assertThat(collection).describedAs("message").hasSizeLessThan(7)
+
+        assertThat(collection.size()).isLessThanOrEqualTo(7); // to assertThat(collection).hasSizeLessThanOrEqualTo(7)
+        assertThat(collection.size()).as("message").isLessThanOrEqualTo(7); // to assertThat(collection).as("message").hasSizeLessThanOrEqualTo(7)
+        assertThat(collection.size()).describedAs("message").isLessThanOrEqualTo(7); // to assertThat(collection).describedAs("message").hasSizeLessThanOrEqualTo(7)
+
+        assertThat(collection).hasSizeGreaterThan(0); // to assertThat(collection).isNotEmpty()
+        assertThat(collection).as("message").hasSizeGreaterThan(0); // to assertThat(collection).as("message").isNotEmpty()
+        assertThat(collection).describedAs("message").hasSizeGreaterThan(0); // to assertThat(collection).described("message").isNotEmpty()
+
+        assertThat(collection).hasSizeGreaterThanOrEqualTo(1); // to assertThat(collection).isNotEmpty()
+        assertThat(collection).as("message").hasSizeGreaterThanOrEqualTo(1); // to assertThat(collection).as("message").isNotEmpty()
+        assertThat(collection).describedAs("message").hasSizeGreaterThanOrEqualTo(1); // to assertThat(collection).describedAs("message").isNotEmpty()
+
+        assertThat(collection).hasSizeLessThan(1); // to assertThat(collection).isEmpty()
+        assertThat(collection).as("message").hasSizeLessThan(1); // to assertThat(collection).as("message").isEmpty()
+        assertThat(collection).describedAs("message").hasSizeLessThan(1); // to assertThat(collection).describedAs("message").isEmpty()
+
+        assertThat(collection).hasSizeLessThanOrEqualTo(0); // to assertThat(collection).isEmpty()
+        assertThat(collection).as("message").hasSizeLessThanOrEqualTo(0); // to assertThat(collection).as("message").isEmpty()
+        assertThat(collection).describedAs("message").hasSizeLessThanOrEqualTo(0); // to assertThat(collection).describedAs("message").isEmpty()
 
         assertThat(variable).as("").isEqualTo("something"); // to assertThat(variable).isEqualTo(something)
         assertThat(variable).describedAs("").isEqualTo("something"); // to assertThat(variable).isEqualTo(something)
