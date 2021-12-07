@@ -1,12 +1,12 @@
-id: scw:assertj:idiomatic:isNotEqualTo-not-expression
+id: scw:assertj:idiomatic:isNotEqualTo-methodcall-true
 version: 10
 metadata:
-  name: Use isNotEqualTo instead of !equals isTrue (NOT WORKING)
-  shortDescription: Use isNotEqualTo instead of !equals isTrue (NOT WORKING)
+  name: Use isNotEqualTo instead of !equals isTrue
+  shortDescription: Use isNotEqualTo instead of !equals isTrue
   level: warning
   language: java
-  enabled: false
-  tags: ""
+  enabled: true
+  tags: AssertJ;framework specific;quality
 search:
   methodcall:
     name: isTrue
@@ -17,7 +17,12 @@ search:
             1:
               value:
                 is:
-                  expression: {}
+                  prefixExpression:
+                    operand:
+                      methodcall:
+                        argCount: 1
+                        name: equals
+                    operator: '!'
           name: assertThat
           label: assertThatMethodCallDirect
           type: org.assertj.core.api.Assertions
@@ -31,9 +36,12 @@ search:
                 1:
                   value:
                     is:
-                      methodcall:
-                        argCount: 1
-                        name: equals
+                      prefixExpression:
+                        operand:
+                          methodcall:
+                            argCount: 1
+                            name: equals
+                        operator: '!'
               name: assertThat
               label: assertThatMethodCallIndirect
               type: org.assertj.core.api.Assertions
@@ -42,12 +50,14 @@ availableFixes:
   actions:
   - modifyArguments:
       rewrite:
-        1: '{{{ qualifier }}}'
+        1: '{{{operand.qualifier}}}'
       target: label:assertThatMethodCallDirect
   - modifyArguments:
       rewrite:
-        1: '{{{ qualifier }}}'
+        1: '{{{operand.qualifier}}}'
       target: label:assertThatMethodCallIndirect
+  - changeName:
+      name: isNotEqualTo
   - modifyArguments:
       applyIf:
         label:
@@ -55,7 +65,8 @@ availableFixes:
             methodcall: {}
           labelName: assertThatMethodCallDirect
       insert:
-        1: '{{{ qualifier.arguments.0.arguments }}}'
+        1: '{{{ qualifier.arguments.0.operand.arguments }}}'
+      target: self
   - modifyArguments:
       applyIf:
         label:
@@ -63,6 +74,5 @@ availableFixes:
             methodcall: {}
           labelName: assertThatMethodCallIndirect
       insert:
-        1: '{{{ qualifier.qualifier.arguments.0.arguments }}}'
-  - changeName:
-      name: isNotEqualTo
+        1: '{{{ qualifier.qualifier.arguments.0.operand.arguments }}}'
+      target: self
