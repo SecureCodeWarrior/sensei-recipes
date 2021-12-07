@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.ThrowingSupplier;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -273,4 +274,58 @@ public class JUnit5Assertions {
                 .isThrownBy(this::toString);
     }
 
+    @SuppressWarnings({"TrivialFunctionalExpressionUsage", "RedundantSuppression"})
+    @Test
+    void testFail() {
+
+        // JUnit assertions like these:
+        // JUnit 3?
+        TestCase.fail();
+        TestCase.fail("message");
+        junit.framework.Assert.fail();
+        junit.framework.Assert.fail("message");
+
+        // JUnit 4
+        Assert.fail();
+        Assert.fail("message");
+
+        // JUnit 5
+        Assertions.fail();
+        Assertions.fail("message");
+
+        Assertions.fail(() -> "message");
+        Assertions.fail(() -> {
+            return "Can't currently migrate block lambdas";
+        });
+        Assertions.fail(this::messageSupplier);
+        Supplier<String> supplier = this::messageSupplier;
+        Assertions.fail(supplier);
+
+        Assertions.fail("message", new Throwable());
+        Assertions.fail(new Throwable());
+
+        // should change to these calls respectively:
+        fail("");
+        fail("message");
+
+        fail("");
+        fail("message");
+
+        fail("");
+        fail("message");
+
+        fail("");
+        fail("message");
+
+        fail("message");
+        fail(this.messageSupplier());
+        fail(supplier.get());
+
+        fail("message", new Throwable());
+        fail("", new Throwable());
+    }
+
+    private String messageSupplier() {
+        return "message";
+    }
 }

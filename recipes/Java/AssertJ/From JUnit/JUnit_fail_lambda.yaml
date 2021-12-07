@@ -1,0 +1,27 @@
+id: scw:assertj:junit-fail-lambda
+version: 10
+metadata:
+  name: Use AssertJ's fail() (unwrapping message lambda)
+  shortDescription: Use AssertJ's fail() (unwrapping message lambda)
+  level: warning
+  language: java
+  enabled: true
+search:
+  methodcall:
+    args:
+      1:
+        label: arg1
+        type: <lambda expression>
+        value:
+          not:
+            stringified:
+              contains: '{'
+    name: fail
+    type: org.junit.jupiter.api.Assertions
+availableFixes:
+- doStaticImports: true
+  name: Use AssertJ's fail() - with unwrapped lambda
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.fail({{{ arguments.0.body }}})
+      target: self
