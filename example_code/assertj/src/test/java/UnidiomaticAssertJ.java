@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.io.NotSerializableException;
 import java.security.SecureRandom;
 import java.util.List;
 
@@ -97,6 +99,30 @@ class UnidiomaticAssertJ {
         assertThat(string.contains("abc")).as("description").isTrue(); // to assertThat(string).as("description").contains("abc")
         assertThat(string.contains("abc")).describedAs("description").isTrue(); // to assertThat(string).describedAs("description").contains("abc")
 
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(this::getInteger);
+        assertThatExceptionOfType(IllegalStateException.class).isThrownBy(this::getInteger);
+        assertThatExceptionOfType(IOException.class).isThrownBy(this::getInteger);
+        assertThatExceptionOfType(NullPointerException.class).isThrownBy(this::getInteger);
+        assertThatExceptionOfType(NotSerializableException.class).isThrownBy(this::getInteger);
+
+        // should offer migrations to these:
+        assertThatIllegalArgumentException().isThrownBy(this::getInteger);
+        assertThatIllegalStateException().isThrownBy(this::getInteger);
+        assertThatIOException().isThrownBy(this::getInteger);
+        assertThatNullPointerException().isThrownBy(this::getInteger);
+        // no migration for subclass of IOException
+        assertThatExceptionOfType(NotSerializableException.class).isThrownBy(this::getInteger);
+
+    }
+
+    @Test
+    public void migrateToAssertThatCode() {
+        var myDescription = "";
+
+        assertThatThrownBy(this::getInteger).as(myDescription).isInstanceOf(RuntimeException.class);
+
+        // should migrate to:
+        assertThatCode(this::getInteger).as(myDescription).isInstanceOf(RuntimeException.class);
     }
 
     private Integer getInteger() {
