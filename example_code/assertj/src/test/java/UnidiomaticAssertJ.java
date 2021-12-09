@@ -7,8 +7,7 @@ import java.util.List;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static org.assertj.core.api.Assertions.assertThat;
-
+import static org.assertj.core.api.Assertions.*;
 
 @SuppressWarnings("ConstantConditions")
 class UnidiomaticAssertJ {
