@@ -1,0 +1,37 @@
+id: scw:assertj:testng-assert-not-same
+version: 10
+metadata:
+  name: Use AssertJ's isNotSameAs()
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ; TestNG
+search:
+  methodcall:
+    argCount:
+      lessThanOrEquals: 3
+      greaterThanOrEquals: 2
+    name: assertNotSame
+    type: org.testng.Assert
+availableFixes:
+- doStaticImports: true
+  name: Change to assertThat(actual).isNotSameAs(expected)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isNotSameAs({{{ arguments.1 }}})
+- doStaticImports: true
+  name: Change to assertThat(actual).as(message).isNotSameAs(expected)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 3
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).as({{{ arguments.2 }}}).isNotSameAs({{{ arguments.1 }}})

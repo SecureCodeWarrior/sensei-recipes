@@ -1,0 +1,40 @@
+id: scw:assertj:testng-assert-not-equals
+version: 10
+metadata:
+  name: Use AssertJ's isNotEqualTo()
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ; TestNG
+search:
+  methodcall:
+    name: assertNotEquals
+    anyOf:
+    - argCount: 2
+    - args:
+        3:
+          type: String
+      argCount: 3
+    type: org.testng.Assert
+availableFixes:
+- doStaticImports: true
+  name: Change to assertThat(actual).isNotEqualTo(expected)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isNotEqualTo({{{ arguments.1 }}})
+- doStaticImports: true
+  name: Change to assertThat(actual).as(message).isNotEqualTo(expected)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 3
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).as({{{ arguments.2 }}}).isNotEqualTo({{{ arguments.1 }}})

@@ -1,4 +1,4 @@
-id: scw:assertj:junit-assert-true
+id: scw:assertj:testng-assert-true
 version: 10
 metadata:
   name: Use AssertJ's isTrue()
@@ -14,17 +14,29 @@ search:
         anyOf:
         - type: java.lang.Boolean
         - type: boolean
-    argCount: 1
+    argCount:
+      lessThanOrEquals: 2
+      greaterThanOrEquals: 1
     name: assertTrue
-    anyOf:
-    - type: org.junit.Assert
-    - type: junit.framework.TestCase
-    - type: junit.framework.Assert
-    - type: org.junit.jupiter.api.Assertions
-    - type: org.testng.AssertJUnit
+    type: org.testng.Assert
 availableFixes:
 - doStaticImports: true
   name: Change to assertThat(actual).isTrue()
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 1
   actions:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isTrue()
+- doStaticImports: true
+  name: Change to assertThat(actual).as(message).isTrue()
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).as({{{ arguments.1 }}}).isTrue()

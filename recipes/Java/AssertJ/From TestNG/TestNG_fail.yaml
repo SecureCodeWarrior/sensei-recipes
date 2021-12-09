@@ -1,4 +1,4 @@
-id: scw:assertj:junit-fail
+id: scw:assertj:testng-fail
 version: 10
 metadata:
   name: Use AssertJ's fail()
@@ -19,29 +19,26 @@ search:
     argCount:
       lessThanOrEquals: 2
     name: fail
-    anyOf:
-    - type: org.junit.Assert
-    - type: junit.framework.TestCase
-    - type: junit.framework.Assert
-    - type: org.junit.jupiter.api.Assertions
-    - type: org.testng.AssertJUnit
+    type: org.testng.Assert
 availableFixes:
 - doStaticImports: true
   name: Use AssertJ's fail()
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 0
   actions:
   - rewrite:
-      applyIf:
-        markedElement:
-          is:
-            methodcall:
-              argCount: 0
       to: org.assertj.core.api.Assertions.fail("")
       target: self
+- doStaticImports: true
+  name: Use AssertJ's fail(message)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 1
+  actions:
   - rewrite:
-      applyIf:
-        markedElement:
-          is:
-            methodcall:
-              argCount: 1
       to: org.assertj.core.api.Assertions.fail({{{ arguments.0 }}})
-      target: self

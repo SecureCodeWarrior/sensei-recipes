@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  tags: AssertJ
+  tags: AssertJ; TestNG
 search:
   methodcall:
     argCount: 3
@@ -20,6 +20,10 @@ search:
         3:
           type: String
       type: org.junit.jupiter.api.Assertions
+    - args:
+        1:
+          type: String
+      type: org.testng.internal.junit.ArrayAsserts
 availableFixes:
 - doStaticImports: true
   name: Change to assertThat(actualArray).as(message).isEqualTo(expectedArray)

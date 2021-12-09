@@ -1,0 +1,37 @@
+id: scw:assertj:testng-assert-not-null
+version: 10
+metadata:
+  name: Use AssertJ's isNotNull()
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ; TestNG
+search:
+  methodcall:
+    argCount:
+      lessThanOrEquals: 2
+      greaterThanOrEquals: 1
+    name: assertNotNull
+    type: org.testng.Assert
+availableFixes:
+- doStaticImports: true
+  name: Change to assertThat(actual).isNotNull()
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 1
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isNotNull()
+- doStaticImports: true
+  name: Change to assertThat(actual).as(message).isNotNull()
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).as({{{ arguments.1 }}}).isNotNull()

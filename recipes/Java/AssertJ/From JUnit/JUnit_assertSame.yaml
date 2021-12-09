@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  tags: AssertJ
+  tags: AssertJ; TestNG
 search:
   methodcall:
     argCount: 2
@@ -16,6 +16,7 @@ search:
     - type: junit.framework.TestCase
     - type: junit.framework.Assert
     - type: org.junit.jupiter.api.Assertions
+    - type: org.testng.AssertJUnit
 availableFixes:
 - doStaticImports: true
   name: Change to assertThat(actual).isSameAs(expected)
