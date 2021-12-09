@@ -1,0 +1,37 @@
+id: scw:assertj:testng-assert-null
+version: 10
+metadata:
+  name: Use AssertJ's isNull()
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ; TestNG
+search:
+  methodcall:
+    argCount:
+      lessThanOrEquals: 2
+      greaterThanOrEquals: 1
+    name: assertNull
+    type: org.testng.Assert
+availableFixes:
+- doStaticImports: true
+  name: Change to assertThat(actual).isNull()
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 1
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isNull()
+- doStaticImports: true
+  name: Change to assertThat(actual).as(message).isNull()
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).as({{{ arguments.1 }}}).isNull()

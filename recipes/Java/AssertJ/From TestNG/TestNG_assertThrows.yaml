@@ -1,0 +1,36 @@
+id: scw:assertj:testng-assert-throws
+version: 10
+metadata:
+  name: Use AssertJ ThrowingCallable assertions
+  shortDescription: Use AssertJ ThrowingCallable assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ; TestNG
+search:
+  methodcall:
+    args:
+      1:
+        type:
+          reference:
+            matches: java\.lang\.Class<.*>
+          checkInheritance: true
+    argCount: 2
+    name: assertThrows
+    type: org.testng.Assert
+availableFixes:
+- doStaticImports: true
+  name: 'Use AssertJ: assertThatCode(code).isInstanceOf(throwableClass)'
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThatCode({{{ arguments.1 }}}).isInstanceOf({{{ arguments.0 }}})
+- doStaticImports: true
+  name: 'Use AssertJ: assertThatExceptionOfType(throwableClass).isThrownBy(code)'
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThatExceptionOfType({{{ arguments.0 }}}).isThrownBy({{{ arguments.1 }}})
+- doStaticImports: true
+  name: 'Use AssertJ: assertThatThrownBy(code).isInstanceOf(throwableClass)'
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThatThrownBy({{{ arguments.1 }}}).isInstanceOf({{{ arguments.0 }}})

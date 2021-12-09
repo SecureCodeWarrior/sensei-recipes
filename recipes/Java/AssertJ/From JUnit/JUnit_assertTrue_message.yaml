@@ -6,7 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
-  tags: AssertJ
+  tags: AssertJ; TestNG
 search:
   methodcall:
     argCount: 2
@@ -23,6 +23,7 @@ search:
       - type: org.junit.Assert
       - type: junit.framework.TestCase
       - type: junit.framework.Assert
+      - type: org.testng.AssertJUnit
     - args:
         1:
           anyOf:
