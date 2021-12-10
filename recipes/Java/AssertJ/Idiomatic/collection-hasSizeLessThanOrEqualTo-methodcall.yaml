@@ -43,10 +43,11 @@ search:
               matches: org.assertj.core.api.AbstractIntegerAssert<.*>
             checkInheritance: true
 availableFixes:
-- name: Use idiomatic assertion
+- doStaticImports: true
+  name: Use idiomatic assertion
   actions:
   - rewrite:
-      to: assertThat({{{ arguments.0.qualifier }}})
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0.qualifier }}})
   - changeName:
       name: hasSizeLessThanOrEqualTo
       target: label:isLessThanOrEqualToMethodCall

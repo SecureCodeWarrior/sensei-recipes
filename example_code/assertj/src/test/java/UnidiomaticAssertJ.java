@@ -180,6 +180,7 @@ class UnidiomaticAssertJ {
 
         assertThatThrownBy(this::getInteger).as(myDescription).isInstanceOf(RuntimeException.class);
 
+
         // should migrate to:
         assertThatCode(this::getInteger).as(myDescription).isInstanceOf(RuntimeException.class);
     }
