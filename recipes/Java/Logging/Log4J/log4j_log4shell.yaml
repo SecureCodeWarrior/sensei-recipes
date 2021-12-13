@@ -1,0 +1,29 @@
+id: scw:logging:log4j:log4shell
+version: 10
+metadata:
+  name: Vulnerable Log4j version - Log4Shell/CVE-2021-44228
+  shortDescription: Vulnerable Log4j version - Log4Shell/CVE-2021-44228
+  level: error
+  language: java; kotlin
+  scwCategory: vulncomponents:known
+  cweCategory: 20
+  enabled: true
+  tags: security;OWASP Top 10;framework specific;logging;Log4j;SLF4J
+search:
+  class: {}
+scopes:
+  library:
+    name:
+      contains: org.apache.logging.log4j:log4j-core
+    maxVersion: 2.14.999
+availableFixes:
+- name: Read about Log4Shell vulnerability (CVE-2021-44228)
+  actions:
+  - goto:
+      type: URL
+      value: https://log4shell.com/
+- name: Upgrade to Log4j 2.15.0 or higher (edit pom.xml/build.gradle)
+  actions:
+  - goto:
+      type: URL
+      value: https://search.maven.org/artifact/org.apache.logging.log4j/log4j-core
