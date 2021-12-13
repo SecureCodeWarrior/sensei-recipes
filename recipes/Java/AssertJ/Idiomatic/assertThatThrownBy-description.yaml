@@ -20,7 +20,8 @@ availableFixes:
   actions:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThatCode({{{ arguments }}})
-- name: Use assertThatThrownBy(code, description, args)
+- doStaticImports: true
+  name: Use assertThatThrownBy(code, description, args)
   actions:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThatThrownBy({{{ qualifier.arguments }}}, {{{ arguments }}})
