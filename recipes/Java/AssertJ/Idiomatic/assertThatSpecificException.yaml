@@ -21,12 +21,13 @@ search:
     name: assertThatExceptionOfType
     type: org.assertj.core.api.Assertions
 availableFixes:
-- name: Use idiomatic assertion
+- doStaticImports: true
+  name: Use idiomatic assertion
   actions:
   - findAndReplace:
       replacements:
       - from: assertThatExceptionOfType(
-        to: assertThat
+        to: org.assertj.core.api.Assertions.assertThat
         regex: false
       - from: .class)
         to: ()
