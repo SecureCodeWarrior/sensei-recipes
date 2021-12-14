@@ -61,7 +61,7 @@ search:
       argCount: 3
     type: org.hamcrest.MatcherAssert
 availableFixes:
-- doStaticImports: false
+- doStaticImports: true
   name: Change to assertThat(actual).isEqualTo(expected)
   availableIf:
     markedElement:
@@ -71,7 +71,7 @@ availableFixes:
   actions:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isEqualTo({{{ arguments.1.arguments.0 }}})
-- doStaticImports: false
+- doStaticImports: true
   name: Change to assertThat(actual).as(reason).isEqualTo(expected)
   availableIf:
     markedElement:
