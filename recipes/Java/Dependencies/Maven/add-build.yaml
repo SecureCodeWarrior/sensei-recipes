@@ -9,6 +9,9 @@ metadata:
   tags: Apache Maven;security;OWASP Top 10
 search:
   element:
+    in:
+      file:
+        name: pom.xml
     tagName:
       is: project
     without:
