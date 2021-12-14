@@ -1,0 +1,42 @@
+id: scw:dependencies:maven-owasp-dep-check-add-build
+version: 10
+metadata:
+  name: Add OWASP Dependency Checker to warn about vulnerable dependencies
+  shortDescription: Add OWASP Dependency Checker to warn about vulnerable dependencies
+  level: warning
+  language: xml
+  enabled: true
+  tags: Apache Maven;security;OWASP Top 10
+search:
+  element:
+    tagName:
+      is: project
+    without:
+      child:
+        tagName:
+          is: build
+availableFixes:
+- name: Add OWASP Dependency-Check plugin (new build section)
+  actions:
+  - add:
+      childElement:
+        code: |-
+          <build>
+            <plugins>
+              <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>6.5.0</version>
+                <configuration>
+                  <!-- <failBuildOnCVSS>4</failBuildOnCVSS> -->
+                </configuration>
+                <executions>
+                  <execution>
+                    <goals>
+                      <goal>check</goal>
+                    </goals>
+                  </execution>
+                </executions>
+              </plugin>
+            </plugins>
+          </build>
