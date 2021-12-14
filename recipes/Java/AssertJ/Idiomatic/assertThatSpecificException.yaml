@@ -24,11 +24,43 @@ availableFixes:
 - doStaticImports: true
   name: Use idiomatic assertion
   actions:
-  - findAndReplace:
-      replacements:
-      - from: assertThatExceptionOfType(
-        to: org.assertj.core.api.Assertions.assertThat
-        regex: false
-      - from: .class)
-        to: ()
-        regex: false
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              args:
+                1:
+                  value:
+                    stringified: IllegalArgumentException.class
+      to: org.assertj.core.api.Assertions.assertThatIllegalArgumentException()
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              args:
+                1:
+                  value:
+                    stringified: IllegalStateException.class
+      to: org.assertj.core.api.Assertions.assertThatIllegalStateException()
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              args:
+                1:
+                  value:
+                    stringified: IOException.class
+      to: org.assertj.core.api.Assertions.assertThatIOException()
+  - rewrite:
+      applyIf:
+        markedElement:
+          is:
+            methodcall:
+              args:
+                1:
+                  value:
+                    stringified: NullPointerException.class
+      to: org.assertj.core.api.Assertions.assertThatNullPointerException()
