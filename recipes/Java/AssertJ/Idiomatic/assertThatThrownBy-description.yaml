@@ -1,0 +1,27 @@
+id: scw:assertj:idiomatic:assertThatThrownBy-description
+version: 10
+metadata:
+  name: assertThatThrownBy won't use description if the code doesn't throw
+  shortDescription: assertThatThrownBy won't use description if the code doesn't throw
+  level: error
+  language: java
+  enabled: true
+search:
+  methodcall:
+    name: as
+    "on":
+      methodcall:
+        argCount: 1
+        name: assertThatThrownBy
+        type: org.assertj.core.api.Assertions
+availableFixes:
+- doStaticImports: true
+  name: Use assertThatCode(code).as(description, args)
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThatCode({{{ arguments }}})
+- doStaticImports: true
+  name: Use assertThatThrownBy(code, description, args)
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThatThrownBy({{{ qualifier.arguments }}}, {{{ arguments }}})

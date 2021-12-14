@@ -1,4 +1,5 @@
 import org.assertj.core.api.Assertions;
+import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -178,13 +179,14 @@ class UnidiomaticNonStaticAssertJ {
 
     @Test
     public void migrateToAssertThatCode() {
-        var myDescription = "";
+        var myDescription = "description %s %s";
 
-        Assertions.assertThatThrownBy(this::getInteger).as(myDescription).isInstanceOf(RuntimeException.class);
-
+        Assertions.assertThatThrownBy(this::getInteger).as(myDescription, 1, 2).isInstanceOf(RuntimeException.class);
 
         // should migrate to:
-        Assertions.assertThatCode(this::getInteger).as(myDescription).isInstanceOf(RuntimeException.class);
+        Assertions.assertThatCode(this::getInteger).as(myDescription, 1, 2).isInstanceOf(RuntimeException.class);
+        // or to:
+        Assertions.assertThatThrownBy(this::getInteger, myDescription, 1, 2).isInstanceOf(RuntimeException.class);
     }
 
     private Integer getInteger() {
