@@ -35,6 +35,10 @@ search:
                   type: org.hamcrest.collection.IsEmptyIterable
                 - name: emptyArray
                   type: org.hamcrest.Matchers
+                - name: anEmptyMap
+                  type: org.hamcrest.Matchers
+                - name: anEmptyMap
+                  type: org.hamcrest.collection.IsMapWithSize
       argCount: 2
     - args:
         1:
@@ -62,6 +66,10 @@ search:
                   type: org.hamcrest.collection.IsEmptyIterable
                 - name: emptyArray
                   type: org.hamcrest.Matchers
+                - name: anEmptyMap
+                  type: org.hamcrest.Matchers
+                - name: anEmptyMap
+                  type: org.hamcrest.collection.IsMapWithSize
       argCount: 3
     type: org.hamcrest.MatcherAssert
 availableFixes:

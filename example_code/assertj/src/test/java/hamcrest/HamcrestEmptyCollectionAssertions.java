@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -149,6 +150,47 @@ public class HamcrestEmptyCollectionAssertions {
             assertThat("reason", emptyArray, org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.emptyArray()));
             assertThat("reason", emptyArray, org.hamcrest.core.Is.is(org.hamcrest.Matchers.emptyArray()));
             assertThat("reason", emptyArray, org.hamcrest.Matchers.is(org.hamcrest.Matchers.emptyArray()));
+        }
+    }
+
+    @Nested
+    class EmptyMap {
+        Map<String, Object> emptyMap = Map.of();
+
+        @Test
+        void test_a_map_with_size() {
+            assertThat(emptyMap, org.hamcrest.Matchers.anEmptyMap());
+            assertThat(emptyMap, org.hamcrest.collection.IsMapWithSize.anEmptyMap());
+        }
+
+        @Test
+        void test_a_map_with_size_with_reason() {
+            assertThat("reason", emptyMap, org.hamcrest.Matchers.anEmptyMap());
+            assertThat("reason", emptyMap, org.hamcrest.collection.IsMapWithSize.anEmptyMap());
+        }
+
+        @Test
+        void test_is_a_map_with_size() {
+            assertThat(emptyMap, org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.anEmptyMap()));
+            assertThat(emptyMap, org.hamcrest.CoreMatchers.is(org.hamcrest.collection.IsMapWithSize.anEmptyMap()));
+
+            assertThat(emptyMap, org.hamcrest.core.Is.is(org.hamcrest.Matchers.anEmptyMap()));
+            assertThat(emptyMap, org.hamcrest.core.Is.is(org.hamcrest.collection.IsMapWithSize.anEmptyMap()));
+
+            assertThat(emptyMap, org.hamcrest.Matchers.is(org.hamcrest.Matchers.anEmptyMap()));
+            assertThat(emptyMap, org.hamcrest.Matchers.is(org.hamcrest.collection.IsMapWithSize.anEmptyMap()));
+        }
+
+        @Test
+        void test_is_a_map_with_size_with_reason() {
+            assertThat("reason", emptyMap, org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.anEmptyMap()));
+            assertThat("reason", emptyMap, org.hamcrest.CoreMatchers.is(org.hamcrest.collection.IsMapWithSize.anEmptyMap()));
+
+            assertThat("reason", emptyMap, org.hamcrest.core.Is.is(org.hamcrest.Matchers.anEmptyMap()));
+            assertThat("reason", emptyMap, org.hamcrest.core.Is.is(org.hamcrest.collection.IsMapWithSize.anEmptyMap()));
+
+            assertThat("reason", emptyMap, org.hamcrest.Matchers.is(org.hamcrest.Matchers.anEmptyMap()));
+            assertThat("reason", emptyMap, org.hamcrest.Matchers.is(org.hamcrest.collection.IsMapWithSize.anEmptyMap()));
         }
     }
 }

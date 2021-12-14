@@ -40,6 +40,10 @@ search:
                             type: org.hamcrest.collection.IsEmptyIterable
                           - name: emptyArray
                             type: org.hamcrest.Matchers
+                          - name: anEmptyMap
+                            type: org.hamcrest.Matchers
+                          - name: anEmptyMap
+                            type: org.hamcrest.collection.IsMapWithSize
                 name: is
                 type:
                   reference:
@@ -77,6 +81,10 @@ search:
                             type: org.hamcrest.collection.IsEmptyIterable
                           - name: emptyArray
                             type: org.hamcrest.Matchers
+                          - name: anEmptyMap
+                            type: org.hamcrest.Matchers
+                          - name: anEmptyMap
+                            type: org.hamcrest.collection.IsMapWithSize
                 name: is
                 type:
                   reference:
