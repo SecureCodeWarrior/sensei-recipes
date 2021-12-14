@@ -158,19 +158,19 @@ public class HamcrestEmptyCollectionAssertions {
         Map<String, Object> emptyMap = Map.of();
 
         @Test
-        void test_a_map_with_size() {
+        void test_an_empty_map() {
             assertThat(emptyMap, org.hamcrest.Matchers.anEmptyMap());
             assertThat(emptyMap, org.hamcrest.collection.IsMapWithSize.anEmptyMap());
         }
 
         @Test
-        void test_a_map_with_size_with_reason() {
+        void test_an_empty_map_with_reason() {
             assertThat("reason", emptyMap, org.hamcrest.Matchers.anEmptyMap());
             assertThat("reason", emptyMap, org.hamcrest.collection.IsMapWithSize.anEmptyMap());
         }
 
         @Test
-        void test_is_a_map_with_size() {
+        void test_is_an_empty_map() {
             assertThat(emptyMap, org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.anEmptyMap()));
             assertThat(emptyMap, org.hamcrest.CoreMatchers.is(org.hamcrest.collection.IsMapWithSize.anEmptyMap()));
 
@@ -182,7 +182,7 @@ public class HamcrestEmptyCollectionAssertions {
         }
 
         @Test
-        void test_is_a_map_with_size_with_reason() {
+        void test_is_an_empty_map_with_reason() {
             assertThat("reason", emptyMap, org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.anEmptyMap()));
             assertThat("reason", emptyMap, org.hamcrest.CoreMatchers.is(org.hamcrest.collection.IsMapWithSize.anEmptyMap()));
 
