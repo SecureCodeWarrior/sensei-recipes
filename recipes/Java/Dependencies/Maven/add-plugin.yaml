@@ -12,8 +12,7 @@ search:
     in:
       file:
         name: pom.xml
-    tagName:
-      is: project
+    tagName: http://maven.apache.org/POM/4.0.0:project
     child:
       tagName:
         is: build

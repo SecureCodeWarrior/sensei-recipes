@@ -21,8 +21,7 @@ search:
           child:
             tagName:
               is: plugins
-    tagName:
-      is: project
+    tagName: http://maven.apache.org/POM/4.0.0:project
 availableFixes:
 - name: Add OWASP Dependency-Check plugin (new plugins section)
   actions:
