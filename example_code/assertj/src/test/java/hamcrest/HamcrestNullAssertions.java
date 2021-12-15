@@ -84,7 +84,7 @@ class HamcrestNullAssertions {
         private final Object notNullValue = new Object();
 
         @Test
-        void test_nullValue() {
+        void test_notNullValue() {
             assertThat(notNullValue, org.hamcrest.CoreMatchers.notNullValue());
             assertThat(notNullValue, org.hamcrest.CoreMatchers.notNullValue(Object.class));
             assertThat(notNullValue, org.hamcrest.core.IsNull.notNullValue());
@@ -94,7 +94,7 @@ class HamcrestNullAssertions {
         }
 
         @Test
-        void test_nullValue_with_reason() {
+        void test_notNullValue_with_reason() {
             assertThat("reason", notNullValue, org.hamcrest.CoreMatchers.notNullValue());
             assertThat("reason", notNullValue, org.hamcrest.CoreMatchers.notNullValue(Object.class));
             assertThat("reason", notNullValue, org.hamcrest.core.IsNull.notNullValue());
@@ -104,7 +104,7 @@ class HamcrestNullAssertions {
         }
 
         @Test
-        void test_isNullValue() {
+        void test_isNotNullValue() {
             assertThat(notNullValue, org.hamcrest.CoreMatchers.is(org.hamcrest.CoreMatchers.notNullValue()));
             assertThat(notNullValue, org.hamcrest.CoreMatchers.is(org.hamcrest.CoreMatchers.notNullValue(Object.class)));
             assertThat(notNullValue, org.hamcrest.CoreMatchers.is(org.hamcrest.core.IsNull.notNullValue()));
@@ -128,7 +128,7 @@ class HamcrestNullAssertions {
         }
 
         @Test
-        void test_isNullValue_with_reason() {
+        void test_isNotNullValue_with_reason() {
             assertThat("reason", notNullValue, org.hamcrest.CoreMatchers.is(org.hamcrest.CoreMatchers.notNullValue()));
             assertThat("reason", notNullValue, org.hamcrest.CoreMatchers.is(org.hamcrest.CoreMatchers.notNullValue(Object.class)));
             assertThat("reason", notNullValue, org.hamcrest.CoreMatchers.is(org.hamcrest.core.IsNull.notNullValue()));
