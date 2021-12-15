@@ -1,14 +1,14 @@
 id: scw:java.time:Joda-Time:DateTime-plus-long
 version: 10
 metadata:
-  name: Rewrite DateTime plus(long) to java.time equivalent
-  shortDescription: Rewrite DateTime plus(long) to java.time equivalent
+  name: Rewrite plus millis to java.time equivalent
+  shortDescription: Rewrite plus millis to java.time equivalent
   level: warning
   language: java
   enabled: true
   comment: |
-    Joda-Time's DateTime class provided a plus(long) method to create a new DateTime object by adding milliseconds to an existing DateTime object.
-    This method is not available in java.time, but you can acheive the same result by using plus(long, ChronoUnit.MILLIS)
+    Joda-Time's DateTime class provided methods to create a new DateTime object by adding milliseconds to an existing DateTime object.
+    These methods are not available in java.time, but you can achieve the same result by using plus(long, ChronoUnit.MILLIS)
 
     This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
     After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
@@ -24,13 +24,16 @@ search:
         - type: java.lang.Long
         - type: int
         - type: java.lang.Integer
+    allOf:
+    - anyOf:
+      - name: plus
+      - name: plusMillis
+    - anyOf:
+      - type: java.time.ZonedDateTime
+      - type: java.time.OffsetDateTime
     argCount: 1
-    name: plus
-    anyOf:
-    - type: java.time.ZonedDateTime
-    - type: java.time.OffsetDateTime
 availableFixes:
-- name: 'Rewrite plus(long) to java.time equivalent: plus(value, ChronoUnit.MILLIS)'
+- name: 'Rewrite to java.time equivalent: plus(value, ChronoUnit.MILLIS)'
   actions:
   - rewrite:
       to: '{{{ qualifier }}}.plus({{{ arguments.0 }}}, java.time.temporal.ChronoUnit.MILLIS)'

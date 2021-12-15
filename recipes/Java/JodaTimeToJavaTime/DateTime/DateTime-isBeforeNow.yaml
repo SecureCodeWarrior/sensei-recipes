@@ -8,7 +8,7 @@ metadata:
   enabled: true
   comment: |
     Joda-Time's DateTime class provided an isBeforeNow method to conveniently check if the datetime is before the current Instant in time.
-    This method is not available in java.time, but you can acheive the same result by using myZonedDateTime.isBefore(ZonedDateTime.now()) or myOffsetDateTime.isBefore(OffsetDateTime.now()).
+    This method is not available in java.time, but you can achieve the same result by using myZonedDateTime.isBefore(ZonedDateTime.now()) or myOffsetDateTime.isBefore(OffsetDateTime.now()).
 
     This recipe is designed to match on broken code as part of an overall Joda-Time to java.time migration. The method that is being searched for does not actually exist on ZoneDateTime/OffsetDateTime.
     After migrating a DateTime instance to a ZoneDateTime or OffsetDateTime, subsequent calls may be made to methods that existed for DateTime, but no longer exist for ZonedDateTime/OffsetDateTime.
