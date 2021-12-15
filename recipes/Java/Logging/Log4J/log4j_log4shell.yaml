@@ -15,14 +15,14 @@ scopes:
   library:
     name:
       contains: org.apache.logging.log4j:log4j-core
-    maxVersion: 2.14.999
+    maxVersion: 2.15.999
 availableFixes:
 - name: Read about Log4Shell vulnerability (CVE-2021-44228)
   actions:
   - goto:
       type: URL
       value: https://log4shell.com/
-- name: Upgrade to Log4j 2.15.0 or higher (edit pom.xml/build.gradle)
+- name: Upgrade to Log4j 2.16.0 or higher (edit pom.xml/build.gradle)
   actions:
   - goto:
       type: URL
