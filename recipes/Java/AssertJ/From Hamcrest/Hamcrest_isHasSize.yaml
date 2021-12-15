@@ -82,7 +82,7 @@ search:
     type: org.hamcrest.MatcherAssert
 availableFixes:
 - doStaticImports: true
-  name: Change to assertThat(actual).isEqualTo(expected)
+  name: Change to assertThat(actual).hasSize(expectedSize)
   availableIf:
     markedElement:
       is:
@@ -92,7 +92,7 @@ availableFixes:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).hasSize({{{ arguments.1.arguments.0.arguments.0 }}})
 - doStaticImports: true
-  name: Change to assertThat(actual).as(reason).isEqualTo(expected)
+  name: Change to assertThat(actual).as(reason).hasSize(expectedSize)
   availableIf:
     markedElement:
       is:
