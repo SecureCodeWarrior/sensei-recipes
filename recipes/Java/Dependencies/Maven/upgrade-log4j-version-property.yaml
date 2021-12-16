@@ -23,7 +23,7 @@ search:
         tagName:
           is: properties
     text:
-      matches: 2\.0.*|2\.1(\.\d+)*|2\.[2-9](\.\d+)*|2\.1[01234]\..*
+      matches: 2\.0.*|2\.1(\.\d+)*|2\.[2-9](\.\d+)*|2\.1[012345]\..*
     tagName:
       matches: log4j[.-]version|log4j[.-](api|core)[.-]version|org[.-]apache[.-]logging[.-]log4j[.-]version
 availableFixes:
