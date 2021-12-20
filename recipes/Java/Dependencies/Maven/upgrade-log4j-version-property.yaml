@@ -6,7 +6,7 @@ metadata:
   level: error
   language: xml
   enabled: true
-  tags: Apache Maven;security;OWASP Top 10;framework specific;logging;Log4j;SLF4J;CVE-2021-44228;CVE-2021-45046;CVE-2021-45105
+  tags: Apache Maven;security;SLF4J;OWASP Top 10;framework specific;Log4j;logging;injection
 search:
   element:
     in:
