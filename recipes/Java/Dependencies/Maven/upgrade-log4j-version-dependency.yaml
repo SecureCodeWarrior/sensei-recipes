@@ -1,12 +1,12 @@
 id: scw:logging:log4j:log4shell-upgrade-dependency
 version: 10
 metadata:
-  name: Vulnerable Log4j dependency - Log4Shell/CVE-2021-44228
-  shortDescription: Vulnerable Log4j dependency - Log4Shell/CVE-2021-44228
+  name: Vulnerable Log4j dependency - Log4Shell/CVE-2021-44228/CVE-2021-45046/CVE-2021-45105
+  shortDescription: Vulnerable Log4j dependency - Log4Shell/CVE-2021-44228/CVE-2021-45046/CVE-2021-45105
   level: error
   language: xml
   enabled: true
-  tags: Apache Maven;security;OWASP Top 10;framework specific;logging;Log4j;SLF4J
+  tags: Apache Maven;security;OWASP Top 10;framework specific;logging;Log4j;SLF4J;CVE-2021-44228;CVE-2021-45046;CVE-2021-45105
 search:
   element:
     in:
@@ -37,11 +37,11 @@ search:
         tagName:
           is: dependency
     text:
-      matches: 2\.0.*|2\.1(\.\d+)*|2\.[2-9](\.\d+)*|2\.1[012345]\..*
+      matches: 2\.0.*|2\.1(\.\d+)*|2\.[2-9](\.\d+)*|2\.1[0-6]\..*
     tagName:
       is: version
 availableFixes:
 - name: Upgrade Log4j version
   actions:
   - rewrite:
-      to: <version>2.16.0</version>
+      to: <version>2.17.0</version>
