@@ -42,6 +42,12 @@ cookbooks: # List of cookbooks
     includedTags: [OWASP Top 10]
     excludedTags: []
     featured: true
+  - id: scw:logging:log4j
+    name: Log4j
+    description: Recipes relating to Log4j (and Log4Shell vulnerabilities)
+    includedTags: [Log4j]
+    excludedTags: []
+    featured: true
   - id: scw:logging:slf4j
     name: Standardisation on SLF4J
     description: Recipes to standardise on the SLF4J framework including migrations from other logging frameworks
