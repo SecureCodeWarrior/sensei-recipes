@@ -245,7 +245,6 @@ class HamcrestStringComparisonAssertions {
         assertThat("reason", "", org.hamcrest.Matchers.is(org.hamcrest.text.IsEmptyString.emptyOrNullString()));
     }
 
-    @Disabled("No direct conversion possible")
     @Test
     void equal_compressing_white_space() {
         assertThat(" string   with   spaces ", org.hamcrest.Matchers.equalToCompressingWhiteSpace("string with spaces"));
@@ -257,7 +256,6 @@ class HamcrestStringComparisonAssertions {
         assertThat("reason", " string   with   spaces ", org.hamcrest.text.IsEqualCompressingWhiteSpace.equalToIgnoringWhiteSpace("string with spaces"));
     }
 
-    @Disabled("No direct conversion possible")
     @Test
     void is_equal_compressing_white_space() {
         assertThat(" string   with   spaces ", org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.equalToCompressingWhiteSpace("string with spaces")));

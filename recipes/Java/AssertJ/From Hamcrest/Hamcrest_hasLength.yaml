@@ -1,4 +1,4 @@
-id: scw:assertj:hamcrest-has-lenght
+id: scw:assertj:hamcrest-has-length
 version: 10
 metadata:
   name: Use AssertJ's hasSize() instead of hasLength()
