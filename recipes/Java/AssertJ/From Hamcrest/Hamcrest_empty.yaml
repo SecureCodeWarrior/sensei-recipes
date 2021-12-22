@@ -1,7 +1,7 @@
 id: scw:assertj:hamcrest-empty
 version: 10
 metadata:
-  name: Use AssertJ's isEmpty() instead of empty/emptyCollection/emptyIterable
+  name: Use AssertJ's isEmpty() instead of empty/emptyCollection/emptyIterable/emptyString
   shortDescription: Can be replaced with AssertJ style assertions
   level: warning
   language: java
@@ -39,6 +39,10 @@ search:
                   type: org.hamcrest.Matchers
                 - name: anEmptyMap
                   type: org.hamcrest.collection.IsMapWithSize
+                - name: emptyString
+                  type: org.hamcrest.Matchers
+                - name: emptyString
+                  type: org.hamcrest.text.IsEmptyString
       argCount: 2
     - args:
         1:
@@ -70,11 +74,15 @@ search:
                   type: org.hamcrest.Matchers
                 - name: anEmptyMap
                   type: org.hamcrest.collection.IsMapWithSize
+                - name: emptyString
+                  type: org.hamcrest.Matchers
+                - name: emptyString
+                  type: org.hamcrest.text.IsEmptyString
       argCount: 3
     type: org.hamcrest.MatcherAssert
 availableFixes:
 - doStaticImports: true
-  name: Change to assertThat(actual).isEqualTo(expected)
+  name: Change to assertThat(actual).isEmpty()
   availableIf:
     markedElement:
       is:
@@ -84,7 +92,7 @@ availableFixes:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).isEmpty()
 - doStaticImports: true
-  name: Change to assertThat(actual).as(reason).isEqualTo(expected)
+  name: Change to assertThat(actual).as(reason).isEmpty()
   availableIf:
     markedElement:
       is:

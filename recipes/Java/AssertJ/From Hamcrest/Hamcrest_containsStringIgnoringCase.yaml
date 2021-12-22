@@ -1,0 +1,59 @@
+id: scw:assertj:hamcrest-contains-string-ignoring-case
+version: 10
+metadata:
+  name: Use AssertJ's containsIgnoringCase() instead of containsStringIgnoringCase()
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ; Hamcrest
+search:
+  methodcall:
+    name: assertThat
+    anyOf:
+    - args:
+        2:
+          value:
+            is:
+              methodcall:
+                name: containsStringIgnoringCase
+                type:
+                  reference:
+                    matches: org\.hamcrest\.(Matchers|CoreMatchers|core\.StringContains)
+                  checkInheritance: true
+      argCount: 2
+    - args:
+        1:
+          type: String
+        3:
+          value:
+            is:
+              methodcall:
+                name: containsStringIgnoringCase
+                type:
+                  reference:
+                    matches: org\.hamcrest\.(Matchers|CoreMatchers|core\.StringContains)
+                  checkInheritance: true
+      argCount: 3
+    type: org.hamcrest.MatcherAssert
+availableFixes:
+- doStaticImports: true
+  name: Change to assertThat(actual).containsIgnoringCase(expected)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).containsIgnoringCase({{{ arguments.1.arguments.0 }}})
+- doStaticImports: true
+  name: Change to assertThat(actual).as(reason).containsIgnoringCase(expected)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 3
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.0 }}}).containsIgnoringCase({{{ arguments.2.arguments.0 }}})
