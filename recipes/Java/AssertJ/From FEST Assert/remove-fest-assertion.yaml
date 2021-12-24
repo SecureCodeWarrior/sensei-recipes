@@ -7,7 +7,7 @@ metadata:
   language: java
   enabled: true
   comment: After migrating to AssertJ, the class org.fest.assertions.core.ObjectEnumerableAssert is replaced by org.assertj.core.api.ObjectEnumerableAssert, but the AssertJ version does not implement certain methods.
-  tags: AssertJ
+  tags: AssertJ;framework specific
 search:
   methodcall:
     anyOf:

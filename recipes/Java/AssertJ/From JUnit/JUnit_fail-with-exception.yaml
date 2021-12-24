@@ -6,6 +6,7 @@ metadata:
   level: warning
   language: java
   enabled: true
+  tags: AssertJ;framework specific
 search:
   methodcall:
     name: fail
