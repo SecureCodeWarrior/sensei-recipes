@@ -8,7 +8,7 @@ metadata:
   scwCategory: vulncomponents:known
   cweCategory: 20
   enabled: true
-  tags: security;SLF4J;OWASP Top 10;framework specific;Log4j;logging;injection
+  tags: Log4j;OWASP Top 10;SLF4J;basic protection set;framework specific;injection;logging;security
 search:
   class: {}
 scopes:
