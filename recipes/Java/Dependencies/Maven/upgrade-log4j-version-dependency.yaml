@@ -6,7 +6,7 @@ metadata:
   level: error
   language: xml
   enabled: true
-  tags: Apache Maven;security;SLF4J;OWASP Top 10;framework specific;Log4j;logging;injection
+  tags: Apache Maven;Log4j;OWASP Top 10;SLF4J;basic protection set;framework specific;injection;logging;security
 search:
   element:
     in:
