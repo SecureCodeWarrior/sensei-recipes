@@ -1,7 +1,7 @@
 id: scw:assertj:hamcrest-is-blank-string
 version: 10
 metadata:
-  name: Use AssertJ's isBlank() instead of is(blankString())
+  name: Use AssertJ's isBlank() instead of is(blankString())/is(blankOrNullString())
   shortDescription: Can be replaced with AssertJ style assertions
   level: warning
   language: java
@@ -26,6 +26,10 @@ search:
                             type: org.hamcrest.Matchers
                           - name: blankString
                             type: org.hamcrest.text.IsBlankString
+                          - name: blankOrNullString
+                            type: org.hamcrest.Matchers
+                          - name: blankOrNullString
+                            type: org.hamcrest.text.IsBlankString
                 name: is
                 type:
                   reference:
@@ -48,6 +52,10 @@ search:
                           - name: blankString
                             type: org.hamcrest.Matchers
                           - name: blankString
+                            type: org.hamcrest.text.IsBlankString
+                          - name: blankOrNullString
+                            type: org.hamcrest.Matchers
+                          - name: blankOrNullString
                             type: org.hamcrest.text.IsBlankString
                 name: is
                 type:

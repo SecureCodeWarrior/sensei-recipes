@@ -2,6 +2,9 @@ package hamcrest;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -153,36 +156,38 @@ class HamcrestStringComparisonAssertions {
         assertThat("reason", "   ", org.hamcrest.Matchers.is(org.hamcrest.text.IsBlankString.blankString()));
     }
 
-    @Disabled("No direct conversion possible") // could convert to "isEmptyOrNull()" but not necessarily the same thing
-    @Test
-    void blank_or_null_string() {
-        assertThat("   ", org.hamcrest.Matchers.blankOrNullString());
-        assertThat("   ", org.hamcrest.text.IsBlankString.blankOrNullString());
+    @ParameterizedTest
+    @ValueSource(strings = {"", "  "})
+    @NullSource
+    void blank_or_null_string(String actual) {
+        assertThat(actual, org.hamcrest.Matchers.blankOrNullString());
+        assertThat(actual, org.hamcrest.text.IsBlankString.blankOrNullString());
 
-        assertThat("reason", "   ", org.hamcrest.Matchers.blankOrNullString());
-        assertThat("reason", "   ", org.hamcrest.text.IsBlankString.blankOrNullString());
+        assertThat("reason", actual, org.hamcrest.Matchers.blankOrNullString());
+        assertThat("reason", actual, org.hamcrest.text.IsBlankString.blankOrNullString());
     }
 
-    @Disabled("No direct conversion possible") // could convert to "isEmptyOrNull()" but not necessarily the same thing
-    @Test
-    void is_blank_or_null_string() {
-        assertThat("   ", org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.blankOrNullString()));
-        assertThat("   ", org.hamcrest.CoreMatchers.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
+    @ParameterizedTest
+    @ValueSource(strings = {"", "  "})
+    @NullSource
+    void is_blank_or_null_string(String actual) {
+        assertThat(actual, org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.blankOrNullString()));
+        assertThat(actual, org.hamcrest.CoreMatchers.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
 
-        assertThat("   ", org.hamcrest.core.Is.is(org.hamcrest.Matchers.blankOrNullString()));
-        assertThat("   ", org.hamcrest.core.Is.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
+        assertThat(actual, org.hamcrest.core.Is.is(org.hamcrest.Matchers.blankOrNullString()));
+        assertThat(actual, org.hamcrest.core.Is.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
 
-        assertThat("   ", org.hamcrest.Matchers.is(org.hamcrest.Matchers.blankOrNullString()));
-        assertThat("   ", org.hamcrest.Matchers.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
+        assertThat(actual, org.hamcrest.Matchers.is(org.hamcrest.Matchers.blankOrNullString()));
+        assertThat(actual, org.hamcrest.Matchers.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
 
-        assertThat("reason", "   ", org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.blankOrNullString()));
-        assertThat("reason", "   ", org.hamcrest.CoreMatchers.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
+        assertThat("reason", actual, org.hamcrest.CoreMatchers.is(org.hamcrest.Matchers.blankOrNullString()));
+        assertThat("reason", actual, org.hamcrest.CoreMatchers.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
 
-        assertThat("reason", "   ", org.hamcrest.core.Is.is(org.hamcrest.Matchers.blankOrNullString()));
-        assertThat("reason", "   ", org.hamcrest.core.Is.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
+        assertThat("reason", actual, org.hamcrest.core.Is.is(org.hamcrest.Matchers.blankOrNullString()));
+        assertThat("reason", actual, org.hamcrest.core.Is.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
 
-        assertThat("reason", "   ", org.hamcrest.Matchers.is(org.hamcrest.Matchers.blankOrNullString()));
-        assertThat("reason", "   ", org.hamcrest.Matchers.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
+        assertThat("reason", actual, org.hamcrest.Matchers.is(org.hamcrest.Matchers.blankOrNullString()));
+        assertThat("reason", actual, org.hamcrest.Matchers.is(org.hamcrest.text.IsBlankString.blankOrNullString()));
     }
 
     @Test
