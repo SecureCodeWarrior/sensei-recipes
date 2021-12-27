@@ -30,10 +30,10 @@ search:
             is:
               methodcall:
                 anyOf:
-                  - name: emptyOrNullString
-                    type: org.hamcrest.Matchers
-                  - name: emptyOrNullString
-                    type: org.hamcrest.text.IsEmptyString
+                - name: emptyOrNullString
+                  type: org.hamcrest.Matchers
+                - name: emptyOrNullString
+                  type: org.hamcrest.text.IsEmptyString
       argCount: 3
     type: org.hamcrest.MatcherAssert
 availableFixes:

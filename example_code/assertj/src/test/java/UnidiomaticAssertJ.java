@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.io.NotSerializableException;
 import java.security.SecureRandom;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+import static java.util.regex.Pattern.compile;
 import static org.assertj.core.api.Assertions.*;
 
 @SuppressWarnings("ConstantConditions")
@@ -172,6 +174,19 @@ class UnidiomaticAssertJ {
         // no migration for subclass of IOException
         assertThatExceptionOfType(NotSerializableException.class).isThrownBy(this::getInteger);
 
+    }
+
+    @Test
+    void idiomaticPatternAssertions() {
+        // should match those:
+        assertThat("Hello World!").matches(Pattern.compile("([A-Za-z]+ ([A-Za-z]+!))")); // to assertThat("Hello World!").matches("([A-Za-z]+ ([A-Za-z]+!))")
+        assertThat("Hello World!").matches(compile("([A-Za-z]+ ([A-Za-z]+!))")); // to assertThat("Hello World!").matches("([A-Za-z]+ ([A-Za-z]+!))")
+        assertThat("Hello World!").as("reason").matches(compile("([A-Za-z]+ ([A-Za-z]+!))")); // to assertThat("Hello World!").as("reason").matches("([A-Za-z]+ ([A-Za-z]+!))")
+        assertThat("Hello World!").describedAs("reason").matches(compile("([A-Za-z]+ ([A-Za-z]+!))")); // to assertThat("Hello World!").describedAs("reason").matches("([A-Za-z]+ ([A-Za-z]+!))")
+
+        // should not match those:
+        assertThat("Hello World!").matches("([A-Za-z]+ ([A-Za-z]+!))");
+        assertThat("Hello World!").as("reason").matches("([A-Za-z]+ ([A-Za-z]+!))");
     }
 
     @Test

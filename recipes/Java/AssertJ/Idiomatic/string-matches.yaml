@@ -1,0 +1,55 @@
+id: scw:assertj:idiomatic:string matches
+version: 10
+metadata:
+  name: Use matches(pattern) instead of matches(Pattern.compile(pattern))
+  shortDescription: Use matches(pattern) instead of matches(Pattern.compile(pattern))
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ;framework specific;quality
+search:
+  methodcall:
+    name: assertThat
+    anyOf:
+    - followedBy:
+        methodcall:
+          args:
+            1:
+              value:
+                is:
+                  methodcall:
+                    name: compile
+                    type: java.util.regex.Pattern
+          name: matches
+          label: matchesMethodCall
+          type:
+            reference:
+              matches: org.assertj.core.api.AbstractCharSequenceAssert<.*>
+            checkInheritance: true
+    - followedBy:
+        methodcall:
+          followedBy:
+            methodcall:
+              args:
+                1:
+                  value:
+                    is:
+                      methodcall:
+                        name: compile
+                        type: java.util.regex.Pattern
+              name: matches
+              label: matchesMethodCall
+          name:
+            matches: (as|describedAs)
+          type:
+            reference:
+              matches: org.assertj.core.api.AbstractCharSequenceAssert<.*>
+            checkInheritance: true
+availableFixes:
+- doStaticImports: true
+  name: Use idiomatic assertion
+  actions:
+  - modifyArguments:
+      rewrite:
+        1: '{{{arguments}}}'
+      target: label:matchesMethodCall
