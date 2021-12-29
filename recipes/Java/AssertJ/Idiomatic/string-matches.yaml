@@ -1,4 +1,4 @@
-id: scw:assertj:idiomatic:string matches
+id: scw:assertj:idiomatic:string-matches
 version: 10
 metadata:
   name: Use matches(pattern) instead of matches(Pattern.compile(pattern))
@@ -8,48 +8,34 @@ metadata:
   enabled: true
   tags: AssertJ;framework specific;quality
 search:
-  methodcall:
-    name: assertThat
+  argument:
     anyOf:
-    - followedBy:
+    - in:
         methodcall:
-          args:
-            1:
-              value:
-                is:
-                  methodcall:
-                    name: compile
-                    type: java.util.regex.Pattern
           name: matches
-          label: matchesMethodCall
           type:
             reference:
               matches: org.assertj.core.api.AbstractCharSequenceAssert<.*>
             checkInheritance: true
-    - followedBy:
+    - in:
         methodcall:
-          followedBy:
+          name: matches
+          "on":
             methodcall:
-              args:
-                1:
-                  value:
-                    is:
-                      methodcall:
-                        name: compile
-                        type: java.util.regex.Pattern
-              name: matches
-              label: matchesMethodCall
-          name:
-            matches: (as|describedAs)
-          type:
-            reference:
-              matches: org.assertj.core.api.AbstractCharSequenceAssert<.*>
-            checkInheritance: true
+              name:
+                matches: (as|describedAs)
+              type:
+                reference:
+                  matches: org.assertj.core.api.AbstractCharSequenceAssert<.*>
+                checkInheritance: true
+    value:
+      is:
+        methodcall:
+          name: compile
+          type: java.util.regex.Pattern
 availableFixes:
 - doStaticImports: true
   name: Use idiomatic assertion
   actions:
-  - modifyArguments:
-      rewrite:
-        1: '{{{arguments}}}'
-      target: label:matchesMethodCall
+  - rewrite:
+      to: '{{{ arguments }}}'
