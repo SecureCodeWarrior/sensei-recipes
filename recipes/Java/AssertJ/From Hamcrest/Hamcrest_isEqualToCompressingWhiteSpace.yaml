@@ -22,12 +22,12 @@ search:
                       is:
                         methodcall:
                           anyOf:
-                            - name: equalToCompressingWhiteSpace
-                              type: org.hamcrest.Matchers
-                            - name: equalToCompressingWhiteSpace
-                              type: org.hamcrest.text.IsEqualCompressingWhiteSpace
-                            - name: equalToIgnoringWhiteSpace
-                              type: org.hamcrest.text.IsEqualCompressingWhiteSpace
+                          - name: equalToCompressingWhiteSpace
+                            type: org.hamcrest.Matchers
+                          - name: equalToCompressingWhiteSpace
+                            type: org.hamcrest.text.IsEqualCompressingWhiteSpace
+                          - name: equalToIgnoringWhiteSpace
+                            type: org.hamcrest.text.IsEqualCompressingWhiteSpace
                 name: is
                 type:
                   reference:
@@ -47,12 +47,12 @@ search:
                       is:
                         methodcall:
                           anyOf:
-                            - name: equalToCompressingWhiteSpace
-                              type: org.hamcrest.Matchers
-                            - name: equalToCompressingWhiteSpace
-                              type: org.hamcrest.text.IsEqualCompressingWhiteSpace
-                            - name: equalToIgnoringWhiteSpace
-                              type: org.hamcrest.text.IsEqualCompressingWhiteSpace
+                          - name: equalToCompressingWhiteSpace
+                            type: org.hamcrest.Matchers
+                          - name: equalToCompressingWhiteSpace
+                            type: org.hamcrest.text.IsEqualCompressingWhiteSpace
+                          - name: equalToIgnoringWhiteSpace
+                            type: org.hamcrest.text.IsEqualCompressingWhiteSpace
                 name: is
                 type:
                   reference:

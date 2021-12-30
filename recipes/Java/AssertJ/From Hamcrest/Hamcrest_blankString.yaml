@@ -34,14 +34,14 @@ search:
             is:
               methodcall:
                 anyOf:
-                  - name: blankString
-                    type: org.hamcrest.Matchers
-                  - name: blankString
-                    type: org.hamcrest.text.IsBlankString
-                  - name: blankOrNullString
-                    type: org.hamcrest.Matchers
-                  - name: blankOrNullString
-                    type: org.hamcrest.text.IsBlankString
+                - name: blankString
+                  type: org.hamcrest.Matchers
+                - name: blankString
+                  type: org.hamcrest.text.IsBlankString
+                - name: blankOrNullString
+                  type: org.hamcrest.Matchers
+                - name: blankOrNullString
+                  type: org.hamcrest.text.IsBlankString
       argCount: 3
     type: org.hamcrest.MatcherAssert
 availableFixes:
