@@ -1,0 +1,59 @@
+id: scw:assertj:hamcrest-contains
+version: 10
+metadata:
+  name: Use AssertJ's containsExactly() instead of contains
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ; Hamcrest
+search:
+  methodcall:
+    name: assertThat
+    anyOf:
+    - args:
+        2:
+          value:
+            is:
+              methodcall:
+                anyOf:
+                - name: contains
+                  type: org.hamcrest.Matchers
+                - name: contains
+                  type: org.hamcrest.collection.IsIterableContainingInOrder
+      argCount: 2
+    - args:
+        1:
+          type: String
+        3:
+          value:
+            is:
+              methodcall:
+                anyOf:
+                - name: contains
+                  type: org.hamcrest.Matchers
+                - name: contains
+                  type: org.hamcrest.collection.IsIterableContainingInOrder
+      argCount: 3
+    type: org.hamcrest.MatcherAssert
+availableFixes:
+- doStaticImports: true
+  name: Change to assertThat(collection).containsExactly(expectedElements)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).containsExactly({{{ arguments.1.arguments }}})
+- doStaticImports: true
+  name: Change to assertThat(collection).as(reason).containsExactly(expectedElements)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 3
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.0 }}}).containsExactly({{{ arguments.2.arguments }}})

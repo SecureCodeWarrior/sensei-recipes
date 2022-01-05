@@ -1,0 +1,59 @@
+id: scw:assertj:hamcrest-contains-in-relative-order
+version: 10
+metadata:
+  name: Use AssertJ's contains() instead of containsInRelativeOrder
+  shortDescription: Can be replaced with AssertJ style assertions
+  level: warning
+  language: java
+  enabled: true
+  tags: AssertJ; Hamcrest
+search:
+  methodcall:
+    name: assertThat
+    anyOf:
+    - args:
+        2:
+          value:
+            is:
+              methodcall:
+                anyOf:
+                - name: containsInRelativeOrder
+                  type: org.hamcrest.Matchers
+                - name: containsInRelativeOrder
+                  type: org.hamcrest.collection.IsIterableContainingInRelativeOrder
+      argCount: 2
+    - args:
+        1:
+          type: String
+        3:
+          value:
+            is:
+              methodcall:
+                anyOf:
+                - name: containsInRelativeOrder
+                  type: org.hamcrest.Matchers
+                - name: containsInRelativeOrder
+                  type: org.hamcrest.collection.IsIterableContainingInRelativeOrder
+      argCount: 3
+    type: org.hamcrest.MatcherAssert
+availableFixes:
+- doStaticImports: true
+  name: Change to assertThat(collection).contains(expectedElements)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 2
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).contains({{{ arguments.1.arguments }}})
+- doStaticImports: true
+  name: Change to assertThat(collection).as(reason).contains(expectedElements)
+  availableIf:
+    markedElement:
+      is:
+        methodcall:
+          argCount: 3
+  actions:
+  - rewrite:
+      to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.0 }}}).contains({{{ arguments.2.arguments }}})
