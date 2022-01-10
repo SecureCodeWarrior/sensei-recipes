@@ -126,7 +126,7 @@ search:
     type: org.hamcrest.MatcherAssert
 availableFixes:
 - doStaticImports: true
-  name: '[direct] Change to assertThat(collection).contains(expectedElement)'
+  name: Change to assertThat(collection).contains(expectedElement)
   availableIf:
     markedElement:
       is:
@@ -149,7 +149,7 @@ availableFixes:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).contains({{{ arguments.1.arguments }}})
 - doStaticImports: true
-  name: '[direct] Change to assertThat(collection).as(reason).contains(expectedElement)'
+  name: Change to assertThat(collection).as(reason).contains(expectedElement)
   availableIf:
     markedElement:
       is:
@@ -172,7 +172,7 @@ availableFixes:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThat({{{ arguments.1 }}}).as({{{ arguments.0 }}}).contains({{{ arguments.2.arguments }}})
 - doStaticImports: true
-  name: '[level1] Change to assertThat(collection).contains(expectedElement)'
+  name: Simplify to assertThat(collection).contains(expectedElement)
   availableIf:
     markedElement:
       is:
@@ -203,7 +203,7 @@ availableFixes:
   - rewrite:
       to: org.assertj.core.api.Assertions.assertThat({{{ arguments.0 }}}).contains({{{ arguments.1.arguments.0.arguments }}})
 - doStaticImports: true
-  name: '[level1] Change to assertThat(collection).as(reason).contains(expectedElement)'
+  name: Simplify to assertThat(collection).as(reason).contains(expectedElement)
   availableIf:
     markedElement:
       is:
