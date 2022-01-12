@@ -1,0 +1,52 @@
+id: scw:logging:log4j:log4shell-upgrade-dependency-gradle
+version: 10
+metadata:
+  name: Vulnerable Log4j dependency - Log4Shell/CVE-2021-44228/CVE-2021-45046/CVE-2021-45105
+  shortDescription: Vulnerable Log4j dependency - Log4Shell/CVE-2021-44228/CVE-2021-45046/CVE-2021-45105
+  level: error
+  language: kotlin
+  enabled: true
+  tags: Gradle;Log4j;OWASP Top 10;SLF4J;basic protection set;framework specific;injection;logging;security
+search:
+  methodcall:
+    in:
+      methodcall:
+        name: dependencies
+    anyOf:
+    - namedArgs:
+      - name: name
+        value:
+          value:
+            stringified:
+              matches: log4j-(core|api)
+      - name: version
+        value:
+          value:
+            stringified:
+              matches: 2\.0.*|2\.1(\.\d+)*|2\.[2-9](\.\d+)*|2\.1[0-6]\..*
+    - args:
+        2:
+          value:
+            stringified:
+              matches: log4j-(core|api)
+        3:
+          value:
+            stringified:
+              matches: 2\.0.*|2\.1(\.\d+)*|2\.[2-9](\.\d+)*|2\.1[0-6]\..*
+    - namedArgs:
+      - name: ""
+        value:
+          value:
+            stringified:
+              matches: org\.apache\.logging\.log4j:log4j-(core|api):(2\.0.*|2\.1(\.\d+)*|2\.[2-9](\.\d+)*|2\.1[0-6]\..*)
+availableFixes:
+- name: Read about Log4Shell vulnerability (CVE-2021-44228,CVE-2021-45046)
+  actions:
+  - goto:
+      type: URL
+      value: https://log4shell.com/
+- name: Upgrade to Log4j 2.17.0 or higher (edit build.gradle.kts)
+  actions:
+  - goto:
+      type: URL
+      value: https://logging.apache.org/log4j/2.x/maven-artifacts.html
