@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:migrate_interval_return_type
+id: scw:java.time:Joda-Time:Interval-migrate-return-type
 version: 10
 metadata:
   name: Migrate Joda-Time Interval return type to org.threeten.extra.Interval

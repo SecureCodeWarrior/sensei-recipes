@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:interval_instance-creation
+id: scw:java.time:Joda-Time:Interval_instance-creation
 version: 10
 metadata:
   name: Replace Interval Instance creation with Interval Of

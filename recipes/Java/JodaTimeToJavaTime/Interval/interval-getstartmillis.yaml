@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:interval-startmillis
+id: scw:java.time:Joda-Time:Interval-startmillis
 version: 10
 metadata:
   name: Use getStart().toEpochMilli() instead of getStartMillis()

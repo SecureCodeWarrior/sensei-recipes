@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:interval_to_threenten-extra
+id: scw:java.time:Joda-Time:Interval_to_threenten-extra
 version: 10
 metadata:
   name: Migrate Joda-Time Interval to threeten-extra

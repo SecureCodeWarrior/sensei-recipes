@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:interval-endmillis
+id: scw:java.time:Joda-Time:Interval-endmillis
 version: 10
 metadata:
   name: Use getEnd().toEpochMilli() instead of getEndMillis()

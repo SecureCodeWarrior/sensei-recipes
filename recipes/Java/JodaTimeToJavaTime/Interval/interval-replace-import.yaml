@@ -1,4 +1,4 @@
-id: scw:java.time:Joda-Time:interval_threenten-extra-import
+id: scw:java.time:Joda-Time:Interval_threenten-extra-import
 version: 10
 metadata:
   name: Replace Interval import to use ThreeTen Lib
