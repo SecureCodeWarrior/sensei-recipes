@@ -1,0 +1,20 @@
+id: scw:java.time:Joda-Time:Interval-migrate-parameter
+version: 10
+metadata:
+  name: Migrate Joda-Time Interval Parameter to Threeten-extra Interval
+  level: warning
+  language: java
+  enabled: true
+  tags: Joda-Time;framework specific;java.time;quality
+search:
+  parameter:
+    type: org.joda.time.Interval
+scopes:
+  library:
+    name:
+      contains: threeten-extra
+availableFixes:
+- name: Migrate Parameter to threeten-extra Interval
+  actions:
+  - changeType:
+      type: org.threeten.extra.Interval
