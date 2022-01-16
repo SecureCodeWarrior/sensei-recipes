@@ -7,6 +7,7 @@ metadata:
   language: java
   newCodeOnly: false
   scwCategory: injection:xml
+  cweCategory: 611
   enabled: true
   descriptionFile: Java/XML/descriptions/java_enable_xml_secure_processing.html
   tags: security;XML;basic protection set;XXE;OWASP Top 10

@@ -1,15 +1,16 @@
 id: scw:xml:missing-secure-processing
 version: 10
 metadata:
-  name: 'XML Injection: Set missing secure processing feature'
-  shortDescription: Could lead to XML Injection
+  name: 'XXE: Set missing secure processing feature'
+  shortDescription: Could lead to XXE
   level: error
   language: java
   newCodeOnly: false
   scwCategory: injection:xml
+  cweCategory: 611
   enabled: true
-  descriptionFile: descriptions/java_enable_xml_secure_processing.html
-  tags: security;XML;basic protection set;injection;OWASP Top 10
+  descriptionFile: Java/XML/descriptions/java_enable_xml_secure_processing.html
+  tags: OWASP Top 10;XML;XXE;basic protection set;security
 search:
   methodcall:
     not:
