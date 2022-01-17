@@ -14,7 +14,7 @@ search:
     anyOf:
     - type: org.junit.Assert
     - type: org.junit.jupiter.api.Assertions
-    - type: org.testng.internal.junit.ArrayAsserts
+    - type: org.testng.AssertJUnit
 availableFixes:
 - doStaticImports: true
   name: Change to assertThat(actualArray).isEqualTo(expectedArray)
